@@ -1,0 +1,10 @@
+E:\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.Login.resources
+E:\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.Resources.resources
+E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.vbproj.GenerateResource.Cache
+E:\VB-Net\Inventory\Inventory\bin\Debug\Inventory.exe.config
+E:\VB-Net\Inventory\Inventory\bin\Debug\Inventory.exe
+E:\VB-Net\Inventory\Inventory\bin\Debug\Inventory.pdb
+E:\VB-Net\Inventory\Inventory\bin\Debug\Inventory.xml
+E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.exe
+E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.xml
+E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.pdb
