@@ -24,10 +24,10 @@ Partial Class Login
     Private Sub InitializeComponent()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSubTitle = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtUserName = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtPassword = New System.Windows.Forms.TextBox()
         Me.btnLogin = New System.Windows.Forms.Button()
         Me.btnExit = New System.Windows.Forms.Button()
         Me.btnCheckDb = New System.Windows.Forms.Button()
@@ -53,12 +53,13 @@ Partial Class Login
         Me.lblSubTitle.TabIndex = 1
         Me.lblSubTitle.Text = "Please Provide Information Needed Below"
         '
-        'TextBox1
+        'txtUserName
         '
-        Me.TextBox1.Location = New System.Drawing.Point(152, 127)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(266, 20)
-        Me.TextBox1.TabIndex = 2
+        Me.txtUserName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtUserName.Location = New System.Drawing.Point(152, 127)
+        Me.txtUserName.Name = "txtUserName"
+        Me.txtUserName.Size = New System.Drawing.Size(266, 23)
+        Me.txtUserName.TabIndex = 1
         '
         'Label1
         '
@@ -80,37 +81,41 @@ Partial Class Login
         Me.Label2.TabIndex = 4
         Me.Label2.Text = "Password:"
         '
-        'TextBox2
+        'txtPassword
         '
-        Me.TextBox2.Location = New System.Drawing.Point(152, 153)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(266, 20)
-        Me.TextBox2.TabIndex = 5
+        Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtPassword.Location = New System.Drawing.Point(152, 153)
+        Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.Size = New System.Drawing.Size(266, 23)
+        Me.txtPassword.TabIndex = 2
         '
         'btnLogin
         '
+        Me.btnLogin.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnLogin.Location = New System.Drawing.Point(74, 198)
         Me.btnLogin.Name = "btnLogin"
         Me.btnLogin.Size = New System.Drawing.Size(75, 34)
-        Me.btnLogin.TabIndex = 6
+        Me.btnLogin.TabIndex = 3
         Me.btnLogin.Text = "Login"
         Me.btnLogin.UseVisualStyleBackColor = True
         '
         'btnExit
         '
+        Me.btnExit.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnExit.Location = New System.Drawing.Point(337, 198)
         Me.btnExit.Name = "btnExit"
         Me.btnExit.Size = New System.Drawing.Size(75, 34)
-        Me.btnExit.TabIndex = 7
+        Me.btnExit.TabIndex = 5
         Me.btnExit.Text = "Exit"
         Me.btnExit.UseVisualStyleBackColor = True
         '
         'btnCheckDb
         '
+        Me.btnCheckDb.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.btnCheckDb.Location = New System.Drawing.Point(176, 198)
         Me.btnCheckDb.Name = "btnCheckDb"
         Me.btnCheckDb.Size = New System.Drawing.Size(130, 34)
-        Me.btnCheckDb.TabIndex = 8
+        Me.btnCheckDb.TabIndex = 4
         Me.btnCheckDb.Text = "Check Database"
         Me.btnCheckDb.UseVisualStyleBackColor = True
         '
@@ -122,10 +127,10 @@ Partial Class Login
         Me.Controls.Add(Me.btnCheckDb)
         Me.Controls.Add(Me.btnExit)
         Me.Controls.Add(Me.btnLogin)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.txtUserName)
         Me.Controls.Add(Me.lblSubTitle)
         Me.Controls.Add(Me.lblTitle)
         Me.MaximizeBox = False
@@ -138,10 +143,10 @@ Partial Class Login
     End Sub
     Friend WithEvents lblTitle As System.Windows.Forms.Label
     Friend WithEvents lblSubTitle As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtUserName As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtPassword As System.Windows.Forms.TextBox
     Friend WithEvents btnLogin As System.Windows.Forms.Button
     Friend WithEvents btnExit As System.Windows.Forms.Button
     Friend WithEvents btnCheckDb As System.Windows.Forms.Button

@@ -8,3 +8,8 @@ E:\VB-Net\Inventory\Inventory\bin\Debug\Inventory.xml
 E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.exe
 E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.xml
 E:\VB-Net\Inventory\Inventory\obj\Debug\Inventory.pdb
+E:\VB-Net\Inventory\Inventory\bin\Debug\MySql.Data.Entity.EF5.dll
+E:\VB-Net\Inventory\Inventory\bin\Debug\MySql.Data.Entity.EF6.dll
+E:\VB-Net\Inventory\Inventory\bin\Debug\MySql.Fabric.Plugin.dll
+E:\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.MainMenu.resources
+E:\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.UserFrm.resources
