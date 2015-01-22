@@ -61,8 +61,7 @@ Public Class UserFrm
 
     End Sub
 
-    Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click
-        calculateTotalAllRow()
+    Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click        
         rowStart = rowStart - rowPage
         If rowStart < 0 Then
             rowStart = 0
