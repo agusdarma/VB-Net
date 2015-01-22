@@ -1,11 +1,25 @@
-﻿Public Class Login
+﻿Imports MySql.Data.MySqlClient
+
+Public Class Login
+    'Represents an SQL statement or stored procedure to execute against a data source.
+    Dim cmd As New MySqlCommand
+    Dim da As New MySqlDataAdapter
+    'declare conn as connection and it will now a new connection because 
+    'it is equal to Getconnection Function
+    Dim con As MySqlConnection
+    Public connString As String = "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
+
+    Public Function jokenconn() As MySqlConnection        
+        Return New MySqlConnection(connString)
+    End Function
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click
 
     End Sub
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles btnCheckDb.Click
         Dim mydb As New mySqlDB
-
+        Dim hasil As String = mydb.checkDB()
+        MessageBox.Show(hasil)
 
     End Sub
 
@@ -14,8 +28,51 @@
     End Sub
 
     Private Sub btnLogin_Click(sender As Object, e As EventArgs) Handles btnLogin.Click
-        Me.Hide()
-        MainMenu.Show()
+        Dim sql As String
+        Dim publictable As New DataTable
+        ' Check if username or password is empty
+        If txtUserCode.Text = "" Or txtPassword.Text = "" Then
+            MessageBox.Show("User Code dan Password harus isi!", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            ' Both fields was supply
+            ' Check if user exist in database
+            ' Connect to DB           
+            Try
+                con = jokenconn()
+                sql = "select * from user where user_code ='" & txtUserCode.Text & "'"
+                'bind the connection and query
+                With cmd
+                    .Connection = con
+                    .CommandText = sql
+                End With
+                da.SelectCommand = cmd
+                da.Fill(publictable)
+                'check if theres a result by getting the count number of rows
+                If publictable.Rows.Count > 0 Then
+                    'it gets the data from specific column and assign to the variable
+                    Dim userCode, password As String
+                    userCode = publictable.Rows(0).Item(1)
+                    password = publictable.Rows(0).Item(3)
+                    'MessageBox.Show("user code : " + userCode + " password : " + password)
+                    If password = txtPassword.Text Then
+                        Me.Hide()
+                        MainMenu.Show()
+                    Else
+                        MessageBox.Show("User Code atau Password Salah", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    End If
+                Else
+                    MessageBox.Show("User Code atau Password Salah", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                End If
+
+
+            Catch ex As MySqlException
+                MessageBox.Show("error : " + ex.ToString)
+
+            Finally
+                con.Close()
+            End Try
+
+        End If
 
     End Sub
 End Class

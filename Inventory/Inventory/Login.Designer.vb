@@ -24,7 +24,7 @@ Partial Class Login
     Private Sub InitializeComponent()
         Me.lblTitle = New System.Windows.Forms.Label()
         Me.lblSubTitle = New System.Windows.Forms.Label()
-        Me.txtUserName = New System.Windows.Forms.TextBox()
+        Me.txtUserCode = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtPassword = New System.Windows.Forms.TextBox()
@@ -53,13 +53,13 @@ Partial Class Login
         Me.lblSubTitle.TabIndex = 1
         Me.lblSubTitle.Text = "Please Provide Information Needed Below"
         '
-        'txtUserName
+        'txtUserCode
         '
-        Me.txtUserName.Font = New System.Drawing.Font("Segoe UI", 9.0!)
-        Me.txtUserName.Location = New System.Drawing.Point(152, 127)
-        Me.txtUserName.Name = "txtUserName"
-        Me.txtUserName.Size = New System.Drawing.Size(266, 23)
-        Me.txtUserName.TabIndex = 1
+        Me.txtUserCode.Font = New System.Drawing.Font("Segoe UI", 9.0!)
+        Me.txtUserCode.Location = New System.Drawing.Point(152, 127)
+        Me.txtUserCode.Name = "txtUserCode"
+        Me.txtUserCode.Size = New System.Drawing.Size(266, 23)
+        Me.txtUserCode.TabIndex = 1
         '
         'Label1
         '
@@ -67,9 +67,9 @@ Partial Class Login
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(68, 127)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(63, 15)
+        Me.Label1.Size = New System.Drawing.Size(59, 15)
         Me.Label1.TabIndex = 3
-        Me.Label1.Text = "Username:"
+        Me.Label1.Text = "Usercode:"
         '
         'Label2
         '
@@ -130,7 +130,7 @@ Partial Class Login
         Me.Controls.Add(Me.txtPassword)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.txtUserName)
+        Me.Controls.Add(Me.txtUserCode)
         Me.Controls.Add(Me.lblSubTitle)
         Me.Controls.Add(Me.lblTitle)
         Me.MaximizeBox = False
@@ -143,7 +143,7 @@ Partial Class Login
     End Sub
     Friend WithEvents lblTitle As System.Windows.Forms.Label
     Friend WithEvents lblSubTitle As System.Windows.Forms.Label
-    Friend WithEvents txtUserName As System.Windows.Forms.TextBox
+    Friend WithEvents txtUserCode As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents txtPassword As System.Windows.Forms.TextBox
