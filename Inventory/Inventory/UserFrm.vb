@@ -112,15 +112,45 @@ Public Class UserFrm
     End Sub
 
     Private Sub btnFirst_Click(sender As Object, e As EventArgs) Handles btnFirst.Click
-        rowStart = 0
-        ds.Clear()
-        da.Fill(ds, rowStart, rowPage, "user")
+        Dim sql As String
+        Try
+            rowStart = 0
+            ds = New DataSet()
+            con = jokenconn()
+            con.Open()
+            sql = "select user_code,user_name from user order by id asc limit " & rowStart & "," & rowPage & ""
+            da = New MySqlDataAdapter(sql, con)
+            da.Fill(ds, "user")
+            GridUser.DataSource = ds.Tables(0)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
     End Sub
 
     Private Sub btnLastpage_Click(sender As Object, e As EventArgs) Handles btnLastpage.Click
-        calculateTotalAllRow()
-        rowStart = totalRow - rowPage
-        ds.Clear()
-        da.Fill(ds, rowStart, rowPage, "user")
+        Dim sql As String
+        Try
+            calculateTotalAllRow()
+            Dim temp As Integer
+            temp = totalRow Mod 2
+            If temp = 0 Then
+                rowStart = totalRow - rowPage
+            Else
+                rowStart = totalRow - (rowPage - 1)
+            End If
+            ds = New DataSet()
+            con = jokenconn()
+            con.Open()
+            sql = "select user_code,user_name from user order by id asc limit " & rowStart & "," & rowPage & ""
+            da = New MySqlDataAdapter(sql, con)
+            da.Fill(ds, "user")
+            GridUser.DataSource = ds.Tables(0)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class
