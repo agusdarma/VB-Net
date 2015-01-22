@@ -1,9 +1,11 @@
 ﻿/*
-Created: 1/21/2015
-Modified: 1/21/2015
+Created: 21-Jan-15
+Modified: 21-Jan-15
 Model: IMS
 Database: MySQL 5.1
 */
+
+
 
 -- Create tables section -------------------------------------------------
 
@@ -49,3 +51,8 @@ CREATE INDEX idx_group ON Groups (group_code,group_name,updated_on)
 ;
 
 
+
+INSERT INTO user
+(user_code,user_name,password,group_id,last_login_on,created_by,created_on,updated_by,updated_on)
+VALUES
+('admin','admin','123456',1,null,null,null,null,null);
