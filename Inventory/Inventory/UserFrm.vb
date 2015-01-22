@@ -11,6 +11,7 @@ Public Class UserFrm
     Dim rowPage As Integer = 2
     Dim rowStart As Integer
     Dim totalRow As Integer
+    Dim scrollVal As Integer
     Public connString As String = "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
 
     Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles GridUser.CellContentClick
@@ -24,9 +25,10 @@ Public Class UserFrm
         Try
             ds = New DataSet()
             con = jokenconn()
-            sql = "select user_code,user_name from user order by updated_on desc"
+            con.Open()
+            sql = "select user_code,user_name from user order by id asc limit " & rowStart & "," & rowPage & ""
             da = New MySqlDataAdapter(sql, con)
-            da.Fill(ds, rowStart, rowPage, "user")
+            da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)            
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -35,38 +37,89 @@ Public Class UserFrm
         End Try
     End Sub
     Private Sub calculateTotalAllRow()
+        'Create Command object
+        Dim nonqueryCommand As MySqlCommand = con.CreateCommand()
+        Try
+            ' Open Connection
+            con.Open()            
+            System.Diagnostics.Debug.WriteLine("Connection Opened")
+            'Create Command objects
+            Dim scalarCommand As New MySqlCommand("SELECT COUNT(*) FROM user", con)
+            ' Execute Scalar Query
+            Console.WriteLine("Before INSERT, Number of Employees = {0}",
+                              scalarCommand.ExecuteScalar())
+            totalRow = scalarCommand.ExecuteScalar()
+        Catch ex As MySqlException
+            ' Display error
+            Console.WriteLine("Error: " & ex.ToString())
+        Finally
+            ' Close Connection
+            con.Close()
+            Console.WriteLine("Connection Closed")
+        End Try
+
+    End Sub
+    Private Sub btnNextPage_Click(sender As Object, e As EventArgs) Handles btnNextPage.Click
         Dim sql As String
         Try
-            Dim tempDs = New DataSet()
-            con = jokenconn()
-            sql = "select user_code,user_name from user order by updated_on desc"
-            da = New MySqlDataAdapter(sql, con)
-            da.Fill(tempDs, "user")
-            totalRow = tempDs.Tables(0).Rows.Count
+            calculateTotalAllRow()
+            rowStart = rowStart + rowPage
+            If rowStart < totalRow Then
+                ds = New DataSet()
+                con = jokenconn()
+                con.Open()
+                sql = "select user_code,user_name from user order by id asc limit " & rowStart & "," & rowPage & ""
+                da = New MySqlDataAdapter(sql, con)
+                da.Fill(ds, "user")
+                GridUser.DataSource = ds.Tables(0)
+            Else
+                MessageBox.Show("data sudah habis")
+                rowStart = rowStart - rowPage
+            End If
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
             con.Close()
         End Try
-    End Sub
-    Private Sub btnNextPage_Click(sender As Object, e As EventArgs) Handles btnNextPage.Click
-        calculateTotalAllRow()
-        rowStart = rowStart + rowPage
-        If rowStart > totalRow Then
-            rowStart = totalRow - 1
-            MessageBox.Show("Data yang ditampilkan sudah yang terakhir.")
-        End If
-        ds.Clear()
-        da.Fill(ds, rowStart, rowPage, "user")
 
     End Sub
 
     Private Sub btnPrevious_Click(sender As Object, e As EventArgs) Handles btnPrevious.Click        
-        rowStart = rowStart - rowPage
-        If rowStart < 0 Then
-            rowStart = 0
-            MessageBox.Show("Data yang ditampilkan sudah yang pertama.")
-        End If
+        Dim sql As String
+        Try
+            calculateTotalAllRow()
+            rowStart = rowStart - rowPage
+            If rowStart >= 0 Then
+                ds = New DataSet()
+                con = jokenconn()
+                con.Open()
+                sql = "select user_code,user_name from user order by id asc limit " & rowStart & "," & rowPage & ""
+                da = New MySqlDataAdapter(sql, con)
+                da.Fill(ds, "user")
+                GridUser.DataSource = ds.Tables(0)
+            Else
+                MessageBox.Show("data sudah habis woi")
+                rowStart = 0
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+
+    End Sub
+
+    Private Sub btnFirst_Click(sender As Object, e As EventArgs) Handles btnFirst.Click
+        rowStart = 0
+        ds.Clear()
+        da.Fill(ds, rowStart, rowPage, "user")
+    End Sub
+
+    Private Sub btnLastpage_Click(sender As Object, e As EventArgs) Handles btnLastpage.Click
+        calculateTotalAllRow()
+        rowStart = totalRow - rowPage
         ds.Clear()
         da.Fill(ds, rowStart, rowPage, "user")
     End Sub

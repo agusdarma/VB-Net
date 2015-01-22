@@ -44,6 +44,7 @@ Partial Class UserFrm
         'GridUser
         '
         Me.GridUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.GridUser.GridColor = System.Drawing.Color.DarkOrange
         Me.GridUser.Location = New System.Drawing.Point(12, 52)
         Me.GridUser.Name = "GridUser"
         Me.GridUser.Size = New System.Drawing.Size(761, 223)

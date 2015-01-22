@@ -86,6 +86,7 @@ Partial Class Login
         Me.txtPassword.Font = New System.Drawing.Font("Segoe UI", 9.0!)
         Me.txtPassword.Location = New System.Drawing.Point(152, 153)
         Me.txtPassword.Name = "txtPassword"
+        Me.txtPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.txtPassword.Size = New System.Drawing.Size(266, 23)
         Me.txtPassword.TabIndex = 2
         '
