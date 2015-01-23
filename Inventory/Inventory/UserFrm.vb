@@ -9,6 +9,7 @@ Public Class UserFrm
     Dim totalRow As Integer
     Dim currentPage As Integer
     Public userCode As String
+    Dim paramSearch As String
     Public sqlBase As String = "Select u.id as ID, u.user_code as Usercode, u.user_name as Username,g.group_name as Groupname,u.last_login_on as LastLoginDate,u.updated_by as UpdatedBy, u.updated_on as UpdatedOn "
     Public Function jokenconn() As MySqlConnection
         'Return New MySqlConnection(connString)
@@ -28,7 +29,13 @@ Public Class UserFrm
             con.Open()            
             System.Diagnostics.Debug.WriteLine("Connection Opened")
             'Create Command objects
-            Dim scalarCommand As New MySqlCommand("SELECT COUNT(*) FROM user", con)
+            Dim Sql As String
+            If paramSearch = "" Then
+                Sql = "SELECT COUNT(*) FROM user"
+            Else
+                Sql = "SELECT COUNT(*) FROM user where user_code like '%" + paramSearch + "%'"
+            End If
+            Dim scalarCommand As New MySqlCommand(Sql, con)
             ' Execute Scalar Query
             Console.WriteLine("Before INSERT, Number of Employees = {0}",
                               scalarCommand.ExecuteScalar())
@@ -85,7 +92,12 @@ Public Class UserFrm
                 ds = New DataSet()
                 con = jokenconn()
                 con.Open()
-                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+
+                If paramSearch = "" Then
+                    sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+                Else
+                    sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "user")
                 GridUser.DataSource = ds.Tables(0)
@@ -112,7 +124,12 @@ Public Class UserFrm
             ds = New DataSet()
             con = jokenconn()
             con.Open()
-            sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+
+            If paramSearch = "" Then
+                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+            Else
+                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+            End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
@@ -132,7 +149,13 @@ Public Class UserFrm
             ds = New DataSet()
             con = jokenconn()
             con.Open()
-            sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+
+
+            If paramSearch = "" Then
+                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+            Else
+                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+            End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
@@ -155,7 +178,12 @@ Public Class UserFrm
                 ds = New DataSet()
                 con = jokenconn()
                 con.Open()
-                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+
+                If paramSearch = "" Then
+                    sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+                Else
+                    sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "user")
                 GridUser.DataSource = ds.Tables(0)
@@ -190,17 +218,6 @@ Public Class UserFrm
     Private Sub Button_Edit_Click_1(sender As Object, e As EventArgs) Handles Button_Edit.Click
         Dim selectedRowCount As Integer = GridUser.Rows.GetRowCount(DataGridViewElementStates.Selected)
         If selectedRowCount > 0 Then
-            'Dim sb As New System.Text.StringBuilder()
-            'Dim i As Integer
-            'For i = 0 To selectedRowCount - 1
-            'sb.Append("Row: ")
-            'sb.Append(GridUser.SelectedRows(i).Index.ToString())
-            'sb.Append("User Code : ")
-            'sb.Append(GridUser.SelectedRows(i).Cells(1).Value)
-            'sb.Append(Environment.NewLine)
-            'Next i
-            'sb.Append("Total: " + selectedRowCount.ToString())
-            'MessageBox.Show(sb.ToString(), "Selected Rows")
             userCode = GridUser.SelectedRows(0).Cells(1).Value
             UserEditFrm.Show()
         End If
@@ -214,7 +231,11 @@ Public Class UserFrm
             ds = New DataSet()
             con = jokenconn()
             con.Open()
-            sql = sqlBase & "from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+            If paramSearch = "" Then
+                sql = sqlBase & "from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+            Else
+                sql = sqlBase & "from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+            End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
@@ -230,5 +251,59 @@ Public Class UserFrm
 
     Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
         UserAddFrm.Show()
+    End Sub
+
+    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
+        Dim selectedRowCount As Integer = GridUser.Rows.GetRowCount(DataGridViewElementStates.Selected)
+        If selectedRowCount > 0 Then
+            userCode = GridUser.SelectedRows(0).Cells(1).Value
+            Dim result As Integer = MessageBox.Show("Are you sure want to delete this item " + vbNewLine + "User Code : " + userCode, "Confirmation Delete", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                refreshGrid()
+            ElseIf result = DialogResult.Yes Then
+                delete(userCode)
+                MessageBox.Show("Data has been deleted", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                refreshGrid()
+            End If
+        End If
+    End Sub
+    Private Function delete(userCode As String) As Integer
+        Dim rowEffected As Integer
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            sql = "Delete from user WHERE user_code = @userCode"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@userCode", userCode)
+            rowEffected = sqlCommand.ExecuteNonQuery()
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        Return rowEffected
+    End Function
+
+    Private Sub Button_Search_Click(sender As Object, e As EventArgs) Handles Button_Search.Click
+        paramSearch = TextBox_SearchBy.Text
+        resetCurrentPage()
+        LinkLabel_FirstPage_LinkClicked(Nothing, Nothing)
+        refreshGrid()
+    End Sub
+
+    Private Sub TextBox_SearchBy_KeyPress(sender As Object, e As KeyPressEventArgs) Handles TextBox_SearchBy.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
     End Sub
 End Class
