@@ -7,7 +7,8 @@ Public Class UserFrm
     Dim rowPage As Integer = 10
     Dim rowStart As Integer
     Dim totalRow As Integer
-    Dim currentPage As Integer    
+    Dim currentPage As Integer
+    Public userCode As String
     Public sqlBase As String = "Select id as ID, user_code as Usercode, user_name as Username, group_id as GroupId,last_login_on as LastLoginDate, updated_by as UpdatedBy, updated_on as UpdatedOn "
     Public Function jokenconn() As MySqlConnection
         'Return New MySqlConnection(connString)
@@ -204,24 +205,25 @@ Public Class UserFrm
 
     Private Sub Button_Edit_Click_1(sender As Object, e As EventArgs) Handles Button_Edit.Click
         Dim selectedRowCount As Integer = GridUser.Rows.GetRowCount(DataGridViewElementStates.Selected)
-
         If selectedRowCount > 0 Then
-
-            Dim sb As New System.Text.StringBuilder()
-            Dim i As Integer
-            For i = 0 To selectedRowCount - 1
-                sb.Append("Row: ")
-                sb.Append(GridUser.SelectedRows(i).Index.ToString())
-                sb.Append("User Code : ")
-                sb.Append(GridUser.SelectedRows(i).Cells.ToString)
-                sb.Append(Environment.NewLine)
-            Next i
-
-            sb.Append("Total: " + selectedRowCount.ToString())
-            MessageBox.Show(sb.ToString(), "Selected Rows")
-
+            'Dim sb As New System.Text.StringBuilder()
+            'Dim i As Integer
+            'For i = 0 To selectedRowCount - 1
+            'sb.Append("Row: ")
+            'sb.Append(GridUser.SelectedRows(i).Index.ToString())
+            'sb.Append("User Code : ")
+            'sb.Append(GridUser.SelectedRows(i).Cells(1).Value)
+            'sb.Append(Environment.NewLine)
+            'Next i
+            'sb.Append("Total: " + selectedRowCount.ToString())
+            'MessageBox.Show(sb.ToString(), "Selected Rows")
+            userCode = GridUser.SelectedRows(0).Cells(1).Value
+            UserEditFrm.Show()
         End If
     End Sub
+    Public Function getUserCode() As String
+        Return userCode
+    End Function
 
     Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
         UserAddFrm.Show()

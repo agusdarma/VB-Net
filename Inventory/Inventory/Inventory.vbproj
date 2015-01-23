@@ -90,6 +90,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserEditFrm.Designer.vb">
+      <DependentUpon>UserEditFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserEditFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UserAddFrm.Designer.vb">
       <DependentUpon>UserAddFrm.vb</DependentUpon>
     </Compile>
@@ -133,6 +139,9 @@
     <Compile Include="mySqlDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UserEditFrm.resx">
+      <DependentUpon>UserEditFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
