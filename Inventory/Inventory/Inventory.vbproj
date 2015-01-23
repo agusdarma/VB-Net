@@ -90,6 +90,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UserAddFrm.Designer.vb">
+      <DependentUpon>UserAddFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UserAddFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UserFrm.Designer.vb">
       <DependentUpon>UserFrm.vb</DependentUpon>
     </Compile>
@@ -138,6 +144,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserAddFrm.resx">
+      <DependentUpon>UserAddFrm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserFrm.resx">
       <DependentUpon>UserFrm.vb</DependentUpon>

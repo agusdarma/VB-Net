@@ -1,21 +1,20 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Public Class UserFrm
-    'Represents an SQL statement or stored procedure to execute against a data source.
-    Dim cmd As New MySqlCommand
     Dim da As New MySqlDataAdapter
-    'declare conn as connection and it will now a new connection because 
-    'it is equal to Getconnection Function
     Dim con As MySqlConnection
     Dim ds As DataSet
     Dim rowPage As Integer = 10
     Dim rowStart As Integer
     Dim totalRow As Integer
-    Dim scrollVal As Integer
-    Public connString As String = "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
-    Public sqlBase As String = "Select * "
+    Dim currentPage As Integer    
+    Public sqlBase As String = "Select id as ID, user_code as Usercode, user_name as Username, group_id as GroupId,last_login_on as LastLoginDate, updated_by as UpdatedBy, updated_on as UpdatedOn "
     Public Function jokenconn() As MySqlConnection
-        Return New MySqlConnection(connString)
+        'Return New MySqlConnection(connString)
+        Dim urlDb As String
+        Dim mySqlDb As New mySqlDB
+        urlDb = mySqlDb.getUrlDatabase()
+        Return New MySqlConnection(urlDb)
     End Function
     Private Sub UserFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim sql As String        
@@ -29,8 +28,7 @@ Public Class UserFrm
             GridUser.DataSource = ds.Tables(0)
             con.Close()
             calculateTotalAllRow()
-            Label_TotalRecord.Text = "Total Records : " + totalRow.ToString
-            Label_Showing_Pages.Text = "Showing pages x of " + calculateTotalPages().ToString
+            resetCurrentPage()                      
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -50,6 +48,7 @@ Public Class UserFrm
             Console.WriteLine("Before INSERT, Number of Employees = {0}",
                               scalarCommand.ExecuteScalar())
             totalRow = scalarCommand.ExecuteScalar()
+            con.Close()
         Catch ex As MySqlException
             ' Display error
             Console.WriteLine("Error: " & ex.ToString())
@@ -60,16 +59,41 @@ Public Class UserFrm
         End Try
 
     End Sub
+    Private Sub updateNextCurrentPage()
+        currentPage = currentPage + 1
+        labelCurrentPage.Text = currentPage.ToString
+        Label_Showing_Pages.Text = "Showing pages " + currentPage.ToString + " of " + calculateTotalPages().ToString
+        Label_TotalRecord.Text = "Total Records : " + totalRow.ToString
+    End Sub
+    Private Sub updatePrevCurrentPage()
+        currentPage = currentPage - 1
+        labelCurrentPage.Text = currentPage.ToString
+        Label_Showing_Pages.Text = "Showing pages " + currentPage.ToString + " of " + calculateTotalPages().ToString
+        Label_TotalRecord.Text = "Total Records : " + totalRow.ToString
+    End Sub
+    Private Sub resetCurrentPage()
+        currentPage = 1
+        labelCurrentPage.Text = currentPage.ToString
+        Label_Showing_Pages.Text = "Showing pages " + currentPage.ToString + " of " + calculateTotalPages().ToString
+        Label_TotalRecord.Text = "Total Records : " + totalRow.ToString
+    End Sub
+    Private Sub resetCurrentPageForLast()
+        currentPage = calculateTotalPages()
+        labelCurrentPage.Text = currentPage.ToString
+        Label_Showing_Pages.Text = "Showing pages " + currentPage.ToString + " of " + calculateTotalPages().ToString
+        Label_TotalRecord.Text = "Total Records : " + totalRow.ToString
+    End Sub
     Private Function calculateTotalPages() As Integer
         'Create Command object
-        Dim totalPages As Integer
-        calculateTotalAllRow()
-        totalPages = totalRow Mod rowPage
+        Dim tempTotalPages As Double
+        Dim totalPages As Double
+        tempTotalPages = totalRow / rowPage
+        totalPages = Math.Ceiling(tempTotalPages)
         Return totalPages
     End Function
     Private Sub LinkLabel_NextPage_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel_NextPage.LinkClicked
         Dim sql As String
-        Try
+        Try            
             calculateTotalAllRow()
             rowStart = rowStart + rowPage
             If rowStart < totalRow Then
@@ -80,8 +104,10 @@ Public Class UserFrm
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "user")
                 GridUser.DataSource = ds.Tables(0)
+                con.Close()
+                updateNextCurrentPage()
             Else
-                MessageBox.Show("data sudah habis")
+                MessageBox.Show("This is last data", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 rowStart = rowStart - rowPage
             End If
 
@@ -96,13 +122,8 @@ Public Class UserFrm
         Dim sql As String
         Try
             calculateTotalAllRow()
-            Dim temp As Integer
-            temp = totalRow Mod 2
-            If temp = 0 Then
-                rowStart = totalRow - rowPage
-            Else
-                rowStart = totalRow - (rowPage - 1)
-            End If
+            Dim totalPage As Integer = calculateTotalPages()
+            rowStart = (totalPage - 1) * rowPage
             ds = New DataSet()
             con = jokenconn()
             con.Open()
@@ -110,6 +131,8 @@ Public Class UserFrm
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
+            con.Close()
+            resetCurrentPageForLast()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -128,6 +151,9 @@ Public Class UserFrm
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
+            con.Close()
+            resetCurrentPage()
+
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -148,8 +174,11 @@ Public Class UserFrm
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "user")
                 GridUser.DataSource = ds.Tables(0)
+                con.Close()
+                updatePrevCurrentPage()
+
             Else
-                MessageBox.Show("data sudah habis woi")
+                MessageBox.Show("This is last data.", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 rowStart = 0
             End If
 
@@ -171,7 +200,9 @@ Public Class UserFrm
         End If
     End Sub
 
-    Private Sub Button_Edit_Click(sender As Object, e As EventArgs) Handles Button_Edit.Click
+    
+
+    Private Sub Button_Edit_Click_1(sender As Object, e As EventArgs) Handles Button_Edit.Click
         Dim selectedRowCount As Integer = GridUser.Rows.GetRowCount(DataGridViewElementStates.Selected)
 
         If selectedRowCount > 0 Then
@@ -190,7 +221,9 @@ Public Class UserFrm
             MessageBox.Show(sb.ToString(), "Selected Rows")
 
         End If
+    End Sub
 
-
+    Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
+        UserAddFrm.Show()
     End Sub
 End Class

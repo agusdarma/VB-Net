@@ -1,14 +1,16 @@
 ﻿Imports MySql.Data.MySqlClient
 
 Class mySqlDB
-    'MySQL
-    Public connString As String = "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
+    'MySQL    
     Public conn As MySqlConnection
+    Public Function getUrlDatabase() As String        
+        Return "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
+    End Function
     Public Function checkDB() As String
         Dim sReturn As String = ""        
         conn = New MySqlConnection
         Try
-            conn.ConnectionString = connString
+            conn.ConnectionString = getUrlDatabase()
             conn.Open()
             conn.Close()
             sReturn = "Database connected."
@@ -24,7 +26,7 @@ Class mySqlDB
     Public Function connectDB() As MySqlConnection       
         conn = New MySqlConnection
         Try
-            conn.ConnectionString = connString
+            conn.ConnectionString = getUrlDatabase()
             conn.Open()            
         Catch ex As Exception
 
