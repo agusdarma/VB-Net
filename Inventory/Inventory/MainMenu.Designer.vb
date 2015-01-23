@@ -24,9 +24,12 @@ Partial Class MainMenu
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainMenu))
         Me.MenuStrip = New System.Windows.Forms.MenuStrip()
+        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UserManagementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.GroupManagementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetPasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ManageMasterToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -42,8 +45,6 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LogoutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GroupManagementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -57,6 +58,13 @@ Partial Class MainMenu
         Me.MenuStrip.TabIndex = 5
         Me.MenuStrip.Text = "MenuStrip"
         '
+        'LogoutToolStripMenuItem
+        '
+        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
+        Me.LogoutToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
+        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
+        Me.LogoutToolStripMenuItem.Text = "Keluar"
+        '
         'ManageUserToolStripMenuItem
         '
         Me.ManageUserToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserManagementToolStripMenuItem, Me.GroupManagementToolStripMenuItem, Me.ChangePasswordToolStripMenuItem, Me.ResetPasswordToolStripMenuItem})
@@ -66,20 +74,28 @@ Partial Class MainMenu
         '
         'UserManagementToolStripMenuItem
         '
+        Me.UserManagementToolStripMenuItem.Image = CType(resources.GetObject("UserManagementToolStripMenuItem.Image"), System.Drawing.Image)
         Me.UserManagementToolStripMenuItem.Name = "UserManagementToolStripMenuItem"
-        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.UserManagementToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
+        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.UserManagementToolStripMenuItem.Text = "User Management"
+        '
+        'GroupManagementToolStripMenuItem
+        '
+        Me.GroupManagementToolStripMenuItem.Name = "GroupManagementToolStripMenuItem"
+        Me.GroupManagementToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.GroupManagementToolStripMenuItem.Text = "Group Management"
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         '
         'ResetPasswordToolStripMenuItem
         '
         Me.ResetPasswordToolStripMenuItem.Name = "ResetPasswordToolStripMenuItem"
-        Me.ResetPasswordToolStripMenuItem.Size = New System.Drawing.Size(171, 22)
+        Me.ResetPasswordToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.ResetPasswordToolStripMenuItem.Text = "Reset Password"
         '
         'ManageMasterToolStripMenuItem
@@ -157,18 +173,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'LogoutToolStripMenuItem
-        '
-        Me.LogoutToolStripMenuItem.Name = "LogoutToolStripMenuItem"
-        Me.LogoutToolStripMenuItem.Size = New System.Drawing.Size(52, 20)
-        Me.LogoutToolStripMenuItem.Text = "Keluar"
-        '
-        'GroupManagementToolStripMenuItem
-        '
-        Me.GroupManagementToolStripMenuItem.Name = "GroupManagementToolStripMenuItem"
-        Me.GroupManagementToolStripMenuItem.Size = New System.Drawing.Size(181, 22)
-        Me.GroupManagementToolStripMenuItem.Text = "Group Management"
         '
         'MainMenu
         '
