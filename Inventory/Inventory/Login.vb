@@ -7,10 +7,12 @@ Public Class Login
     'declare conn as connection and it will now a new connection because 
     'it is equal to Getconnection Function
     Dim con As MySqlConnection
-    Public connString As String = "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
 
     Public Function jokenconn() As MySqlConnection        
-        Return New MySqlConnection(connString)
+        Dim urlDb As String
+        Dim mySqlDb As New mySqlDB
+        urlDb = mySqlDb.getUrlDatabase()
+        Return New MySqlConnection(urlDb)
     End Function
 
     Private Sub Label2_Click(sender As Object, e As EventArgs) Handles Label2.Click

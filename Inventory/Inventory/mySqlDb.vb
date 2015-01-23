@@ -4,7 +4,8 @@ Class mySqlDB
     'MySQL    
     Public conn As MySqlConnection
     Public Function getUrlDatabase() As String        
-        Return "Server=127.0.0.1;Database=ims;Uid=root;Pwd=root;"
+        'Return "Server=139.194.211.23;Port = 3306;Database=ims;Uid=root;Pwd=root;"
+        Return "Server=127.0.0.1;Port = 3306;Database=ims;Uid=root;Pwd=root;"
     End Function
     Public Function checkDB() As String
         Dim sReturn As String = ""        

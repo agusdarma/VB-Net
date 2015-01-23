@@ -46,8 +46,7 @@ Public Class UserAddFrm
         Else
             Dim row As Integer
             row = insert()
-            ClearTextBoxes(Me)
-            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            ClearTextBoxes(Me)            
         End If
 
     End Sub
@@ -81,6 +80,7 @@ Public Class UserAddFrm
             sqlCommand.Parameters.AddWithValue("@createdBy", UserCode.Text)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
