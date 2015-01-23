@@ -94,7 +94,7 @@ Partial Class UserFrm
         Me.GridUser.Name = "GridUser"
         Me.GridUser.ReadOnly = True
         Me.GridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridUser.Size = New System.Drawing.Size(681, 258)
+        Me.GridUser.Size = New System.Drawing.Size(681, 282)
         Me.GridUser.TabIndex = 1
         '
         'LinkLabel_NextPage
@@ -169,7 +169,7 @@ Partial Class UserFrm
         'Button_Add
         '
         Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Add.Location = New System.Drawing.Point(12, 346)
+        Me.Button_Add.Location = New System.Drawing.Point(12, 370)
         Me.Button_Add.Name = "Button_Add"
         Me.Button_Add.Size = New System.Drawing.Size(75, 30)
         Me.Button_Add.TabIndex = 12
@@ -190,7 +190,7 @@ Partial Class UserFrm
         'Button_Edit
         '
         Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Edit.Location = New System.Drawing.Point(93, 346)
+        Me.Button_Edit.Location = New System.Drawing.Point(93, 370)
         Me.Button_Edit.Name = "Button_Edit"
         Me.Button_Edit.Size = New System.Drawing.Size(75, 30)
         Me.Button_Edit.TabIndex = 14
@@ -201,7 +201,7 @@ Partial Class UserFrm
         'Button_delete
         '
         Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_delete.Location = New System.Drawing.Point(174, 346)
+        Me.Button_delete.Location = New System.Drawing.Point(174, 370)
         Me.Button_delete.Name = "Button_delete"
         Me.Button_delete.Size = New System.Drawing.Size(75, 30)
         Me.Button_delete.TabIndex = 15

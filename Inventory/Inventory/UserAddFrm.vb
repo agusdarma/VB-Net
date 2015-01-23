@@ -44,8 +44,10 @@ Public Class UserAddFrm
             MessageBox.Show(String.Format("Please fill following textboxes: {0}",
                                           String.Join(",", emptyTextBoxes)), "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         Else
-            insert()
+            Dim row As Integer
+            row = insert()
             ClearTextBoxes(Me)
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         End If
 
     End Sub
