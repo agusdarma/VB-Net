@@ -9,7 +9,7 @@ Public Class UserFrm
     Dim totalRow As Integer
     Dim currentPage As Integer
     Public userCode As String
-    Public sqlBase As String = "Select id as ID, user_code as Usercode, user_name as Username, group_id as GroupId,last_login_on as LastLoginDate, updated_by as UpdatedBy, updated_on as UpdatedOn "
+    Public sqlBase As String = "Select u.id as ID, u.user_code as Usercode, u.user_name as Username,g.group_name as Groupname,u.last_login_on as LastLoginDate,u.updated_by as UpdatedBy, u.updated_on as UpdatedOn "
     Public Function jokenconn() As MySqlConnection
         'Return New MySqlConnection(connString)
         Dim urlDb As String
@@ -18,23 +18,7 @@ Public Class UserFrm
         Return New MySqlConnection(urlDb)
     End Function
     Private Sub UserFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim sql As String        
-        Try
-            ds = New DataSet()
-            con = jokenconn()
-            con.Open()
-            sql = sqlBase & "from user order by id asc limit " & rowStart & "," & rowPage & ""
-            da = New MySqlDataAdapter(sql, con)
-            da.Fill(ds, "user")
-            GridUser.DataSource = ds.Tables(0)
-            con.Close()
-            calculateTotalAllRow()
-            resetCurrentPage()                      
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-        Finally
-            con.Close()
-        End Try
+        refreshGrid()
     End Sub
     Private Sub calculateTotalAllRow()
         'Create Command object
@@ -101,7 +85,7 @@ Public Class UserFrm
                 ds = New DataSet()
                 con = jokenconn()
                 con.Open()
-                sql = sqlBase & " from user order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "user")
                 GridUser.DataSource = ds.Tables(0)
@@ -128,7 +112,7 @@ Public Class UserFrm
             ds = New DataSet()
             con = jokenconn()
             con.Open()
-            sql = sqlBase & " from user order by id asc limit " & rowStart & "," & rowPage & ""
+            sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
@@ -148,7 +132,7 @@ Public Class UserFrm
             ds = New DataSet()
             con = jokenconn()
             con.Open()
-            sql = sqlBase & " from user order by id asc limit " & rowStart & "," & rowPage & ""
+            sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "user")
             GridUser.DataSource = ds.Tables(0)
@@ -171,7 +155,7 @@ Public Class UserFrm
                 ds = New DataSet()
                 con = jokenconn()
                 con.Open()
-                sql = sqlBase & " from user order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "user")
                 GridUser.DataSource = ds.Tables(0)
@@ -224,6 +208,25 @@ Public Class UserFrm
     Public Function getUserCode() As String
         Return userCode
     End Function
+    Public Sub refreshGrid()
+        Dim sql As String
+        Try
+            ds = New DataSet()
+            con = jokenconn()
+            con.Open()
+            sql = sqlBase & "from user u inner join groups g on u.group_id = g.id order by id asc limit " & rowStart & "," & rowPage & ""
+            da = New MySqlDataAdapter(sql, con)
+            da.Fill(ds, "user")
+            GridUser.DataSource = ds.Tables(0)
+            con.Close()
+            calculateTotalAllRow()
+            resetCurrentPage()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
 
     Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
         UserAddFrm.Show()

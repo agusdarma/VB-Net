@@ -75,4 +75,64 @@ Public Class Login
         End If
 
     End Sub
+
+    Private Sub txtUserCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtUserCode.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub txtPassword_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtPassword.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub btnLogin_KeyPress(sender As Object, e As KeyPressEventArgs) Handles btnLogin.KeyPress
+        Dim tb As Button
+        tb = CType(sender, Button)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub btnCheckDb_KeyPress(sender As Object, e As KeyPressEventArgs) Handles btnCheckDb.KeyPress
+        Dim tb As Button
+        tb = CType(sender, Button)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub btnExit_KeyPress(sender As Object, e As KeyPressEventArgs) Handles btnExit.KeyPress
+        Dim tb As Button
+        tb = CType(sender, Button)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
 End Class

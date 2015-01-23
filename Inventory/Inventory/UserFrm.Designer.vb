@@ -94,7 +94,7 @@ Partial Class UserFrm
         Me.GridUser.Name = "GridUser"
         Me.GridUser.ReadOnly = True
         Me.GridUser.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridUser.Size = New System.Drawing.Size(681, 282)
+        Me.GridUser.Size = New System.Drawing.Size(753, 304)
         Me.GridUser.TabIndex = 1
         '
         'LinkLabel_NextPage
@@ -149,7 +149,7 @@ Partial Class UserFrm
         Me.Label_TotalRecord.AutoSize = True
         Me.Label_TotalRecord.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label_TotalRecord.ForeColor = System.Drawing.Color.SlateBlue
-        Me.Label_TotalRecord.Location = New System.Drawing.Point(560, 58)
+        Me.Label_TotalRecord.Location = New System.Drawing.Point(639, 58)
         Me.Label_TotalRecord.Name = "Label_TotalRecord"
         Me.Label_TotalRecord.Size = New System.Drawing.Size(109, 19)
         Me.Label_TotalRecord.TabIndex = 10
@@ -160,7 +160,7 @@ Partial Class UserFrm
         Me.Label_Showing_Pages.AutoSize = True
         Me.Label_Showing_Pages.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Bold)
         Me.Label_Showing_Pages.ForeColor = System.Drawing.Color.SlateBlue
-        Me.Label_Showing_Pages.Location = New System.Drawing.Point(372, 58)
+        Me.Label_Showing_Pages.Location = New System.Drawing.Point(451, 58)
         Me.Label_Showing_Pages.Name = "Label_Showing_Pages"
         Me.Label_Showing_Pages.Size = New System.Drawing.Size(112, 19)
         Me.Label_Showing_Pages.TabIndex = 11
@@ -169,7 +169,7 @@ Partial Class UserFrm
         'Button_Add
         '
         Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Add.Location = New System.Drawing.Point(12, 370)
+        Me.Button_Add.Location = New System.Drawing.Point(12, 392)
         Me.Button_Add.Name = "Button_Add"
         Me.Button_Add.Size = New System.Drawing.Size(75, 30)
         Me.Button_Add.TabIndex = 12
@@ -190,7 +190,7 @@ Partial Class UserFrm
         'Button_Edit
         '
         Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Edit.Location = New System.Drawing.Point(93, 370)
+        Me.Button_Edit.Location = New System.Drawing.Point(93, 392)
         Me.Button_Edit.Name = "Button_Edit"
         Me.Button_Edit.Size = New System.Drawing.Size(75, 30)
         Me.Button_Edit.TabIndex = 14
@@ -201,7 +201,7 @@ Partial Class UserFrm
         'Button_delete
         '
         Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_delete.Location = New System.Drawing.Point(174, 370)
+        Me.Button_delete.Location = New System.Drawing.Point(174, 392)
         Me.Button_delete.Name = "Button_delete"
         Me.Button_delete.Size = New System.Drawing.Size(75, 30)
         Me.Button_delete.TabIndex = 15
@@ -213,7 +213,7 @@ Partial Class UserFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(704, 431)
+        Me.ClientSize = New System.Drawing.Size(777, 431)
         Me.Controls.Add(Me.Button_delete)
         Me.Controls.Add(Me.Button_Edit)
         Me.Controls.Add(Me.labelCurrentPage)

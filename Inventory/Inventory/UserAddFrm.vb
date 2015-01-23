@@ -34,7 +34,7 @@ Public Class UserAddFrm
 
     Private Sub Button_Cancel_Click(sender As Object, e As EventArgs) Handles Button_Cancel.Click
         Me.Close()
-
+        UserFrm.refreshGrid()
     End Sub
 
     Private Sub Button_Save_Click(sender As Object, e As EventArgs) Handles Button_Save.Click
@@ -88,4 +88,52 @@ Public Class UserAddFrm
         End Try
         Return rowEffected
     End Function
+
+    Private Sub UserCode_KeyPress(sender As Object, e As KeyPressEventArgs) Handles UserCode.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub UserName_KeyPress(sender As Object, e As KeyPressEventArgs) Handles UserName.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub Password_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Password.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub ComboBox_Group_KeyPress(sender As Object, e As KeyPressEventArgs) Handles ComboBox_Group.KeyPress
+        Dim tb As ComboBox
+        tb = CType(sender, ComboBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
 End Class

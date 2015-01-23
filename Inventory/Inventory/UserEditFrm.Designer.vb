@@ -44,6 +44,7 @@ Partial Class UserEditFrm
         '
         Me.UserCode.Location = New System.Drawing.Point(114, 57)
         Me.UserCode.Name = "UserCode"
+        Me.UserCode.ReadOnly = True
         Me.UserCode.Size = New System.Drawing.Size(230, 20)
         Me.UserCode.TabIndex = 10
         '

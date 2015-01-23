@@ -95,21 +95,22 @@ Partial Class UserAddFrm
         Me.UserCode.Location = New System.Drawing.Point(108, 56)
         Me.UserCode.Name = "UserCode"
         Me.UserCode.Size = New System.Drawing.Size(230, 20)
-        Me.UserCode.TabIndex = 5
+        Me.UserCode.TabIndex = 1
         '
         'UserName
         '
         Me.UserName.Location = New System.Drawing.Point(108, 88)
         Me.UserName.Name = "UserName"
         Me.UserName.Size = New System.Drawing.Size(230, 20)
-        Me.UserName.TabIndex = 6
+        Me.UserName.TabIndex = 2
         '
         'Password
         '
         Me.Password.Location = New System.Drawing.Point(108, 117)
         Me.Password.Name = "Password"
+        Me.Password.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.Password.Size = New System.Drawing.Size(230, 20)
-        Me.Password.TabIndex = 7
+        Me.Password.TabIndex = 3
         '
         'ComboBox_Group
         '
@@ -119,7 +120,7 @@ Partial Class UserAddFrm
         Me.ComboBox_Group.Location = New System.Drawing.Point(108, 145)
         Me.ComboBox_Group.Name = "ComboBox_Group"
         Me.ComboBox_Group.Size = New System.Drawing.Size(230, 25)
-        Me.ComboBox_Group.TabIndex = 8
+        Me.ComboBox_Group.TabIndex = 4
         '
         'Button_Save
         '
@@ -127,7 +128,7 @@ Partial Class UserAddFrm
         Me.Button_Save.Location = New System.Drawing.Point(108, 189)
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.Size = New System.Drawing.Size(75, 31)
-        Me.Button_Save.TabIndex = 9
+        Me.Button_Save.TabIndex = 5
         Me.Button_Save.Text = "Save"
         Me.Button_Save.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button_Save.UseVisualStyleBackColor = True
@@ -138,7 +139,7 @@ Partial Class UserAddFrm
         Me.Button_Cancel.Location = New System.Drawing.Point(263, 189)
         Me.Button_Cancel.Name = "Button_Cancel"
         Me.Button_Cancel.Size = New System.Drawing.Size(75, 31)
-        Me.Button_Cancel.TabIndex = 10
+        Me.Button_Cancel.TabIndex = 6
         Me.Button_Cancel.Text = "Cancel"
         Me.Button_Cancel.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button_Cancel.UseVisualStyleBackColor = True
