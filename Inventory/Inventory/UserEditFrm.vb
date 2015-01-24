@@ -76,8 +76,7 @@ Public Class UserEditFrm
     End Sub
 
     Private Sub Button_Save_Click(sender As Object, e As EventArgs) Handles Button_Save.Click
-        update()
-        MessageBox.Show("Data has been updated", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        update()        
         Me.Close()
         UserFrm.refreshGrid()
     End Sub
@@ -99,6 +98,7 @@ Public Class UserEditFrm
             sqlCommand.Parameters.AddWithValue("@updatedBy", UserCode.Text)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
+            MessageBox.Show("Data has been updated", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally

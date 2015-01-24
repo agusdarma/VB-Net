@@ -90,6 +90,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ComboVO.vb" />
+    <Compile Include="GeneralFilterFrm.Designer.vb">
+      <DependentUpon>GeneralFilterFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralFilterFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SupplierAddFrm.Designer.vb">
       <DependentUpon>SupplierAddFrm.vb</DependentUpon>
     </Compile>
@@ -151,6 +158,9 @@
     <Compile Include="mySqlDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="GeneralFilterFrm.resx">
+      <DependentUpon>GeneralFilterFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierAddFrm.resx">
       <DependentUpon>SupplierAddFrm.vb</DependentUpon>
     </EmbeddedResource>

@@ -10,7 +10,7 @@ Public Class SupplierFrm
     Dim currentPage As Integer
     Public kodeSupplier As String
     Dim paramSearch As String
-    Public sqlBase As String = "SELECT id as ID, kode_supplier as KodeSupplier, name_supplier as NamaSupplier, contact_person as ContactPerson,phone as Phone, hp as Hp"
+    Public sqlBase As String = "SELECT id as ID, kode_supplier as KodeSupplier, name_supplier as NamaSupplier, contact_person as ContactPerson,phone as Phone, hp as Hp, phone as Phone"
     Public Function jokenconn() As MySqlConnection
         'Return New MySqlConnection(connString)
         Dim urlDb As String
@@ -19,7 +19,7 @@ Public Class SupplierFrm
         Return New MySqlConnection(urlDb)
     End Function
 
-    Private Sub SupplierFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub SupplierFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load 
         refreshGrid()
     End Sub
     Public Sub refreshGrid()
@@ -229,7 +229,69 @@ Public Class SupplierFrm
     End Sub
 
     Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
+        kodeSupplier = ""
         SupplierAddFrm.Show()
+    End Sub
+
+    Public Function getKodeSupplier() As String
+        Return kodeSupplier
+    End Function
+    Private Sub Button_Edit_Click(sender As Object, e As EventArgs) Handles Button_Edit.Click
+        Dim selectedRowCount As Integer = GridSupplier.Rows.GetRowCount(DataGridViewElementStates.Selected)
+        If selectedRowCount > 0 Then
+            kodeSupplier = GridSupplier.SelectedRows(0).Cells(1).Value
+            SupplierAddFrm.Show()
+        End If
+    End Sub
+
+    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
+        Dim selectedRowCount As Integer = GridSupplier.Rows.GetRowCount(DataGridViewElementStates.Selected)
+        If selectedRowCount > 0 Then
+            Dim kodeSupplier As String
+            kodeSupplier = GridSupplier.SelectedRows(0).Cells(1).Value
+            Dim result As Integer = MessageBox.Show("Are you sure want to delete this item " + vbNewLine + "Kode Supplier : " + kodeSupplier, "Confirmation Delete", MessageBoxButtons.YesNo)
+            If result = DialogResult.No Then
+                refreshGrid()
+            ElseIf result = DialogResult.Yes Then
+                delete(kodeSupplier)
+                MessageBox.Show("Data has been deleted", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                refreshGrid()
+            End If
+        End If
+    End Sub
+    Private Function delete(kodeSupplier As String) As Integer
+        Dim rowEffected As Integer
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            sql = "delete from supplier WHERE kode_supplier = @kodeSupplier"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@kodeSupplier", kodeSupplier)
+            rowEffected = sqlCommand.ExecuteNonQuery()
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        Return rowEffected
+    End Function
+    Public Function getFieldFilter() As List(Of ComboVO)
+        Dim fieldFilters = New List(Of ComboVO)
+        fieldFilters.Add(New ComboVO("kode_supplier", "Kode Supplier"))
+        fieldFilters.Add(New ComboVO("name_supplier", "Nama Supplier"))
+        fieldFilters.Add(New ComboVO("contact_person", "Contact Person"))
+        Return fieldFilters
+    End Function
+    Public Function getTitle() As String
+        Return Me.Text
+    End Function
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        GeneralFilterFrm.setTag("Vendor")
+        GeneralFilterFrm.Show()
 
     End Sub
 End Class
