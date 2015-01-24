@@ -121,7 +121,7 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="MasterVendorToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="UserManagementToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAABtESURBVHhe7Vx5fFRVspZ9ETCEHSEJEIGwhLDKErLvCRBAAhGRzQVcAHGcB8iooA4qOIw6KugT
@@ -243,7 +243,7 @@
         VlcMUoD4j7+fh/xfv68AsVHEi/+n0hg8+j/wxPRbK7mNJwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="UserManagementToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="MasterVendorToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAEgAAABICAYAAABV7bNHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAABtESURBVHhe7Vx5fFRVspZ9ETCEHSEJEIGwhLDKErLvCRBAAhGRzQVcAHGcB8iooA4qOIw6KugT

@@ -1,9 +1,6 @@
 ﻿Imports System.Windows.Forms
 
 Public Class MainMenu
-
-    
-
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         Me.Close()
         Login.Show()

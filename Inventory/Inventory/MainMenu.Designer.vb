@@ -108,7 +108,7 @@ Partial Class MainMenu
         'MasterItemToolStripMenuItem
         '
         Me.MasterItemToolStripMenuItem.Name = "MasterItemToolStripMenuItem"
-        Me.MasterItemToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterItemToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterItemToolStripMenuItem.Text = "Master Item"
         '
         'MasterVendorToolStripMenuItem
@@ -116,43 +116,43 @@ Partial Class MainMenu
         Me.MasterVendorToolStripMenuItem.Image = CType(resources.GetObject("MasterVendorToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MasterVendorToolStripMenuItem.Name = "MasterVendorToolStripMenuItem"
         Me.MasterVendorToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.MasterVendorToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
-        Me.MasterVendorToolStripMenuItem.Text = "Master Supplier"
+        Me.MasterVendorToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterVendorToolStripMenuItem.Text = "Master Vendor/Supplier"
         '
         'MasterCustomerToolStripMenuItem
         '
         Me.MasterCustomerToolStripMenuItem.Name = "MasterCustomerToolStripMenuItem"
-        Me.MasterCustomerToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterCustomerToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterCustomerToolStripMenuItem.Text = "Master Customer"
         '
         'MasterItemClassToolStripMenuItem
         '
         Me.MasterItemClassToolStripMenuItem.Name = "MasterItemClassToolStripMenuItem"
-        Me.MasterItemClassToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterItemClassToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterItemClassToolStripMenuItem.Text = "Master Item Class"
         '
         'MasterBankToolStripMenuItem
         '
         Me.MasterBankToolStripMenuItem.Name = "MasterBankToolStripMenuItem"
-        Me.MasterBankToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterBankToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterBankToolStripMenuItem.Text = "Master Bank"
         '
         'MasterGLInterfaceAccountToolStripMenuItem
         '
         Me.MasterGLInterfaceAccountToolStripMenuItem.Name = "MasterGLInterfaceAccountToolStripMenuItem"
-        Me.MasterGLInterfaceAccountToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterGLInterfaceAccountToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterGLInterfaceAccountToolStripMenuItem.Text = "Master GL Interface Account"
         '
         'MasterSatuanToolStripMenuItem
         '
         Me.MasterSatuanToolStripMenuItem.Name = "MasterSatuanToolStripMenuItem"
-        Me.MasterSatuanToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterSatuanToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterSatuanToolStripMenuItem.Text = "Master Satuan"
         '
         'MasterShippingViaToolStripMenuItem
         '
         Me.MasterShippingViaToolStripMenuItem.Name = "MasterShippingViaToolStripMenuItem"
-        Me.MasterShippingViaToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterShippingViaToolStripMenuItem.Size = New System.Drawing.Size(224, 22)
         Me.MasterShippingViaToolStripMenuItem.Text = "Master Shipping Via"
         '
         'AboutToolStripMenuItem

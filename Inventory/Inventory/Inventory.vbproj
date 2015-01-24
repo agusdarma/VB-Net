@@ -90,6 +90,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SupplierAddFrm.Designer.vb">
+      <DependentUpon>SupplierAddFrm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SupplierAddFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SupplierFrm.Designer.vb">
       <DependentUpon>SupplierFrm.vb</DependentUpon>
     </Compile>
@@ -145,6 +151,9 @@
     <Compile Include="mySqlDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SupplierAddFrm.resx">
+      <DependentUpon>SupplierAddFrm.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SupplierFrm.resx">
       <DependentUpon>SupplierFrm.vb</DependentUpon>
     </EmbeddedResource>
