@@ -31,3 +31,4 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MySql.Data.Entity.E
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MySql.Fabric.Plugin.dll
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.UserAddFrm.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.UserEditFrm.resources
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SupplierFrm.resources
