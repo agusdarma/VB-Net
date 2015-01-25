@@ -163,7 +163,9 @@ Partial Class UserAddFrm
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "UserAddFrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add User"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

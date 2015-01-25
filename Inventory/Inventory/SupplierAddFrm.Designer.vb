@@ -378,7 +378,9 @@ Partial Class SupplierAddFrm
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "SupplierAddFrm"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Vendor/Supplier"
+        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

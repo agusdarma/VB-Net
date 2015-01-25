@@ -9,7 +9,7 @@ Public Class SupplierFrm
     Dim totalRow As Integer
     Dim currentPage As Integer
     Public kodeSupplier As String
-    Dim paramSearch As String
+    Public paramSearch As String
     Public sqlBase As String = "SELECT id as ID, kode_supplier as KodeSupplier, name_supplier as NamaSupplier, contact_person as ContactPerson,phone as Phone, hp as Hp, phone as Phone"
     Public Function jokenconn() As MySqlConnection
         'Return New MySqlConnection(connString)
@@ -20,7 +20,7 @@ Public Class SupplierFrm
     End Function
 
     Private Sub SupplierFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load 
-        refreshGrid()
+        refreshGrid()        
     End Sub
     Public Sub refreshGrid()
         Dim sql As String
@@ -31,7 +31,7 @@ Public Class SupplierFrm
             If paramSearch = "" Then
                 sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from supplier where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from supplier where 1 = 1  " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "supplier")
@@ -39,6 +39,11 @@ Public Class SupplierFrm
             con.Close()
             calculateTotalAllRow()
             resetCurrentPage()
+            Dim temp As String = paramSearch
+            Filter.Text = "Filter Off"
+            If Len(temp) > 0 Then
+                Filter.Text = "Filter On"
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -57,7 +62,7 @@ Public Class SupplierFrm
             If paramSearch = "" Then
                 Sql = "SELECT COUNT(*) FROM supplier"
             Else
-                Sql = "SELECT COUNT(*) FROM supplier where user_code like '%" + paramSearch + "%'"
+                Sql = "SELECT COUNT(*) from supplier where 1 = 1 " + paramSearch
             End If
             Dim scalarCommand As New MySqlCommand(Sql, con)
             ' Execute Scalar Query
@@ -121,7 +126,7 @@ Public Class SupplierFrm
                 If paramSearch = "" Then
                     sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "supplier")
@@ -153,7 +158,7 @@ Public Class SupplierFrm
             If paramSearch = "" Then
                 sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "supplier")
@@ -179,7 +184,7 @@ Public Class SupplierFrm
             If paramSearch = "" Then
                 sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "supplier")
@@ -207,7 +212,7 @@ Public Class SupplierFrm
                 If paramSearch = "" Then
                     sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from user u inner join groups g on u.group_id = g.id where u.user_code like '%" + paramSearch + "%' order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "supplier")
@@ -286,10 +291,16 @@ Public Class SupplierFrm
         fieldFilters.Add(New ComboVO("contact_person", "Contact Person"))
         Return fieldFilters
     End Function
+    Public Function getConditionFilter() As List(Of ComboVO)
+        Dim fieldFilters = New List(Of ComboVO)
+        fieldFilters.Add(New ComboVO("=", "Equals"))
+        fieldFilters.Add(New ComboVO("like", "Like"))
+        Return fieldFilters
+    End Function
     Public Function getTitle() As String
         Return Me.Text
     End Function
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Filter.Click
         GeneralFilterFrm.setTag("Vendor")
         GeneralFilterFrm.Show()
 
