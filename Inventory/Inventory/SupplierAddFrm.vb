@@ -54,6 +54,7 @@ Public Class SupplierAddFrm
             sql = "UPDATE supplier SET name_supplier = @namaSupplier ,contact_person = @cp,address1 = @address1,address2 = @address2,city = @city,phone = @phone,hp = @hp,fax = @fax,email = @email,website = @website,diskon = @diskon,credit_term = @credit_term,npwp = @npwp ,updated_by = @updatedBy ,updated_on = @updatedOn WHERE kode_supplier = @kode_supplier"
             con = jokenconn()
             con.Open()
+            Dim session As Session = Login.getSession()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@kode_supplier", SupplierCode.Text)
@@ -71,7 +72,7 @@ Public Class SupplierAddFrm
             sqlCommand.Parameters.AddWithValue("@credit_term", credit.Text)
             sqlCommand.Parameters.AddWithValue("@npwp", npwp.Text)
             sqlCommand.Parameters.AddWithValue("@updatedOn", now)
-            sqlCommand.Parameters.AddWithValue("@updatedBy", SupplierCode.Text)
+            sqlCommand.Parameters.AddWithValue("@updatedBy", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
             MessageBox.Show("Data has been updated", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
@@ -91,6 +92,7 @@ Public Class SupplierAddFrm
             sql = "INSERT INTO supplier(kode_supplier,name_supplier,contact_person,address1,address2,city,phone,hp,fax,email,website,diskon,credit_term,npwp,updated_on,updated_by,created_by,created_on ) VALUES (@kodeSupplier, @namaSupp,@cp,@addr1,@addr2,@city,@phone,@hp,@fax,@email,@website,@diskon,@credit,@npwp, @updatedOn, @updatedBy, @createdBy,@createdOn)"
             con = jokenconn()
             con.Open()
+            Dim session As Session = Login.getSession()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@kodeSupplier", SupplierCode.Text)
@@ -117,9 +119,9 @@ Public Class SupplierAddFrm
 
             sqlCommand.Parameters.AddWithValue("@npwp", npwp.Text)
             sqlCommand.Parameters.AddWithValue("@updatedOn", now)
-            sqlCommand.Parameters.AddWithValue("@updatedBy", SupplierCode.Text)
+            sqlCommand.Parameters.AddWithValue("@updatedBy", session.Code)
             sqlCommand.Parameters.AddWithValue("@createdOn", now)
-            sqlCommand.Parameters.AddWithValue("@createdBy", SupplierCode.Text)
+            sqlCommand.Parameters.AddWithValue("@createdBy", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)

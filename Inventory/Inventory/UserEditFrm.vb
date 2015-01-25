@@ -89,13 +89,14 @@ Public Class UserEditFrm
             sql = "UPDATE user SET user_name = @userName ,group_id = @groupId ,updated_by = @updatedBy ,updated_on = @updatedOn WHERE user_code = @userCode"
             con = jokenconn()
             con.Open()
+            Dim session As Session = Login.getSession()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@userCode", UserCode.Text)
             sqlCommand.Parameters.AddWithValue("@userName", UserName.Text)
             sqlCommand.Parameters.AddWithValue("@groupId", ComboBox_Group.SelectedValue)
             sqlCommand.Parameters.AddWithValue("@updatedOn", now)
-            sqlCommand.Parameters.AddWithValue("@updatedBy", UserCode.Text)
+            sqlCommand.Parameters.AddWithValue("@updatedBy", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
             MessageBox.Show("Data has been updated", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)

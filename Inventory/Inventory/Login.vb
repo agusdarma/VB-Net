@@ -7,6 +7,13 @@ Public Class Login
     'declare conn as connection and it will now a new connection because 
     'it is equal to Getconnection Function
     Dim con As MySqlConnection
+    Public session As Session
+    Public Sub setSession(userCode As String)
+        session = New Session(userCode)
+    End Sub
+    Public Function getSession() As Session
+        Return session
+    End Function
 
     Public Function jokenconn() As MySqlConnection        
         Dim urlDb As String
@@ -58,7 +65,9 @@ Public Class Login
                     'MessageBox.Show("user code : " + userCode + " password : " + password)
                     If password = txtPassword.Text Then
                         Me.Hide()
+                        Me.setSession(userCode)
                         MainMenu.Show()
+
                     Else
                         MessageBox.Show("User Code atau Password Salah", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If

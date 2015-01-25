@@ -68,6 +68,7 @@ Public Class UserAddFrm
             sql = "INSERT INTO user (user_code, user_name, password,group_id,updated_on,updated_by,created_on,created_by) VALUES (@userCode, @userName,@password,@groupId, @updatedOn, @updatedBy, @createdOn, @createdBy)"
             con = jokenconn()
             con.Open()
+            Dim session As Session = Login.getSession()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@userCode", UserCode.Text)
@@ -75,9 +76,9 @@ Public Class UserAddFrm
             sqlCommand.Parameters.AddWithValue("@password", Password.Text)
             sqlCommand.Parameters.AddWithValue("@groupId", ComboBox_Group.SelectedValue)
             sqlCommand.Parameters.AddWithValue("@updatedOn", now)
-            sqlCommand.Parameters.AddWithValue("@updatedBy", UserCode.Text)
+            sqlCommand.Parameters.AddWithValue("@updatedBy", session.Code)
             sqlCommand.Parameters.AddWithValue("@createdOn", now)
-            sqlCommand.Parameters.AddWithValue("@createdBy", UserCode.Text)
+            sqlCommand.Parameters.AddWithValue("@createdBy", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
