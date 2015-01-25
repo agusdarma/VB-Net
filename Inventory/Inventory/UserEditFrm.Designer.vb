@@ -141,7 +141,6 @@ Partial Class UserEditFrm
         Me.Name = "UserEditFrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Edit User"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

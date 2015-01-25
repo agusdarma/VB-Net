@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class SupplierFrm
+Public Class CustomerFrm
     Dim da As New MySqlDataAdapter
     Dim con As MySqlConnection
     Dim ds As DataSet
@@ -8,9 +8,9 @@ Public Class SupplierFrm
     Dim rowStart As Integer
     Dim totalRow As Integer
     Dim currentPage As Integer
-    Public kodeSupplier As String
+    Public kodeCustomer As String
     Public paramSearch As String
-    Public sqlBase As String = "SELECT id as ID, kode_supplier as KodeSupplier, name_supplier as NamaSupplier, contact_person as ContactPerson,phone as Phone, hp as Hp, phone as Phone"
+    Public sqlBase As String = "SELECT id as ID, kode_customer as KodeCustomer, name_customer as NamaCustomer, contact_person as ContactPerson,phone as Phone, hp as Hp, phone as Phone"
     Public Function jokenconn() As MySqlConnection
         'Return New MySqlConnection(connString)
         Dim urlDb As String
@@ -18,10 +18,6 @@ Public Class SupplierFrm
         urlDb = mySqlDb.getUrlDatabase()
         Return New MySqlConnection(urlDb)
     End Function
-
-    Private Sub SupplierFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load 
-        refreshGrid()        
-    End Sub
     Public Sub refreshGrid()
         Dim sql As String
         Try
@@ -29,13 +25,13 @@ Public Class SupplierFrm
             con = jokenconn()
             con.Open()
             If paramSearch = "" Then
-                sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from customer order by id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from supplier where 1 = 1  " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from customer where 1 = 1  " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
-            da.Fill(ds, "supplier")
-            GridSupplier.DataSource = ds.Tables(0)
+            da.Fill(ds, "customer")
+            GridCustomer.DataSource = ds.Tables(0)
             con.Close()
             calculateTotalAllRow()
             resetCurrentPage()
@@ -60,9 +56,9 @@ Public Class SupplierFrm
             'Create Command objects
             Dim Sql As String
             If paramSearch = "" Then
-                Sql = "SELECT COUNT(*) FROM supplier"
+                Sql = "SELECT COUNT(*) FROM customer"
             Else
-                Sql = "SELECT COUNT(*) from supplier where 1 = 1 " + paramSearch
+                Sql = "SELECT COUNT(*) from customer where 1 = 1 " + paramSearch
             End If
             Dim scalarCommand As New MySqlCommand(Sql, con)
             ' Execute Scalar Query
@@ -116,6 +112,10 @@ Public Class SupplierFrm
         Return totalPages
     End Function
 
+    Private Sub CustomerFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        refreshGrid()
+    End Sub
+
     Private Sub LinkLabel_NextPage_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel_NextPage.LinkClicked
         Dim sql As String
         Try
@@ -127,13 +127,13 @@ Public Class SupplierFrm
                 con.Open()
 
                 If paramSearch = "" Then
-                    sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from customer order by id asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from customer where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
-                da.Fill(ds, "supplier")
-                GridSupplier.DataSource = ds.Tables(0)
+                da.Fill(ds, "customer")
+                GridCustomer.DataSource = ds.Tables(0)
                 con.Close()
                 updateNextCurrentPage()
             Else
@@ -159,13 +159,13 @@ Public Class SupplierFrm
             con.Open()
 
             If paramSearch = "" Then
-                sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from customer order by id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from customer where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
-            da.Fill(ds, "supplier")
-            GridSupplier.DataSource = ds.Tables(0)
+            da.Fill(ds, "customer")
+            GridCustomer.DataSource = ds.Tables(0)
             con.Close()
             resetCurrentPageForLast()
         Catch ex As Exception
@@ -185,13 +185,13 @@ Public Class SupplierFrm
 
 
             If paramSearch = "" Then
-                sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from customer order by id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from customer where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
-            da.Fill(ds, "supplier")
-            GridSupplier.DataSource = ds.Tables(0)
+            da.Fill(ds, "customer")
+            GridCustomer.DataSource = ds.Tables(0)
             con.Close()
             resetCurrentPage()
 
@@ -213,13 +213,13 @@ Public Class SupplierFrm
                 con.Open()
 
                 If paramSearch = "" Then
-                    sql = sqlBase & " from supplier order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from customer order by id asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from supplier where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from customer where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
-                da.Fill(ds, "supplier")
-                GridSupplier.DataSource = ds.Tables(0)
+                da.Fill(ds, "customer")
+                GridCustomer.DataSource = ds.Tables(0)
                 con.Close()
                 updatePrevCurrentPage()
 
@@ -233,51 +233,51 @@ Public Class SupplierFrm
         Finally
             con.Close()
         End Try
-
     End Sub
 
     Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
-        kodeSupplier = ""
-        SupplierAddFrm.Show()
+        kodeCustomer = ""
+        CustomerAddFrm.Show()
     End Sub
 
-    Public Function getKodeSupplier() As String
-        Return kodeSupplier
+    Public Function getKodeCustomer() As String
+        Return kodeCustomer
     End Function
+
     Private Sub Button_Edit_Click(sender As Object, e As EventArgs) Handles Button_Edit.Click
-        Dim selectedRowCount As Integer = GridSupplier.Rows.GetRowCount(DataGridViewElementStates.Selected)
+        Dim selectedRowCount As Integer = GridCustomer.Rows.GetRowCount(DataGridViewElementStates.Selected)
         If selectedRowCount > 0 Then
-            kodeSupplier = GridSupplier.SelectedRows(0).Cells(1).Value
-            SupplierAddFrm.Show()
+            kodeCustomer = GridCustomer.SelectedRows(0).Cells(1).Value
+            CustomerAddFrm.Show()
         End If
     End Sub
 
     Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
-        Dim selectedRowCount As Integer = GridSupplier.Rows.GetRowCount(DataGridViewElementStates.Selected)
+        Dim selectedRowCount As Integer = GridCustomer.Rows.GetRowCount(DataGridViewElementStates.Selected)
         If selectedRowCount > 0 Then
-            Dim kodeSupplier As String
-            kodeSupplier = GridSupplier.SelectedRows(0).Cells(1).Value
-            Dim result As Integer = MessageBox.Show("Are you sure want to delete this item " + vbNewLine + "Kode Supplier : " + kodeSupplier, "Confirmation Delete", MessageBoxButtons.YesNo)
+            Dim kodeCustomer As String
+            kodeCustomer = GridCustomer.SelectedRows(0).Cells(1).Value
+            Dim result As Integer = MessageBox.Show("Are you sure want to delete this item " + vbNewLine + "Kode Customer : " + kodeCustomer, "Confirmation Delete", MessageBoxButtons.YesNo)
             If result = DialogResult.No Then
                 refreshGrid()
             ElseIf result = DialogResult.Yes Then
-                delete(kodeSupplier)
+                delete(kodeCustomer)
                 MessageBox.Show("Data has been deleted", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 refreshGrid()
             End If
         End If
     End Sub
-    Private Function delete(kodeSupplier As String) As Integer
+    Private Function delete(kodeCustomer As String) As Integer
         Dim rowEffected As Integer
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
         Try
-            sql = "delete from supplier WHERE kode_supplier = @kodeSupplier"
+            sql = "delete from customer WHERE kode_customer = @kodeCustomer"
             con = jokenconn()
             con.Open()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
-            sqlCommand.Parameters.AddWithValue("@kodeSupplier", kodeSupplier)
+            sqlCommand.Parameters.AddWithValue("@kodeCustomer", kodeCustomer)
             rowEffected = sqlCommand.ExecuteNonQuery()
             con.Close()
         Catch ex As Exception
@@ -289,8 +289,8 @@ Public Class SupplierFrm
     End Function
     Public Function getFieldFilter() As List(Of ComboVO)
         Dim fieldFilters = New List(Of ComboVO)
-        fieldFilters.Add(New ComboVO("kode_supplier", "Kode Supplier"))
-        fieldFilters.Add(New ComboVO("name_supplier", "Nama Supplier"))
+        fieldFilters.Add(New ComboVO("kode_customer", "Kode Customer"))
+        fieldFilters.Add(New ComboVO("name_customer", "Nama Customer"))
         fieldFilters.Add(New ComboVO("contact_person", "Contact Person"))
         Return fieldFilters
     End Function
@@ -303,9 +303,9 @@ Public Class SupplierFrm
     Public Function getTitle() As String
         Return Me.Text
     End Function
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Filter.Click
-        GeneralFilterFrm.setTag("Vendor")
-        GeneralFilterFrm.Show()
 
+    Private Sub Filter_Click(sender As Object, e As EventArgs) Handles Filter.Click
+        GeneralFilterFrm.setTag("Customer")
+        GeneralFilterFrm.Show()
     End Sub
 End Class

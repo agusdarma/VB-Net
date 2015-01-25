@@ -165,7 +165,6 @@ Partial Class UserAddFrm
         Me.Name = "UserAddFrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add User"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

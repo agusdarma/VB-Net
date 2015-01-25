@@ -7,17 +7,33 @@ Public Class GeneralFilterFrm
     End Sub
 
     Private Sub GeneralFilterFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        CmbField.DataSource = SupplierFrm.getFieldFilter
-        CmbField.ValueMember = "id"
-        CmbField.DisplayMember = "name"
-        CmbCondition.DataSource = SupplierFrm.getConditionFilter
-        CmbCondition.ValueMember = "id"
-        CmbCondition.DisplayMember = "name"
-        Me.Text = SupplierFrm.getTitle
-        Dim temp As String = SupplierFrm.paramSearch
-        If Len(temp) > 0 Then
-            If Not temp = "" Then
-                ListBox1.Items.Add(SupplierFrm.paramSearch)
+        If tagNew = "Vendor" Then
+            CmbField.DataSource = SupplierFrm.getFieldFilter
+            CmbField.ValueMember = "id"
+            CmbField.DisplayMember = "name"
+            CmbCondition.DataSource = SupplierFrm.getConditionFilter
+            CmbCondition.ValueMember = "id"
+            CmbCondition.DisplayMember = "name"
+            Me.Text = SupplierFrm.getTitle
+            Dim temp As String = SupplierFrm.paramSearch
+            If Len(temp) > 0 Then
+                If Not temp = "" Then
+                    ListBox1.Items.Add(SupplierFrm.paramSearch)
+                End If
+            End If
+        ElseIf tagNew = "Customer" Then
+            CmbField.DataSource = CustomerFrm.getFieldFilter
+            CmbField.ValueMember = "id"
+            CmbField.DisplayMember = "name"
+            CmbCondition.DataSource = CustomerFrm.getConditionFilter
+            CmbCondition.ValueMember = "id"
+            CmbCondition.DisplayMember = "name"
+            Me.Text = CustomerFrm.getTitle
+            Dim temp As String = CustomerFrm.paramSearch
+            If Len(temp) > 0 Then
+                If Not temp = "" Then
+                    ListBox1.Items.Add(CustomerFrm.paramSearch)
+                End If
             End If
         End If
     End Sub
@@ -46,8 +62,13 @@ Public Class GeneralFilterFrm
         For i As Integer = 0 To ListBox1.Items.Count - 1
             builder.Append(ListBox1.Items(i))
         Next
-        SupplierFrm.paramSearch = builder.ToString
-        SupplierFrm.refreshGrid()
+        If tagNew = "Vendor" Then
+            SupplierFrm.paramSearch = builder.ToString
+            SupplierFrm.refreshGrid()
+        ElseIf tagNew = "Customer" Then
+            CustomerFrm.paramSearch = builder.ToString
+            CustomerFrm.refreshGrid()
+        End If        
         Me.Close()
     End Sub
 

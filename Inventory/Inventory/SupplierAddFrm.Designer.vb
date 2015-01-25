@@ -254,7 +254,6 @@ Partial Class SupplierAddFrm
         '
         Me.email.Location = New System.Drawing.Point(138, 211)
         Me.email.Name = "email"
-        Me.email.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.email.Size = New System.Drawing.Size(202, 20)
         Me.email.TabIndex = 8
         '
@@ -380,7 +379,6 @@ Partial Class SupplierAddFrm
         Me.Name = "SupplierAddFrm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Add Vendor/Supplier"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

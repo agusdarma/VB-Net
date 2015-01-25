@@ -139,7 +139,6 @@ Partial Class Login
         Me.Name = "Login"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Inventory Management System - Login Form"
-        Me.TopMost = True
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
