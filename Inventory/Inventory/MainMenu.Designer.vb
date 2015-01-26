@@ -129,7 +129,9 @@ Partial Class MainMenu
         '
         'MasterItemClassToolStripMenuItem
         '
+        Me.MasterItemClassToolStripMenuItem.Image = CType(resources.GetObject("MasterItemClassToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MasterItemClassToolStripMenuItem.Name = "MasterItemClassToolStripMenuItem"
+        Me.MasterItemClassToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
         Me.MasterItemClassToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterItemClassToolStripMenuItem.Text = "Master Item Class"
         '

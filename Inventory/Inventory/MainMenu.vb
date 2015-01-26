@@ -27,4 +27,8 @@ Public Class MainMenu
     Private Sub MasterCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterCustomerToolStripMenuItem.Click
         CustomerFrm.Show()
     End Sub
+
+    Private Sub MasterItemClassToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterItemClassToolStripMenuItem.Click
+        ItemsCategory.Show()
+    End Sub
 End Class
