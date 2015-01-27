@@ -45,6 +45,7 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.MasterGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -100,7 +101,7 @@ Partial Class MainMenu
         '
         'ManageMasterToolStripMenuItem
         '
-        Me.ManageMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterItemToolStripMenuItem, Me.MasterVendorToolStripMenuItem, Me.MasterCustomerToolStripMenuItem, Me.MasterItemClassToolStripMenuItem, Me.MasterBankToolStripMenuItem, Me.MasterGLInterfaceAccountToolStripMenuItem, Me.MasterSatuanToolStripMenuItem, Me.MasterShippingViaToolStripMenuItem})
+        Me.ManageMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterItemToolStripMenuItem, Me.MasterVendorToolStripMenuItem, Me.MasterCustomerToolStripMenuItem, Me.MasterItemClassToolStripMenuItem, Me.MasterBankToolStripMenuItem, Me.MasterGLInterfaceAccountToolStripMenuItem, Me.MasterSatuanToolStripMenuItem, Me.MasterShippingViaToolStripMenuItem, Me.MasterGudangToolStripMenuItem})
         Me.ManageMasterToolStripMenuItem.Name = "ManageMasterToolStripMenuItem"
         Me.ManageMasterToolStripMenuItem.Size = New System.Drawing.Size(101, 20)
         Me.ManageMasterToolStripMenuItem.Text = "Manage Master"
@@ -180,6 +181,14 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'MasterGudangToolStripMenuItem
+        '
+        Me.MasterGudangToolStripMenuItem.Image = CType(resources.GetObject("MasterGudangToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.MasterGudangToolStripMenuItem.Name = "MasterGudangToolStripMenuItem"
+        Me.MasterGudangToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.MasterGudangToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterGudangToolStripMenuItem.Text = "Master Gudang"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -220,5 +229,6 @@ Partial Class MainMenu
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LogoutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupManagementToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents MasterGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

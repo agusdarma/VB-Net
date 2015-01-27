@@ -31,4 +31,8 @@ Public Class MainMenu
     Private Sub MasterItemClassToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterItemClassToolStripMenuItem.Click
         ItemsCategory.Show()
     End Sub
+
+    Private Sub MasterGudangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterGudangToolStripMenuItem.Click
+        Warehouse.Show()
+    End Sub
 End Class

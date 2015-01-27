@@ -102,6 +102,18 @@
     <Compile Include="CustomerAddFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="WarehouseAdd.Designer.vb">
+      <DependentUpon>WarehouseAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="WarehouseAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Warehouse.Designer.vb">
+      <DependentUpon>Warehouse.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ItemCategoryAdd.Designer.vb">
       <DependentUpon>ItemCategoryAdd.vb</DependentUpon>
     </Compile>
@@ -224,6 +236,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserFrm.resx">
       <DependentUpon>UserFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Warehouse.resx">
+      <DependentUpon>Warehouse.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WarehouseAdd.resx">
+      <DependentUpon>WarehouseAdd.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

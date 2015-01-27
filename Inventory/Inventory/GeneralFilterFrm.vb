@@ -49,6 +49,20 @@ Public Class GeneralFilterFrm
                     ListBox1.Items.Add(ItemsCategory.paramSearch)
                 End If
             End If
+        ElseIf tagNew = "gudang" Then
+            CmbField.DataSource = Warehouse.getFieldFilter
+            CmbField.ValueMember = "id"
+            CmbField.DisplayMember = "name"
+            CmbCondition.DataSource = Warehouse.getConditionFilter
+            CmbCondition.ValueMember = "id"
+            CmbCondition.DisplayMember = "name"
+            Me.Text = Warehouse.getTitle
+            Dim temp As String = Warehouse.paramSearch
+            If Len(temp) > 0 Then
+                If Not temp = "" Then
+                    ListBox1.Items.Add(Warehouse.paramSearch)
+                End If
+            End If
         End If
     End Sub
 
@@ -85,7 +99,11 @@ Public Class GeneralFilterFrm
         ElseIf tagNew = "item_category" Then
             ItemsCategory.paramSearch = builder.ToString
             ItemsCategory.refreshGrid()
+        ElseIf tagNew = "gudang" Then
+            Warehouse.paramSearch = builder.ToString
+            Warehouse.refreshGrid()
         End If
+
         Me.Close()
     End Sub
 
