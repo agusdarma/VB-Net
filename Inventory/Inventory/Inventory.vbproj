@@ -102,6 +102,12 @@
     <Compile Include="CustomerAddFrm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ItemCategoryAdd.Designer.vb">
+      <DependentUpon>ItemCategoryAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ItemCategoryAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ItemsCategory.Designer.vb">
       <DependentUpon>ItemsCategory.vb</DependentUpon>
     </Compile>
@@ -185,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneralFilterFrm.resx">
       <DependentUpon>GeneralFilterFrm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemCategoryAdd.resx">
+      <DependentUpon>ItemCategoryAdd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ItemsCategory.resx">
       <DependentUpon>ItemsCategory.vb</DependentUpon>

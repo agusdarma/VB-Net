@@ -131,7 +131,7 @@ CREATE INDEX idxCustomer ON Customer (name_customer,kode_customer)
 
 CREATE TABLE Items
 (
-  id Int NOT NULL,
+  id Int NOT NULL AUTO_INCREMENT,
   kode_item Varchar(32) NOT NULL,
   nama_item Varchar(128) NOT NULL,
   quantity Int NOT NULL,
@@ -146,11 +146,9 @@ CREATE TABLE Items
   created_by Int,
   created_on Datetime,
   updated_on Datetime,
-  updated_by Int
+  updated_by Int,
+ PRIMARY KEY (id)
 )
-;
-
-ALTER TABLE Items ADD PRIMARY KEY (id)
 ;
 
 ALTER TABLE Items ADD UNIQUE kode_item (kode_item)
@@ -163,7 +161,7 @@ CREATE INDEX idx_items ON Items (kode_item,nama_item,gudang_id,category_id,suppl
 
 CREATE TABLE Gudang
 (
-  id Int NOT NULL,
+  id Int NOT NULL AUTO_INCREMENT,
   kode_gudang Varchar(32) NOT NULL,
   nama_gudang Varchar(64) NOT NULL,
   address Varchar(500),
@@ -171,11 +169,9 @@ CREATE TABLE Gudang
   created_by Varchar(32),
   created_on Datetime,
   updated_by Varchar(32),
-  updated_on Datetime
+  updated_on Datetime,
+ PRIMARY KEY (id)
 )
-;
-
-ALTER TABLE Gudang ADD PRIMARY KEY (id)
 ;
 
 CREATE INDEX idx_gudang ON Gudang (kode_gudang,nama_gudang)
@@ -185,17 +181,15 @@ CREATE INDEX idx_gudang ON Gudang (kode_gudang,nama_gudang)
 
 CREATE TABLE Items_Category
 (
-  id Int NOT NULL,
+  id Int NOT NULL AUTO_INCREMENT,
   kode_category Varchar(32) NOT NULL,
   nama_kategori Varchar(128) NOT NULL,
   created_on Datetime,
   created_by Varchar(32),
   updated_on Datetime,
-  updated_by Varchar(32)
+  updated_by Varchar(32),
+ PRIMARY KEY (id)
 )
-;
-
-ALTER TABLE Items_Category ADD PRIMARY KEY (id)
 ;
 
 ALTER TABLE Items_Category ADD UNIQUE kode_category (kode_category)

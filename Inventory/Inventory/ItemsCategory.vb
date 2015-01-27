@@ -226,7 +226,7 @@ Public Class ItemsCategory
 
     Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
         kodeCategory = ""
-        'CustomerAddFrm.Show()
+        ItemCategoryAdd.Show()
     End Sub
     Public Function getKodeCategory() As String
         Return kodeCategory
@@ -236,7 +236,7 @@ Public Class ItemsCategory
         Dim selectedRowCount As Integer = GridCategory.Rows.GetRowCount(DataGridViewElementStates.Selected)
         If selectedRowCount > 0 Then
             kodeCategory = GridCategory.SelectedRows(0).Cells(1).Value
-            'CustomerAddFrm.Show()
+            ItemCategoryAdd.Show()
         End If
     End Sub
 
