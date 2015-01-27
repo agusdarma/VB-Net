@@ -41,11 +41,11 @@ Partial Class MainMenu
         Me.MasterGLInterfaceAccountToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterSatuanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterShippingViaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MasterGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.MasterGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -108,7 +108,9 @@ Partial Class MainMenu
         '
         'MasterItemToolStripMenuItem
         '
+        Me.MasterItemToolStripMenuItem.Image = CType(resources.GetObject("MasterItemToolStripMenuItem.Image"), System.Drawing.Image)
         Me.MasterItemToolStripMenuItem.Name = "MasterItemToolStripMenuItem"
+        Me.MasterItemToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.M), System.Windows.Forms.Keys)
         Me.MasterItemToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterItemToolStripMenuItem.Text = "Master Item"
         '
@@ -160,6 +162,14 @@ Partial Class MainMenu
         Me.MasterShippingViaToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterShippingViaToolStripMenuItem.Text = "Master Shipping Via"
         '
+        'MasterGudangToolStripMenuItem
+        '
+        Me.MasterGudangToolStripMenuItem.Image = CType(resources.GetObject("MasterGudangToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.MasterGudangToolStripMenuItem.Name = "MasterGudangToolStripMenuItem"
+        Me.MasterGudangToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
+        Me.MasterGudangToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.MasterGudangToolStripMenuItem.Text = "Master Gudang"
+        '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
@@ -180,14 +190,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'MasterGudangToolStripMenuItem
-        '
-        Me.MasterGudangToolStripMenuItem.Image = CType(resources.GetObject("MasterGudangToolStripMenuItem.Image"), System.Drawing.Image)
-        Me.MasterGudangToolStripMenuItem.Name = "MasterGudangToolStripMenuItem"
-        Me.MasterGudangToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.MasterGudangToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
-        Me.MasterGudangToolStripMenuItem.Text = "Master Gudang"
         '
         'MainMenu
         '

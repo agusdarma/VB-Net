@@ -46,6 +46,9 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>C:\Users\ADK\Downloads\Compressed\TechViewHD - Good Looking UI\TechViewHD - Good Looking UI\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.5\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -100,6 +103,18 @@
       <DependentUpon>CustomerAddFrm.vb</DependentUpon>
     </Compile>
     <Compile Include="CustomerAddFrm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Barang.Designer.vb">
+      <DependentUpon>Barang.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Barang.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarangAdd.Designer.vb">
+      <DependentUpon>BarangAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BarangAdd.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WarehouseAdd.Designer.vb">
@@ -195,6 +210,12 @@
     <Compile Include="mySqlDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Barang.resx">
+      <DependentUpon>Barang.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarangAdd.resx">
+      <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CustomerAddFrm.resx">
       <DependentUpon>CustomerAddFrm.vb</DependentUpon>
     </EmbeddedResource>

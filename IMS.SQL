@@ -140,13 +140,15 @@ CREATE TABLE Items
   satuan Varchar(5),
   gudang_id Int NOT NULL,
   category_id Int NOT NULL,
+  supplier_id Int NOT NULL,
   default_price Bigint NOT NULL,
   default_diskon Bigint,
-  supplier_id Int NOT NULL,
-  created_by Int,
+  total_cost Bigint,
+  cost Bigint,
+  created_by Varchar(32),
   created_on Datetime,
   updated_on Datetime,
-  updated_by Int,
+  updated_by Varchar(32),
  PRIMARY KEY (id)
 )
 ;
