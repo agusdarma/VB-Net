@@ -42,14 +42,14 @@ Partial Class MainMenu
         Me.MasterSatuanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterShippingViaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MasterGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -174,6 +174,32 @@ Partial Class MainMenu
         Me.MasterGudangToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterGudangToolStripMenuItem.Text = "Master Gudang"
         '
+        'TransactionToolStripMenuItem
+        '
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
+        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.TransactionToolStripMenuItem.Text = "Transaction"
+        '
+        'PurchaseToolStripMenuItem
+        '
+        Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem})
+        Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchaseToolStripMenuItem.Text = "Purchase"
+        '
+        'PurchaseOrderToolStripMenuItem
+        '
+        Me.PurchaseOrderToolStripMenuItem.Name = "PurchaseOrderToolStripMenuItem"
+        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
+        '
+        'PurchaseInvoiceToolStripMenuItem
+        '
+        Me.PurchaseInvoiceToolStripMenuItem.Name = "PurchaseInvoiceToolStripMenuItem"
+        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.PurchaseInvoiceToolStripMenuItem.Text = "Purchase Invoice"
+        '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
@@ -194,32 +220,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'TransactionToolStripMenuItem
-        '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem})
-        Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
-        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
-        Me.TransactionToolStripMenuItem.Text = "Transaction"
-        '
-        'PurchaseToolStripMenuItem
-        '
-        Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem})
-        Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.PurchaseToolStripMenuItem.Text = "Purchase"
-        '
-        'PurchaseOrderToolStripMenuItem
-        '
-        Me.PurchaseOrderToolStripMenuItem.Name = "PurchaseOrderToolStripMenuItem"
-        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
-        Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
-        '
-        'PurchaseInvoiceToolStripMenuItem
-        '
-        Me.PurchaseInvoiceToolStripMenuItem.Name = "PurchaseInvoiceToolStripMenuItem"
-        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
-        Me.PurchaseInvoiceToolStripMenuItem.Text = "Purchase Invoice"
         '
         'MainMenu
         '

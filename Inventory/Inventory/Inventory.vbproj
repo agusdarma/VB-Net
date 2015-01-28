@@ -49,6 +49,9 @@
     <Reference Include="DevComponents.DotNetBar2">
       <HintPath>C:\Users\ADK\Downloads\Compressed\TechViewHD - Good Looking UI\TechViewHD - Good Looking UI\DevComponents.DotNetBar2.dll</HintPath>
     </Reference>
+    <Reference Include="MultiColumnComboBox">
+      <HintPath>C:\Users\ADK\Downloads\Compressed\MultiColumnComboBox\DLL\MultiColumnComboBox.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\MySQL\MySQL Connector Net 6.9.5\Assemblies\v4.5\MySql.Data.dll</HintPath>
@@ -115,6 +118,12 @@
       <DependentUpon>BarangAdd.vb</DependentUpon>
     </Compile>
     <Compile Include="BarangAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrder.Designer.vb">
+      <DependentUpon>PurchaseOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrder.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="WarehouseAdd.Designer.vb">
@@ -230,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ItemsCategory.resx">
       <DependentUpon>ItemsCategory.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseOrder.resx">
+      <DependentUpon>PurchaseOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SupplierAddFrm.resx">
       <DependentUpon>SupplierAddFrm.vb</DependentUpon>

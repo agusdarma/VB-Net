@@ -39,4 +39,8 @@ Public Class MainMenu
     Private Sub MasterItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterItemToolStripMenuItem.Click
         Barang.Show()
     End Sub
+
+    Private Sub PurchaseOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchaseOrderToolStripMenuItem.Click
+        PurchaseOrder.Show()
+    End Sub
 End Class
