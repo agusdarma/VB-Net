@@ -46,13 +46,17 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchaseOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
         '
         'MenuStrip
         '
-        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ManageUserToolStripMenuItem, Me.ManageMasterToolStripMenuItem, Me.AboutToolStripMenuItem})
+        Me.MenuStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem, Me.ManageUserToolStripMenuItem, Me.ManageMasterToolStripMenuItem, Me.TransactionToolStripMenuItem, Me.AboutToolStripMenuItem})
         Me.MenuStrip.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip.Name = "MenuStrip"
         Me.MenuStrip.Size = New System.Drawing.Size(632, 24)
@@ -191,6 +195,32 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'TransactionToolStripMenuItem
+        '
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
+        Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
+        Me.TransactionToolStripMenuItem.Text = "Transaction"
+        '
+        'PurchaseToolStripMenuItem
+        '
+        Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem})
+        Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchaseToolStripMenuItem.Text = "Purchase"
+        '
+        'PurchaseOrderToolStripMenuItem
+        '
+        Me.PurchaseOrderToolStripMenuItem.Name = "PurchaseOrderToolStripMenuItem"
+        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
+        '
+        'PurchaseInvoiceToolStripMenuItem
+        '
+        Me.PurchaseInvoiceToolStripMenuItem.Name = "PurchaseInvoiceToolStripMenuItem"
+        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.PurchaseInvoiceToolStripMenuItem.Text = "Purchase Invoice"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -232,5 +262,9 @@ Partial Class MainMenu
     Friend WithEvents LogoutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GroupManagementToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MasterGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents TransactionToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PurchaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PurchaseOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PurchaseInvoiceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

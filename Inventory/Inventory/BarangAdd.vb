@@ -92,6 +92,7 @@ Public Class BarangAdd
             con = jokenconn()
             con.Open()
             Dim session As Session = Login.getSession()
+            removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@kode_item", KodeItem.Text)
@@ -121,6 +122,13 @@ Public Class BarangAdd
         End Try
         Return rowEffected
     End Function
+    Private Sub removeSeparatorBeforeInsert()
+        removeSeparator(qty)
+        removeSeparator(salesPrice)
+        removeSeparator(diskon)
+        removeSeparator(TotalCost)
+        removeSeparator(Cost)
+    End Sub
     Private Function insert(itemType As String) As Integer
         Dim rowEffected As Integer
         Dim sqlCommand As New MySqlCommand
@@ -131,6 +139,7 @@ Public Class BarangAdd
             con = jokenconn()
             con.Open()
             Dim session As Session = Login.getSession()
+            removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@kode_item", KodeItem.Text)
@@ -171,7 +180,9 @@ Public Class BarangAdd
             RadioButtonInventory.Enabled = False
             RadioButtonNonInventory.Enabled = False
             RadioButtonService.Enabled = False
+            KodeItem.BackColor = Color.LightGray
         End If
+        TotalCost.BackColor = Color.LightGray
     End Sub
     Private Sub findItemByCode(kodeItem As String)
         Dim sqlCommand As New MySqlCommand
@@ -224,16 +235,16 @@ Public Class BarangAdd
                     ComboBoxSupplier.SelectedValue = publictable.Rows(0).Item(9)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(10)) Then
-                    Me.salesPrice.Text = publictable.Rows(0).Item(10)
+                    Me.salesPrice.Text = FormatNumber(publictable.Rows(0).Item(10), 0, TriState.True)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(11)) Then
-                    Me.diskon.Text = publictable.Rows(0).Item(11)
+                    Me.diskon.Text = FormatNumber(publictable.Rows(0).Item(11), 0, TriState.True)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(12)) Then
-                    Me.TotalCost.Text = publictable.Rows(0).Item(12)
+                    Me.TotalCost.Text = FormatNumber(publictable.Rows(0).Item(12), 0, TriState.True)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(13)) Then
-                    Me.Cost.Text = publictable.Rows(0).Item(13)
+                    Me.Cost.Text = FormatNumber(publictable.Rows(0).Item(13), 0, TriState.True)
                 End If
             Else
                 MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -248,6 +259,12 @@ Public Class BarangAdd
         ComboBoxStatus.DataSource = Me.getFieldStatus
         ComboBoxStatus.ValueMember = "id"
         ComboBoxStatus.DisplayMember = "name"
+    End Sub
+    Private Sub removeSeparator(txtBox As TextBox)
+        Dim temp As String
+        temp = txtBox.Text
+        temp = temp.Replace(",", "")
+        txtBox.Text = temp
     End Sub
     Private Sub populateKategori()
         Dim sql As String
@@ -342,6 +359,14 @@ Public Class BarangAdd
         End If
     End Sub
 
+    Private Sub Cost_Click(sender As Object, e As EventArgs) Handles Cost.Click
+        Cost.SelectAll()
+    End Sub
+
+    Private Sub Cost_Enter(sender As Object, e As EventArgs) Handles Cost.Enter
+        Cost.SelectAll()
+    End Sub
+
     Private Sub Cost_KeyPress(sender As Object, e As KeyPressEventArgs) Handles Cost.KeyPress
         Dim tb As TextBox
         tb = CType(sender, TextBox)
@@ -352,5 +377,83 @@ Public Class BarangAdd
                 e.Handled = True
             End If
         End If
+    End Sub
+
+    Private Sub TotalCost_Click(sender As Object, e As EventArgs) Handles TotalCost.Click
+        TotalCost.SelectAll()
+    End Sub
+
+    Private Sub TotalCost_Enter(sender As Object, e As EventArgs) Handles TotalCost.Enter
+        TotalCost.SelectAll()
+    End Sub
+
+    Private Sub diskon_Click(sender As Object, e As EventArgs) Handles diskon.Click
+        diskon.SelectAll()
+    End Sub
+
+    Private Sub diskon_Enter(sender As Object, e As EventArgs) Handles diskon.Enter
+        diskon.SelectAll()
+    End Sub
+
+    Private Sub salesPrice_Click(sender As Object, e As EventArgs) Handles salesPrice.Click
+        salesPrice.SelectAll()
+    End Sub
+
+    Private Sub salesPrice_Enter(sender As Object, e As EventArgs) Handles salesPrice.Enter
+        salesPrice.SelectAll()
+    End Sub
+
+    Private Sub Cost_Leave(sender As Object, e As EventArgs) Handles Cost.Leave
+        Dim totalCost As Long
+        Dim qty As Long
+        Dim cost As Long
+        qty = Convert.ToDecimal(Me.qty.Text)
+        cost = Convert.ToDecimal(Me.Cost.Text)
+        totalCost = qty * cost
+        Me.TotalCost.Text = FormatNumber(totalCost.ToString, 0, TriState.True)
+        Me.Cost.Text = FormatNumber(Me.Cost.Text, 0, TriState.True)
+    End Sub
+
+    Private Sub qty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles qty.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub satuan_KeyPress(sender As Object, e As KeyPressEventArgs) Handles satuan.KeyPress
+        Dim tb As TextBox
+        tb = CType(sender, TextBox)
+
+        If Char.IsControl(e.KeyChar) Then
+            If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                Me.SelectNextControl(tb, True, True, False, True)
+                e.Handled = True
+            End If
+        End If
+    End Sub
+
+    Private Sub qty_Leave(sender As Object, e As EventArgs) Handles qty.Leave
+        Dim totalCost As Long
+        Dim qty As Long
+        Dim cost As Long
+        qty = Convert.ToDecimal(Me.qty.Text)
+        cost = Convert.ToDecimal(Me.Cost.Text)
+        totalCost = qty * cost
+        Me.TotalCost.Text = FormatNumber(totalCost.ToString, 0, TriState.True)
+        Me.Cost.Text = FormatNumber(Me.Cost.Text, 0, TriState.True)
+    End Sub
+
+    Private Sub salesPrice_Leave(sender As Object, e As EventArgs) Handles salesPrice.Leave
+        salesPrice.Text = FormatNumber(salesPrice.Text, 0, TriState.True)
+    End Sub
+
+    Private Sub diskon_Leave(sender As Object, e As EventArgs) Handles diskon.Leave
+        diskon.Text = FormatNumber(diskon.Text, 0, TriState.True)
     End Sub
 End Class

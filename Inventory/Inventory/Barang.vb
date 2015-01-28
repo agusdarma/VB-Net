@@ -104,6 +104,10 @@ Public Class Barang
 
     Private Sub Barang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         refreshGrid()
+        Me.GridBarang.Columns("Quantity").DefaultCellStyle.Format = "n0"
+        Me.GridBarang.Columns("SellingPrice").DefaultCellStyle.Format = "n0"
+        Me.GridBarang.Columns("Quantity").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        Me.GridBarang.Columns("SellingPrice").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
     End Sub
 
     Private Sub LinkLabel_NextPage_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel_NextPage.LinkClicked

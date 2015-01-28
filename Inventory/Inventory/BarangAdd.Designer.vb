@@ -79,7 +79,7 @@ Partial Class BarangAdd
         Me.Button_Cancel.Location = New System.Drawing.Point(420, 434)
         Me.Button_Cancel.Name = "Button_Cancel"
         Me.Button_Cancel.Size = New System.Drawing.Size(75, 31)
-        Me.Button_Cancel.TabIndex = 12
+        Me.Button_Cancel.TabIndex = 11
         Me.Button_Cancel.Text = "Cancel"
         Me.Button_Cancel.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button_Cancel.UseVisualStyleBackColor = True
@@ -90,7 +90,7 @@ Partial Class BarangAdd
         Me.Button_Save.Location = New System.Drawing.Point(265, 434)
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.Size = New System.Drawing.Size(75, 31)
-        Me.Button_Save.TabIndex = 11
+        Me.Button_Save.TabIndex = 10
         Me.Button_Save.Text = "Save"
         Me.Button_Save.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Button_Save.UseVisualStyleBackColor = True
@@ -163,17 +163,18 @@ Partial Class BarangAdd
         '
         'TotalCost
         '
-        Me.TotalCost.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TotalCost.Location = New System.Drawing.Point(523, 142)
+        Me.TotalCost.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.TotalCost.Enabled = False
+        Me.TotalCost.Location = New System.Drawing.Point(523, 174)
         Me.TotalCost.Name = "TotalCost"
         Me.TotalCost.Size = New System.Drawing.Size(148, 25)
-        Me.TotalCost.TabIndex = 8
+        Me.TotalCost.TabIndex = 99
         Me.TotalCost.Text = "0"
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(443, 145)
+        Me.Label11.Location = New System.Drawing.Point(443, 177)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(74, 17)
         Me.Label11.TabIndex = 20
@@ -182,16 +183,16 @@ Partial Class BarangAdd
         'Cost
         '
         Me.Cost.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Cost.Location = New System.Drawing.Point(523, 104)
+        Me.Cost.Location = New System.Drawing.Point(523, 136)
         Me.Cost.Name = "Cost"
         Me.Cost.Size = New System.Drawing.Size(148, 25)
-        Me.Cost.TabIndex = 7
+        Me.Cost.TabIndex = 9
         Me.Cost.Text = "0"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(476, 106)
+        Me.Label10.Location = New System.Drawing.Point(476, 138)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(41, 17)
         Me.Label10.TabIndex = 18
@@ -200,15 +201,15 @@ Partial Class BarangAdd
         'satuan
         '
         Me.satuan.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.satuan.Location = New System.Drawing.Point(90, 278)
+        Me.satuan.Location = New System.Drawing.Point(90, 246)
         Me.satuan.Name = "satuan"
         Me.satuan.Size = New System.Drawing.Size(64, 25)
-        Me.satuan.TabIndex = 10
+        Me.satuan.TabIndex = 7
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(32, 278)
+        Me.Label9.Location = New System.Drawing.Point(32, 246)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 17)
         Me.Label9.TabIndex = 16
@@ -217,16 +218,16 @@ Partial Class BarangAdd
         'qty
         '
         Me.qty.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.qty.Location = New System.Drawing.Point(90, 241)
+        Me.qty.Location = New System.Drawing.Point(523, 102)
         Me.qty.Name = "qty"
         Me.qty.Size = New System.Drawing.Size(64, 25)
-        Me.qty.TabIndex = 9
+        Me.qty.TabIndex = 8
         Me.qty.Text = "0"
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(24, 244)
+        Me.Label8.Location = New System.Drawing.Point(454, 105)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(63, 17)
         Me.Label8.TabIndex = 14
@@ -299,7 +300,7 @@ Partial Class BarangAdd
         Me.RadioButtonService.Location = New System.Drawing.Point(361, 6)
         Me.RadioButtonService.Name = "RadioButtonService"
         Me.RadioButtonService.Size = New System.Drawing.Size(67, 21)
-        Me.RadioButtonService.TabIndex = 15
+        Me.RadioButtonService.TabIndex = 96
         Me.RadioButtonService.TabStop = True
         Me.RadioButtonService.Text = "Service"
         Me.RadioButtonService.UseVisualStyleBackColor = True
@@ -310,7 +311,7 @@ Partial Class BarangAdd
         Me.RadioButtonNonInventory.Location = New System.Drawing.Point(219, 8)
         Me.RadioButtonNonInventory.Name = "RadioButtonNonInventory"
         Me.RadioButtonNonInventory.Size = New System.Drawing.Size(135, 21)
-        Me.RadioButtonNonInventory.TabIndex = 14
+        Me.RadioButtonNonInventory.TabIndex = 97
         Me.RadioButtonNonInventory.TabStop = True
         Me.RadioButtonNonInventory.Text = "Non Inventory Part"
         Me.RadioButtonNonInventory.UseVisualStyleBackColor = True
@@ -321,7 +322,7 @@ Partial Class BarangAdd
         Me.RadioButtonInventory.Location = New System.Drawing.Point(90, 8)
         Me.RadioButtonInventory.Name = "RadioButtonInventory"
         Me.RadioButtonInventory.Size = New System.Drawing.Size(106, 21)
-        Me.RadioButtonInventory.TabIndex = 13
+        Me.RadioButtonInventory.TabIndex = 98
         Me.RadioButtonInventory.TabStop = True
         Me.RadioButtonInventory.Text = "Inventory Part"
         Me.RadioButtonInventory.UseVisualStyleBackColor = True
