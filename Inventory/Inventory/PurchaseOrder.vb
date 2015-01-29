@@ -179,4 +179,8 @@ Public Class PurchaseOrder
             End Try
         End If
     End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MessageBox.Show(DataGridViewPO.RowCount)
+    End Sub
 End Class
