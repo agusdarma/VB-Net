@@ -65,9 +65,7 @@ Public Class PurchaseOrder
         DataGridViewPO.Rows(idx).Cells(2).Value = "1"
         DataGridViewPO.Rows(idx).Cells(3).Value = satuan
         DataGridViewPO.Rows(idx).Cells(4).Value = price
-        DataGridViewPO.Rows(idx).Cells(5).Value = diskon
-        'DataGridViewPO.ClearSelection()
-        
+        DataGridViewPO.Rows(idx).Cells(5).Value = diskon        
     End Sub
     Private Sub populateVendor()
         Dim sql As String
@@ -144,9 +142,7 @@ Public Class PurchaseOrder
 
     Private Sub DataGridViewPO_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewPO.CellMouseUp
         If e.Button = MouseButtons.Right Then
-            'Me.DataGridViewPO.Rows(e.RowIndex).Selected = True
             Me.rowIndex = e.RowIndex
-            'Me.DataGridViewPO.CurrentCell = Me.DataGridViewPO.Rows(e.RowIndex).Cells(1)
             Me.ContextMenuStrip1.Show(Me.DataGridViewPO, e.Location)
             ContextMenuStrip1.Show(Cursor.Position)
         End If
@@ -164,12 +160,8 @@ Public Class PurchaseOrder
     End Sub
 
     Private Sub ToolStripMenuItemAddRows_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAddRows.Click
-
-        Me.DataGridViewPO.NotifyCurrentCellDirty(True)
+        DataGridViewPO.NotifyCurrentCellDirty(True)
         DataGridViewPO.ClearSelection()
-        'DataGridViewPO.Rows(DataGridViewPO.Rows.Count - 1).Cells(0).Selected = True
-        ' Set the current cell to the cell in column 1, Row 0. 
-        'DataGridViewPO.CurrentCell = Me.DataGridViewPO(0, DataGridViewPO.Rows.Count - 1)
     End Sub
 
     Private Sub DataGridViewPO_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridViewPO.KeyDown

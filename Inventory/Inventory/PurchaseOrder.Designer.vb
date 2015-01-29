@@ -218,6 +218,7 @@ Partial Class PurchaseOrder
         Me.DataGridViewPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridViewPO.Location = New System.Drawing.Point(15, 235)
         Me.DataGridViewPO.Name = "DataGridViewPO"
+        Me.DataGridViewPO.RowHeadersVisible = False
         Me.DataGridViewPO.Size = New System.Drawing.Size(1212, 150)
         Me.DataGridViewPO.TabIndex = 17
         '
