@@ -17,19 +17,16 @@ Public Class PurchaseOrder
 
     End Sub
     Private Sub inisialisasi()
-        DataGridViewPO.ColumnCount = 7
-        DataGridViewPO.Columns(0).Name = "Kode Item"
-        DataGridViewPO.Columns(1).Name = "Nama Item"
-        DataGridViewPO.Columns(2).Name = "Qty"
-        DataGridViewPO.Columns(3).Name = "Satuan"
-        DataGridViewPO.Columns(4).Name = "Harga Satuan"
-        DataGridViewPO.Columns(5).Name = "Diskon"
-        DataGridViewPO.Columns(6).Name = "Total Harga"
+        Me.DataGridViewPO.ColumnCount = 7
+        Me.DataGridViewPO.Columns(0).Name = "Kode Item"
+        Me.DataGridViewPO.Columns(1).Name = "Nama Item"
+        Me.DataGridViewPO.Columns(2).Name = "Qty"
+        Me.DataGridViewPO.Columns(3).Name = "Satuan"
+        Me.DataGridViewPO.Columns(4).Name = "Harga Satuan"
+        Me.DataGridViewPO.Columns(5).Name = "Diskon"
+        Me.DataGridViewPO.Columns(6).Name = "Total Harga"
 
-        'Dim n As Integer = DataGridViewPO.Rows.Add()
-        'DataGridViewPO.Rows(0).Cells(0).Value = "Mesin Cuci"
-        'DataGridViewPO.Rows.Item(n).Cells(1).Value = "Nama Item"
-
+        
         lblPPN.Visible = False
         LblPPNValue.Visible = False
         lblTax.Visible = False
@@ -58,14 +55,31 @@ Public Class PurchaseOrder
         idx = idx - 1
         DataGridViewPO.Rows(idx).Cells(2).Selected = True
         DataGridViewPO.CurrentCell = Me.DataGridViewPO(2, idx)
+        DataGridViewPO.BeginEdit(True)
+        'DataGridViewPO.EndEdit()
+
         DataGridViewPO.Rows(idx).Cells(0).Value = kodeItem
-        DataGridViewPO.Rows(idx).Cells(0).ReadOnly = True
         DataGridViewPO.Rows(idx).Cells(1).Value = namaItem
-        DataGridViewPO.Rows(idx).Cells(1).ReadOnly = True
-        DataGridViewPO.Rows(idx).Cells(2).Value = "1"
+        DataGridViewPO.Rows(idx).Cells(2).Value = CLng(1)
         DataGridViewPO.Rows(idx).Cells(3).Value = satuan
-        DataGridViewPO.Rows(idx).Cells(4).Value = price
-        DataGridViewPO.Rows(idx).Cells(5).Value = diskon        
+        DataGridViewPO.Rows(idx).Cells(4).Value = CLng(price)
+        DataGridViewPO.Rows(idx).Cells(5).Value = CLng(diskon)
+
+        DataGridViewPO.Rows(idx).Cells(0).ReadOnly = True
+        DataGridViewPO.Rows(idx).Cells(1).ReadOnly = True
+        DataGridViewPO.Rows(idx).Cells(6).ReadOnly = True
+        hitungTotalHarga(idx)
+        formatKolomNumeric()
+    End Sub
+    Private Sub formatKolomNumeric()
+        DataGridViewPO.Columns("Total Harga").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewPO.Columns("Diskon").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewPO.Columns("Harga Satuan").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewPO.Columns("Qty").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewPO.Columns("Qty").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridViewPO.Columns("Harga Satuan").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridViewPO.Columns("Diskon").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridViewPO.Columns("Total Harga").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
     End Sub
     Private Sub populateVendor()
         Dim sql As String
@@ -133,10 +147,33 @@ Public Class PurchaseOrder
             AdvancedSearchItems.Show()
         End If
     End Sub
+    Private Sub hitungTotalHarga(rowIdx As Integer)
+        Dim qty As Long
+        Dim hargaSatuan As Long
+        Dim hargaDiskon As Long
+        qty = DataGridViewPO.Rows(rowIdx).Cells(2).Value
+        hargaSatuan = DataGridViewPO.Rows(rowIdx).Cells(4).Value
+        hargaDiskon = DataGridViewPO.Rows(rowIdx).Cells(5).Value
+        Dim totalHarga As Long
+        totalHarga = (qty * hargaSatuan) - (qty * hargaDiskon)
+        DataGridViewPO.Rows(rowIdx).Cells(6).Value = totalHarga
+    End Sub
 
     Private Sub DataGridViewPO_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewPO.CellEndEdit
         If e.ColumnIndex = 0 Then
             AdvancedSearchItems.Show()
+        ElseIf e.ColumnIndex = 2 Then
+            hitungTotalHarga(e.RowIndex)
+            formatKolomNumeric()
+            hitungSubTotalHarga()
+        ElseIf e.ColumnIndex = 4 Then
+            hitungTotalHarga(e.RowIndex)
+            formatKolomNumeric()
+            hitungSubTotalHarga()
+        ElseIf e.ColumnIndex = 5 Then
+            hitungTotalHarga(e.RowIndex)
+            formatKolomNumeric()
+            hitungSubTotalHarga()
         End If
     End Sub
 
@@ -160,8 +197,20 @@ Public Class PurchaseOrder
     End Sub
 
     Private Sub ToolStripMenuItemAddRows_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAddRows.Click
-        DataGridViewPO.NotifyCurrentCellDirty(True)
         DataGridViewPO.ClearSelection()
+        Dim idx As Integer = DataGridViewPO.RowCount
+        idx = idx - 1
+        If idx >= 0 Then
+            DataGridViewPO.Rows(idx).Cells(0).Selected = True
+            DataGridViewPO.CurrentCell = Me.DataGridViewPO(0, idx)
+            DataGridViewPO.NotifyCurrentCellDirty(True)
+        Else
+            DataGridViewPO.NotifyCurrentCellDirty(True)
+        End If
+    End Sub
+
+    Private Sub DataGridViewPO_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridViewPO.EditingControlShowing
+        e.CellStyle.BackColor = Color.Aquamarine
     End Sub
 
     Private Sub DataGridViewPO_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridViewPO.KeyDown
@@ -180,7 +229,17 @@ Public Class PurchaseOrder
         End If
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        MessageBox.Show(DataGridViewPO.RowCount)
+    Private Sub hitungSubTotalHarga()
+        Dim totalharga As Long = 0
+        'totalharga = DataGridViewPO.Rows(rowIdx).Cells(6).Value
+        Dim str As String = ""
+        For Each oItem As DataGridViewRow In DataGridViewPO.Rows
+            totalharga = totalharga + oItem.Cells(6).Value
+        Next
+        Dim subTotal As Long = totalharga
+        TextBoxSubTotal.Text = FormatNumber(subTotal.ToString, 0, TriState.True)
+    End Sub
+    Private Sub DataGridViewPO_Leave(sender As Object, e As EventArgs) Handles DataGridViewPO.Leave
+        hitungSubTotalHarga()
     End Sub
 End Class
