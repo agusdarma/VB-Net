@@ -4,6 +4,7 @@ Public Class PurchaseOrder
     Dim da As New MySqlDataAdapter
     Dim con As MySqlConnection
     Dim ds As DataSet
+    Private rowIndex As Integer = 0
     Public Function jokenconn() As MySqlConnection
         Dim urlDb As String
         Dim mySqlDb As New mySqlDB
@@ -26,7 +27,7 @@ Public Class PurchaseOrder
         DataGridViewPO.Columns(6).Name = "Total Harga"
 
         'Dim n As Integer = DataGridViewPO.Rows.Add()
-        DataGridViewPO.Rows(0).Cells(0).Value = "Mesin Cuci"
+        'DataGridViewPO.Rows(0).Cells(0).Value = "Mesin Cuci"
         'DataGridViewPO.Rows.Item(n).Cells(1).Value = "Nama Item"
 
         lblPPN.Visible = False
@@ -50,6 +51,23 @@ Public Class PurchaseOrder
             LblPPNValue.Visible = True
             lblTax.Visible = True
         End If
+    End Sub
+
+    Public Sub addItemToListPO(kodeItem As String, namaItem As String, satuan As String, price As String, diskon As String)
+        Dim idx As Integer = DataGridViewPO.RowCount
+        idx = idx - 1
+        DataGridViewPO.Rows(idx).Cells(2).Selected = True
+        DataGridViewPO.CurrentCell = Me.DataGridViewPO(2, idx)
+        DataGridViewPO.Rows(idx).Cells(0).Value = kodeItem
+        DataGridViewPO.Rows(idx).Cells(0).ReadOnly = True
+        DataGridViewPO.Rows(idx).Cells(1).Value = namaItem
+        DataGridViewPO.Rows(idx).Cells(1).ReadOnly = True
+        DataGridViewPO.Rows(idx).Cells(2).Value = "1"
+        DataGridViewPO.Rows(idx).Cells(3).Value = satuan
+        DataGridViewPO.Rows(idx).Cells(4).Value = price
+        DataGridViewPO.Rows(idx).Cells(5).Value = diskon
+        'DataGridViewPO.ClearSelection()
+        
     End Sub
     Private Sub populateVendor()
         Dim sql As String
@@ -112,11 +130,61 @@ Public Class PurchaseOrder
         inisialisasi()
     End Sub
 
-    Private Sub DataGridViewPO_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewPO.CellClick
+    Private Sub DataGridViewPO_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewPO.CellDoubleClick
         If e.ColumnIndex = 0 Then
             AdvancedSearchItems.Show()
-        ElseIf e.ColumnIndex = 1 Then
+        End If
+    End Sub
+
+    Private Sub DataGridViewPO_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewPO.CellEndEdit
+        If e.ColumnIndex = 0 Then
             AdvancedSearchItems.Show()
+        End If
+    End Sub
+
+    Private Sub DataGridViewPO_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewPO.CellMouseUp
+        If e.Button = MouseButtons.Right Then
+            'Me.DataGridViewPO.Rows(e.RowIndex).Selected = True
+            Me.rowIndex = e.RowIndex
+            'Me.DataGridViewPO.CurrentCell = Me.DataGridViewPO.Rows(e.RowIndex).Cells(1)
+            Me.ContextMenuStrip1.Show(Me.DataGridViewPO, e.Location)
+            ContextMenuStrip1.Show(Cursor.Position)
+        End If
+    End Sub
+
+    Private Sub ToolStripMenuItemDeleteRows_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemDeleteRows.Click
+        Try
+            If Not Me.DataGridViewPO.Rows(Me.rowIndex).IsNewRow Then
+                Me.DataGridViewPO.Rows.RemoveAt(Me.rowIndex)
+            End If
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub ToolStripMenuItemAddRows_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItemAddRows.Click
+
+        Me.DataGridViewPO.NotifyCurrentCellDirty(True)
+        DataGridViewPO.ClearSelection()
+        'DataGridViewPO.Rows(DataGridViewPO.Rows.Count - 1).Cells(0).Selected = True
+        ' Set the current cell to the cell in column 1, Row 0. 
+        'DataGridViewPO.CurrentCell = Me.DataGridViewPO(0, DataGridViewPO.Rows.Count - 1)
+    End Sub
+
+    Private Sub DataGridViewPO_KeyDown(sender As Object, e As KeyEventArgs) Handles DataGridViewPO.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            Try
+                Dim iColumn As Integer = DataGridViewPO.CurrentCell.ColumnIndex
+                Dim iRows As Integer = DataGridViewPO.CurrentCell.RowIndex
+                DataGridViewPO.ClearSelection()
+                DataGridViewPO.Rows(iRows).Cells(iColumn + 1).Selected = True
+                ' Set the current cell to the cell in column 1, Row 0. 
+                DataGridViewPO.CurrentCell = Me.DataGridViewPO(iColumn + 1, iRows)
+            Catch ex As Exception
+
+            End Try
         End If
     End Sub
 End Class

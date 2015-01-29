@@ -19,6 +19,7 @@ Public Class AdvancedSearchItems
         Return New MySqlConnection(urlDb)
     End Function
     Private Sub UserFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.BringToFront()
         refreshGrid()
     End Sub
     Private Sub AdvancedSearchItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -249,5 +250,12 @@ Public Class AdvancedSearchItems
     Private Sub Filter_Click(sender As Object, e As EventArgs) Handles Filter.Click
         GeneralFilterFrm.setTag("items_advanced_search")
         GeneralFilterFrm.Show()
+    End Sub
+
+    Private Sub GridItemSearch_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles GridItemSearch.CellDoubleClick
+        Dim rowIdx As Integer
+        rowIdx = e.RowIndex
+        PurchaseOrder.addItemToListPO(GridItemSearch.Rows(rowIdx).Cells(0).Value, GridItemSearch.Rows(rowIdx).Cells(1).Value, GridItemSearch.Rows(rowIdx).Cells(3).Value, GridItemSearch.Rows(rowIdx).Cells(4).Value, GridItemSearch.Rows(rowIdx).Cells(5).Value)
+        Me.Close()
     End Sub
 End Class

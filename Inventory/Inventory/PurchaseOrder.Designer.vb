@@ -22,6 +22,7 @@ Partial Class PurchaseOrder
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -51,7 +52,11 @@ Partial Class PurchaseOrder
         Me.lblPPN = New System.Windows.Forms.Label()
         Me.LblPPNValue = New System.Windows.Forms.Label()
         Me.lblTax = New System.Windows.Forms.Label()
+        Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.ToolStripMenuItemAddRows = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItemDeleteRows = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.DataGridViewPO, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label1
@@ -198,6 +203,8 @@ Partial Class PurchaseOrder
         '
         'DataGridViewPO
         '
+        Me.DataGridViewPO.AllowUserToAddRows = False
+        Me.DataGridViewPO.AllowUserToDeleteRows = False
         Me.DataGridViewPO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridViewPO.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         DataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
@@ -345,6 +352,24 @@ Partial Class PurchaseOrder
         Me.lblTax.TabIndex = 30
         Me.lblTax.Text = "Tax included"
         '
+        'ContextMenuStrip1
+        '
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItemAddRows, Me.ToolStripMenuItemDeleteRows})
+        Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(139, 48)
+        '
+        'ToolStripMenuItemAddRows
+        '
+        Me.ToolStripMenuItemAddRows.Name = "ToolStripMenuItemAddRows"
+        Me.ToolStripMenuItemAddRows.Size = New System.Drawing.Size(138, 22)
+        Me.ToolStripMenuItemAddRows.Text = "Add Rows"
+        '
+        'ToolStripMenuItemDeleteRows
+        '
+        Me.ToolStripMenuItemDeleteRows.Name = "ToolStripMenuItemDeleteRows"
+        Me.ToolStripMenuItemDeleteRows.Size = New System.Drawing.Size(138, 22)
+        Me.ToolStripMenuItemDeleteRows.Text = "Delete Rows"
+        '
         'PurchaseOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -381,6 +406,7 @@ Partial Class PurchaseOrder
         Me.Name = "PurchaseOrder"
         Me.Text = "Purchase Order"
         CType(Me.DataGridViewPO, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.ContextMenuStrip1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -413,4 +439,7 @@ Partial Class PurchaseOrder
     Friend WithEvents lblPPN As System.Windows.Forms.Label
     Friend WithEvents LblPPNValue As System.Windows.Forms.Label
     Friend WithEvents lblTax As System.Windows.Forms.Label
+    Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents ToolStripMenuItemAddRows As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItemDeleteRows As System.Windows.Forms.ToolStripMenuItem
 End Class
