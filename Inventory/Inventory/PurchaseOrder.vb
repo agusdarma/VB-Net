@@ -114,7 +114,9 @@ Public Class PurchaseOrder
 
     Private Sub DataGridViewPO_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewPO.CellClick
         If e.ColumnIndex = 0 Then
-            MessageBox.Show("ini kode item")
+            AdvancedSearchItems.Show()
+        ElseIf e.ColumnIndex = 1 Then
+            AdvancedSearchItems.Show()
         End If
     End Sub
 End Class

@@ -1,6 +1,6 @@
 ﻿Imports MySql.Data.MySqlClient
 
-Public Class Barang
+Public Class AdvancedSearchItems
     Dim da As New MySqlDataAdapter
     Dim con As MySqlConnection
     Dim ds As DataSet
@@ -10,13 +10,20 @@ Public Class Barang
     Dim currentPage As Integer
     Public kodeItem As String
     Public paramSearch As String
-    Public sqlBase As String = "SELECT id as ID, kode_item as KodeItem, nama_item as NamaItem,quantity as Quantity, default_price as SellingPrice, item_type as Type "
+    Public sqlBase As String = "select kode_item,nama_item,item_type,satuan,default_price,default_diskon "
     Public Function jokenconn() As MySqlConnection
+        'Return New MySqlConnection(connString)
         Dim urlDb As String
         Dim mySqlDb As New mySqlDB
         urlDb = mySqlDb.getUrlDatabase()
         Return New MySqlConnection(urlDb)
     End Function
+    Private Sub UserFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        refreshGrid()
+    End Sub
+    Private Sub AdvancedSearchItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 
     Public Sub refreshGrid()
         Dim sql As String
@@ -25,13 +32,13 @@ Public Class Barang
             con = jokenconn()
             con.Open()
             If paramSearch = "" Then
-                sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from items order by nama_item asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from items where 1 = 1  " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " from items where 1 = 1  " + paramSearch + " order by nama_item asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "items")
-            GridBarang.DataSource = ds.Tables(0)
+            GridItemSearch.DataSource = ds.Tables(0)
             con.Close()
             calculateTotalAllRow()
             resetCurrentPage()
@@ -46,6 +53,7 @@ Public Class Barang
             con.Close()
         End Try
     End Sub
+
     Private Sub calculateTotalAllRow()
         Dim nonqueryCommand As MySqlCommand = con.CreateCommand()
         Try
@@ -102,14 +110,6 @@ Public Class Barang
         Return totalPages
     End Function
 
-    Private Sub Barang_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        refreshGrid()
-        Me.GridBarang.Columns("Quantity").DefaultCellStyle.Format = "n0"
-        Me.GridBarang.Columns("SellingPrice").DefaultCellStyle.Format = "n0"
-        Me.GridBarang.Columns("Quantity").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-        Me.GridBarang.Columns("SellingPrice").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
-    End Sub
-
     Private Sub LinkLabel_NextPage_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LinkLabel_NextPage.LinkClicked
         Dim sql As String
         Try
@@ -121,13 +121,13 @@ Public Class Barang
                 con.Open()
 
                 If paramSearch = "" Then
-                    sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from items order by nama_item asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from items where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " from items where 1 = 1 " + paramSearch + " order by nama_item asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "items")
-                GridBarang.DataSource = ds.Tables(0)
+                GridItemSearch.DataSource = ds.Tables(0)
                 con.Close()
                 updateNextCurrentPage()
             Else
@@ -159,7 +159,7 @@ Public Class Barang
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "items")
-            GridBarang.DataSource = ds.Tables(0)
+            GridItemSearch.DataSource = ds.Tables(0)
             con.Close()
             resetCurrentPageForLast()
         Catch ex As Exception
@@ -183,7 +183,7 @@ Public Class Barang
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "items")
-            GridBarang.DataSource = ds.Tables(0)
+            GridItemSearch.DataSource = ds.Tables(0)
             con.Close()
             resetCurrentPage()
 
@@ -211,7 +211,7 @@ Public Class Barang
                 End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "items")
-                GridBarang.DataSource = ds.Tables(0)
+                GridItemSearch.DataSource = ds.Tables(0)
                 con.Close()
                 updatePrevCurrentPage()
 
@@ -226,59 +226,10 @@ Public Class Barang
             con.Close()
         End Try
     End Sub
-
-    Private Sub Button_Add_Click(sender As Object, e As EventArgs) Handles Button_Add.Click
-        kodeItem = ""
-        BarangAdd.Show()
-    End Sub
     Public Function getKodeItem() As String
         Return kodeItem
     End Function
 
-    Private Sub Button_Edit_Click(sender As Object, e As EventArgs) Handles Button_Edit.Click
-        Dim selectedRowCount As Integer = GridBarang.Rows.GetRowCount(DataGridViewElementStates.Selected)
-        If selectedRowCount > 0 Then
-            kodeItem = GridBarang.SelectedRows(0).Cells(1).Value
-            BarangAdd.Show()
-        End If
-    End Sub
-
-    Private Sub Button_delete_Click(sender As Object, e As EventArgs) Handles Button_delete.Click
-        Dim selectedRowCount As Integer = GridBarang.Rows.GetRowCount(DataGridViewElementStates.Selected)
-        If selectedRowCount > 0 Then
-            Dim kodeItem As String
-            kodeItem = GridBarang.SelectedRows(0).Cells(1).Value
-            Dim result As Integer = MessageBox.Show("Are you sure want to delete this item " + vbNewLine + "Kode Item : " + kodeItem, "Confirmation Delete", MessageBoxButtons.YesNo)
-            If result = DialogResult.No Then
-                refreshGrid()
-            ElseIf result = DialogResult.Yes Then
-                delete(kodeItem)
-                MessageBox.Show("Data has been deleted", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                refreshGrid()
-            End If
-        End If
-    End Sub
-
-    Private Function delete(kodeItem As String) As Integer
-        Dim rowEffected As Integer
-        Dim sqlCommand As New MySqlCommand
-        Dim sql As String
-        Try
-            sql = "delete from items WHERE kode_item = @kodeItem"
-            con = jokenconn()
-            con.Open()
-            sqlCommand.Connection = con
-            sqlCommand.CommandText = sql
-            sqlCommand.Parameters.AddWithValue("@kodeItem", kodeItem)
-            rowEffected = sqlCommand.ExecuteNonQuery()
-            con.Close()
-        Catch ex As Exception
-            MessageBox.Show(ex.ToString)
-        Finally
-            con.Close()
-        End Try
-        Return rowEffected
-    End Function
     Public Function getFieldFilter() As List(Of ComboVO)
         Dim fieldFilters = New List(Of ComboVO)
         fieldFilters.Add(New ComboVO("kode_item", "Kode Item"))
@@ -294,8 +245,9 @@ Public Class Barang
     Public Function getTitle() As String
         Return Me.Text
     End Function
+
     Private Sub Filter_Click(sender As Object, e As EventArgs) Handles Filter.Click
-        GeneralFilterFrm.setTag("items")
+        GeneralFilterFrm.setTag("items_advanced_search")
         GeneralFilterFrm.Show()
     End Sub
 End Class

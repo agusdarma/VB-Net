@@ -120,6 +120,12 @@
     <Compile Include="BarangAdd.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="AdvancedSearchItems.Designer.vb">
+      <DependentUpon>AdvancedSearchItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="AdvancedSearchItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PurchaseOrder.Designer.vb">
       <DependentUpon>PurchaseOrder.vb</DependentUpon>
     </Compile>
@@ -219,6 +225,9 @@
     <Compile Include="mySqlDB.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdvancedSearchItems.resx">
+      <DependentUpon>AdvancedSearchItems.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Barang.resx">
       <DependentUpon>Barang.vb</DependentUpon>
     </EmbeddedResource>

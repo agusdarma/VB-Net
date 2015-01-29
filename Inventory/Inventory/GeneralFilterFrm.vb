@@ -77,6 +77,20 @@ Public Class GeneralFilterFrm
                     ListBox1.Items.Add(Barang.paramSearch)
                 End If
             End If
+        ElseIf tagNew = "items_advanced_search" Then
+            CmbField.DataSource = AdvancedSearchItems.getFieldFilter
+            CmbField.ValueMember = "id"
+            CmbField.DisplayMember = "name"
+            CmbCondition.DataSource = AdvancedSearchItems.getConditionFilter
+            CmbCondition.ValueMember = "id"
+            CmbCondition.DisplayMember = "name"
+            Me.Text = AdvancedSearchItems.getTitle
+            Dim temp As String = AdvancedSearchItems.paramSearch
+            If Len(temp) > 0 Then
+                If Not temp = "" Then
+                    ListBox1.Items.Add(AdvancedSearchItems.paramSearch)
+                End If
+            End If
         End If
     End Sub
 
@@ -119,6 +133,9 @@ Public Class GeneralFilterFrm
         ElseIf tagNew = "items" Then
             Barang.paramSearch = builder.ToString
             Barang.refreshGrid()
+        ElseIf tagNew = "items_advanced_search" Then
+            AdvancedSearchItems.paramSearch = builder.ToString
+            AdvancedSearchItems.refreshGrid()
         End If
 
         Me.Close()

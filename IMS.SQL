@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 27-Jan-15
+Modified: 28-Jan-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -198,6 +198,65 @@ ALTER TABLE Items_Category ADD UNIQUE kode_category (kode_category)
 ;
 
 CREATE INDEX items_category_idx ON Items_Category (nama_kategori,kode_category)
+;
+
+-- Table purchase_order_header
+
+CREATE TABLE purchase_order_header
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_supplier Varchar(32) NOT NULL,
+  nama_supplier Varchar(64) NOT NULL,
+  alamat_supplier Varchar(256),
+  ship_to Varchar(256),
+  supplier_taxable Int,
+  inclusive_tax Int,
+  po_no Varchar(64),
+  po_date Datetime,
+  expected_date Datetime,
+  fob Varchar(32),
+  terms Varchar(32),
+  ship_via Varchar(32),
+  notes Varchar(256),
+  available_dp Bigint,
+  used_dp Bigint,
+  sub_total Bigint,
+  diskon Bigint,
+  tax_value Bigint,
+  cost_ship Bigint,
+  total_order Bigint,
+  status_po Int,
+ PRIMARY KEY (id)
+)
+;
+
+ALTER TABLE purchase_order_header ADD UNIQUE po_no (po_no)
+;
+
+CREATE INDEX po_header_idx ON purchase_order_header (kode_supplier,nama_supplier,po_no,po_date)
+;
+
+-- Table purchase_order_detail
+
+CREATE TABLE purchase_order_detail
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  po_header_id Bigint,
+  kode_item Varchar(32),
+  nama_item Varchar(32),
+  qty Bigint,
+  satuan Varchar(32),
+  price_per_unit Bigint,
+  diskon Bigint,
+  price_total Bigint,
+ PRIMARY KEY (id)
+)
+;
+
+ALTER TABLE purchase_order_detail ADD UNIQUE po_header_id (po_header_id)
+;
+
+CREATE INDEX po_detail_idx ON purchase_order_detail (po_header_id,kode_item,nama_item)
 ;
 
 
