@@ -28,24 +28,30 @@ Public Class PurchaseOrder
 
         
         lblPPN.Visible = False
-        LblPPNValue.Visible = False
+        LblPPnRp.Visible = False
+        TextBoxPPn.Visible = False
         lblTax.Visible = False
         CheckInclusiveTax.Enabled = False
         If CheckVendorTaxable.Checked = True Then
             lblPPN.Visible = True
-            LblPPNValue.Visible = True
+            LblPPnRp.Visible = True
+            TextBoxPPn.Visible = True
             CheckInclusiveTax.Enabled = True
+            hitungPPn()
         Else
             lblPPN.Visible = False
-            LblPPNValue.Visible = False
+            LblPPnRp.Visible = False
+            TextBoxPPn.Visible = False
             lblTax.Visible = False
             CheckInclusiveTax.Enabled = False
             CheckInclusiveTax.Checked = False
+            clearHitungPPn()
             Exit Sub
         End If
         If CheckInclusiveTax.Checked = True Then
             lblPPN.Visible = True
-            LblPPNValue.Visible = True
+            LblPPnRp.Visible = True
+            TextBoxPPn.Visible = True
             lblTax.Visible = True
         End If
     End Sub
@@ -238,8 +244,57 @@ Public Class PurchaseOrder
         Next
         Dim subTotal As Long = totalharga
         TextBoxSubTotal.Text = FormatNumber(subTotal.ToString, 0, TriState.True)
+        calculatePctDiskon()
+    End Sub
+    Private Sub hitungPPn()
+        Dim subTotal As Long = 0
+        Dim ppn As Long = 0
+        subTotal = CLng(TextBoxSubTotal.Text)
+        ppn = subTotal * 0.1
+        TextBoxPPn.Text = FormatNumber(ppn.ToString, 0, TriState.True)
+    End Sub
+    Private Sub clearHitungPPn()
+        TextBoxPPn.Text = FormatNumber("0", 0, TriState.True)
     End Sub
     Private Sub DataGridViewPO_Leave(sender As Object, e As EventArgs) Handles DataGridViewPO.Leave
         hitungSubTotalHarga()
+        calculatePctDiskon()
+    End Sub
+
+    Private Sub TextBoxPctDiskon_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxPctDiskon.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            calculatePctDiskon()
+            TextBoxValueDiskon.Focus()
+            TextBoxValueDiskon.SelectAll()
+            TextBoxValueDiskon.TextAlign = HorizontalAlignment.Left
+        End If
+    End Sub
+    Private Sub calculatePctDiskon()
+        Dim pctPersen As Long = CLng(TextBoxPctDiskon.Text)
+        Dim subTotal As Long = CLng(TextBoxSubTotal.Text)
+        Dim pctValue As Long = subTotal * (pctPersen / 100)
+        TextBoxValueDiskon.Text = FormatNumber(pctValue.ToString, 0, TriState.True)
+    End Sub
+
+    Private Sub TextBoxValueDiskon_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxValueDiskon.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            TextBoxValueDiskon.TextAlign = HorizontalAlignment.Right
+            TextBoxValueDiskon.Text = FormatNumber(TextBoxValueDiskon.Text.ToString, 0, TriState.True)
+            TextBoxFreight.Focus()
+        End If
+    End Sub
+
+    Private Sub TextBoxFreight_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxFreight.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            TextBoxFreight.Text = FormatNumber(TextBoxFreight.Text.ToString, 0, TriState.True)
+            ButtonSaveNew.Focus()
+        End If
+    End Sub
+
+    Private Sub TextBoxValueDiskon_Leave(sender As Object, e As EventArgs) Handles TextBoxValueDiskon.Leave
+        TextBoxValueDiskon.TextAlign = HorizontalAlignment.Right
     End Sub
 End Class

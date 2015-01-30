@@ -23,10 +23,10 @@ Partial Class PurchaseOrder
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.CmbVendor = New System.Windows.Forms.ComboBox()
@@ -48,11 +48,9 @@ Partial Class PurchaseOrder
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
-        Me.Label14 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
+        Me.TextBoxValueDiskon = New System.Windows.Forms.TextBox()
+        Me.TextBoxFreight = New System.Windows.Forms.TextBox()
         Me.lblPPN = New System.Windows.Forms.Label()
-        Me.LblPPNValue = New System.Windows.Forms.Label()
         Me.lblTax = New System.Windows.Forms.Label()
         Me.ContextMenuStrip1 = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripMenuItemAddRows = New System.Windows.Forms.ToolStripMenuItem()
@@ -60,9 +58,16 @@ Partial Class PurchaseOrder
         Me.TextBoxSubTotal = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Label16 = New System.Windows.Forms.Label()
+        Me.LblPPnRp = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.TextBoxTotalOrder = New System.Windows.Forms.TextBox()
+        Me.TextBoxPPn = New System.Windows.Forms.TextBox()
+        Me.TextBoxPctDiskon = New System.Windows.Forms.TextBox()
+        Me.Label14 = New System.Windows.Forms.Label()
+        Me.ButtonSaveNew = New System.Windows.Forms.Button()
+        Me.ButtonSaveClose = New System.Windows.Forms.Button()
+        Me.Cancel = New System.Windows.Forms.Button()
         CType(Me.DataGridViewPO, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -214,43 +219,43 @@ Partial Class PurchaseOrder
         Me.DataGridViewPO.AllowUserToAddRows = False
         Me.DataGridViewPO.AllowUserToDeleteRows = False
         Me.DataGridViewPO.AllowUserToResizeRows = False
-        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewPO.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewPO.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
         Me.DataGridViewPO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridViewPO.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.DataGridViewPO.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPO.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle14.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPO.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridViewPO.ColumnHeadersHeight = 30
         Me.DataGridViewPO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridViewPO.EnableHeadersVisualStyles = False
         Me.DataGridViewPO.Location = New System.Drawing.Point(15, 235)
         Me.DataGridViewPO.Name = "DataGridViewPO"
         Me.DataGridViewPO.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red
-        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPO.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Red
+        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPO.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
         Me.DataGridViewPO.RowHeadersVisible = False
-        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewPO.RowsDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle16.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewPO.RowsDefaultCellStyle = DataGridViewCellStyle16
         Me.DataGridViewPO.Size = New System.Drawing.Size(1212, 150)
         Me.DataGridViewPO.TabIndex = 17
         '
@@ -307,69 +312,49 @@ Partial Class PurchaseOrder
         '
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label12.Location = New System.Drawing.Point(881, 501)
+        Me.Label12.Location = New System.Drawing.Point(881, 510)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(87, 17)
         Me.Label12.TabIndex = 23
         Me.Label12.Text = "Total Order :"
         '
-        'Label14
+        'TextBoxValueDiskon
         '
-        Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label14.Location = New System.Drawing.Point(1121, 501)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(15, 17)
-        Me.Label14.TabIndex = 25
-        Me.Label14.Text = "0"
+        Me.TextBoxValueDiskon.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxValueDiskon.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxValueDiskon.Location = New System.Drawing.Point(1034, 418)
+        Me.TextBoxValueDiskon.Name = "TextBoxValueDiskon"
+        Me.TextBoxValueDiskon.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxValueDiskon.TabIndex = 26
+        Me.TextBoxValueDiskon.Text = "0"
+        Me.TextBoxValueDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
-        'TextBox5
+        'TextBoxFreight
         '
-        Me.TextBox5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBox5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox5.Location = New System.Drawing.Point(1034, 418)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(100, 25)
-        Me.TextBox5.TabIndex = 26
-        Me.TextBox5.Text = "0"
-        Me.TextBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
-        '
-        'TextBox6
-        '
-        Me.TextBox6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBox6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox6.Location = New System.Drawing.Point(1034, 477)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(100, 25)
-        Me.TextBox6.TabIndex = 27
-        Me.TextBox6.Text = "0"
-        Me.TextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        Me.TextBoxFreight.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxFreight.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxFreight.Location = New System.Drawing.Point(1034, 477)
+        Me.TextBoxFreight.Name = "TextBoxFreight"
+        Me.TextBoxFreight.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxFreight.TabIndex = 27
+        Me.TextBoxFreight.Text = "0"
+        Me.TextBoxFreight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'lblPPN
         '
         Me.lblPPN.AutoSize = True
         Me.lblPPN.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblPPN.Location = New System.Drawing.Point(881, 443)
+        Me.lblPPN.Location = New System.Drawing.Point(881, 448)
         Me.lblPPN.Name = "lblPPN"
         Me.lblPPN.Size = New System.Drawing.Size(68, 17)
         Me.lblPPN.TabIndex = 28
         Me.lblPPN.Text = "PPN 10% :"
         '
-        'LblPPNValue
-        '
-        Me.LblPPNValue.AutoSize = True
-        Me.LblPPNValue.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LblPPNValue.Location = New System.Drawing.Point(1122, 443)
-        Me.LblPPNValue.Name = "LblPPNValue"
-        Me.LblPPNValue.Size = New System.Drawing.Size(15, 17)
-        Me.LblPPNValue.TabIndex = 29
-        Me.LblPPNValue.Text = "0"
-        '
         'lblTax
         '
         Me.lblTax.AutoSize = True
         Me.lblTax.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTax.Location = New System.Drawing.Point(1140, 501)
+        Me.lblTax.Location = New System.Drawing.Point(1140, 511)
         Me.lblTax.Name = "lblTax"
         Me.lblTax.Size = New System.Drawing.Size(81, 17)
         Me.lblTax.TabIndex = 30
@@ -424,21 +409,21 @@ Partial Class PurchaseOrder
         Me.Label15.TabIndex = 34
         Me.Label15.Text = "Rp"
         '
-        'Label16
+        'LblPPnRp
         '
-        Me.Label16.AutoSize = True
-        Me.Label16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label16.Location = New System.Drawing.Point(1003, 443)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(24, 17)
-        Me.Label16.TabIndex = 35
-        Me.Label16.Text = "Rp"
+        Me.LblPPnRp.AutoSize = True
+        Me.LblPPnRp.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LblPPnRp.Location = New System.Drawing.Point(1003, 447)
+        Me.LblPPnRp.Name = "LblPPnRp"
+        Me.LblPPnRp.Size = New System.Drawing.Size(24, 17)
+        Me.LblPPnRp.TabIndex = 35
+        Me.LblPPnRp.Text = "Rp"
         '
         'Label17
         '
         Me.Label17.AutoSize = True
         Me.Label17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.Location = New System.Drawing.Point(1003, 501)
+        Me.Label17.Location = New System.Drawing.Point(1003, 510)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(24, 17)
         Me.Label17.TabIndex = 36
@@ -454,23 +439,100 @@ Partial Class PurchaseOrder
         Me.Label18.TabIndex = 37
         Me.Label18.Text = "Rp"
         '
+        'TextBoxTotalOrder
+        '
+        Me.TextBoxTotalOrder.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxTotalOrder.Enabled = False
+        Me.TextBoxTotalOrder.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxTotalOrder.Location = New System.Drawing.Point(1034, 507)
+        Me.TextBoxTotalOrder.Name = "TextBoxTotalOrder"
+        Me.TextBoxTotalOrder.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxTotalOrder.TabIndex = 38
+        Me.TextBoxTotalOrder.Text = "0"
+        Me.TextBoxTotalOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBoxPPn
+        '
+        Me.TextBoxPPn.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxPPn.Enabled = False
+        Me.TextBoxPPn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxPPn.Location = New System.Drawing.Point(1034, 446)
+        Me.TextBoxPPn.Name = "TextBoxPPn"
+        Me.TextBoxPPn.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxPPn.TabIndex = 39
+        Me.TextBoxPPn.Text = "0"
+        Me.TextBoxPPn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'TextBoxPctDiskon
+        '
+        Me.TextBoxPctDiskon.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxPctDiskon.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxPctDiskon.Location = New System.Drawing.Point(936, 418)
+        Me.TextBoxPctDiskon.Name = "TextBoxPctDiskon"
+        Me.TextBoxPctDiskon.Size = New System.Drawing.Size(35, 25)
+        Me.TextBoxPctDiskon.TabIndex = 40
+        Me.TextBoxPctDiskon.Text = "0"
+        Me.TextBoxPctDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Location = New System.Drawing.Point(977, 422)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(19, 17)
+        Me.Label14.TabIndex = 41
+        Me.Label14.Text = "%"
+        '
+        'ButtonSaveNew
+        '
+        Me.ButtonSaveNew.Location = New System.Drawing.Point(914, 540)
+        Me.ButtonSaveNew.Name = "ButtonSaveNew"
+        Me.ButtonSaveNew.Size = New System.Drawing.Size(101, 31)
+        Me.ButtonSaveNew.TabIndex = 42
+        Me.ButtonSaveNew.Text = "Save n New"
+        Me.ButtonSaveNew.UseVisualStyleBackColor = True
+        '
+        'ButtonSaveClose
+        '
+        Me.ButtonSaveClose.Location = New System.Drawing.Point(1034, 540)
+        Me.ButtonSaveClose.Name = "ButtonSaveClose"
+        Me.ButtonSaveClose.Size = New System.Drawing.Size(93, 31)
+        Me.ButtonSaveClose.TabIndex = 43
+        Me.ButtonSaveClose.Text = "Save n Close"
+        Me.ButtonSaveClose.UseVisualStyleBackColor = True
+        '
+        'Cancel
+        '
+        Me.Cancel.Location = New System.Drawing.Point(1143, 540)
+        Me.Cancel.Name = "Cancel"
+        Me.Cancel.Size = New System.Drawing.Size(75, 31)
+        Me.Cancel.TabIndex = 44
+        Me.Cancel.Text = "Cancel"
+        Me.Cancel.UseVisualStyleBackColor = True
+        '
         'PurchaseOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1239, 527)
+        Me.ClientSize = New System.Drawing.Size(1239, 583)
+        Me.Controls.Add(Me.Cancel)
+        Me.Controls.Add(Me.ButtonSaveClose)
+        Me.Controls.Add(Me.ButtonSaveNew)
+        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.TextBoxPctDiskon)
+        Me.Controls.Add(Me.TextBoxPPn)
+        Me.Controls.Add(Me.TextBoxTotalOrder)
         Me.Controls.Add(Me.Label18)
         Me.Controls.Add(Me.Label17)
-        Me.Controls.Add(Me.Label16)
+        Me.Controls.Add(Me.LblPPnRp)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.Label13)
         Me.Controls.Add(Me.TextBoxSubTotal)
         Me.Controls.Add(Me.lblTax)
-        Me.Controls.Add(Me.LblPPNValue)
         Me.Controls.Add(Me.lblPPN)
-        Me.Controls.Add(Me.TextBox6)
-        Me.Controls.Add(Me.TextBox5)
-        Me.Controls.Add(Me.Label14)
+        Me.Controls.Add(Me.TextBoxFreight)
+        Me.Controls.Add(Me.TextBoxValueDiskon)
         Me.Controls.Add(Me.Label12)
         Me.Controls.Add(Me.Label11)
         Me.Controls.Add(Me.Label10)
@@ -521,11 +583,9 @@ Partial Class PurchaseOrder
     Friend WithEvents Label10 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label12 As System.Windows.Forms.Label
-    Friend WithEvents Label14 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxValueDiskon As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxFreight As System.Windows.Forms.TextBox
     Friend WithEvents lblPPN As System.Windows.Forms.Label
-    Friend WithEvents LblPPNValue As System.Windows.Forms.Label
     Friend WithEvents lblTax As System.Windows.Forms.Label
     Friend WithEvents ContextMenuStrip1 As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents ToolStripMenuItemAddRows As System.Windows.Forms.ToolStripMenuItem
@@ -533,7 +593,14 @@ Partial Class PurchaseOrder
     Friend WithEvents TextBoxSubTotal As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label15 As System.Windows.Forms.Label
-    Friend WithEvents Label16 As System.Windows.Forms.Label
+    Friend WithEvents LblPPnRp As System.Windows.Forms.Label
     Friend WithEvents Label17 As System.Windows.Forms.Label
     Friend WithEvents Label18 As System.Windows.Forms.Label
+    Friend WithEvents TextBoxTotalOrder As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxPPn As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxPctDiskon As System.Windows.Forms.TextBox
+    Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents ButtonSaveNew As System.Windows.Forms.Button
+    Friend WithEvents ButtonSaveClose As System.Windows.Forms.Button
+    Friend WithEvents Cancel As System.Windows.Forms.Button
 End Class
