@@ -245,12 +245,15 @@ Public Class PurchaseOrder
         Dim subTotal As Long = totalharga
         TextBoxSubTotal.Text = FormatNumber(subTotal.ToString, 0, TriState.True)
         calculatePctDiskon()
+        calculateTotalOrder()
     End Sub
     Private Sub hitungPPn()
         Dim subTotal As Long = 0
+        Dim valueDiskon As Long = 0
         Dim ppn As Long = 0
         subTotal = CLng(TextBoxSubTotal.Text)
-        ppn = subTotal * 0.1
+        valueDiskon = CLng(TextBoxValueDiskon.Text)
+        ppn = (subTotal - valueDiskon) * 0.1
         TextBoxPPn.Text = FormatNumber(ppn.ToString, 0, TriState.True)
     End Sub
     Private Sub clearHitungPPn()
@@ -265,6 +268,7 @@ Public Class PurchaseOrder
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
             calculatePctDiskon()
+            calculateTotalOrder()
             TextBoxValueDiskon.Focus()
             TextBoxValueDiskon.SelectAll()
             TextBoxValueDiskon.TextAlign = HorizontalAlignment.Left
@@ -275,6 +279,20 @@ Public Class PurchaseOrder
         Dim subTotal As Long = CLng(TextBoxSubTotal.Text)
         Dim pctValue As Long = subTotal * (pctPersen / 100)
         TextBoxValueDiskon.Text = FormatNumber(pctValue.ToString, 0, TriState.True)
+        hitungPPn()
+    End Sub
+
+    Private Sub calculateTotalOrder()
+        Dim subTotal As Long = CLng(TextBoxSubTotal.Text)
+        Dim valueDiskon As Long = CLng(TextBoxValueDiskon.Text)
+        Dim ppnValue As Long = CLng(TextBoxPPn.Text)
+        Dim freight As Long = CLng(TextBoxFreight.Text)
+        Dim totalOrder As Long
+        If TextBoxPPn.Visible = False Then
+            ppnValue = 0
+        End If
+        totalOrder = (subTotal - valueDiskon) + (ppnValue + freight)
+        TextBoxTotalOrder.Text = FormatNumber(totalOrder.ToString, 0, TriState.True)
     End Sub
 
     Private Sub TextBoxValueDiskon_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxValueDiskon.KeyDown
@@ -291,6 +309,7 @@ Public Class PurchaseOrder
             e.SuppressKeyPress = True
             TextBoxFreight.Text = FormatNumber(TextBoxFreight.Text.ToString, 0, TriState.True)
             ButtonSaveNew.Focus()
+            calculateTotalOrder()
         End If
     End Sub
 
