@@ -43,4 +43,8 @@ Public Class MainMenu
     Private Sub PurchaseOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchaseOrderToolStripMenuItem.Click
         PurchaseOrder.Show()
     End Sub
+
+    Private Sub GenerateReportToolsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerateReportToolsToolStripMenuItem.Click
+        GenerateReportTools.Show()
+    End Sub
 End Class

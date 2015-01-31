@@ -384,6 +384,26 @@ Public Class PurchaseOrder
 
     Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
         insertPOHeader()
+        clearAllFIeld()
+    End Sub
+    Private Sub clearAllFIeld()
+        TextBoxKodeSupplier.Text = ""
+        TextBoxNamaSupplier.Text = ""
+        alamatVendor.Text = ""
+        TextBoxShipTo.Text = ""
+        TextBoxPoNo.Text = ""
+        CheckVendorTaxable.Checked = False
+        CheckInclusiveTax.Checked = False
+        DataGridViewPO.Rows.Clear()
+        TextBoxNotes.Text = ""
+        TextBoxPctDiskon.Text = "0"
+        TextBoxValueDiskon.Text = "0"
+        TextBoxFreight.Text = "0"
+        TextBoxPoNo.Focus()
+        TextBoxSubTotal.Text = "0"
+        TextBoxPPn.Text = "0"
+        TextBoxTotalOrder.Text = "0"
+        CmbVendor.SelectedIndex = -1
     End Sub
     Private Sub removeSeparator(txtBox As TextBox)
         Dim temp As String
@@ -413,6 +433,26 @@ Public Class PurchaseOrder
         ' Start a local transaction
         transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
         Try
+
+            'validasi
+            If TextBoxPoNo.Text.Length > 0 Then
+                sqlCommand.Parameters.AddWithValue("@po_no", TextBoxPoNo.Text)
+            Else
+                MessageBox.Show("PO No harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextBoxPoNo.Focus()
+                Return 0
+            End If
+            If CmbVendor.SelectedIndex = -1 Then
+                MessageBox.Show("Vendor / Supplier harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                CmbVendor.Focus()
+                Return 0
+            End If
+
+            If DataGridViewPO.Rows.Count = 0 Then
+                MessageBox.Show("Items harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return 0
+            End If
+
             ' Insert PO Header
             sql = "INSERT INTO purchase_order_header(kode_supplier,nama_supplier,alamat_supplier,ship_to,supplier_taxable,inclusive_tax,po_no,po_date,expected_date,fob,terms,ship_via,notes,available_dp,used_dp,sub_total,diskon,tax_value,cost_ship,total_order,status_po,created_by) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@ship_to,@supplier_taxable,@inclusive_tax,@po_no,@po_date,@expected_date,@fob,@terms,@ship_via,@notes,@available_dp,@used_dp,@sub_total,@diskon,@tax_value,@cost_ship,@total_order,@status_po,@created_by)"
             Dim session As Session = Login.getSession()
@@ -434,7 +474,8 @@ Public Class PurchaseOrder
             Else
                 sqlCommand.Parameters.AddWithValue("@inclusive_tax", 0)
             End If
-            sqlCommand.Parameters.AddWithValue("@po_no", TextBoxPoNo.Text)
+
+
             sqlCommand.Parameters.AddWithValue("@po_date", DateTimePickerPoDate.Value)
             sqlCommand.Parameters.AddWithValue("@expected_date", DBNull.Value)
             sqlCommand.Parameters.AddWithValue("@fob", DBNull.Value)
@@ -498,6 +539,15 @@ Public Class PurchaseOrder
         Finally
             con.Close()
         End Try
-            Return rowEffected
+        Return rowEffected
     End Function
+
+    Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
+        insertPOHeader()
+        Me.Close()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonSavePrint.Click
+        PreviewPrintPO.ShowDialog()
+    End Sub
 End Class

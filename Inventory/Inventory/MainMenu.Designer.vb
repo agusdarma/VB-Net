@@ -50,6 +50,7 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.GenerateReportToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -105,7 +106,7 @@ Partial Class MainMenu
         '
         'ManageMasterToolStripMenuItem
         '
-        Me.ManageMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterItemToolStripMenuItem, Me.MasterVendorToolStripMenuItem, Me.MasterCustomerToolStripMenuItem, Me.MasterItemClassToolStripMenuItem, Me.MasterBankToolStripMenuItem, Me.MasterGLInterfaceAccountToolStripMenuItem, Me.MasterSatuanToolStripMenuItem, Me.MasterShippingViaToolStripMenuItem, Me.MasterGudangToolStripMenuItem})
+        Me.ManageMasterToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MasterItemToolStripMenuItem, Me.MasterVendorToolStripMenuItem, Me.MasterCustomerToolStripMenuItem, Me.MasterItemClassToolStripMenuItem, Me.MasterBankToolStripMenuItem, Me.MasterGLInterfaceAccountToolStripMenuItem, Me.MasterSatuanToolStripMenuItem, Me.MasterShippingViaToolStripMenuItem, Me.MasterGudangToolStripMenuItem, Me.GenerateReportToolsToolStripMenuItem})
         Me.ManageMasterToolStripMenuItem.Name = "ManageMasterToolStripMenuItem"
         Me.ManageMasterToolStripMenuItem.Size = New System.Drawing.Size(101, 20)
         Me.ManageMasterToolStripMenuItem.Text = "Manage Master"
@@ -185,7 +186,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -220,6 +221,12 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
+        '
+        'GenerateReportToolsToolStripMenuItem
+        '
+        Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
+        Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
+        Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
         '
         'MainMenu
         '
@@ -266,5 +273,6 @@ Partial Class MainMenu
     Friend WithEvents PurchaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchaseOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchaseInvoiceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents GenerateReportToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
