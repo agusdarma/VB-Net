@@ -34,15 +34,15 @@ Partial Class PurchaseOrder
         Me.CheckInclusiveTax = New System.Windows.Forms.CheckBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.TextBoxPoNo = New System.Windows.Forms.TextBox()
+        Me.DateTimePickerPoDate = New System.Windows.Forms.DateTimePicker()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.alamatVendor = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBoxShipTo = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.DataGridViewPO = New System.Windows.Forms.DataGridView()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
+        Me.TextBoxNotes = New System.Windows.Forms.TextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
@@ -68,6 +68,8 @@ Partial Class PurchaseOrder
         Me.ButtonSaveNew = New System.Windows.Forms.Button()
         Me.ButtonSaveClose = New System.Windows.Forms.Button()
         Me.Cancel = New System.Windows.Forms.Button()
+        Me.TextBoxKodeSupplier = New System.Windows.Forms.TextBox()
+        Me.TextBoxNamaSupplier = New System.Windows.Forms.TextBox()
         CType(Me.DataGridViewPO, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -111,7 +113,7 @@ Partial Class PurchaseOrder
         Me.CheckVendorTaxable.Location = New System.Drawing.Point(493, 54)
         Me.CheckVendorTaxable.Name = "CheckVendorTaxable"
         Me.CheckVendorTaxable.Size = New System.Drawing.Size(132, 21)
-        Me.CheckVendorTaxable.TabIndex = 6
+        Me.CheckVendorTaxable.TabIndex = 3
         Me.CheckVendorTaxable.Text = "Vendor is Taxable"
         Me.CheckVendorTaxable.UseVisualStyleBackColor = True
         '
@@ -122,7 +124,7 @@ Partial Class PurchaseOrder
         Me.CheckInclusiveTax.Location = New System.Drawing.Point(631, 53)
         Me.CheckInclusiveTax.Name = "CheckInclusiveTax"
         Me.CheckInclusiveTax.Size = New System.Drawing.Size(99, 21)
-        Me.CheckInclusiveTax.TabIndex = 7
+        Me.CheckInclusiveTax.TabIndex = 4
         Me.CheckInclusiveTax.Text = "Inclusive Tax"
         Me.CheckInclusiveTax.UseVisualStyleBackColor = True
         '
@@ -146,22 +148,22 @@ Partial Class PurchaseOrder
         Me.Label4.TabIndex = 9
         Me.Label4.Text = "PO Date"
         '
-        'TextBox1
+        'TextBoxPoNo
         '
-        Me.TextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(915, 73)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(100, 25)
-        Me.TextBox1.TabIndex = 10
+        Me.TextBoxPoNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxPoNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxPoNo.Location = New System.Drawing.Point(915, 73)
+        Me.TextBoxPoNo.Name = "TextBoxPoNo"
+        Me.TextBoxPoNo.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxPoNo.TabIndex = 1
         '
-        'DateTimePicker1
+        'DateTimePickerPoDate
         '
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePicker1.Location = New System.Drawing.Point(1028, 72)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 25)
-        Me.DateTimePicker1.TabIndex = 11
+        Me.DateTimePickerPoDate.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerPoDate.Location = New System.Drawing.Point(1028, 72)
+        Me.DateTimePickerPoDate.Name = "DateTimePickerPoDate"
+        Me.DateTimePickerPoDate.Size = New System.Drawing.Size(200, 25)
+        Me.DateTimePickerPoDate.TabIndex = 2
         '
         'Label5
         '
@@ -183,6 +185,7 @@ Partial Class PurchaseOrder
         Me.alamatVendor.Name = "alamatVendor"
         Me.alamatVendor.Size = New System.Drawing.Size(183, 111)
         Me.alamatVendor.TabIndex = 13
+        Me.alamatVendor.TabStop = False
         '
         'Label6
         '
@@ -194,15 +197,15 @@ Partial Class PurchaseOrder
         Me.Label6.TabIndex = 14
         Me.Label6.Text = "Ship To"
         '
-        'TextBox3
+        'TextBoxShipTo
         '
-        Me.TextBox3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBox3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox3.Location = New System.Drawing.Point(207, 102)
-        Me.TextBox3.Multiline = True
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(183, 111)
-        Me.TextBox3.TabIndex = 15
+        Me.TextBoxShipTo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxShipTo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxShipTo.Location = New System.Drawing.Point(207, 102)
+        Me.TextBoxShipTo.Multiline = True
+        Me.TextBoxShipTo.Name = "TextBoxShipTo"
+        Me.TextBoxShipTo.Size = New System.Drawing.Size(183, 111)
+        Me.TextBoxShipTo.TabIndex = 6
         '
         'Label7
         '
@@ -257,16 +260,16 @@ Partial Class PurchaseOrder
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
         Me.DataGridViewPO.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewPO.Size = New System.Drawing.Size(1212, 150)
-        Me.DataGridViewPO.TabIndex = 17
+        Me.DataGridViewPO.TabIndex = 7
         '
-        'TextBox4
+        'TextBoxNotes
         '
-        Me.TextBox4.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBox4.Location = New System.Drawing.Point(15, 408)
-        Me.TextBox4.Multiline = True
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(375, 60)
-        Me.TextBox4.TabIndex = 18
+        Me.TextBoxNotes.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxNotes.Location = New System.Drawing.Point(15, 408)
+        Me.TextBoxNotes.Multiline = True
+        Me.TextBoxNotes.Name = "TextBoxNotes"
+        Me.TextBoxNotes.Size = New System.Drawing.Size(375, 60)
+        Me.TextBoxNotes.TabIndex = 8
         '
         'Label8
         '
@@ -325,7 +328,7 @@ Partial Class PurchaseOrder
         Me.TextBoxValueDiskon.Location = New System.Drawing.Point(1034, 418)
         Me.TextBoxValueDiskon.Name = "TextBoxValueDiskon"
         Me.TextBoxValueDiskon.Size = New System.Drawing.Size(100, 25)
-        Me.TextBoxValueDiskon.TabIndex = 26
+        Me.TextBoxValueDiskon.TabIndex = 10
         Me.TextBoxValueDiskon.Text = "0"
         Me.TextBoxValueDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -336,7 +339,7 @@ Partial Class PurchaseOrder
         Me.TextBoxFreight.Location = New System.Drawing.Point(1034, 477)
         Me.TextBoxFreight.Name = "TextBoxFreight"
         Me.TextBoxFreight.Size = New System.Drawing.Size(100, 25)
-        Me.TextBoxFreight.TabIndex = 27
+        Me.TextBoxFreight.TabIndex = 11
         Me.TextBoxFreight.Text = "0"
         Me.TextBoxFreight.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -380,12 +383,14 @@ Partial Class PurchaseOrder
         '
         'TextBoxSubTotal
         '
-        Me.TextBoxSubTotal.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxSubTotal.BackColor = System.Drawing.Color.LightGray
+        Me.TextBoxSubTotal.Enabled = False
         Me.TextBoxSubTotal.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxSubTotal.Location = New System.Drawing.Point(1033, 388)
         Me.TextBoxSubTotal.Name = "TextBoxSubTotal"
         Me.TextBoxSubTotal.Size = New System.Drawing.Size(100, 25)
         Me.TextBoxSubTotal.TabIndex = 32
+        Me.TextBoxSubTotal.TabStop = False
         Me.TextBoxSubTotal.Text = "0"
         Me.TextBoxSubTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -441,25 +446,27 @@ Partial Class PurchaseOrder
         '
         'TextBoxTotalOrder
         '
-        Me.TextBoxTotalOrder.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxTotalOrder.BackColor = System.Drawing.Color.LightGray
         Me.TextBoxTotalOrder.Enabled = False
         Me.TextBoxTotalOrder.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxTotalOrder.Location = New System.Drawing.Point(1034, 507)
         Me.TextBoxTotalOrder.Name = "TextBoxTotalOrder"
         Me.TextBoxTotalOrder.Size = New System.Drawing.Size(100, 25)
         Me.TextBoxTotalOrder.TabIndex = 38
+        Me.TextBoxTotalOrder.TabStop = False
         Me.TextBoxTotalOrder.Text = "0"
         Me.TextBoxTotalOrder.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'TextBoxPPn
         '
-        Me.TextBoxPPn.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxPPn.BackColor = System.Drawing.Color.LightGray
         Me.TextBoxPPn.Enabled = False
         Me.TextBoxPPn.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxPPn.Location = New System.Drawing.Point(1034, 446)
         Me.TextBoxPPn.Name = "TextBoxPPn"
         Me.TextBoxPPn.Size = New System.Drawing.Size(100, 25)
         Me.TextBoxPPn.TabIndex = 39
+        Me.TextBoxPPn.TabStop = False
         Me.TextBoxPPn.Text = "0"
         Me.TextBoxPPn.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -470,7 +477,7 @@ Partial Class PurchaseOrder
         Me.TextBoxPctDiskon.Location = New System.Drawing.Point(936, 418)
         Me.TextBoxPctDiskon.Name = "TextBoxPctDiskon"
         Me.TextBoxPctDiskon.Size = New System.Drawing.Size(35, 25)
-        Me.TextBoxPctDiskon.TabIndex = 40
+        Me.TextBoxPctDiskon.TabIndex = 9
         Me.TextBoxPctDiskon.Text = "0"
         Me.TextBoxPctDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -490,7 +497,7 @@ Partial Class PurchaseOrder
         Me.ButtonSaveNew.Location = New System.Drawing.Point(914, 540)
         Me.ButtonSaveNew.Name = "ButtonSaveNew"
         Me.ButtonSaveNew.Size = New System.Drawing.Size(101, 31)
-        Me.ButtonSaveNew.TabIndex = 42
+        Me.ButtonSaveNew.TabIndex = 12
         Me.ButtonSaveNew.Text = "Save n New"
         Me.ButtonSaveNew.UseVisualStyleBackColor = True
         '
@@ -500,7 +507,7 @@ Partial Class PurchaseOrder
         Me.ButtonSaveClose.Location = New System.Drawing.Point(1034, 540)
         Me.ButtonSaveClose.Name = "ButtonSaveClose"
         Me.ButtonSaveClose.Size = New System.Drawing.Size(93, 31)
-        Me.ButtonSaveClose.TabIndex = 43
+        Me.ButtonSaveClose.TabIndex = 13
         Me.ButtonSaveClose.Text = "Save n Close"
         Me.ButtonSaveClose.UseVisualStyleBackColor = True
         '
@@ -510,15 +517,33 @@ Partial Class PurchaseOrder
         Me.Cancel.Location = New System.Drawing.Point(1143, 540)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(75, 31)
-        Me.Cancel.TabIndex = 44
+        Me.Cancel.TabIndex = 14
         Me.Cancel.Text = "Cancel"
         Me.Cancel.UseVisualStyleBackColor = True
+        '
+        'TextBoxKodeSupplier
+        '
+        Me.TextBoxKodeSupplier.Location = New System.Drawing.Point(350, 13)
+        Me.TextBoxKodeSupplier.Name = "TextBoxKodeSupplier"
+        Me.TextBoxKodeSupplier.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxKodeSupplier.TabIndex = 42
+        Me.TextBoxKodeSupplier.Visible = False
+        '
+        'TextBoxNamaSupplier
+        '
+        Me.TextBoxNamaSupplier.Location = New System.Drawing.Point(231, 12)
+        Me.TextBoxNamaSupplier.Name = "TextBoxNamaSupplier"
+        Me.TextBoxNamaSupplier.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxNamaSupplier.TabIndex = 43
+        Me.TextBoxNamaSupplier.Visible = False
         '
         'PurchaseOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1239, 583)
+        Me.Controls.Add(Me.TextBoxNamaSupplier)
+        Me.Controls.Add(Me.TextBoxKodeSupplier)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.ButtonSaveClose)
         Me.Controls.Add(Me.ButtonSaveNew)
@@ -541,15 +566,15 @@ Partial Class PurchaseOrder
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label8)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TextBoxNotes)
         Me.Controls.Add(Me.DataGridViewPO)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TextBoxShipTo)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.alamatVendor)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.DateTimePicker1)
-        Me.Controls.Add(Me.TextBox1)
+        Me.Controls.Add(Me.DateTimePickerPoDate)
+        Me.Controls.Add(Me.TextBoxPoNo)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.CheckInclusiveTax)
@@ -572,15 +597,15 @@ Partial Class PurchaseOrder
     Friend WithEvents CheckInclusiveTax As System.Windows.Forms.CheckBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TextBoxPoNo As System.Windows.Forms.TextBox
+    Friend WithEvents DateTimePickerPoDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents alamatVendor As System.Windows.Forms.TextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxShipTo As System.Windows.Forms.TextBox
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents DataGridViewPO As System.Windows.Forms.DataGridView
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxNotes As System.Windows.Forms.TextBox
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents Label10 As System.Windows.Forms.Label
@@ -606,4 +631,6 @@ Partial Class PurchaseOrder
     Friend WithEvents ButtonSaveNew As System.Windows.Forms.Button
     Friend WithEvents ButtonSaveClose As System.Windows.Forms.Button
     Friend WithEvents Cancel As System.Windows.Forms.Button
+    Friend WithEvents TextBoxKodeSupplier As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxNamaSupplier As System.Windows.Forms.TextBox
 End Class

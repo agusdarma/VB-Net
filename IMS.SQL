@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 28-Jan-15
+Modified: 31-Jan-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -226,6 +226,7 @@ CREATE TABLE purchase_order_header
   cost_ship Bigint,
   total_order Bigint,
   status_po Int,
+  created_by Varchar(32),
  PRIMARY KEY (id)
 )
 ;
@@ -251,9 +252,6 @@ CREATE TABLE purchase_order_detail
   price_total Bigint,
  PRIMARY KEY (id)
 )
-;
-
-ALTER TABLE purchase_order_detail ADD UNIQUE po_header_id (po_header_id)
 ;
 
 CREATE INDEX po_detail_idx ON purchase_order_detail (po_header_id,kode_item,nama_item)

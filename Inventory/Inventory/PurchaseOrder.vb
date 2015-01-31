@@ -14,7 +14,7 @@ Public Class PurchaseOrder
 
     Private Sub PurchaseOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inisialisasi()
-
+        TextBoxPoNo.Focus()
     End Sub
     Private Sub inisialisasi()
         Me.DataGridViewPO.ColumnCount = 7
@@ -38,6 +38,7 @@ Public Class PurchaseOrder
             TextBoxPPn.Visible = True
             CheckInclusiveTax.Enabled = True
             hitungPPn()
+            calculateTotalOrder()
         Else
             lblPPN.Visible = False
             LblPPnRp.Visible = False
@@ -46,6 +47,7 @@ Public Class PurchaseOrder
             CheckInclusiveTax.Enabled = False
             CheckInclusiveTax.Checked = False
             clearHitungPPn()
+            calculateTotalOrder()
             Exit Sub
         End If
         If CheckInclusiveTax.Checked = True Then
@@ -53,6 +55,7 @@ Public Class PurchaseOrder
             LblPPnRp.Visible = True
             TextBoxPPn.Visible = True
             lblTax.Visible = True
+            hitungPPnInclusiveTax()
         End If
     End Sub
 
@@ -114,7 +117,7 @@ Public Class PurchaseOrder
         Dim publictable As New DataTable
         Try
             con = jokenconn()
-            sql = "select address1,address2 from supplier where id ='" & id & "'"
+            sql = "select address1,address2,kode_supplier,name_supplier from supplier where id ='" & id & "'"
             With cmd
                 .Connection = con
                 .CommandText = sql
@@ -123,6 +126,8 @@ Public Class PurchaseOrder
             da.Fill(publictable)
             If publictable.Rows.Count > 0 Then
                 alamatVendor.Text = publictable.Rows(0).Item(0) + " " + publictable.Rows(0).Item(1)
+                TextBoxKodeSupplier.Text = publictable.Rows(0).Item(2)
+                TextBoxNamaSupplier.Text = publictable.Rows(0).Item(3)
             End If
         Catch ex As MySqlException
             MessageBox.Show("error : " + ex.ToString)
@@ -138,6 +143,7 @@ Public Class PurchaseOrder
 
     Private Sub CmbVendor_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbVendor.SelectionChangeCommitted
         findSupplierById(CmbVendor.SelectedValue)
+        TextBoxShipTo.Focus()
     End Sub
 
     Private Sub cmbVendorTaxable_CheckStateChanged(sender As Object, e As EventArgs) Handles CheckVendorTaxable.CheckStateChanged
@@ -256,6 +262,15 @@ Public Class PurchaseOrder
         ppn = (subTotal - valueDiskon) * 0.1
         TextBoxPPn.Text = FormatNumber(ppn.ToString, 0, TriState.True)
     End Sub
+    Private Sub hitungPPnInclusiveTax()
+        Dim subTotal As Long = 0
+        Dim valueDiskon As Long = 0
+        Dim ppn As Long = 0
+        subTotal = CLng(TextBoxSubTotal.Text)
+        valueDiskon = CLng(TextBoxValueDiskon.Text)
+        ppn = (subTotal - valueDiskon) * (10 / 110)
+        TextBoxPPn.Text = FormatNumber(ppn.ToString, 0, TriState.True)
+    End Sub
     Private Sub clearHitungPPn()
         TextBoxPPn.Text = FormatNumber("0", 0, TriState.True)
     End Sub
@@ -272,9 +287,18 @@ Public Class PurchaseOrder
             TextBoxValueDiskon.Focus()
             TextBoxValueDiskon.SelectAll()
             TextBoxValueDiskon.TextAlign = HorizontalAlignment.Left
+            If CheckInclusiveTax.Checked Then
+                hitungPPnInclusiveTax()
+            Else
+                hitungPPn()
+            End If
+            calculateTotalOrder()
         End If
     End Sub
     Private Sub calculatePctDiskon()
+        If TextBoxPctDiskon.Text = "" Then
+            TextBoxPctDiskon.Text = 0
+        End If
         Dim pctPersen As Long = CLng(TextBoxPctDiskon.Text)
         Dim subTotal As Long = CLng(TextBoxSubTotal.Text)
         Dim pctValue As Long = subTotal * (pctPersen / 100)
@@ -291,7 +315,11 @@ Public Class PurchaseOrder
         If TextBoxPPn.Visible = False Then
             ppnValue = 0
         End If
-        totalOrder = (subTotal - valueDiskon) + (ppnValue + freight)
+        If CheckInclusiveTax.Checked Then
+            totalOrder = (subTotal - valueDiskon) + freight
+        Else
+            totalOrder = (subTotal - valueDiskon) + (ppnValue + freight)
+        End If
         TextBoxTotalOrder.Text = FormatNumber(totalOrder.ToString, 0, TriState.True)
     End Sub
 
@@ -299,14 +327,27 @@ Public Class PurchaseOrder
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
             TextBoxValueDiskon.TextAlign = HorizontalAlignment.Right
+            If TextBoxValueDiskon.Text = "" Then
+                TextBoxValueDiskon.Text = 0
+                TextBoxPctDiskon.Text = 0
+            End If
             TextBoxValueDiskon.Text = FormatNumber(TextBoxValueDiskon.Text.ToString, 0, TriState.True)
             TextBoxFreight.Focus()
+            If CheckInclusiveTax.Checked Then
+                hitungPPnInclusiveTax()
+            Else
+                hitungPPn()
+            End If
+            calculateTotalOrder()
         End If
     End Sub
 
     Private Sub TextBoxFreight_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxFreight.KeyDown
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
+            If TextBoxFreight.Text = "" Then
+                TextBoxFreight.Text = 0
+            End If
             TextBoxFreight.Text = FormatNumber(TextBoxFreight.Text.ToString, 0, TriState.True)
             ButtonSaveNew.Focus()
             calculateTotalOrder()
@@ -316,4 +357,147 @@ Public Class PurchaseOrder
     Private Sub TextBoxValueDiskon_Leave(sender As Object, e As EventArgs) Handles TextBoxValueDiskon.Leave
         TextBoxValueDiskon.TextAlign = HorizontalAlignment.Right
     End Sub
+
+    Private Sub TextBoxPoNo_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxPoNo.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            DateTimePickerPoDate.Focus()
+        End If
+    End Sub
+
+    Private Sub DateTimePickerPoDate_KeyDown(sender As Object, e As KeyEventArgs) Handles DateTimePickerPoDate.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            CheckVendorTaxable.Focus()
+        End If
+    End Sub
+
+    Private Sub CheckVendorTaxable_KeyDown(sender As Object, e As KeyEventArgs) Handles CheckVendorTaxable.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            CheckInclusiveTax.Focus()
+        End If
+    End Sub
+
+    Private Sub CheckInclusiveTax_KeyDown(sender As Object, e As KeyEventArgs) Handles CheckInclusiveTax.KeyDown
+        If e.KeyCode = Keys.Enter Then
+            CmbVendor.Focus()
+        End If
+    End Sub
+
+    Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
+        insertPOHeader()
+    End Sub
+    Private Sub removeSeparator(txtBox As TextBox)
+        Dim temp As String
+        temp = txtBox.Text
+        temp = temp.Replace(",", "")
+        txtBox.Text = temp
+    End Sub
+
+    Private Sub removeSeparatorBeforeInsert()
+        removeSeparator(TextBoxFreight)
+        removeSeparator(TextBoxPPn)
+        removeSeparator(TextBoxPctDiskon)
+        removeSeparator(TextBoxSubTotal)
+        removeSeparator(TextBoxTotalOrder)
+        removeSeparator(TextBoxValueDiskon)
+    End Sub
+
+    Private Function insertPOHeader() As Integer
+        Dim rowEffected As Integer = 0
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Dim now As DateTime = DateTime.Now
+        Dim transaction As MySqlTransaction
+        Dim queryGetIdentity As String = "Select @@Identity"
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
+        Try
+            ' Insert PO Header
+            sql = "INSERT INTO purchase_order_header(kode_supplier,nama_supplier,alamat_supplier,ship_to,supplier_taxable,inclusive_tax,po_no,po_date,expected_date,fob,terms,ship_via,notes,available_dp,used_dp,sub_total,diskon,tax_value,cost_ship,total_order,status_po,created_by) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@ship_to,@supplier_taxable,@inclusive_tax,@po_no,@po_date,@expected_date,@fob,@terms,@ship_via,@notes,@available_dp,@used_dp,@sub_total,@diskon,@tax_value,@cost_ship,@total_order,@status_po,@created_by)"
+            Dim session As Session = Login.getSession()
+            removeSeparatorBeforeInsert()
+            sqlCommand.Connection = con
+            sqlCommand.Transaction = transaction
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@kode_supplier", TextBoxKodeSupplier.Text)
+            sqlCommand.Parameters.AddWithValue("@nama_supplier", TextBoxNamaSupplier.Text)
+            sqlCommand.Parameters.AddWithValue("@alamat_supplier", alamatVendor.Text)
+            sqlCommand.Parameters.AddWithValue("@ship_to", TextBoxShipTo.Text)
+            If CheckVendorTaxable.Checked = True Then
+                sqlCommand.Parameters.AddWithValue("@supplier_taxable", 1)
+            Else
+                sqlCommand.Parameters.AddWithValue("@supplier_taxable", 0)
+            End If
+            If CheckInclusiveTax.Checked = True Then
+                sqlCommand.Parameters.AddWithValue("@inclusive_tax", 1)
+            Else
+                sqlCommand.Parameters.AddWithValue("@inclusive_tax", 0)
+            End If
+            sqlCommand.Parameters.AddWithValue("@po_no", TextBoxPoNo.Text)
+            sqlCommand.Parameters.AddWithValue("@po_date", DateTimePickerPoDate.Value)
+            sqlCommand.Parameters.AddWithValue("@expected_date", DBNull.Value)
+            sqlCommand.Parameters.AddWithValue("@fob", DBNull.Value)
+            sqlCommand.Parameters.AddWithValue("@terms", DBNull.Value)
+            sqlCommand.Parameters.AddWithValue("@ship_via", DBNull.Value)
+            sqlCommand.Parameters.AddWithValue("@notes", TextBoxNotes.Text)
+            sqlCommand.Parameters.AddWithValue("@available_dp", DBNull.Value)
+            sqlCommand.Parameters.AddWithValue("@used_dp", DBNull.Value)
+            sqlCommand.Parameters.AddWithValue("@sub_total", TextBoxSubTotal.Text)
+            sqlCommand.Parameters.AddWithValue("@diskon", TextBoxValueDiskon.Text)
+            sqlCommand.Parameters.AddWithValue("@tax_value", TextBoxPPn.Text)
+            sqlCommand.Parameters.AddWithValue("@cost_ship", TextBoxFreight.Text)
+            sqlCommand.Parameters.AddWithValue("@total_order", TextBoxTotalOrder.Text)
+            sqlCommand.Parameters.AddWithValue("@status_po", 1)
+            sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
+            rowEffected = sqlCommand.ExecuteNonQuery()
+            sqlCommand.CommandText = queryGetIdentity
+            Dim ID As Long
+            ID = sqlCommand.ExecuteScalar()
+
+            ' Insert PO Detail
+            sql = "INSERT INTO purchase_order_detail(po_header_id,kode_item,nama_item,qty,satuan,price_per_unit,diskon,price_total) VALUES (@po_header_id,@kode_item,@nama_item,@qty,@satuan,@price_per_unit,@diskonDetail,@price_total)"
+            'sql = "INSERT INTO purchase_order_detail(po_header_id) VALUES (@po_header_id)"
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.Add("@po_header_id", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@qty", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@price_per_unit", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@diskonDetail", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@price_total", MySqlDbType.Int32)
+            For Each oItem As DataGridViewRow In DataGridViewPO.Rows
+                If oItem.Cells(0).Value = "" Then
+                    Continue For
+                End If
+                sqlCommand.Parameters("@po_header_id").Value = ID
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                sqlCommand.Parameters("@nama_item").Value = oItem.Cells(1).Value
+                sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
+                sqlCommand.Parameters("@satuan").Value = oItem.Cells(3).Value
+                sqlCommand.Parameters("@price_per_unit").Value = oItem.Cells(4).Value
+                sqlCommand.Parameters("@diskonDetail").Value = oItem.Cells(5).Value
+                sqlCommand.Parameters("@price_total").Value = oItem.Cells(6).Value
+                sqlCommand.ExecuteNonQuery()
+            Next
+            transaction.Commit()
+            con.Close()
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            Try
+                transaction.Rollback()
+            Catch ex2 As Exception
+                ' This catch block will handle any errors that may have occurred 
+                ' on the server that would cause the rollback to fail, such as 
+                ' a closed connection.
+                Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType())
+                Console.WriteLine("  Message: {0}", ex2.Message)
+            End Try
+        Finally
+            con.Close()
+        End Try
+            Return rowEffected
+    End Function
 End Class
