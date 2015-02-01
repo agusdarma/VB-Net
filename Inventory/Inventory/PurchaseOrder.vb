@@ -18,6 +18,15 @@ Public Class PurchaseOrder
         TextBoxPoNo.Focus()
     End Sub
     Private Sub inisialisasi()
+        Dim now As DateTime = DateTime.Now
+        Dim day As String = now.Day
+        Dim month As String = now.Month
+        Dim year As String = now.Year
+        Dim seq As Integer
+        seq = MainMenu.sequence + 1
+        Dim poNoSystem As String = "PO/" + day + "/" + month + "/" + year + "/" + seq.ToString
+        TextBoxPoNo.Text = poNoSystem
+
         Me.DataGridViewPO.ColumnCount = 7
         Me.DataGridViewPO.Columns(0).Name = "Kode Item"
         Me.DataGridViewPO.Columns(1).Name = "Nama Item"
@@ -543,6 +552,7 @@ Public Class PurchaseOrder
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MainMenu.sequence = MainMenu.sequence + 1
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             Try
