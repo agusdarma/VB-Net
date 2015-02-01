@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class PurchaseOrder
     Dim da As New MySqlDataAdapter
@@ -26,7 +27,7 @@ Public Class PurchaseOrder
         Me.DataGridViewPO.Columns(5).Name = "Diskon"
         Me.DataGridViewPO.Columns(6).Name = "Total Harga"
 
-        
+
         lblPPN.Visible = False
         LblPPnRp.Visible = False
         TextBoxPPn.Visible = False
@@ -356,6 +357,18 @@ Public Class PurchaseOrder
 
     Private Sub TextBoxValueDiskon_Leave(sender As Object, e As EventArgs) Handles TextBoxValueDiskon.Leave
         TextBoxValueDiskon.TextAlign = HorizontalAlignment.Right
+        If TextBoxValueDiskon.Text = "" Then
+            TextBoxValueDiskon.Text = 0
+            TextBoxPctDiskon.Text = 0
+        End If
+        TextBoxValueDiskon.Text = FormatNumber(TextBoxValueDiskon.Text.ToString, 0, TriState.True)
+        TextBoxFreight.Focus()
+        If CheckInclusiveTax.Checked Then
+            hitungPPnInclusiveTax()
+        Else
+            hitungPPn()
+        End If
+        calculateTotalOrder()
     End Sub
 
     Private Sub TextBoxPoNo_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBoxPoNo.KeyDown
@@ -383,8 +396,13 @@ Public Class PurchaseOrder
     End Sub
 
     Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
-        insertPOHeader()
-        clearAllFIeld()
+        If countPOByPONo(TextBoxPoNo.Text) = 0 Then
+            insertPOHeader()
+            clearAllFIeld()
+        Else
+            MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+        
     End Sub
     Private Sub clearAllFIeld()
         TextBoxKodeSupplier.Text = ""
@@ -503,11 +521,11 @@ Public Class PurchaseOrder
             sqlCommand.Parameters.Add("@po_header_id", MySqlDbType.Int32)
             sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
-            sqlCommand.Parameters.Add("@qty", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
-            sqlCommand.Parameters.Add("@price_per_unit", MySqlDbType.Int32)
-            sqlCommand.Parameters.Add("@diskonDetail", MySqlDbType.Int32)
-            sqlCommand.Parameters.Add("@price_total", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@price_per_unit", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@diskonDetail", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@price_total", MySqlDbType.Int64)
             For Each oItem As DataGridViewRow In DataGridViewPO.Rows
                 If oItem.Cells(0).Value = "" Then
                     Continue For
@@ -543,11 +561,101 @@ Public Class PurchaseOrder
     End Function
 
     Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
-        insertPOHeader()
-        Me.Close()
+        If countPOByPONo(TextBoxPoNo.Text) = 0 Then
+            insertPOHeader()
+            Me.Close()
+        Else
+            MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+        
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles ButtonSavePrint.Click
-        PreviewPrintPO.ShowDialog()
+    Private Sub printPoByNoPO(noPO As String)
+        Dim myData As New DataSet
+        Dim conn As New MySqlConnection
+        Dim sqlCommand As New MySqlCommand
+        Dim myAdapter As New MySqlDataAdapter
+        Dim sql As String
+        Dim sqlSelectGeneral As String = "select ph.po_no,ph.po_date,ph.nama_supplier,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit"
+        Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
+        Dim sqlSelectPnn As String
+        Try
+            If CheckVendorTaxable.Checked = False Then
+                sqlSelectPnn = ",'' as ppn "
+            Else
+                sqlSelectPnn = ",'Include PPN' as ppn "
+            End If
+            sql = sqlSelectGeneral + sqlSelectCompanyName + sqlSelectPnn + " from  purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id where ph.po_no = @poNo"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@poNo", noPO)
+            myAdapter.SelectCommand = sqlCommand
+            myAdapter.Fill(myData)
+            Dim myReport As New ReportDocument
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPO.rpt")
+            myReport.SetDataSource(myData)
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
+        If countPOByPONo(TextBoxPoNo.Text) = 0 Then
+            insertPOHeader()
+            printPoByNoPO(TextBoxPoNo.Text)
+            clearAllFIeld()
+
+        Else
+            MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        End If
+        
+    End Sub
+    Private Function countPOByPONo(noPO As String) As Integer
+        Dim nonqueryCommand As MySqlCommand
+        Dim db As Integer
+        Try
+            con = jokenconn()
+            con.Open()
+            nonqueryCommand = con.CreateCommand()
+            Dim Sql As String
+            Sql = "SELECT COUNT(*) from  purchase_order_header where po_no ='" & noPO & "'"
+            Dim scalarCommand As New MySqlCommand(Sql, con)
+            db = scalarCommand.ExecuteScalar()
+            con.Close()
+        Catch ex As MySqlException
+            Console.WriteLine("Error: " & ex.ToString())
+        Finally
+            con.Close()
+        End Try
+        Return db
+    End Function
+
+    Private Sub TextBoxPctDiskon_Leave(sender As Object, e As EventArgs) Handles TextBoxPctDiskon.Leave
+        calculatePctDiskon()
+        calculateTotalOrder()
+        TextBoxValueDiskon.Focus()
+        TextBoxValueDiskon.SelectAll()
+        TextBoxValueDiskon.TextAlign = HorizontalAlignment.Left
+        If CheckInclusiveTax.Checked Then
+            hitungPPnInclusiveTax()
+        Else
+            hitungPPn()
+        End If
+        calculateTotalOrder()
+    End Sub
+
+    Private Sub TextBoxFreight_Leave(sender As Object, e As EventArgs) Handles TextBoxFreight.Leave
+        If TextBoxFreight.Text = "" Then
+            TextBoxFreight.Text = 0
+        End If
+        TextBoxFreight.Text = FormatNumber(TextBoxFreight.Text.ToString, 0, TriState.True)
+        ButtonSaveNew.Focus()
+        calculateTotalOrder()
     End Sub
 End Class

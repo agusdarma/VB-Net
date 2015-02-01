@@ -266,7 +266,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StrukPO.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>StrukPO.vb</LastGenOutput>
+      <LastGenOutput>StrukPO1.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="CustomerAddFrm.resx">
       <DependentUpon>CustomerAddFrm.vb</DependentUpon>
