@@ -1,7 +1,6 @@
 ﻿Imports System.Windows.Forms
 
 Public Class MainMenu
-    Public sequence As Integer
 
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         Me.Close()

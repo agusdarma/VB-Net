@@ -23,7 +23,7 @@ Public Class PurchaseOrder
         Dim month As String = now.Month
         Dim year As String = now.Year
         Dim seq As Integer
-        seq = MainMenu.sequence + 1
+        seq = getPrimaryId()
         Dim poNoSystem As String = "PO/" + day + "/" + month + "/" + year + "/" + seq.ToString
         TextBoxPoNo.Text = poNoSystem
         idPrimary.Text = getPrimaryId().ToString
@@ -554,7 +554,6 @@ Public Class PurchaseOrder
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            MainMenu.sequence = MainMenu.sequence + 1
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             Try
@@ -685,6 +684,7 @@ Public Class PurchaseOrder
             con.Close()
             populateVendor()
             If publictable.Rows.Count > 0 Then
+                ' Header
                 If Not IsDBNull(publictable.Rows(0).Item(0)) Then
                     Me.idPrimary.Text = publictable.Rows(0).Item(0)
                 End If
@@ -742,6 +742,8 @@ Public Class PurchaseOrder
                 If Not IsDBNull(publictable.Rows(0).Item(21)) Then
                     TextBoxTotalOrder.Text = publictable.Rows(0).Item(21)
                 End If
+                'Detail
+
             Else
                 MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If
