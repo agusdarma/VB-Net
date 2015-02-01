@@ -669,12 +669,12 @@ Public Class PurchaseOrder
         ButtonSaveNew.Focus()
         calculateTotalOrder()
     End Sub
-    Private Sub findPOBySeq(idPrimary As String)
+    Private Sub findPOBySeqPrev(idPrimary As String)
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
         Try
             Dim publictable As New DataTable
-            sql = "select * from purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id   where ph.id < '" & idPrimary & "' order by ph.id desc limit 0,1"
+            sql = "select * from purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id where ph.id < '" & idPrimary & "' order by ph.id desc limit 0,1"
             con = jokenconn()
             con.Open()
             sqlCommand.Connection = con
@@ -682,54 +682,43 @@ Public Class PurchaseOrder
             da.SelectCommand = sqlCommand
             da.Fill(publictable)
             con.Close()
+            populateVendor()
             If publictable.Rows.Count > 0 Then
-                'it gets the data from specific column and assign to the variable
-                If Not IsDBNull(publictable.Rows(0).Item(1)) Then
-                    Me.KodeItem.Text = publictable.Rows(0).Item(1)
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(2)) Then
-                    Me.NamaItem.Text = publictable.Rows(0).Item(2)
+                    CmbVendor.SelectedIndex = CmbVendor.FindStringExact(publictable.Rows(0).Item(2))
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(3)) Then
-                    Me.qty.Text = publictable.Rows(0).Item(3)
+                    alamatVendor.Text = publictable.Rows(0).Item(3)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(4)) Then
-                    Dim itemType As String
-                    itemType = publictable.Rows(0).Item(4)
-                    If (itemType = "Inventory Part") Then
-                        RadioButtonInventory.Checked = True
-                    ElseIf (itemType = "Non Inventory Part") Then
-                        RadioButtonNonInventory.Checked = True
-                    ElseIf (itemType = "Service") Then
-                        RadioButtonService.Checked = True
-                    End If
+                    TextBoxShipTo.Text = publictable.Rows(0).Item(4)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(5)) Then
-                    ComboBoxStatus.SelectedValue = publictable.Rows(0).Item(5)
+                    Dim taxable As Integer
+                    taxable = publictable.Rows(0).Item(5)
+                    If taxable = 1 Then
+                        CheckVendorTaxable.Checked = True
+                    Else
+                        CheckVendorTaxable.Checked = False
+                    End If
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(6)) Then
-                    Me.satuan.Text = publictable.Rows(0).Item(6)
+                    Dim inclusiveTax As Integer
+                    inclusiveTax = publictable.Rows(0).Item(6)
+                    If inclusiveTax = 1 Then
+                        CheckInclusiveTax.Checked = True
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(7)) Then
-                    ComboBoxGudang.SelectedValue = publictable.Rows(0).Item(7)
+                    TextBoxPoNo.Text = publictable.Rows(0).Item(7)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(8)) Then
-                    ComboBoxKategori.SelectedValue = publictable.Rows(0).Item(8)
-                End If
-                If Not IsDBNull(publictable.Rows(0).Item(9)) Then
-                    ComboBoxSupplier.SelectedValue = publictable.Rows(0).Item(9)
-                End If
-                If Not IsDBNull(publictable.Rows(0).Item(10)) Then
-                    Me.salesPrice.Text = FormatNumber(publictable.Rows(0).Item(10), 0, TriState.True)
-                End If
-                If Not IsDBNull(publictable.Rows(0).Item(11)) Then
-                    Me.diskon.Text = FormatNumber(publictable.Rows(0).Item(11), 0, TriState.True)
-                End If
-                If Not IsDBNull(publictable.Rows(0).Item(12)) Then
-                    Me.TotalCost.Text = FormatNumber(publictable.Rows(0).Item(12), 0, TriState.True)
-                End If
-                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
-                    Me.Cost.Text = FormatNumber(publictable.Rows(0).Item(13), 0, TriState.True)
+                    DateTimePickerPoDate.Text = publictable.Rows(0).Item(8)
                 End If
             Else
                 MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -761,6 +750,6 @@ Public Class PurchaseOrder
         Return idPrimary
     End Function
     Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
-
+        findPOBySeqPrev(idPrimary.Text)
     End Sub
 End Class
