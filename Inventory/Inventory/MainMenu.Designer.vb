@@ -198,8 +198,10 @@ Partial Class MainMenu
         '
         'PurchaseOrderToolStripMenuItem
         '
+        Me.PurchaseOrderToolStripMenuItem.Image = CType(resources.GetObject("PurchaseOrderToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PurchaseOrderToolStripMenuItem.Name = "PurchaseOrderToolStripMenuItem"
-        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.PurchaseOrderToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
         Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
         '
         'PurchaseInvoiceToolStripMenuItem

@@ -4,6 +4,7 @@ Public Class ReceiveItems
     Dim da As New MySqlDataAdapter
     Dim con As MySqlConnection
     Dim ds As DataSet
+    Public kodeSupplier As String
     Private rowIndex As Integer = 0
     Public Function jokenconn() As MySqlConnection
         Dim urlDb As String
@@ -22,7 +23,7 @@ Public Class ReceiveItems
             da.Fill(ds, "supplier")
             con.Close()
             CmbVendor.DataSource = ds.Tables(0)
-            CmbVendor.ValueMember = "id"
+            CmbVendor.ValueMember = "kode_supplier"
             CmbVendor.DisplayMember = "name_supplier"
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -75,5 +76,15 @@ Public Class ReceiveItems
 
     Private Sub CmbVendor_Click(sender As Object, e As EventArgs) Handles CmbVendor.Click
         populateVendor()
+    End Sub
+
+    Private Sub BtnSelectPo_Click(sender As Object, e As EventArgs) Handles BtnSelectPo.Click
+        If CmbVendor.SelectedIndex = -1 Then
+            MessageBox.Show("Vendor / Supplier harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            CmbVendor.Focus()
+            Return
+        End If
+        kodeSupplier = CmbVendor.SelectedValue
+        SearchPOForm.ShowDialog()
     End Sub
 End Class
