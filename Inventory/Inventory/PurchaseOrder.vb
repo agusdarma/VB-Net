@@ -26,6 +26,7 @@ Public Class PurchaseOrder
         seq = MainMenu.sequence + 1
         Dim poNoSystem As String = "PO/" + day + "/" + month + "/" + year + "/" + seq.ToString
         TextBoxPoNo.Text = poNoSystem
+        idPrimary.Text = getPrimaryId().ToString
 
         Me.DataGridViewPO.ColumnCount = 7
         Me.DataGridViewPO.Columns(0).Name = "Kode Item"
@@ -667,5 +668,99 @@ Public Class PurchaseOrder
         TextBoxFreight.Text = FormatNumber(TextBoxFreight.Text.ToString, 0, TriState.True)
         ButtonSaveNew.Focus()
         calculateTotalOrder()
+    End Sub
+    Private Sub findPOBySeq(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            sql = "select * from purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id   where ph.id < '" & idPrimary & "' order by ph.id desc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            If publictable.Rows.Count > 0 Then
+                'it gets the data from specific column and assign to the variable
+                If Not IsDBNull(publictable.Rows(0).Item(1)) Then
+                    Me.KodeItem.Text = publictable.Rows(0).Item(1)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    Me.NamaItem.Text = publictable.Rows(0).Item(2)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    Me.qty.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    Dim itemType As String
+                    itemType = publictable.Rows(0).Item(4)
+                    If (itemType = "Inventory Part") Then
+                        RadioButtonInventory.Checked = True
+                    ElseIf (itemType = "Non Inventory Part") Then
+                        RadioButtonNonInventory.Checked = True
+                    ElseIf (itemType = "Service") Then
+                        RadioButtonService.Checked = True
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    ComboBoxStatus.SelectedValue = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    Me.satuan.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    ComboBoxGudang.SelectedValue = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    ComboBoxKategori.SelectedValue = publictable.Rows(0).Item(8)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(9)) Then
+                    ComboBoxSupplier.SelectedValue = publictable.Rows(0).Item(9)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(10)) Then
+                    Me.salesPrice.Text = FormatNumber(publictable.Rows(0).Item(10), 0, TriState.True)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(11)) Then
+                    Me.diskon.Text = FormatNumber(publictable.Rows(0).Item(11), 0, TriState.True)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(12)) Then
+                    Me.TotalCost.Text = FormatNumber(publictable.Rows(0).Item(12), 0, TriState.True)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    Me.Cost.Text = FormatNumber(publictable.Rows(0).Item(13), 0, TriState.True)
+                End If
+            Else
+                MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Private Function getPrimaryId() As Integer
+        Dim nonqueryCommand As MySqlCommand
+        Dim idPrimary As Integer
+        Try
+            con = jokenconn()
+            con.Open()
+            nonqueryCommand = con.CreateCommand()
+            Dim Sql As String
+            Sql = "select id from purchase_order_header order by id desc limit 0,1"
+            Dim scalarCommand As New MySqlCommand(Sql, con)
+            idPrimary = scalarCommand.ExecuteScalar()
+            idPrimary = idPrimary + 1
+            con.Close()
+        Catch ex As MySqlException
+            Console.WriteLine("Error: " & ex.ToString())
+        Finally
+            con.Close()
+        End Try
+        Return idPrimary
+    End Function
+    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
+
     End Sub
 End Class

@@ -71,6 +71,9 @@ Partial Class PurchaseOrder
         Me.TextBoxKodeSupplier = New System.Windows.Forms.TextBox()
         Me.TextBoxNamaSupplier = New System.Windows.Forms.TextBox()
         Me.SavePrint = New System.Windows.Forms.Button()
+        Me.PrevPO = New System.Windows.Forms.Button()
+        Me.NextPo = New System.Windows.Forms.Button()
+        Me.idPrimary = New System.Windows.Forms.TextBox()
         CType(Me.DataGridViewPO, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.SuspendLayout()
@@ -548,11 +551,42 @@ Partial Class PurchaseOrder
         Me.SavePrint.Text = "Save n Print"
         Me.SavePrint.UseVisualStyleBackColor = True
         '
+        'PrevPO
+        '
+        Me.PrevPO.BackColor = System.Drawing.Color.Lime
+        Me.PrevPO.Location = New System.Drawing.Point(1072, 4)
+        Me.PrevPO.Name = "PrevPO"
+        Me.PrevPO.Size = New System.Drawing.Size(75, 23)
+        Me.PrevPO.TabIndex = 45
+        Me.PrevPO.Text = "Prev"
+        Me.PrevPO.UseVisualStyleBackColor = False
+        '
+        'NextPo
+        '
+        Me.NextPo.BackColor = System.Drawing.Color.Lime
+        Me.NextPo.Location = New System.Drawing.Point(1153, 4)
+        Me.NextPo.Name = "NextPo"
+        Me.NextPo.Size = New System.Drawing.Size(75, 23)
+        Me.NextPo.TabIndex = 46
+        Me.NextPo.Text = "Next"
+        Me.NextPo.UseVisualStyleBackColor = False
+        '
+        'idPrimary
+        '
+        Me.idPrimary.Location = New System.Drawing.Point(468, 13)
+        Me.idPrimary.Name = "idPrimary"
+        Me.idPrimary.Size = New System.Drawing.Size(100, 20)
+        Me.idPrimary.TabIndex = 47
+        Me.idPrimary.Visible = False
+        '
         'PurchaseOrder
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1239, 583)
+        Me.Controls.Add(Me.idPrimary)
+        Me.Controls.Add(Me.NextPo)
+        Me.Controls.Add(Me.PrevPO)
         Me.Controls.Add(Me.SavePrint)
         Me.Controls.Add(Me.TextBoxNamaSupplier)
         Me.Controls.Add(Me.TextBoxKodeSupplier)
@@ -646,4 +680,7 @@ Partial Class PurchaseOrder
     Friend WithEvents TextBoxKodeSupplier As System.Windows.Forms.TextBox
     Friend WithEvents TextBoxNamaSupplier As System.Windows.Forms.TextBox
     Friend WithEvents SavePrint As System.Windows.Forms.Button
+    Friend WithEvents PrevPO As System.Windows.Forms.Button
+    Friend WithEvents NextPo As System.Windows.Forms.Button
+    Friend WithEvents idPrimary As System.Windows.Forms.TextBox
 End Class
