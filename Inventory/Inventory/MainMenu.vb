@@ -48,4 +48,8 @@ Public Class MainMenu
     Private Sub GenerateReportToolsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerateReportToolsToolStripMenuItem.Click
         GenerateReportTools.Show()
     End Sub
+
+    Private Sub ReceiveItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReceiveItemsToolStripMenuItem.Click
+        ReceiveItems.Show()
+    End Sub
 End Class

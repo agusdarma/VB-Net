@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ReceiveItems.Designer.vb">
+      <DependentUpon>ReceiveItems.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ReceiveItems.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StrukPO.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -263,6 +269,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReceiveItems.resx">
+      <DependentUpon>ReceiveItems.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StrukPO.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -108,7 +108,7 @@ Public Class PurchaseOrder
             ds = New DataSet()
             con = jokenconn()
             con.Open()
-            sql = "select * from supplier"
+            sql = "select * from supplier order by name_supplier asc"
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "supplier")
             con.Close()
