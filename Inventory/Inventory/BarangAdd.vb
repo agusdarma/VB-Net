@@ -86,11 +86,14 @@ Public Class BarangAdd
         Dim rowEffected As Integer
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
+        Dim transaction As MySqlTransaction
         Dim now As DateTime = DateTime.Now
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
         Try
             sql = "UPDATE items SET nama_item = @nama_item,quantity = @quantity,item_type = @item_type,item_status = @item_status,satuan = @satuan,gudang_id = @gudang_id,category_id = @category_id,supplier_id = @supplier_id,default_price = @default_price,default_diskon = @default_diskon,total_cost = @total_cost,cost = @cost ,updated_by = @updated_by ,updated_on = @updated_on WHERE kode_item = @kode_item"
-            con = jokenconn()
-            con.Open()
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
@@ -113,6 +116,14 @@ Public Class BarangAdd
             sqlCommand.Parameters.AddWithValue("@created_on", now)
             sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
+
+            ' update Items - Gudang
+            sql = "INSERT INTO items_gudang(gudang_id,item_id,qty) VALUES (@warehouse_id,@item_id,@qty)"
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@qty", qty.Text)
+            sqlCommand.ExecuteNonQuery()
+            transaction.Commit()
+
             con.Close()
             MessageBox.Show("Data has been updated", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
@@ -134,14 +145,18 @@ Public Class BarangAdd
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
         Dim now As DateTime = DateTime.Now
+        Dim transaction As MySqlTransaction
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
         Try
             sql = "INSERT INTO items (kode_item,nama_item,quantity,item_type,item_status,satuan,gudang_id,category_id,supplier_id,default_price,default_diskon,total_cost,cost,created_by,created_on,updated_on,updated_by)VALUES (@kode_item,@nama_item,@quantity,@item_type,@item_status,@satuan,@gudang_id,@category_id,@supplier_id,@default_price,@default_diskon,@total_cost,@cost,@created_by,@created_on,@updated_on,@updated_by)"
-            con = jokenconn()
-            con.Open()
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
+            sqlCommand.Transaction = transaction
             sqlCommand.Parameters.AddWithValue("@kode_item", KodeItem.Text)
             sqlCommand.Parameters.AddWithValue("@nama_item", NamaItem.Text)
             sqlCommand.Parameters.AddWithValue("@quantity", qty.Text)
@@ -160,10 +175,29 @@ Public Class BarangAdd
             sqlCommand.Parameters.AddWithValue("@created_on", now)
             sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
+
+
+            ' Insert Items - Gudang
+            sql = "INSERT INTO items_gudang(gudang_id,kode_item,qty) VALUES (@warehouse_id,@kode_item1,@qty)"
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@warehouse_id", ComboBoxGudang.SelectedValue)
+            sqlCommand.Parameters.AddWithValue("@kode_item1", KodeItem.Text)
+            sqlCommand.Parameters.AddWithValue("@qty", qty.Text)
+            sqlCommand.ExecuteNonQuery()
+            transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
+            Try
+                transaction.Rollback()
+            Catch ex2 As Exception
+                ' This catch block will handle any errors that may have occurred 
+                ' on the server that would cause the rollback to fail, such as 
+                ' a closed connection.
+                Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType())
+                Console.WriteLine("  Message: {0}", ex2.Message)
+            End Try
         Finally
             con.Close()
         End Try

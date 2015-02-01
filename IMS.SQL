@@ -258,6 +258,57 @@ CREATE TABLE purchase_order_detail
 CREATE INDEX po_detail_idx ON purchase_order_detail (po_header_id,kode_item,nama_item)
 ;
 
+-- Table receive_item_header
+
+CREATE TABLE receive_item_header
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_supplier Varchar(32) NOT NULL,
+  nama_supplier Varchar(32) NOT NULL,
+  alamat_supplier Varchar(256),
+  form_no Varchar(32),
+  receipt_no Varchar(32),
+  receive_date Datetime,
+  ship_date Datetime,
+  notes Varchar(256),
+ PRIMARY KEY (id),
+ UNIQUE id (id)
+)
+;
+
+ALTER TABLE receive_item_header ADD UNIQUE form_no (form_no)
+;
+
+-- Table recive_item_detail
+
+CREATE TABLE recive_item_detail
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  receive_header_id Bigint,
+  kode_item Varchar(32),
+  nama_item Varchar(64),
+  qty Bigint,
+  satuan Varchar(5),
+  nama_gudang Varchar(64),
+  po_no Varchar(64),
+ PRIMARY KEY (id),
+ UNIQUE id (id)
+)
+;
+
+-- Table items_gudang
+
+CREATE TABLE items_gudang
+(
+  gudang_id Bigint NOT NULL,
+  kode_item Varchar(32) NOT NULL,
+  qty Bigint
+)
+;
+
+ALTER TABLE items_gudang ADD PRIMARY KEY (gudang_id,kode_item)
+;
+
 
 
 INSERT INTO user
