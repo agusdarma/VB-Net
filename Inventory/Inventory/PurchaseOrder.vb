@@ -16,6 +16,7 @@ Public Class PurchaseOrder
     Private Sub PurchaseOrder_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inisialisasi()
         TextBoxPoNo.Focus()
+        idPrimary.Text = getPrimaryId().ToString
     End Sub
     Private Sub inisialisasi()
         Dim now As DateTime = DateTime.Now
@@ -26,7 +27,7 @@ Public Class PurchaseOrder
         seq = getPrimaryId()
         Dim poNoSystem As String = "PO/" + day + "/" + month + "/" + year + "/" + seq.ToString
         TextBoxPoNo.Text = poNoSystem
-        idPrimary.Text = getPrimaryId().ToString
+
 
         Me.DataGridViewPO.ColumnCount = 7
         Me.DataGridViewPO.Columns(0).Name = "Kode Item"
@@ -409,6 +410,8 @@ Public Class PurchaseOrder
         If countPOByPONo(TextBoxPoNo.Text) = 0 Then
             insertPOHeader()
             clearAllFIeld()
+            inisialisasi()
+            Me.idPrimary.Text = getPrimaryId().ToString
         Else
             MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
@@ -553,7 +556,7 @@ Public Class PurchaseOrder
             Next
             transaction.Commit()
             con.Close()
-            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)            
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
             Try
@@ -621,6 +624,8 @@ Public Class PurchaseOrder
             insertPOHeader()
             printPoByNoPO(TextBoxPoNo.Text)
             clearAllFIeld()
+            inisialisasi()
+            Me.idPrimary.Text = getPrimaryId().ToString
 
         Else
             MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
@@ -669,11 +674,118 @@ Public Class PurchaseOrder
         ButtonSaveNew.Focus()
         calculateTotalOrder()
     End Sub
+    Private Sub findPOBySeqNext(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id where ph.id > '" & idPrimary & "' order by ph.id asc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateVendor()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbVendor.SelectedIndex = CmbVendor.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    alamatVendor.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxShipTo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    Dim taxable As Integer
+                    taxable = publictable.Rows(0).Item(5)
+                    If taxable = 1 Then
+                        CheckVendorTaxable.Checked = True
+                    Else
+                        CheckVendorTaxable.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    Dim inclusiveTax As Integer
+                    inclusiveTax = publictable.Rows(0).Item(6)
+                    If inclusiveTax = 1 Then
+                        CheckInclusiveTax.Checked = True
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    TextBoxPoNo.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    DateTimePickerPoDate.Text = publictable.Rows(0).Item(8)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(13)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(16)) Then
+                    TextBoxSubTotal.Text = publictable.Rows(0).Item(16)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(17)) Then
+                    TextBoxValueDiskon.Text = publictable.Rows(0).Item(17)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(18)) Then
+                    TextBoxPctDiskon.Text = publictable.Rows(0).Item(18)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(19)) Then
+                    TextBoxPPn.Text = publictable.Rows(0).Item(19)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(20)) Then
+                    TextBoxFreight.Text = publictable.Rows(0).Item(20)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(21)) Then
+                    TextBoxTotalOrder.Text = publictable.Rows(0).Item(21)
+                End If
+                'Detail
+                sql = "select * from purchase_order_detail pd where pd.po_header_id = '" & publictable.Rows(0).Item(0) & "' order by pd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewPO.Rows.Clear()
+                DataGridViewPO.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("price_total").ToString()}
+                    DataGridViewPO.Rows.Add(row)
+                Next
+                DataGridViewPO.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is Last data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                clearAllFIeld()
+                inisialisasi()
+                Me.idPrimary.Text = getPrimaryId().ToString
+                enableButton()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
     Private Sub findPOBySeqPrev(idPrimary As String)
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
         Try
             Dim publictable As New DataTable
+            Dim detail As New DataTable
             sql = "select * from purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id where ph.id < '" & idPrimary & "' order by ph.id desc limit 0,1"
             con = jokenconn()
             con.Open()
@@ -743,15 +855,44 @@ Public Class PurchaseOrder
                     TextBoxTotalOrder.Text = publictable.Rows(0).Item(21)
                 End If
                 'Detail
-
+                sql = "select * from purchase_order_detail pd where pd.po_header_id = '" & publictable.Rows(0).Item(0) & "' order by pd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewPO.Rows.Clear()
+                DataGridViewPO.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("price_total").ToString()}
+                    DataGridViewPO.Rows.Add(row)
+                Next
+                DataGridViewPO.Refresh()
+                disableButton()
             Else
-                MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                MessageBox.Show("This is first data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
             con.Close()
         End Try
+    End Sub
+    Private Sub disableButton()
+        ButtonSaveClose.Enabled = False
+        ButtonSaveNew.Enabled = False
+        SavePrint.Enabled = False
+        Cancel.Enabled = False
+    End Sub
+    Private Sub enableButton()
+        ButtonSaveClose.Enabled = True
+        ButtonSaveNew.Enabled = True
+        SavePrint.Enabled = True
+        Cancel.Enabled = True
     End Sub
     Private Function getPrimaryId() As Integer
         Dim nonqueryCommand As MySqlCommand
@@ -773,7 +914,15 @@ Public Class PurchaseOrder
         End Try
         Return idPrimary
     End Function
-    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
+    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click        
         findPOBySeqPrev(idPrimary.Text)
+    End Sub
+
+    Private Sub NextPo_Click(sender As Object, e As EventArgs) Handles NextPo.Click
+        findPOBySeqNext(idPrimary.Text)
+    End Sub
+
+    Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
+        Me.Close()
     End Sub
 End Class
