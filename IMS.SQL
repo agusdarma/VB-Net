@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 31-Jan-15
+Modified: 01-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -222,6 +222,7 @@ CREATE TABLE purchase_order_header
   used_dp Bigint,
   sub_total Bigint,
   diskon Bigint,
+  diskon_pct Int,
   tax_value Bigint,
   cost_ship Bigint,
   total_order Bigint,

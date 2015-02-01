@@ -482,7 +482,7 @@ Public Class PurchaseOrder
             End If
 
             ' Insert PO Header
-            sql = "INSERT INTO purchase_order_header(kode_supplier,nama_supplier,alamat_supplier,ship_to,supplier_taxable,inclusive_tax,po_no,po_date,expected_date,fob,terms,ship_via,notes,available_dp,used_dp,sub_total,diskon,tax_value,cost_ship,total_order,status_po,created_by) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@ship_to,@supplier_taxable,@inclusive_tax,@po_no,@po_date,@expected_date,@fob,@terms,@ship_via,@notes,@available_dp,@used_dp,@sub_total,@diskon,@tax_value,@cost_ship,@total_order,@status_po,@created_by)"
+            sql = "INSERT INTO purchase_order_header(kode_supplier,nama_supplier,alamat_supplier,ship_to,supplier_taxable,inclusive_tax,po_no,po_date,expected_date,fob,terms,ship_via,notes,available_dp,used_dp,sub_total,diskon,tax_value,cost_ship,total_order,status_po,created_by,diskon_pct) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@ship_to,@supplier_taxable,@inclusive_tax,@po_no,@po_date,@expected_date,@fob,@terms,@ship_via,@notes,@available_dp,@used_dp,@sub_total,@diskon,@tax_value,@cost_ship,@total_order,@status_po,@created_by,@diskon_pct)"
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
@@ -519,6 +519,7 @@ Public Class PurchaseOrder
             sqlCommand.Parameters.AddWithValue("@total_order", TextBoxTotalOrder.Text)
             sqlCommand.Parameters.AddWithValue("@status_po", 1)
             sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
+            sqlCommand.Parameters.AddWithValue("@diskon_pct", TextBoxPctDiskon.Text)
             rowEffected = sqlCommand.ExecuteNonQuery()
             sqlCommand.CommandText = queryGetIdentity
             Dim ID As Long
@@ -719,6 +720,27 @@ Public Class PurchaseOrder
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(8)) Then
                     DateTimePickerPoDate.Text = publictable.Rows(0).Item(8)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(13)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(16)) Then
+                    TextBoxSubTotal.Text = publictable.Rows(0).Item(16)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(17)) Then
+                    TextBoxValueDiskon.Text = publictable.Rows(0).Item(17)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(18)) Then
+                    TextBoxPctDiskon.Text = publictable.Rows(0).Item(18)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(19)) Then
+                    TextBoxPPn.Text = publictable.Rows(0).Item(19)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(20)) Then
+                    TextBoxFreight.Text = publictable.Rows(0).Item(20)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(21)) Then
+                    TextBoxTotalOrder.Text = publictable.Rows(0).Item(21)
                 End If
             Else
                 MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
