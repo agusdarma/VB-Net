@@ -108,6 +108,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PoVO.vb" />
     <Compile Include="SearchPOForm.Designer.vb">
       <DependentUpon>SearchPOForm.vb</DependentUpon>
     </Compile>
