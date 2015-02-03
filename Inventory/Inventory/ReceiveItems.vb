@@ -35,6 +35,7 @@ Public Class ReceiveItems
     Private Sub ReceiveItems_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inisialisasi()
         TextBoxReceiptNo.Focus()
+        idPrimary.Text = getPrimaryId().ToString
     End Sub
     Private Sub inisialisasi()
         Dim now As DateTime = DateTime.Now
@@ -442,5 +443,215 @@ Public Class ReceiveItems
         Finally
             con.Close()
         End Try
+    End Sub
+
+    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
+        findRIBySeqPrev(idPrimary.Text)
+    End Sub
+    Private Sub findRIBySeqPrev(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from receive_item_header rh inner join receive_item_detail rd on rh.id = rd.receive_header_id where rh.id < '" & idPrimary & "' order by rh.id desc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateVendor()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbVendor.SelectedIndex = CmbVendor.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    alamatVendor.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxFormNo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    TextBoxReceiptNo.Text = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    DateTimePickerReceiveDate.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    DateTimePickerShipDate.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(8)
+                End If
+                'Detail
+                sql = "select * from receive_item_detail rd where rd.receive_header_id = '" & publictable.Rows(0).Item(0) & "' order by rd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewRI.Rows.Clear()
+                DataGridViewRI.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("kode_gudang").ToString()}
+                    DataGridViewRI.Rows.Add(row)
+                Next
+                Dim cmb As New DataGridViewComboBoxColumn()
+                cmb.HeaderText = "Nama Gudang"
+                cmb.Name = "CmbGudang"
+                Dim dt As DataTable = New DataTable()
+                dt = getListGudang()
+                If dt.Rows.Count > 0 Then
+                    If DataGridViewRI.Columns.Count = 7 Then
+                        DataGridViewRI.Columns.RemoveAt(DataGridViewRI.Columns.Count - 1)
+                    End If
+                    cmb.ValueMember = "kode_gudang"
+                    cmb.DisplayMember = "nama_gudang"
+                    cmb.DataSource = dt
+                    cmb.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    DataGridViewRI.Columns.Add(cmb)
+                    DataGridViewRI.Columns(5).Visible = False
+                    DataGridViewRI.Columns(2).DefaultCellStyle.BackColor = Color.Aquamarine
+                    For Each oItem As DataGridViewRow In DataGridViewRI.Rows
+                        oItem.Cells("CmbGudang").Value = oItem.Cells(5).Value
+                        oItem.Cells(0).ReadOnly = True
+                        oItem.Cells(1).ReadOnly = True
+                        oItem.Cells(3).ReadOnly = True
+                        oItem.Cells(4).ReadOnly = True
+                    Next
+                End If
+                DataGridViewRI.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is first data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Private Sub findRIBySeqNext(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from receive_item_header rh inner join receive_item_detail rd on rh.id = rd.receive_header_id where rh.id > '" & idPrimary & "' order by rh.id asc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateVendor()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbVendor.SelectedIndex = CmbVendor.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    alamatVendor.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxFormNo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    TextBoxReceiptNo.Text = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    DateTimePickerReceiveDate.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    DateTimePickerShipDate.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(8)
+                End If
+                'Detail
+                sql = "select * from receive_item_detail rd where rd.receive_header_id = '" & publictable.Rows(0).Item(0) & "' order by rd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewRI.Rows.Clear()
+                DataGridViewRI.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("kode_gudang").ToString()}
+                    DataGridViewRI.Rows.Add(row)
+                Next
+                Dim cmb As New DataGridViewComboBoxColumn()
+                cmb.HeaderText = "Nama Gudang"
+                cmb.Name = "CmbGudang"
+                Dim dt As DataTable = New DataTable()
+                dt = getListGudang()
+                If dt.Rows.Count > 0 Then
+                    If DataGridViewRI.Columns.Count = 7 Then
+                        DataGridViewRI.Columns.RemoveAt(DataGridViewRI.Columns.Count - 1)
+                    End If
+                    cmb.ValueMember = "kode_gudang"
+                    cmb.DisplayMember = "nama_gudang"
+                    cmb.DataSource = dt
+                    cmb.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+                    DataGridViewRI.Columns.Add(cmb)
+                    DataGridViewRI.Columns(5).Visible = False
+                    DataGridViewRI.Columns(2).DefaultCellStyle.BackColor = Color.Aquamarine
+                    For Each oItem As DataGridViewRow In DataGridViewRI.Rows
+                        oItem.Cells("CmbGudang").Value = oItem.Cells(5).Value
+                        oItem.Cells(0).ReadOnly = True
+                        oItem.Cells(1).ReadOnly = True
+                        oItem.Cells(3).ReadOnly = True
+                        oItem.Cells(4).ReadOnly = True
+                    Next
+                End If
+                DataGridViewRI.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is last data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                clearAllFIeld()
+                inisialisasi()
+                Me.idPrimary.Text = getPrimaryId().ToString
+                enableButton()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Private Sub disableButton()
+        ButtonSaveClose.Enabled = False
+        ButtonSaveNew.Enabled = False
+        SavePrint.Enabled = False
+        Cancel.Enabled = False
+    End Sub
+    Private Sub enableButton()
+        ButtonSaveClose.Enabled = True
+        ButtonSaveNew.Enabled = True
+        SavePrint.Enabled = True
+        Cancel.Enabled = True
+    End Sub
+
+    Private Sub NextPo_Click(sender As Object, e As EventArgs) Handles NextPo.Click
+        findRIBySeqNext(idPrimary.Text)
     End Sub
 End Class
