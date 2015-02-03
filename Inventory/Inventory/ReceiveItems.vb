@@ -111,7 +111,7 @@ Public Class ReceiveItems
         Dim dt As DataTable = New DataTable()
         dt = getListGudang()
         If dt.Rows.Count > 0 Then
-            cmb.ValueMember = "id"
+            cmb.ValueMember = "nama_gudang"
             cmb.DisplayMember = "nama_gudang"
             cmb.DataSource = dt
             cmb.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -119,7 +119,7 @@ Public Class ReceiveItems
             DataGridViewRI.Columns(5).Visible = False
             DataGridViewRI.Columns(2).DefaultCellStyle.BackColor = Color.Aquamarine
             For Each oItem As DataGridViewRow In DataGridViewRI.Rows
-                oItem.Cells("CmbGudang").Value = CInt(oItem.Cells(5).Value)
+                oItem.Cells("CmbGudang").Value = oItem.Cells(5).Value
                 oItem.Cells(0).ReadOnly = True
                 oItem.Cells(1).ReadOnly = True
                 oItem.Cells(3).ReadOnly = True
@@ -135,7 +135,7 @@ Public Class ReceiveItems
         Try
             con = jokenconn()
             con.Open()
-            sql = "select id,nama_gudang from gudang order by nama_gudang asc"
+            sql = "select nama_gudang,nama_gudang from gudang order by nama_gudang asc"
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             da.SelectCommand = sqlCommand
@@ -156,7 +156,7 @@ Public Class ReceiveItems
         Try
             con = jokenconn()
             con.Open()
-            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,g.id,ph.po_no from purchase_order_header ph left join purchase_order_detail pd on ph.id = pd.po_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.po_no ='" & poNo & "'"
+            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,g.nama_gudang,ph.po_no from purchase_order_header ph left join purchase_order_detail pd on ph.id = pd.po_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.po_no ='" & poNo & "'"
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             da.SelectCommand = sqlCommand
@@ -165,7 +165,7 @@ Public Class ReceiveItems
             If publictable.Rows.Count > 0 Then                
                 Dim row As String()
                 For Each oRecord As Object In publictable.Rows
-                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("id").ToString()}
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("nama_gudang").ToString()}
                     DataGridViewRI.Rows.Add(row)
                 Next                
             End If
@@ -183,12 +183,7 @@ Public Class ReceiveItems
             ' Set the current cell to the cell in column 2, Row 0. 
             DataGridViewRI.CurrentCell = Me.DataGridViewRI(e.ColumnIndex, e.RowIndex)
             DataGridViewRI.BeginEdit(True)
-            'ElseIf e.ColumnIndex = 6 Then
-            '    DataGridViewRI.ClearSelection()
-            '    DataGridViewRI.Rows(e.RowIndex).Cells(e.ColumnIndex).Selected = True
-            '    ' Set the current cell to the cell in column 1, Row 0. 
-            '    DataGridViewRI.CurrentCell = Me.DataGridViewRI(e.ColumnIndex, e.RowIndex)
-            '    DataGridViewRI.BeginEdit(True)
+            
         End If
     End Sub
 
@@ -216,6 +211,8 @@ Public Class ReceiveItems
             da.Fill(publictable)
             If publictable.Rows.Count > 0 Then
                 alamatVendor.Text = publictable.Rows(0).Item(0) + " " + publictable.Rows(0).Item(1)
+                TextBoxKodeSupplier.Text = publictable.Rows(0).Item(2)
+                TextBoxNamaSupplier.Text = publictable.Rows(0).Item(3)
             End If
         Catch ex As MySqlException
             MessageBox.Show("error : " + ex.ToString)
@@ -224,4 +221,126 @@ Public Class ReceiveItems
         End Try
         Return db
     End Function
+    Private Function insertRI() As Integer
+        Dim rowEffected As Integer = 0
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Dim now As DateTime = DateTime.Now
+        Dim transaction As MySqlTransaction
+        Dim queryGetIdentity As String = "Select @@Identity"
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
+        Try
+
+            'validasi
+            If TextBoxReceiptNo.Text = "" Then
+                MessageBox.Show("Receipt No harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextBoxReceiptNo.Focus()
+                Return 0
+            End If
+
+            If CmbVendor.SelectedIndex = -1 Then
+                MessageBox.Show("Vendor / Supplier harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                CmbVendor.Focus()
+                Return 0
+            End If
+
+            If DataGridViewRI.Rows.Count = 0 Then
+                MessageBox.Show("Items harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return 0
+            End If
+
+            ' Insert RI Header
+            sql = "INSERT INTO receive_item_header(kode_supplier,nama_supplier,alamat_supplier,form_no,receipt_no,receive_date,ship_date,notes) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@form_no,@receipt_no,@receive_date,@ship_date,@notes)"
+            Dim session As Session = Login.getSession()
+            sqlCommand.Connection = con
+            sqlCommand.Transaction = transaction
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@kode_supplier", TextBoxKodeSupplier.Text)
+            sqlCommand.Parameters.AddWithValue("@nama_supplier", TextBoxNamaSupplier.Text)
+            sqlCommand.Parameters.AddWithValue("@alamat_supplier", alamatVendor.Text)
+            sqlCommand.Parameters.AddWithValue("@form_no", TextBoxFormNo.Text)
+            sqlCommand.Parameters.AddWithValue("@receipt_no", TextBoxReceiptNo.Text)
+            sqlCommand.Parameters.AddWithValue("@receive_date", DateTimePickerReceiveDate.Value)
+            sqlCommand.Parameters.AddWithValue("@ship_date", DateTimePickerShipDate.Value)
+            sqlCommand.Parameters.AddWithValue("@notes", TextBoxNotes.Text)
+            rowEffected = sqlCommand.ExecuteNonQuery()
+            sqlCommand.CommandText = queryGetIdentity
+            Dim ID As Long
+            ID = sqlCommand.ExecuteScalar()
+
+            ' Insert RI Detail
+            sql = "INSERT INTO receive_item_detail(receive_header_id,kode_item,nama_item,qty,satuan,po_no,nama_gudang) VALUES (@receive_header_id,@kode_item,@nama_item,@qty,@satuan,@po_no,@nama_gudang)"
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.Add("@receive_header_id", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@po_no", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@nama_gudang", MySqlDbType.VarChar)
+            For Each oItem As DataGridViewRow In DataGridViewRI.Rows
+                If oItem.Cells(0).Value = "" Then
+                    Continue For
+                End If
+                sqlCommand.Parameters("@receive_header_id").Value = ID
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                sqlCommand.Parameters("@nama_item").Value = oItem.Cells(1).Value
+                sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
+                sqlCommand.Parameters("@satuan").Value = oItem.Cells(3).Value
+                sqlCommand.Parameters("@po_no").Value = oItem.Cells(4).Value
+                sqlCommand.Parameters("@nama_gudang").Value = oItem.Cells(6).Value
+                sqlCommand.ExecuteNonQuery()
+            Next
+            transaction.Commit()
+            con.Close()
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            Try
+                transaction.Rollback()
+            Catch ex2 As Exception
+                ' This catch block will handle any errors that may have occurred 
+                ' on the server that would cause the rollback to fail, such as 
+                ' a closed connection.
+                Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType())
+                Console.WriteLine("  Message: {0}", ex2.Message)
+            End Try
+        Finally
+            con.Close()
+        End Try
+        Return rowEffected
+    End Function
+
+    Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
+        insertRI()
+        clearAllFIeld()
+        inisialisasi()
+        Me.idPrimary.Text = getPrimaryId().ToString
+    End Sub
+    Private Sub clearAllFIeld()
+        TextBoxKodeSupplier.Text = ""
+        TextBoxNamaSupplier.Text = ""
+        alamatVendor.Text = ""
+        TextBoxFormNo.Text = ""
+        TextBoxReceiptNo.Text = ""
+        DataGridViewRI.Rows.Clear()
+        TextBoxNotes.Text = ""
+        CmbVendor.SelectedIndex = -1
+    End Sub
+
+    Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
+        insertRI()
+        Me.Close()
+    End Sub
+
+    Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
+        insertRI()
+        'printPoByNoPO(TextBoxPoNo.Text)
+        clearAllFIeld()
+        inisialisasi()
+        Me.idPrimary.Text = getPrimaryId().ToString
+    End Sub
 End Class

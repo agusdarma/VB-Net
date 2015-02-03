@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 01-Feb-15
+Modified: 03-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -279,9 +279,9 @@ CREATE TABLE receive_item_header
 ALTER TABLE receive_item_header ADD UNIQUE form_no (form_no)
 ;
 
--- Table recive_item_detail
+-- Table receive_item_detail
 
-CREATE TABLE recive_item_detail
+CREATE TABLE receive_item_detail
 (
   id Bigint NOT NULL AUTO_INCREMENT,
   receive_header_id Bigint,

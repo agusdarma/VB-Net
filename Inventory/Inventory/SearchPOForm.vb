@@ -19,7 +19,7 @@ Public Class SearchPOForm
 
         'Dim row As String() = New String() {"1", "Product 1", "1000"}
         'DataGridViewListPO.Rows.Add(row)
-
+        DataGridViewListPO.Rows.Clear()
         findPOKodeSupplier(ReceiveItems.kodeSupplier)
 
         Dim chk As New DataGridViewCheckBoxColumn()
@@ -34,7 +34,7 @@ Public Class SearchPOForm
         Dim sql As String
         Try
             Dim publictable As New DataTable
-            sql = "select po_no, po_date, nama_supplier from purchase_order_header where kode_supplier = '" & kodeSupplier & "' order by po_date asc"
+            sql = "select po_no, po_date, nama_supplier from purchase_order_header where kode_supplier = '" & kodeSupplier & "' and status_po = 1 order by po_date asc"
             con = jokenconn()
             con.Open()
             sqlCommand.Connection = con
@@ -53,6 +53,7 @@ Public Class SearchPOForm
                 DataGridViewListPO.Refresh()
             Else
                 MessageBox.Show("List PO Not Found", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Me.Close()
             End If
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
