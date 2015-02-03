@@ -85,6 +85,11 @@ Public Class ReceiveItems
             CmbVendor.Focus()
             Return
         End If
+        If TextBoxReceiptNo.Text = "" Then
+            MessageBox.Show("Receipt No harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            TextBoxReceiptNo.Focus()
+            Return
+        End If
         kodeSupplier = CmbVendor.SelectedValue
         SearchPOForm.ShowDialog()
     End Sub
