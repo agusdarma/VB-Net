@@ -305,7 +305,7 @@ Public Class ReceiveItems
                 sqlCommand.ExecuteNonQuery()
 
 
-
+                ' cari qty awal tiap item  
                 sql = "select qty from items_gudang where gudang_id = (select id from gudang where kode_gudang = @kode_gudang) and kode_item = @kode_item"
                 sqlCommand.CommandText = sql
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
@@ -313,6 +313,7 @@ Public Class ReceiveItems
                 Dim qtyAwal As Long
                 qtyAwal = sqlCommand.ExecuteScalar()
 
+                ' check di gudang sudah pernah ada apa belum barang yang di delivered, kalo belum ada insert kalo sudah update
                 sql = "select count(*) from items_gudang where gudang_id = (select id from gudang where kode_gudang = @kode_gudang) and kode_item = @kode_item"
                 sqlCommand.CommandText = sql
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
