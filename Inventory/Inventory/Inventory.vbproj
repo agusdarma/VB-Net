@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StrukRI.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StrukRI.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="PoVO.vb" />
     <Compile Include="SearchPOForm.Designer.vb">
       <DependentUpon>SearchPOForm.vb</DependentUpon>
@@ -276,6 +282,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StrukRI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StrukRI.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ReceiveItems.resx">
       <DependentUpon>ReceiveItems.vb</DependentUpon>

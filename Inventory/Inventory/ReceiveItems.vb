@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class ReceiveItems
     Dim da As New MySqlDataAdapter
@@ -125,7 +126,7 @@ Public Class ReceiveItems
                 oItem.Cells(3).ReadOnly = True
                 oItem.Cells(4).ReadOnly = True
             Next
-        End If        
+        End If
         DataGridViewRI.Refresh()
     End Sub
     Private Function getListGudang() As DataTable
@@ -162,12 +163,12 @@ Public Class ReceiveItems
             da.SelectCommand = sqlCommand
             da.Fill(publictable)
             con.Close()
-            If publictable.Rows.Count > 0 Then                
+            If publictable.Rows.Count > 0 Then
                 Dim row As String()
                 For Each oRecord As Object In publictable.Rows
                     row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("kode_gudang").ToString()}
                     DataGridViewRI.Rows.Add(row)
-                Next                
+                Next
             End If
         Catch ex As MySqlException
             MessageBox.Show("error : " + ex.ToString)
@@ -183,7 +184,7 @@ Public Class ReceiveItems
             ' Set the current cell to the cell in column 2, Row 0. 
             DataGridViewRI.CurrentCell = Me.DataGridViewRI(e.ColumnIndex, e.RowIndex)
             DataGridViewRI.BeginEdit(True)
-            
+
         End If
     End Sub
 
@@ -272,7 +273,7 @@ Public Class ReceiveItems
             ID = sqlCommand.ExecuteScalar()
 
             ' Insert RI Detail
-            
+
             sqlCommand.Parameters.Add("@receive_header_id", MySqlDbType.Int32)
             sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
@@ -281,6 +282,8 @@ Public Class ReceiveItems
             sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@po_no", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@kode_gudang", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@updated_on", MySqlDbType.DateTime)
+            sqlCommand.Parameters.Add("@updated_by", MySqlDbType.VarChar)
             For Each oItem As DataGridViewRow In DataGridViewRI.Rows
                 sql = "INSERT INTO receive_item_detail(receive_header_id,kode_item,nama_item,qty,satuan,po_no,kode_gudang) VALUES (@receive_header_id,@kode_item,@nama_item,@qty,@satuan,@po_no,@kode_gudang)"
                 sqlCommand.CommandText = sql
@@ -305,7 +308,7 @@ Public Class ReceiveItems
                 sqlCommand.ExecuteNonQuery()
 
 
-                ' cari qty awal tiap item  
+                ' cari qty awal tiap item di gudang 
                 sql = "select qty from items_gudang where gudang_id = (select id from gudang where kode_gudang = @kode_gudang) and kode_item = @kode_item"
                 sqlCommand.CommandText = sql
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
@@ -339,9 +342,24 @@ Public Class ReceiveItems
                     sqlCommand.ExecuteNonQuery()
                 End If
 
+
+                ' cari qty awal tiap item  di master
+                'sql = "select quantity from items WHERE kode_item = @kode_item"
+                'sqlCommand.CommandText = sql
+                'sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                'qtyAwal = sqlCommand.ExecuteScalar()
+
+                ' update stok items, di sum dari semua gudang
+                sql = "UPDATE items SET quantity = (select sum(qty) as jumlahTotItem from items_gudang where kode_item = @kode_item) ,updated_on = @updated_on ,updated_by = @updated_by WHERE kode_item = @kode_item"
+                sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                sqlCommand.Parameters("@updated_on").Value = now
+                'sqlCommand.Parameters("@qtyAwal").Value = qtyAwal
+                sqlCommand.Parameters("@updated_by").Value = session.Code
+                sqlCommand.ExecuteNonQuery()
             Next
             
-            
+
 
             transaction.Commit()
             con.Close()
@@ -387,9 +405,42 @@ Public Class ReceiveItems
 
     Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
         insertRI()
-        'printPoByNoPO(TextBoxPoNo.Text)
+        printRIByFormNo(TextBoxFormNo.Text)
         clearAllFIeld()
         inisialisasi()
         Me.idPrimary.Text = getPrimaryId().ToString
+    End Sub
+
+    Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
+        Me.Close()
+    End Sub
+
+    Private Sub printRIByFormNo(formNo As String)
+        Dim myData As New DataSet
+        Dim conn As New MySqlConnection
+        Dim sqlCommand As New MySqlCommand
+        Dim myAdapter As New MySqlDataAdapter
+        Dim sql As String
+        Dim sqlSelectGeneral As String = "select rh.kode_supplier,rh.nama_supplier,rh.alamat_supplier,rh.form_no,rh.receipt_no,rh.receive_date,rh.ship_date,rh.notes,rd.kode_item,rd.nama_item,rd.qty"
+        Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
+        Try
+            sql = sqlSelectGeneral + sqlSelectCompanyName + " from receive_item_header rh inner join receive_item_detail rd on rh.id = rd.receive_header_id where rh.form_no = @formNo"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@formNo", formNo)
+            myAdapter.SelectCommand = sqlCommand
+            myAdapter.Fill(myData)
+            Dim myReport As New ReportDocument
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukRI.rpt")
+            myReport.SetDataSource(myData)
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class
