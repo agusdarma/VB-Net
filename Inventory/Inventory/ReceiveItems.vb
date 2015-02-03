@@ -272,17 +272,19 @@ Public Class ReceiveItems
             ID = sqlCommand.ExecuteScalar()
 
             ' Insert RI Detail
-            sql = "INSERT INTO receive_item_detail(receive_header_id,kode_item,nama_item,qty,satuan,po_no,nama_gudang) VALUES (@receive_header_id,@kode_item,@nama_item,@qty,@satuan,@po_no,@nama_gudang)"
-            sqlCommand.CommandText = sql
+            
             sqlCommand.Parameters.Add("@receive_header_id", MySqlDbType.Int32)
             sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@qtyAwal", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@po_no", MySqlDbType.VarChar)
-            sqlCommand.Parameters.Add("@nama_gudang", MySqlDbType.VarChar)
-            Dim PoNumber As String = ""
+            sqlCommand.Parameters.Add("@kode_gudang", MySqlDbType.VarChar)
             For Each oItem As DataGridViewRow In DataGridViewRI.Rows
+                sql = "INSERT INTO receive_item_detail(receive_header_id,kode_item,nama_item,qty,satuan,po_no,kode_gudang) VALUES (@receive_header_id,@kode_item,@nama_item,@qty,@satuan,@po_no,@kode_gudang)"
+                sqlCommand.CommandText = sql
+                Dim PoNumber As String
                 If oItem.Cells(0).Value = "" Then
                     Continue For
                 End If
@@ -293,16 +295,52 @@ Public Class ReceiveItems
                 sqlCommand.Parameters("@satuan").Value = oItem.Cells(3).Value
                 sqlCommand.Parameters("@po_no").Value = oItem.Cells(4).Value
                 PoNumber = oItem.Cells(4).Value
-                sqlCommand.Parameters("@nama_gudang").Value = oItem.Cells(6).Value
+                sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
                 sqlCommand.ExecuteNonQuery()
-            Next
-            ' update purchase order header ubah status menjadi 2 karena sudah di received barang nya
-            sql = "UPDATE purchase_order_header SET status_po = 2 WHERE po_no = @po_no"
-            sqlCommand.CommandText = sql
-            sqlCommand.Parameters("@po_no").Value = PoNumber
-            sqlCommand.ExecuteNonQuery()
-            ' update stok barang di gudang mana
 
+                ' update purchase order header ubah status menjadi 2 karena sudah di received barang nya
+                sql = "UPDATE purchase_order_header SET status_po = 2 WHERE po_no = @po_no"
+                sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@po_no").Value = PoNumber
+                sqlCommand.ExecuteNonQuery()
+
+
+
+                sql = "select qty from items_gudang where gudang_id = (select id from gudang where kode_gudang = @kode_gudang) and kode_item = @kode_item"
+                sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
+                Dim qtyAwal As Long
+                qtyAwal = sqlCommand.ExecuteScalar()
+
+                sql = "select count(*) from items_gudang where gudang_id = (select id from gudang where kode_gudang = @kode_gudang) and kode_item = @kode_item"
+                sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
+                Dim exist As Long ' 0 tidak exist, 1 exist
+                exist = sqlCommand.ExecuteScalar()
+                ' update stok barang di gudang mana  
+                If exist > 0 Then
+                    sql = "UPDATE items_gudang SET qty = @qtyAwal + @qty WHERE gudang_id = (select id from gudang where kode_gudang = @kode_gudang) AND kode_item = @kode_item"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
+                    sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                    sqlCommand.Parameters("@qtyAwal").Value = qtyAwal
+                    sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
+                    sqlCommand.ExecuteNonQuery()
+                Else
+                    sql = "INSERT INTO items_gudang(gudang_id,kode_item,qty) VALUES ((select id from gudang where kode_gudang = @kode_gudang),@kode_item,@qtyAwal + @qty)"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
+                    sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                    sqlCommand.Parameters("@qtyAwal").Value = qtyAwal
+                    sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
+                    sqlCommand.ExecuteNonQuery()
+                End If
+
+            Next
+            
+            
 
             transaction.Commit()
             con.Close()
