@@ -289,7 +289,7 @@ CREATE TABLE receive_item_detail
   nama_item Varchar(64),
   qty Bigint,
   satuan Varchar(5),
-  nama_gudang Varchar(64),
+  kode_gudang Varchar(64),
   po_no Varchar(64),
  PRIMARY KEY (id),
  UNIQUE id (id)

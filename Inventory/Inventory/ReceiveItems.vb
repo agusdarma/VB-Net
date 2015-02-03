@@ -111,7 +111,7 @@ Public Class ReceiveItems
         Dim dt As DataTable = New DataTable()
         dt = getListGudang()
         If dt.Rows.Count > 0 Then
-            cmb.ValueMember = "nama_gudang"
+            cmb.ValueMember = "kode_gudang"
             cmb.DisplayMember = "nama_gudang"
             cmb.DataSource = dt
             cmb.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
@@ -135,7 +135,7 @@ Public Class ReceiveItems
         Try
             con = jokenconn()
             con.Open()
-            sql = "select nama_gudang,nama_gudang from gudang order by nama_gudang asc"
+            sql = "select kode_gudang,nama_gudang from gudang order by nama_gudang asc"
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             da.SelectCommand = sqlCommand
@@ -156,7 +156,7 @@ Public Class ReceiveItems
         Try
             con = jokenconn()
             con.Open()
-            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,g.nama_gudang,ph.po_no from purchase_order_header ph left join purchase_order_detail pd on ph.id = pd.po_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.po_no ='" & poNo & "'"
+            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,g.kode_gudang,ph.po_no from purchase_order_header ph left join purchase_order_detail pd on ph.id = pd.po_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.po_no ='" & poNo & "'"
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             da.SelectCommand = sqlCommand
@@ -165,7 +165,7 @@ Public Class ReceiveItems
             If publictable.Rows.Count > 0 Then                
                 Dim row As String()
                 For Each oRecord As Object In publictable.Rows
-                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("nama_gudang").ToString()}
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("po_no").ToString(), oRecord("kode_gudang").ToString()}
                     DataGridViewRI.Rows.Add(row)
                 Next                
             End If
@@ -281,6 +281,7 @@ Public Class ReceiveItems
             sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@po_no", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_gudang", MySqlDbType.VarChar)
+            Dim PoNumber As String = ""
             For Each oItem As DataGridViewRow In DataGridViewRI.Rows
                 If oItem.Cells(0).Value = "" Then
                     Continue For
@@ -291,9 +292,18 @@ Public Class ReceiveItems
                 sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
                 sqlCommand.Parameters("@satuan").Value = oItem.Cells(3).Value
                 sqlCommand.Parameters("@po_no").Value = oItem.Cells(4).Value
+                PoNumber = oItem.Cells(4).Value
                 sqlCommand.Parameters("@nama_gudang").Value = oItem.Cells(6).Value
                 sqlCommand.ExecuteNonQuery()
             Next
+            ' update purchase order header ubah status menjadi 2 karena sudah di received barang nya
+            sql = "UPDATE purchase_order_header SET status_po = 2 WHERE po_no = @po_no"
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters("@po_no").Value = PoNumber
+            sqlCommand.ExecuteNonQuery()
+            ' update stok barang di gudang mana
+
+
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
