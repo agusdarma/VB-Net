@@ -60,9 +60,9 @@ Public Class PurchaseInvoice
         seq = getPrimaryId()
         Dim formNoSystem As String = "PI/" + day + "/" + month + "/" + year + "/" + seq.ToString
         TextBoxFormNo.Text = formNoSystem
+        TextBoxInvoiceNo.Focus()
 
-
-        Me.DataGridViewPI.ColumnCount = 7
+        Me.DataGridViewPI.ColumnCount = 10
         Me.DataGridViewPI.Columns(0).Name = "Kode Item"
         Me.DataGridViewPI.Columns(1).Name = "Nama Item"
         Me.DataGridViewPI.Columns(2).Name = "Qty"
@@ -74,7 +74,10 @@ Public Class PurchaseInvoice
         Me.DataGridViewPI.Columns(8).Name = "PO No"
         Me.DataGridViewPI.Columns(9).Name = "Receive Item No"
 
-
+        ComboBoxSelectType.Items.Clear()
+        ComboBoxSelectType.Name = "CmbType"
+        ComboBoxSelectType.Items.Add("Select PO")
+        ComboBoxSelectType.Items.Add("Select RI")
 
         lblPPN.Visible = False
         LblPPnRp.Visible = False
@@ -122,5 +125,48 @@ Public Class PurchaseInvoice
         DataGridViewPI.Columns("Harga Satuan").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridViewPI.Columns("Diskon").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
         DataGridViewPI.Columns("Total Harga").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+    End Sub
+
+    Private Sub CmbVendor_Click(sender As Object, e As EventArgs) Handles CmbVendor.Click
+        populateVendor()
+    End Sub
+    Private Function findSupplierByKode(kode As String) As Integer
+
+        Dim db As Integer
+        Dim sql As String
+        Dim cmd As New MySqlCommand
+        Dim publictable As New DataTable
+        Try
+            con = jokenconn()
+            sql = "select address1,address2,kode_supplier,name_supplier from supplier where kode_supplier ='" & kode & "'"
+            With cmd
+                .Connection = con
+                .CommandText = sql
+            End With
+            da.SelectCommand = cmd
+            da.Fill(publictable)
+            If publictable.Rows.Count > 0 Then
+                alamatVendor.Text = publictable.Rows(0).Item(0) + " " + publictable.Rows(0).Item(1)
+                TextBoxKodeSupplier.Text = publictable.Rows(0).Item(2)
+                TextBoxNamaSupplier.Text = publictable.Rows(0).Item(3)
+            End If
+        Catch ex As MySqlException
+            MessageBox.Show("error : " + ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        Return db
+    End Function
+
+    Private Sub CmbVendor_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbVendor.SelectionChangeCommitted
+        findSupplierByKode(CmbVendor.SelectedValue)        
+    End Sub
+
+    Private Sub CheckVendorTaxable_CheckStateChanged(sender As Object, e As EventArgs) Handles CheckVendorTaxable.CheckStateChanged
+        inisialisasi()
+    End Sub
+
+    Private Sub CheckInclusiveTax_CheckStateChanged(sender As Object, e As EventArgs) Handles CheckInclusiveTax.CheckStateChanged
+        inisialisasi()
     End Sub
 End Class

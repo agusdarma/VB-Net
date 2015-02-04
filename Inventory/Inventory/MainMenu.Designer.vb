@@ -46,12 +46,12 @@ Partial Class MainMenu
         Me.TransactionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ReceiveItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.ReceiveItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -204,10 +204,18 @@ Partial Class MainMenu
         Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
         Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
         '
+        'ReceiveItemsToolStripMenuItem
+        '
+        Me.ReceiveItemsToolStripMenuItem.Image = CType(resources.GetObject("ReceiveItemsToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.ReceiveItemsToolStripMenuItem.Name = "ReceiveItemsToolStripMenuItem"
+        Me.ReceiveItemsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.ReceiveItemsToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.ReceiveItemsToolStripMenuItem.Text = "Receive Items"
+        '
         'PurchaseInvoiceToolStripMenuItem
         '
         Me.PurchaseInvoiceToolStripMenuItem.Name = "PurchaseInvoiceToolStripMenuItem"
-        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
+        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
         Me.PurchaseInvoiceToolStripMenuItem.Text = "Purchase Invoice"
         '
         'AboutToolStripMenuItem
@@ -230,12 +238,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'ReceiveItemsToolStripMenuItem
-        '
-        Me.ReceiveItemsToolStripMenuItem.Name = "ReceiveItemsToolStripMenuItem"
-        Me.ReceiveItemsToolStripMenuItem.Size = New System.Drawing.Size(163, 22)
-        Me.ReceiveItemsToolStripMenuItem.Text = "Receive Items"
         '
         'MainMenu
         '

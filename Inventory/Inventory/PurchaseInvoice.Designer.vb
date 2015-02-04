@@ -22,10 +22,10 @@ Partial Class PurchaseInvoice
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.idPrimary = New System.Windows.Forms.TextBox()
         Me.TextBoxNamaSupplier = New System.Windows.Forms.TextBox()
         Me.TextBoxKodeSupplier = New System.Windows.Forms.TextBox()
@@ -69,7 +69,7 @@ Partial Class PurchaseInvoice
         Me.Label11 = New System.Windows.Forms.Label()
         Me.NextPo = New System.Windows.Forms.Button()
         Me.PrevPO = New System.Windows.Forms.Button()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.ComboBoxSelectType = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridViewPI, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -114,7 +114,7 @@ Partial Class PurchaseInvoice
         Me.CheckInclusiveTax.Location = New System.Drawing.Point(672, 53)
         Me.CheckInclusiveTax.Name = "CheckInclusiveTax"
         Me.CheckInclusiveTax.Size = New System.Drawing.Size(99, 21)
-        Me.CheckInclusiveTax.TabIndex = 54
+        Me.CheckInclusiveTax.TabIndex = 7
         Me.CheckInclusiveTax.Text = "Inclusive Tax"
         Me.CheckInclusiveTax.UseVisualStyleBackColor = True
         '
@@ -125,7 +125,7 @@ Partial Class PurchaseInvoice
         Me.CheckVendorTaxable.Location = New System.Drawing.Point(534, 54)
         Me.CheckVendorTaxable.Name = "CheckVendorTaxable"
         Me.CheckVendorTaxable.Size = New System.Drawing.Size(132, 21)
-        Me.CheckVendorTaxable.TabIndex = 53
+        Me.CheckVendorTaxable.TabIndex = 6
         Me.CheckVendorTaxable.Text = "Vendor is Taxable"
         Me.CheckVendorTaxable.UseVisualStyleBackColor = True
         '
@@ -139,7 +139,7 @@ Partial Class PurchaseInvoice
         Me.CmbVendor.Location = New System.Drawing.Point(15, 54)
         Me.CmbVendor.Name = "CmbVendor"
         Me.CmbVendor.Size = New System.Drawing.Size(378, 25)
-        Me.CmbVendor.TabIndex = 55
+        Me.CmbVendor.TabIndex = 4
         '
         'Label2
         '
@@ -179,7 +179,7 @@ Partial Class PurchaseInvoice
         Me.DateTimePickerShipDate.Location = New System.Drawing.Point(1021, 126)
         Me.DateTimePickerShipDate.Name = "DateTimePickerShipDate"
         Me.DateTimePickerShipDate.Size = New System.Drawing.Size(200, 25)
-        Me.DateTimePickerShipDate.TabIndex = 73
+        Me.DateTimePickerShipDate.TabIndex = 3
         '
         'Label9
         '
@@ -197,7 +197,7 @@ Partial Class PurchaseInvoice
         Me.DateTimePickerReceiveDate.Location = New System.Drawing.Point(811, 126)
         Me.DateTimePickerReceiveDate.Name = "DateTimePickerReceiveDate"
         Me.DateTimePickerReceiveDate.Size = New System.Drawing.Size(200, 25)
-        Me.DateTimePickerReceiveDate.TabIndex = 72
+        Me.DateTimePickerReceiveDate.TabIndex = 2
         '
         'Label6
         '
@@ -216,7 +216,7 @@ Partial Class PurchaseInvoice
         Me.TextBoxInvoiceNo.Location = New System.Drawing.Point(1068, 75)
         Me.TextBoxInvoiceNo.Name = "TextBoxInvoiceNo"
         Me.TextBoxInvoiceNo.Size = New System.Drawing.Size(100, 25)
-        Me.TextBoxInvoiceNo.TabIndex = 70
+        Me.TextBoxInvoiceNo.TabIndex = 1
         '
         'Label4
         '
@@ -230,13 +230,14 @@ Partial Class PurchaseInvoice
         '
         'TextBoxFormNo
         '
-        Me.TextBoxFormNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxFormNo.BackColor = System.Drawing.Color.LightGray
         Me.TextBoxFormNo.Enabled = False
         Me.TextBoxFormNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TextBoxFormNo.Location = New System.Drawing.Point(862, 75)
         Me.TextBoxFormNo.Name = "TextBoxFormNo"
         Me.TextBoxFormNo.Size = New System.Drawing.Size(100, 25)
         Me.TextBoxFormNo.TabIndex = 71
+        Me.TextBoxFormNo.TabStop = False
         '
         'Label3
         '
@@ -253,45 +254,46 @@ Partial Class PurchaseInvoice
         Me.DataGridViewPI.AllowUserToAddRows = False
         Me.DataGridViewPI.AllowUserToDeleteRows = False
         Me.DataGridViewPI.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewPI.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewPI.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.DataGridViewPI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
         Me.DataGridViewPI.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.DataGridViewPI.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPI.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPI.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewPI.ColumnHeadersHeight = 30
         Me.DataGridViewPI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridViewPI.EnableHeadersVisualStyles = False
         Me.DataGridViewPI.Location = New System.Drawing.Point(13, 237)
         Me.DataGridViewPI.Name = "DataGridViewPI"
         Me.DataGridViewPI.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewPI.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewPI.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewPI.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewPI.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewPI.RowsDefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewPI.Size = New System.Drawing.Size(1212, 150)
-        Me.DataGridViewPI.TabIndex = 78
+        Me.DataGridViewPI.TabIndex = 8
+        Me.DataGridViewPI.TabStop = False
         '
         'Label7
         '
@@ -320,7 +322,7 @@ Partial Class PurchaseInvoice
         Me.TextBoxNotes.Multiline = True
         Me.TextBoxNotes.Name = "TextBoxNotes"
         Me.TextBoxNotes.Size = New System.Drawing.Size(375, 60)
-        Me.TextBoxNotes.TabIndex = 80
+        Me.TextBoxNotes.TabIndex = 9
         '
         'SavePrint
         '
@@ -328,7 +330,7 @@ Partial Class PurchaseInvoice
         Me.SavePrint.Location = New System.Drawing.Point(1046, 545)
         Me.SavePrint.Name = "SavePrint"
         Me.SavePrint.Size = New System.Drawing.Size(101, 31)
-        Me.SavePrint.TabIndex = 100
+        Me.SavePrint.TabIndex = 14
         Me.SavePrint.Text = "Save n Print"
         Me.SavePrint.UseVisualStyleBackColor = True
         '
@@ -338,7 +340,7 @@ Partial Class PurchaseInvoice
         Me.Cancel.Location = New System.Drawing.Point(1153, 545)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(75, 31)
-        Me.Cancel.TabIndex = 86
+        Me.Cancel.TabIndex = 15
         Me.Cancel.Text = "Cancel"
         Me.Cancel.UseVisualStyleBackColor = True
         '
@@ -348,7 +350,7 @@ Partial Class PurchaseInvoice
         Me.ButtonSaveClose.Location = New System.Drawing.Point(947, 545)
         Me.ButtonSaveClose.Name = "ButtonSaveClose"
         Me.ButtonSaveClose.Size = New System.Drawing.Size(93, 31)
-        Me.ButtonSaveClose.TabIndex = 85
+        Me.ButtonSaveClose.TabIndex = 13
         Me.ButtonSaveClose.Text = "Save n Close"
         Me.ButtonSaveClose.UseVisualStyleBackColor = True
         '
@@ -358,7 +360,7 @@ Partial Class PurchaseInvoice
         Me.ButtonSaveNew.Location = New System.Drawing.Point(840, 545)
         Me.ButtonSaveNew.Name = "ButtonSaveNew"
         Me.ButtonSaveNew.Size = New System.Drawing.Size(101, 31)
-        Me.ButtonSaveNew.TabIndex = 84
+        Me.ButtonSaveNew.TabIndex = 12
         Me.ButtonSaveNew.Text = "Save n New"
         Me.ButtonSaveNew.UseVisualStyleBackColor = True
         '
@@ -379,7 +381,7 @@ Partial Class PurchaseInvoice
         Me.TextBoxPctDiskon.Location = New System.Drawing.Point(936, 423)
         Me.TextBoxPctDiskon.Name = "TextBoxPctDiskon"
         Me.TextBoxPctDiskon.Size = New System.Drawing.Size(35, 25)
-        Me.TextBoxPctDiskon.TabIndex = 82
+        Me.TextBoxPctDiskon.TabIndex = 10
         Me.TextBoxPctDiskon.Text = "0"
         Me.TextBoxPctDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -489,7 +491,7 @@ Partial Class PurchaseInvoice
         Me.TextBoxValueDiskon.Location = New System.Drawing.Point(1034, 423)
         Me.TextBoxValueDiskon.Name = "TextBoxValueDiskon"
         Me.TextBoxValueDiskon.Size = New System.Drawing.Size(100, 25)
-        Me.TextBoxValueDiskon.TabIndex = 83
+        Me.TextBoxValueDiskon.TabIndex = 11
         Me.TextBoxValueDiskon.Text = "0"
         Me.TextBoxValueDiskon.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
@@ -543,23 +545,26 @@ Partial Class PurchaseInvoice
         Me.PrevPO.Text = "Prev"
         Me.PrevPO.UseVisualStyleBackColor = False
         '
-        'ComboBox1
+        'ComboBoxSelectType
         '
-        Me.ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.ComboBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.IntegralHeight = False
-        Me.ComboBox1.Location = New System.Drawing.Point(400, 53)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 25)
-        Me.ComboBox1.TabIndex = 103
+        Me.ComboBoxSelectType.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.ComboBoxSelectType.DropDownHeight = 125
+        Me.ComboBoxSelectType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.ComboBoxSelectType.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.ComboBoxSelectType.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ComboBoxSelectType.FormattingEnabled = True
+        Me.ComboBoxSelectType.IntegralHeight = False
+        Me.ComboBoxSelectType.Location = New System.Drawing.Point(400, 53)
+        Me.ComboBoxSelectType.Name = "ComboBoxSelectType"
+        Me.ComboBoxSelectType.Size = New System.Drawing.Size(121, 25)
+        Me.ComboBoxSelectType.TabIndex = 5
         '
         'PurchaseInvoice
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1239, 583)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.ComboBoxSelectType)
         Me.Controls.Add(Me.NextPo)
         Me.Controls.Add(Me.PrevPO)
         Me.Controls.Add(Me.SavePrint)
@@ -653,5 +658,5 @@ Partial Class PurchaseInvoice
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents NextPo As System.Windows.Forms.Button
     Friend WithEvents PrevPO As System.Windows.Forms.Button
-    Friend WithEvents ComboBox1 As System.Windows.Forms.ComboBox
+    Friend WithEvents ComboBoxSelectType As System.Windows.Forms.ComboBox
 End Class

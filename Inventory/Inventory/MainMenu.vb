@@ -52,4 +52,8 @@ Public Class MainMenu
     Private Sub ReceiveItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReceiveItemsToolStripMenuItem.Click
         ReceiveItems.Show()
     End Sub
+
+    Private Sub PurchaseInvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchaseInvoiceToolStripMenuItem.Click
+        PurchaseInvoice.Show()
+    End Sub
 End Class
