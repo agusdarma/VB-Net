@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 03-Feb-15
+Modified: 04-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -307,6 +307,53 @@ CREATE TABLE items_gudang
 ;
 
 ALTER TABLE items_gudang ADD PRIMARY KEY (gudang_id,kode_item)
+;
+
+-- Table purchase_invoice_header
+
+CREATE TABLE purchase_invoice_header
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_supplier Varchar(32),
+  nama_supplier Varchar(32),
+  form_no Varchar(32),
+  invoice_no Varchar(32),
+  invoice_date Datetime,
+  ship_date Datetime,
+  notes Varchar(256),
+  supplier_taxable Int,
+  inclusive_tax Int,
+ PRIMARY KEY (id)
+)
+;
+
+ALTER TABLE purchase_invoice_header ADD UNIQUE form_no (form_no)
+;
+
+CREATE INDEX PurchaseInvoiceIdx ON purchase_invoice_header (kode_supplier,form_no,invoice_no)
+;
+
+-- Table purchase_invoice_detail
+
+CREATE TABLE purchase_invoice_detail
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  purchase_header_id Bigint,
+  kode_item Varchar(32),
+  nama_item Varchar(64),
+  qty Bigint,
+  satuan Varchar(5),
+  price_per_unit Bigint,
+  diskon Bigint,
+  price_total Bigint,
+  kode_gudang Varchar(32),
+  po_no Varchar(32),
+  receive_no Varchar(32),
+ PRIMARY KEY (id)
+)
+;
+
+CREATE INDEX purchase_inv_detail ON purchase_invoice_detail (purchase_header_id,po_no,receive_no)
 ;
 
 
