@@ -255,7 +255,7 @@ Public Class ReceiveItems
             End If
 
             ' Insert RI Header
-            sql = "INSERT INTO receive_item_header(kode_supplier,nama_supplier,alamat_supplier,form_no,receipt_no,receive_date,ship_date,notes) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@form_no,@receipt_no,@receive_date,@ship_date,@notes)"
+            sql = "INSERT INTO receive_item_header(kode_supplier,nama_supplier,alamat_supplier,form_no,receipt_no,receive_date,ship_date,notes,status_receive_item,created_by) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@form_no,@receipt_no,@receive_date,@ship_date,@notes,@status_receive_item,@created_by)"
             Dim session As Session = Login.getSession()
             sqlCommand.Connection = con
             sqlCommand.Transaction = transaction
@@ -268,6 +268,8 @@ Public Class ReceiveItems
             sqlCommand.Parameters.AddWithValue("@receive_date", DateTimePickerReceiveDate.Value)
             sqlCommand.Parameters.AddWithValue("@ship_date", DateTimePickerShipDate.Value)
             sqlCommand.Parameters.AddWithValue("@notes", TextBoxNotes.Text)
+            sqlCommand.Parameters.AddWithValue("@status_receive_item", 1)
+            sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
             rowEffected = sqlCommand.ExecuteNonQuery()
             sqlCommand.CommandText = queryGetIdentity
             Dim ID As Long

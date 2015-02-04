@@ -271,6 +271,8 @@ CREATE TABLE receive_item_header
   receive_date Datetime,
   ship_date Datetime,
   notes Varchar(256),
+  status_receive_item Int,
+  created_by Varchar(32),
  PRIMARY KEY (id),
  UNIQUE id (id)
 )
@@ -323,6 +325,13 @@ CREATE TABLE purchase_invoice_header
   notes Varchar(256),
   supplier_taxable Int,
   inclusive_tax Int,
+  sub_total Bigint,
+  diskon_pct Int,
+  diskon Bigint,
+  tax_value Bigint,
+  total_order Bigint,
+  status_invoice Int,
+  created_by Varchar(32),
  PRIMARY KEY (id)
 )
 ;
