@@ -36,3 +36,4 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.pdb
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\Inventory.pdb
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\Inventory.xml
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.PurchaseInvoice.resources
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SearchInvoiceForm.resources

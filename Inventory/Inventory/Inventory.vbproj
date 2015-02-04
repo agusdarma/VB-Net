@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SearchInvoiceForm.Designer.vb">
+      <DependentUpon>SearchInvoiceForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SearchInvoiceForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PurchaseInvoice.Designer.vb">
       <DependentUpon>PurchaseInvoice.vb</DependentUpon>
     </Compile>
@@ -291,6 +297,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseInvoice.resx">
       <DependentUpon>PurchaseInvoice.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SearchInvoiceForm.resx">
+      <DependentUpon>SearchInvoiceForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StrukRI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

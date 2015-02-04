@@ -38,7 +38,7 @@ Partial Class PurchaseInvoice
         Me.Label5 = New System.Windows.Forms.Label()
         Me.DateTimePickerShipDate = New System.Windows.Forms.DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.DateTimePickerReceiveDate = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePickerInvoiceDate = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBoxInvoiceNo = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -191,13 +191,13 @@ Partial Class PurchaseInvoice
         Me.Label9.TabIndex = 77
         Me.Label9.Text = "Ship Date"
         '
-        'DateTimePickerReceiveDate
+        'DateTimePickerInvoiceDate
         '
-        Me.DateTimePickerReceiveDate.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePickerReceiveDate.Location = New System.Drawing.Point(811, 126)
-        Me.DateTimePickerReceiveDate.Name = "DateTimePickerReceiveDate"
-        Me.DateTimePickerReceiveDate.Size = New System.Drawing.Size(200, 25)
-        Me.DateTimePickerReceiveDate.TabIndex = 2
+        Me.DateTimePickerInvoiceDate.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerInvoiceDate.Location = New System.Drawing.Point(811, 126)
+        Me.DateTimePickerInvoiceDate.Name = "DateTimePickerInvoiceDate"
+        Me.DateTimePickerInvoiceDate.Size = New System.Drawing.Size(200, 25)
+        Me.DateTimePickerInvoiceDate.TabIndex = 2
         '
         'Label6
         '
@@ -260,7 +260,7 @@ Partial Class PurchaseInvoice
         DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
         DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
         Me.DataGridViewPI.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.DataGridViewPI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader
+        Me.DataGridViewPI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridViewPI.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.DataGridViewPI.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
@@ -273,13 +273,14 @@ Partial Class PurchaseInvoice
         Me.DataGridViewPI.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.DataGridViewPI.ColumnHeadersHeight = 30
         Me.DataGridViewPI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridViewPI.Enabled = False
         Me.DataGridViewPI.EnableHeadersVisualStyles = False
         Me.DataGridViewPI.Location = New System.Drawing.Point(13, 237)
         Me.DataGridViewPI.Name = "DataGridViewPI"
         Me.DataGridViewPI.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -287,6 +288,7 @@ Partial Class PurchaseInvoice
         Me.DataGridViewPI.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
         Me.DataGridViewPI.RowHeadersVisible = False
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
@@ -592,7 +594,7 @@ Partial Class PurchaseInvoice
         Me.Controls.Add(Me.DataGridViewPI)
         Me.Controls.Add(Me.DateTimePickerShipDate)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.DateTimePickerReceiveDate)
+        Me.Controls.Add(Me.DateTimePickerInvoiceDate)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TextBoxInvoiceNo)
         Me.Controls.Add(Me.Label4)
@@ -627,7 +629,7 @@ Partial Class PurchaseInvoice
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DateTimePickerShipDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePickerReceiveDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePickerInvoiceDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TextBoxInvoiceNo As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
