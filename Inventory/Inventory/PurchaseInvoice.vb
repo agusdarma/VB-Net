@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class PurchaseInvoice
     Dim da As New MySqlDataAdapter
@@ -324,7 +325,7 @@ Public Class PurchaseInvoice
     End Function
 
     Private Sub CmbVendor_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbVendor.SelectionChangeCommitted
-        findSupplierByKode(CmbVendor.SelectedValue)        
+        findSupplierByKode(CmbVendor.SelectedValue)
     End Sub
 
     Private Sub CheckVendorTaxable_CheckStateChanged(sender As Object, e As EventArgs) Handles CheckVendorTaxable.CheckStateChanged
@@ -538,7 +539,7 @@ Public Class PurchaseInvoice
             sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@price_per_unit", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@diskonDetail", MySqlDbType.Int64)
-            sqlCommand.Parameters.Add("@price_total", MySqlDbType.Int64)            
+            sqlCommand.Parameters.Add("@price_total", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@kode_gudang", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@po_no", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@receive_no", MySqlDbType.VarChar)
@@ -634,5 +635,42 @@ Public Class PurchaseInvoice
     Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
         insertPI()
         Me.Close()
+    End Sub
+
+    Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
+        insertPI()
+        'printPoByNoPO(TextBoxPoNo.Text)
+        clearAllFIeld()
+        inisialisasi()
+        Me.idPrimary.Text = getPrimaryId().ToString
+    End Sub
+
+    Private Sub printPIByNoInvoice(invoiceNo As String)
+        Dim myData As New DataSet
+        Dim conn As New MySqlConnection
+        Dim sqlCommand As New MySqlCommand
+        Dim myAdapter As New MySqlDataAdapter
+        Dim sql As String
+        Dim sqlSelectGeneral As String = "select ph.nama_supplier,CONCAT_WS(' ',s.address1,s.address2) as alamat_supplier,ph.form_no,ph.invoice_no,ph.invoice_date,ph.ship_date,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order,pd.kode_item,pd.nama_item,pd.qty,pd.price_per_unit,pd.diskon,pd.price_total"
+        Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
+        Try
+            sql = sqlSelectGeneral + sqlSelectCompanyName + " from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier where ph.form_no =  = @form_no"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@form_no", invoiceNo)
+            myAdapter.SelectCommand = sqlCommand
+            myAdapter.Fill(myData)
+            Dim myReport As New ReportDocument
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPO.rpt")
+            myReport.SetDataSource(myData)
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class
