@@ -80,9 +80,14 @@ Public Class PurchaseInvoice
             For Each item As PoVO In listPO
                 findItemsByPONo(item.NOPO)
             Next
+            DataGridViewPI.Columns(7).Visible = True
             DataGridViewPI.Columns(8).Visible = False
         ElseIf type = "Select RI" Then
-
+            For Each item As PoVO In listPO
+                findItemsByRINo(item.NOPO)
+            Next
+            DataGridViewPI.Columns(7).Visible = False
+            DataGridViewPI.Columns(8).Visible = True
 
         End If
 
@@ -117,6 +122,33 @@ Public Class PurchaseInvoice
                 Dim row As String()
                 For Each oRecord As Object In publictable.Rows
                     row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("default_price").ToString(), oRecord("default_diskon").ToString(), oRecord("nama_gudang").ToString(), oRecord("po_no").ToString()}
+                    DataGridViewPI.Rows.Add(row)
+                Next
+            End If
+        Catch ex As MySqlException
+            MessageBox.Show("error : " + ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Private Sub findItemsByRINo(RINo As String)
+
+        Dim sql As String
+        Dim sqlCommand As New MySqlCommand
+        Dim publictable As New DataTable
+        Try
+            con = jokenconn()
+            con.Open()
+            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,i.default_price,i.default_diskon,'0', g.nama_gudang,pd.po_no,ph.form_no from receive_item_header ph left join receive_item_detail pd on ph.id = pd.receive_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.form_no ='" & RINo & "'"
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            If publictable.Rows.Count > 0 Then
+                Dim row As String()
+                For Each oRecord As Object In publictable.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("default_price").ToString(), oRecord("default_diskon").ToString(), oRecord("nama_gudang").ToString(), oRecord("po_no").ToString(), oRecord("form_no").ToString()}
                     DataGridViewPI.Rows.Add(row)
                 Next
             End If
@@ -412,5 +444,195 @@ Public Class PurchaseInvoice
             hitungPPn()
         End If
         calculateTotalOrder()
+    End Sub
+
+    Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
+        Me.Close()
+    End Sub
+    Private Sub removeSeparator(txtBox As TextBox)
+        Dim temp As String
+        temp = txtBox.Text
+        temp = temp.Replace(",", "")
+        txtBox.Text = temp
+    End Sub
+    Private Sub removeSeparatorBeforeInsert()
+        removeSeparator(TextBoxPPn)
+        removeSeparator(TextBoxPctDiskon)
+        removeSeparator(TextBoxSubTotal)
+        removeSeparator(TextBoxTotalOrder)
+        removeSeparator(TextBoxValueDiskon)
+    End Sub
+    Private Function insertPI() As Integer
+        Dim rowEffected As Integer = 0
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Dim now As DateTime = DateTime.Now
+        Dim transaction As MySqlTransaction
+        Dim queryGetIdentity As String = "Select @@Identity"
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
+        Try
+
+            'validasi
+            If TextBoxInvoiceNo.Text = "" Then
+                MessageBox.Show("Invoice No harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextBoxInvoiceNo.Focus()
+                Return 0
+            End If
+
+            If CmbVendor.SelectedIndex = -1 Then
+                MessageBox.Show("Vendor / Supplier harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                CmbVendor.Focus()
+                Return 0
+            End If
+
+            If DataGridViewPI.Rows.Count = 0 Then
+                MessageBox.Show("Items harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return 0
+            End If
+
+            ' Insert PI Header
+            sql = "INSERT INTO purchase_invoice_header(kode_supplier,nama_supplier,form_no,invoice_no,invoice_date,ship_date,notes,supplier_taxable,inclusive_tax,sub_total,diskon_pct,diskon,tax_value,total_order,status_invoice,created_by ) VALUES (@kode_supplier,@nama_supplier,@form_no,@invoice_no,@invoice_date,@ship_date,@notes,@supplier_taxable,@inclusive_tax,@sub_total,@diskon_pct,@diskon,@tax_value,@total_order,@status_invoice,@created_by)"
+            Dim session As Session = Login.getSession()
+            removeSeparatorBeforeInsert()
+            sqlCommand.Connection = con
+            sqlCommand.Transaction = transaction
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@kode_supplier", TextBoxKodeSupplier.Text)
+            sqlCommand.Parameters.AddWithValue("@nama_supplier", TextBoxNamaSupplier.Text)
+            sqlCommand.Parameters.AddWithValue("@form_no", TextBoxFormNo.Text)
+            sqlCommand.Parameters.AddWithValue("@invoice_no", TextBoxInvoiceNo.Text)
+            sqlCommand.Parameters.AddWithValue("@invoice_date", DateTimePickerInvoiceDate.Value)
+            sqlCommand.Parameters.AddWithValue("@ship_date", DateTimePickerShipDate.Value)
+            sqlCommand.Parameters.AddWithValue("@notes", TextBoxNotes.Text)
+            If CheckVendorTaxable.Checked = True Then
+                sqlCommand.Parameters.AddWithValue("@supplier_taxable", 1)
+            Else
+                sqlCommand.Parameters.AddWithValue("@supplier_taxable", 0)
+            End If
+            If CheckInclusiveTax.Checked = True Then
+                sqlCommand.Parameters.AddWithValue("@inclusive_tax", 1)
+            Else
+                sqlCommand.Parameters.AddWithValue("@inclusive_tax", 0)
+            End If
+            sqlCommand.Parameters.AddWithValue("@sub_total", TextBoxSubTotal.Text)
+            sqlCommand.Parameters.AddWithValue("@diskon", TextBoxValueDiskon.Text)
+            sqlCommand.Parameters.AddWithValue("@diskon_pct", TextBoxPctDiskon.Text)
+            sqlCommand.Parameters.AddWithValue("@tax_value", TextBoxPPn.Text)
+            sqlCommand.Parameters.AddWithValue("@total_order", TextBoxTotalOrder.Text)
+            sqlCommand.Parameters.AddWithValue("@status_invoice", 1)
+            sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
+            rowEffected = sqlCommand.ExecuteNonQuery()
+            sqlCommand.CommandText = queryGetIdentity
+            Dim ID As Long
+            ID = sqlCommand.ExecuteScalar()
+
+            ' Insert PI Detail
+
+            sqlCommand.Parameters.Add("@purchase_header_id", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@price_per_unit", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@diskonDetail", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@price_total", MySqlDbType.Int64)            
+            sqlCommand.Parameters.Add("@kode_gudang", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@po_no", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@receive_no", MySqlDbType.VarChar)
+            For Each oItem As DataGridViewRow In DataGridViewPI.Rows
+                sql = "INSERT INTO purchase_invoice_detail(purchase_header_id,kode_item,nama_item,qty,satuan,price_per_unit,diskon,price_total,kode_gudang,po_no,receive_no) VALUES (@purchase_header_id,@kode_item,@nama_item,@qty,@satuan,@price_per_unit,@diskonDetail,@price_total,@kode_gudang,@po_no,@receive_no)"
+                sqlCommand.CommandText = sql
+                Dim PoNumber As String
+                Dim RINumber As String
+                If oItem.Cells(0).Value = "" Then
+                    Continue For
+                End If
+                sqlCommand.Parameters("@purchase_header_id").Value = ID
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                sqlCommand.Parameters("@nama_item").Value = oItem.Cells(1).Value
+                sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
+                sqlCommand.Parameters("@satuan").Value = oItem.Cells(3).Value
+                sqlCommand.Parameters("@price_per_unit").Value = oItem.Cells(4).Value
+                sqlCommand.Parameters("@diskonDetail").Value = oItem.Cells(5).Value
+                sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
+                sqlCommand.Parameters("@po_no").Value = oItem.Cells(7).Value
+                sqlCommand.Parameters("@receive_no").Value = oItem.Cells(8).Value
+                sqlCommand.Parameters("@price_total").Value = oItem.Cells(9).Value
+                PoNumber = oItem.Cells(7).Value
+                RINumber = oItem.Cells(8).Value
+                sqlCommand.ExecuteNonQuery()
+
+                If type = "Select PO" Then
+                    ' update purchase order header ubah status menjadi 3 karena sudah di invoicing barang nya
+                    sql = "UPDATE purchase_order_header SET status_po = 3 WHERE po_no = @po_no"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@po_no").Value = PoNumber
+                    sqlCommand.ExecuteNonQuery()
+                ElseIf type = "Select RI" Then
+                    ' update table po status menjadi 3 dan update table receive item status ubah jadi 2
+                    sql = "UPDATE purchase_order_header SET status_po = 3 WHERE po_no = @po_no"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@po_no").Value = PoNumber
+                    sqlCommand.ExecuteNonQuery()
+
+                    sql = "UPDATE receive_item_header SET status_receive_item = 2 WHERE form_no = @form_no"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@form_no").Value = RINumber
+                    sqlCommand.ExecuteNonQuery()
+                End If
+
+            Next
+
+
+
+            transaction.Commit()
+            con.Close()
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            Try
+                transaction.Rollback()
+            Catch ex2 As Exception
+                ' This catch block will handle any errors that may have occurred 
+                ' on the server that would cause the rollback to fail, such as 
+                ' a closed connection.
+                Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType())
+                Console.WriteLine("  Message: {0}", ex2.Message)
+            End Try
+        Finally
+            con.Close()
+        End Try
+        Return rowEffected
+    End Function
+    Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
+        insertPI()
+        clearAllFIeld()
+        inisialisasi()
+        Me.idPrimary.Text = getPrimaryId().ToString
+    End Sub
+    Private Sub clearAllFIeld()
+        TextBoxKodeSupplier.Text = ""
+        TextBoxNamaSupplier.Text = ""
+        alamatVendor.Text = ""
+        TextBoxInvoiceNo.Text = ""
+        CheckVendorTaxable.Checked = False
+        CheckInclusiveTax.Checked = False
+        DataGridViewPI.Rows.Clear()
+        TextBoxNotes.Text = ""
+        TextBoxPctDiskon.Text = "0"
+        TextBoxValueDiskon.Text = "0"
+        TextBoxInvoiceNo.Focus()
+        TextBoxSubTotal.Text = "0"
+        TextBoxPPn.Text = "0"
+        TextBoxTotalOrder.Text = "0"
+        CmbVendor.SelectedIndex = -1
+    End Sub
+
+    Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
+        insertPI()
+        Me.Close()
     End Sub
 End Class

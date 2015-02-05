@@ -16,7 +16,7 @@ Public Class SearchInvoiceForm
         Dim sql As String
         Try
             Dim publictable As New DataTable
-            sql = "select po_no, po_date, nama_supplier from purchase_order_header where kode_supplier = '" & kodeSupplier & "' and (status_po = 1 or status_po = 2) order by po_date asc"
+            sql = "select po_no, po_date, nama_supplier from purchase_order_header where kode_supplier = '" & kodeSupplier & "' and (status_po = 1) order by po_date asc"
             con = jokenconn()
             con.Open()
             sqlCommand.Connection = con
