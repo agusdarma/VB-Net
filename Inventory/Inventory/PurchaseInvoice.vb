@@ -103,6 +103,12 @@ Public Class PurchaseInvoice
         Next
         hitungSubTotalHarga()
         calculatePctDiskon()
+        If CheckVendorTaxable.Checked = True Then
+            hitungPPn()
+        End If
+        If CheckInclusiveTax.Checked = True Then
+            hitungPPnInclusiveTax()
+        End If
         DataGridViewPI.Refresh()
     End Sub
     Private Sub findItemsByPONo(poNo As String)
@@ -113,7 +119,7 @@ Public Class PurchaseInvoice
         Try
             con = jokenconn()
             con.Open()
-            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,i.default_price,i.default_diskon,'0', g.nama_gudang,ph.po_no from purchase_order_header ph left join purchase_order_detail pd on ph.id = pd.po_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.po_no ='" & poNo & "'"
+            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,i.default_price,i.default_diskon,'0', g.nama_gudang,ph.po_no,ph.diskon_pct,ph.supplier_taxable,ph.inclusive_tax from purchase_order_header ph left join purchase_order_detail pd on ph.id = pd.po_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.po_no ='" & poNo & "'"
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             da.SelectCommand = sqlCommand
@@ -124,6 +130,19 @@ Public Class PurchaseInvoice
                 For Each oRecord As Object In publictable.Rows
                     row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("default_price").ToString(), oRecord("default_diskon").ToString(), oRecord("nama_gudang").ToString(), oRecord("po_no").ToString()}
                     DataGridViewPI.Rows.Add(row)
+                    TextBoxPctDiskon.Text = oRecord("diskon_pct")
+                    If oRecord("supplier_taxable") = 1 Then
+                        CheckVendorTaxable.Checked = True            
+                    Else
+                        CheckVendorTaxable.Checked = False
+                    End If
+                    If oRecord("inclusive_tax") = 1 Then
+                        CheckInclusiveTax.Checked = True                       
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
+
+
                 Next
             End If
         Catch ex As MySqlException
@@ -639,7 +658,7 @@ Public Class PurchaseInvoice
 
     Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
         insertPI()
-        'printPoByNoPO(TextBoxPoNo.Text)
+        printPIByNoInvoice(TextBoxFormNo.Text)
         clearAllFIeld()
         inisialisasi()
         Me.idPrimary.Text = getPrimaryId().ToString
@@ -654,7 +673,7 @@ Public Class PurchaseInvoice
         Dim sqlSelectGeneral As String = "select ph.nama_supplier,CONCAT_WS(' ',s.address1,s.address2) as alamat_supplier,ph.form_no,ph.invoice_no,ph.invoice_date,ph.ship_date,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order,pd.kode_item,pd.nama_item,pd.qty,pd.price_per_unit,pd.diskon,pd.price_total"
         Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
         Try
-            sql = sqlSelectGeneral + sqlSelectCompanyName + " from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier where ph.form_no =  = @form_no"
+            sql = sqlSelectGeneral + sqlSelectCompanyName + " from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier where ph.form_no = @form_no"
             con = jokenconn()
             con.Open()
             sqlCommand.Connection = con
@@ -663,12 +682,253 @@ Public Class PurchaseInvoice
             myAdapter.SelectCommand = sqlCommand
             myAdapter.Fill(myData)
             Dim myReport As New ReportDocument
-            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPO.rpt")
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPI.rpt")
             myReport.SetDataSource(myData)
             PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
             PreviewPrintPO.ShowDialog()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
+        findPIBySeqPrev(idPrimary.Text)
+    End Sub
+    Private Sub disableButton()
+        ButtonSaveClose.Enabled = False
+        ButtonSaveNew.Enabled = False
+        SavePrint.Enabled = False
+        Cancel.Enabled = False
+        CheckVendorTaxable.Enabled = False
+        CheckInclusiveTax.Enabled = False
+        TextBoxInvoiceNo.Enabled = False
+    End Sub
+    Private Sub enableButton()
+        ButtonSaveClose.Enabled = True
+        ButtonSaveNew.Enabled = True
+        SavePrint.Enabled = True
+        Cancel.Enabled = True
+        CheckVendorTaxable.Enabled = True
+        CheckInclusiveTax.Enabled = True
+        TextBoxInvoiceNo.Enabled = True
+    End Sub
+
+    Private Sub NextPo_Click(sender As Object, e As EventArgs) Handles NextPo.Click
+        findPIBySeqNext(idPrimary.Text)
+    End Sub
+    Private Sub findPIBySeqPrev(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select *,CONCAT_WS(' ',s.address1,s.address2) as alamat_supplier from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier where ph.id < '" & idPrimary & "' order by ph.id desc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateVendor()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbVendor.SelectedIndex = CmbVendor.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(48)) Then
+                    alamatVendor.Text = publictable.Rows(0).Item(48)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    TextBoxFormNo.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxInvoiceNo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    DateTimePickerInvoiceDate.Text = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    DateTimePickerShipDate.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    Dim taxable As Integer
+                    taxable = publictable.Rows(0).Item(8)
+                    If taxable = 1 Then
+                        CheckVendorTaxable.Checked = True
+                    Else
+                        CheckVendorTaxable.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(9)) Then
+                    Dim inclusiveTax As Integer
+                    inclusiveTax = publictable.Rows(0).Item(9)
+                    If inclusiveTax = 1 Then
+                        CheckInclusiveTax.Checked = True
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(10)) Then
+                    TextBoxSubTotal.Text = publictable.Rows(0).Item(10)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(11)) Then
+                    TextBoxPctDiskon.Text = publictable.Rows(0).Item(11)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(12)) Then
+                    TextBoxValueDiskon.Text = publictable.Rows(0).Item(12)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    TextBoxPPn.Text = publictable.Rows(0).Item(13)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(14)) Then
+                    TextBoxTotalOrder.Text = publictable.Rows(0).Item(14)
+                End If
+                'Detail
+                sql = "select * from purchase_invoice_detail pd where pd.purchase_header_id = '" & publictable.Rows(0).Item(0) & "' order by pd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewPI.Rows.Clear()
+                DataGridViewPI.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("kode_gudang").ToString(), oRecord("po_no").ToString(), oRecord("receive_no").ToString(), oRecord("price_total").ToString()}
+                    DataGridViewPI.Rows.Add(row)
+                    'row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("kode_gudang").ToString(), oRecord("po_no").ToString()}
+                    'DataGridViewPI.Rows.Add(row)
+                    
+                Next
+                DataGridViewPI.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is first data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub findPIBySeqNext(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select *,CONCAT_WS(' ',s.address1,s.address2) as alamat_supplier from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier where ph.id > '" & idPrimary & "' order by ph.id asc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateVendor()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbVendor.SelectedIndex = CmbVendor.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(48)) Then
+                    alamatVendor.Text = publictable.Rows(0).Item(48)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    TextBoxFormNo.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxInvoiceNo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    DateTimePickerInvoiceDate.Text = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    DateTimePickerShipDate.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    Dim taxable As Integer
+                    taxable = publictable.Rows(0).Item(8)
+                    If taxable = 1 Then
+                        CheckVendorTaxable.Checked = True
+                    Else
+                        CheckVendorTaxable.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(9)) Then
+                    Dim inclusiveTax As Integer
+                    inclusiveTax = publictable.Rows(0).Item(9)
+                    If inclusiveTax = 1 Then
+                        CheckInclusiveTax.Checked = True
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(10)) Then
+                    TextBoxSubTotal.Text = publictable.Rows(0).Item(10)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(11)) Then
+                    TextBoxPctDiskon.Text = publictable.Rows(0).Item(11)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(12)) Then
+                    TextBoxValueDiskon.Text = publictable.Rows(0).Item(12)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    TextBoxPPn.Text = publictable.Rows(0).Item(13)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(14)) Then
+                    TextBoxTotalOrder.Text = publictable.Rows(0).Item(14)
+                End If
+                'Detail
+                sql = "select * from purchase_invoice_detail pd where pd.purchase_header_id = '" & publictable.Rows(0).Item(0) & "' order by pd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewPI.Rows.Clear()
+                DataGridViewPI.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("kode_gudang").ToString(), oRecord("po_no").ToString(), oRecord("receive_no").ToString(), oRecord("price_total").ToString()}
+                    DataGridViewPI.Rows.Add(row)
+                    'row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("kode_gudang").ToString(), oRecord("po_no").ToString()}
+                    'DataGridViewPI.Rows.Add(row)
+
+                Next
+                DataGridViewPI.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is last data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                clearAllFIeld()
+                inisialisasi()
+                Me.idPrimary.Text = getPrimaryId().ToString
+                enableButton()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
         Finally
             con.Close()
         End Try

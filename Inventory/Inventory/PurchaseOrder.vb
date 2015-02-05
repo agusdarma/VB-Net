@@ -887,12 +887,16 @@ Public Class PurchaseOrder
         ButtonSaveNew.Enabled = False
         SavePrint.Enabled = False
         Cancel.Enabled = False
+        CheckVendorTaxable.Enabled = False
+        CheckInclusiveTax.Enabled = False
     End Sub
     Private Sub enableButton()
         ButtonSaveClose.Enabled = True
         ButtonSaveNew.Enabled = True
         SavePrint.Enabled = True
         Cancel.Enabled = True
+        CheckVendorTaxable.Enabled = True
+        CheckInclusiveTax.Enabled = True
     End Sub
     Private Function getPrimaryId() As Integer
         Dim nonqueryCommand As MySqlCommand
