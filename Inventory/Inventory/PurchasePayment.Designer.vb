@@ -47,6 +47,7 @@ Partial Class PurchasePayment
         Me.Cancel = New System.Windows.Forms.Button()
         Me.ButtonSaveClose = New System.Windows.Forms.Button()
         Me.ButtonSaveNew = New System.Windows.Forms.Button()
+        Me.Button1 = New System.Windows.Forms.Button()
         CType(Me.DataGridViewVP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -291,11 +292,21 @@ Partial Class PurchasePayment
         Me.ButtonSaveNew.Text = "Save n New"
         Me.ButtonSaveNew.UseVisualStyleBackColor = True
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(336, 119)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 95
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'PurchasePayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(996, 529)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.ButtonSaveClose)
         Me.Controls.Add(Me.ButtonSaveNew)
@@ -345,4 +356,5 @@ Partial Class PurchasePayment
     Friend WithEvents Cancel As System.Windows.Forms.Button
     Friend WithEvents ButtonSaveClose As System.Windows.Forms.Button
     Friend WithEvents ButtonSaveNew As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class

@@ -124,6 +124,9 @@ Public Class PurchasePayment
             da.Fill(publictable)
             If publictable.Rows.Count > 0 Then
                 Dim row As String()
+                If DataGridViewVP.Columns.Count = 7 Then
+                    DataGridViewVP.Columns.RemoveAt(6)
+                End If
                 DataGridViewVP.Rows.Clear()
                 DataGridViewVP.Refresh()
                 For Each oRecord As Object In publictable.Rows
@@ -133,7 +136,7 @@ Public Class PurchasePayment
                 Dim chk As New DataGridViewCheckBoxColumn()
                 DataGridViewVP.Columns.Add(chk)
                 chk.HeaderText = "Pay"
-                chk.Name = "chk"
+                chk.Name = "pay"
                 DataGridViewVP.Refresh()
             End If
         Catch ex As MySqlException
@@ -148,4 +151,46 @@ Public Class PurchasePayment
         findSupplierByKode(CmbVendor.SelectedValue)
         findInvoiceBySupplierKode(CmbVendor.SelectedValue)
     End Sub
+
+    Private Sub DataGridViewVP_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridViewVP.CellBeginEdit
+        
+    End Sub
+
+    Private Sub DataGridViewVP_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewVP.CellClick
+        
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        For Each oItem As DataGridViewRow In DataGridViewVP.Rows
+            If oItem.Cells(6).Value = True Then
+                MessageBox.Show("Checked1", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Else
+                MessageBox.Show("UnChecked1", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            End If
+        Next
+    End Sub
+
+    Private Sub DataGridViewVP_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewVP.CellContentClick
+        If e.ColumnIndex = 6 Then
+            If e.RowIndex >= 0 Then
+                TextBoxNotes.Focus()
+                If DataGridViewVP.Rows(e.RowIndex).Cells(6).Value = True Then
+                    DataGridViewVP.Rows(e.RowIndex).Cells(5).Value = DataGridViewVP.Rows(e.RowIndex).Cells(3).Value
+                    'MessageBox.Show("Checked", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                Else
+                    DataGridViewVP.Rows(e.RowIndex).Cells(5).Value = "0"
+                    'MessageBox.Show("UnChecked", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                End If
+            End If
+        End If
+    End Sub
+
+    Private Sub DataGridViewVP_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewVP.CellEndEdit
+        If e.ColumnIndex = 5 Then
+            Dim iColumn As Integer = DataGridViewVP.CurrentCell.ColumnIndex
+            Dim iRows As Integer = DataGridViewVP.CurrentCell.RowIndex
+            DataGridViewVP.Rows(iRows).Cells(6).Value = True
+        End If
+    End Sub
+
 End Class
