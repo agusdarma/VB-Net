@@ -56,4 +56,8 @@ Public Class MainMenu
     Private Sub PurchaseInvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchaseInvoiceToolStripMenuItem.Click
         PurchaseInvoice.Show()
     End Sub
+
+    Private Sub PurchasePaymentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasePaymentToolStripMenuItem.Click
+        PurchasePayment.Show()
+    End Sub
 End Class

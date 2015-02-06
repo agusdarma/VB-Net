@@ -52,6 +52,7 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.PurchasePaymentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -191,7 +192,7 @@ Partial Class MainMenu
         '
         'PurchaseToolStripMenuItem
         '
-        Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem})
+        Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
         Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
@@ -201,7 +202,7 @@ Partial Class MainMenu
         Me.PurchaseOrderToolStripMenuItem.Image = CType(resources.GetObject("PurchaseOrderToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PurchaseOrderToolStripMenuItem.Name = "PurchaseOrderToolStripMenuItem"
         Me.PurchaseOrderToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
         '
         'ReceiveItemsToolStripMenuItem
@@ -209,13 +210,15 @@ Partial Class MainMenu
         Me.ReceiveItemsToolStripMenuItem.Image = CType(resources.GetObject("ReceiveItemsToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReceiveItemsToolStripMenuItem.Name = "ReceiveItemsToolStripMenuItem"
         Me.ReceiveItemsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.ReceiveItemsToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.ReceiveItemsToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.ReceiveItemsToolStripMenuItem.Text = "Receive Items"
         '
         'PurchaseInvoiceToolStripMenuItem
         '
+        Me.PurchaseInvoiceToolStripMenuItem.Image = CType(resources.GetObject("PurchaseInvoiceToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PurchaseInvoiceToolStripMenuItem.Name = "PurchaseInvoiceToolStripMenuItem"
-        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(198, 22)
+        Me.PurchaseInvoiceToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
+        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
         Me.PurchaseInvoiceToolStripMenuItem.Text = "Purchase Invoice"
         '
         'AboutToolStripMenuItem
@@ -238,6 +241,12 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
+        '
+        'PurchasePaymentToolStripMenuItem
+        '
+        Me.PurchasePaymentToolStripMenuItem.Name = "PurchasePaymentToolStripMenuItem"
+        Me.PurchasePaymentToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.PurchasePaymentToolStripMenuItem.Text = "Purchase Payment"
         '
         'MainMenu
         '
@@ -286,5 +295,6 @@ Partial Class MainMenu
     Friend WithEvents PurchaseInvoiceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents GenerateReportToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReceiveItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents PurchasePaymentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

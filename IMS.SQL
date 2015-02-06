@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 04-Feb-15
+Modified: 06-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -330,7 +330,8 @@ CREATE TABLE purchase_invoice_header
   diskon Bigint,
   tax_value Bigint,
   total_order Bigint,
-  status_invoice Int,
+  status_invoice Int
+  COMMENT '1= baru dibuat invoice',
   created_by Varchar(32),
  PRIMARY KEY (id)
 )
@@ -363,6 +364,27 @@ CREATE TABLE purchase_invoice_detail
 ;
 
 CREATE INDEX purchase_inv_detail ON purchase_invoice_detail (purchase_header_id,po_no,receive_no)
+;
+
+-- Table purchase_payment
+
+CREATE TABLE purchase_payment
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_supplier Varchar(32),
+  nama_supplier Varchar(256),
+  alamat_supplier Varchar(256),
+  invoice_no Varchar(32),
+  form_no_invoice Varchar(32),
+  invoice_date Datetime,
+  payment_date Datetime,
+  form_no Varchar(32),
+  total_order Bigint,
+  owing Bigint,
+  payment_amount Bigint,
+  notes Varchar(256),
+ PRIMARY KEY (id)
+)
 ;
 
 

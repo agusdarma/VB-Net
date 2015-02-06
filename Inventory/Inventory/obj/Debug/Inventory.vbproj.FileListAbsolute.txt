@@ -37,3 +37,4 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.vbproj.Ge
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.exe
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.xml
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.pdb
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.PurchasePayment.resources

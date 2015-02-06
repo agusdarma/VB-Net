@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PurchasePayment.Designer.vb">
+      <DependentUpon>PurchasePayment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PurchasePayment.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StrukPI.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchasePayment.resx">
+      <DependentUpon>PurchasePayment.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StrukPI.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
