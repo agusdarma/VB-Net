@@ -6,6 +6,7 @@ Public Class PurchasePayment
     Dim ds As DataSet
     Public kodeSupplier As String
     Private rowIndex As Integer = 0
+    Public listSelectVP = New List(Of PoVO)
     Public Function jokenconn() As MySqlConnection
         Dim urlDb As String
         Dim mySqlDb As New mySqlDB
@@ -59,7 +60,7 @@ Public Class PurchasePayment
         Dim seq As Integer
         seq = getPrimaryId()
         Dim formNoSystem As String = "VP/" + day + "/" + month + "/" + year + "/" + seq.ToString
-        TextBoxFormNo.Text = formNoSystem
+        TextBoxVpNo.Text = formNoSystem
 
 
         Me.DataGridViewVP.ColumnCount = 6
@@ -152,24 +153,6 @@ Public Class PurchasePayment
         findInvoiceBySupplierKode(CmbVendor.SelectedValue)
     End Sub
 
-    Private Sub DataGridViewVP_CellBeginEdit(sender As Object, e As DataGridViewCellCancelEventArgs) Handles DataGridViewVP.CellBeginEdit
-        
-    End Sub
-
-    Private Sub DataGridViewVP_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewVP.CellClick
-        
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        For Each oItem As DataGridViewRow In DataGridViewVP.Rows
-            If oItem.Cells(6).Value = True Then
-                MessageBox.Show("Checked1", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            Else
-                MessageBox.Show("UnChecked1", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
-            End If
-        Next
-    End Sub
-
     Private Sub DataGridViewVP_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewVP.CellContentClick
         If e.ColumnIndex = 6 Then
             If e.RowIndex >= 0 Then
@@ -193,4 +176,128 @@ Public Class PurchasePayment
         End If
     End Sub
 
+    Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
+        insertVP()
+        'listSelectVP = New List(Of PoVO)
+        'For Each oItem As DataGridViewRow In DataGridViewVP.Rows
+        '    If oItem.Cells(6).Value = True Then
+        '        listSelectVP.Add(New PoVO(oItem.Cells(1).Value))
+        '    End If
+        'Next
+        'DataGridViewVP.Rows.Clear()
+        'If DataGridViewVP.Columns.Count = 7 Then
+        '    DataGridViewVP.Columns.RemoveAt(DataGridViewVP.Columns.Count - 1)
+        'End If
+
+        'DataGridViewVP.Refresh()
+        'For Each item As PoVO In listSelectVP
+        '    findInvoiceByInvoiceNo(item.NOPO)
+        'Next
+    End Sub
+    Private Function insertVP() As Integer
+        Dim rowEffected As Integer = 0
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Dim now As DateTime = DateTime.Now
+        Dim transaction As MySqlTransaction
+        Dim queryGetIdentity As String = "Select @@Identity"
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
+        Try
+
+            'validasi
+            If TextBoxVpNo.Text = "" Then
+                MessageBox.Show("Purchase Payment No harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                TextBoxVpNo.Focus()
+                Return 0
+            End If
+
+            If CmbVendor.SelectedIndex = -1 Then
+                MessageBox.Show("Vendor / Supplier harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                CmbVendor.Focus()
+                Return 0
+            End If
+
+            If DataGridViewVP.Rows.Count = 0 Then
+                MessageBox.Show("Items harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return 0
+            End If
+
+            ' Insert VP Header
+            Dim session As Session = Login.getSession()
+            'removeSeparatorBeforeInsert()
+            sqlCommand.Connection = con
+            sqlCommand.Transaction = transaction
+            sqlCommand.Parameters.Add("@kode_supplier", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@nama_supplier", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@alamat_supplier", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@invoice_no", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@form_no_invoice", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@invoice_date", MySqlDbType.DateTime)
+            sqlCommand.Parameters.Add("@payment_date", MySqlDbType.DateTime)
+            sqlCommand.Parameters.Add("@form_no", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@total_order", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@owing", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@payment_amount", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@notes", MySqlDbType.VarChar)
+            For Each oItem As DataGridViewRow In DataGridViewVP.Rows
+                If oItem.Cells(6).Value = True Then
+                    sql = "INSERT INTO purchase_payment(kode_supplier,nama_supplier,alamat_supplier,invoice_no,form_no_invoice,invoice_date,payment_date,form_no,total_order,owing,payment_amount,notes) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@invoice_no,@form_no_invoice,@invoice_date,@payment_date,@form_no,@total_order,@owing,@payment_amount,@notes)"
+                    sqlCommand.CommandText = sql
+                    'Dim PoNumber As String
+                    'Dim RINumber As String
+                    'If oItem.Cells(0).Value = "" Then
+                    '    Continue For
+                    'End If
+                    sqlCommand.Parameters("@kode_supplier").Value = TextBoxKodeSupplier.Text
+                    sqlCommand.Parameters("@nama_supplier").Value = TextBoxNamaSupplier.Text
+                    sqlCommand.Parameters("@alamat_supplier").Value = alamatVendor.Text
+                    sqlCommand.Parameters("@invoice_no").Value = oItem.Cells(0).Value
+                    sqlCommand.Parameters("@form_no_invoice").Value = oItem.Cells(1).Value
+                    sqlCommand.Parameters("@invoice_date").Value = CDate(oItem.Cells(2).Value)
+                    sqlCommand.Parameters("@payment_date").Value = CDate(DateTimePickerPaymentDate.Value)
+                    sqlCommand.Parameters("@form_no").Value = TextBoxVpNo.Text
+                    Dim owing As Long = oItem.Cells(4).Value
+                    Dim totalOrder As Long = oItem.Cells(3).Value
+                    Dim payment As Long = oItem.Cells(5).Value
+                    owing = totalOrder - payment
+                    sqlCommand.Parameters("@total_order").Value = oItem.Cells(3).Value
+                    sqlCommand.Parameters("@owing").Value = owing
+                    sqlCommand.Parameters("@payment_amount").Value = oItem.Cells(5).Value
+                    sqlCommand.Parameters("@notes").Value = TextBoxNotes.Text
+                    sqlCommand.ExecuteNonQuery()
+
+                    ' update purchase order header ubah status menjadi 2 karena sudah di received barang nya
+                    sql = "UPDATE purchase_invoice_header SET status_invoice = 2 WHERE form_no = @form_no_invoice"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@form_no_invoice").Value = oItem.Cells(1).Value
+                    sqlCommand.ExecuteNonQuery()
+                End If
+            Next
+
+            'rowEffected = sqlCommand.ExecuteNonQuery()
+            'sqlCommand.CommandText = queryGetIdentity
+            'Dim ID As Long
+            'ID = sqlCommand.ExecuteScalar()
+            transaction.Commit()
+            con.Close()
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            Try
+                transaction.Rollback()
+            Catch ex2 As Exception
+                ' This catch block will handle any errors that may have occurred 
+                ' on the server that would cause the rollback to fail, such as 
+                ' a closed connection.
+                Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType())
+                Console.WriteLine("  Message: {0}", ex2.Message)
+            End Try
+        Finally
+            con.Close()
+        End Try
+        Return rowEffected
+    End Function
 End Class
