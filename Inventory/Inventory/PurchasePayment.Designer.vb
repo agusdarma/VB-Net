@@ -22,10 +22,10 @@ Partial Class PurchasePayment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.idPrimary = New System.Windows.Forms.TextBox()
         Me.TextBoxNamaSupplier = New System.Windows.Forms.TextBox()
         Me.TextBoxKodeSupplier = New System.Windows.Forms.TextBox()
@@ -42,12 +42,12 @@ Partial Class PurchasePayment
         Me.PrevPO = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBoxNotes = New System.Windows.Forms.TextBox()
-        Me.DataGridViewRI = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewVP = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Cancel = New System.Windows.Forms.Button()
         Me.ButtonSaveClose = New System.Windows.Forms.Button()
         Me.ButtonSaveNew = New System.Windows.Forms.Button()
-        CType(Me.DataGridViewRI, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewVP, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'idPrimary
@@ -190,7 +190,7 @@ Partial Class PurchasePayment
         '
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(18, 394)
+        Me.Label8.Location = New System.Drawing.Point(18, 439)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(44, 17)
         Me.Label8.TabIndex = 90
@@ -199,57 +199,57 @@ Partial Class PurchasePayment
         'TextBoxNotes
         '
         Me.TextBoxNotes.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBoxNotes.Location = New System.Drawing.Point(21, 414)
+        Me.TextBoxNotes.Location = New System.Drawing.Point(21, 459)
         Me.TextBoxNotes.Multiline = True
         Me.TextBoxNotes.Name = "TextBoxNotes"
         Me.TextBoxNotes.Size = New System.Drawing.Size(376, 60)
         Me.TextBoxNotes.TabIndex = 88
         '
-        'DataGridViewRI
+        'DataGridViewVP
         '
-        Me.DataGridViewRI.AllowUserToAddRows = False
-        Me.DataGridViewRI.AllowUserToDeleteRows = False
-        Me.DataGridViewRI.AllowUserToResizeRows = False
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewRI.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
-        Me.DataGridViewRI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridViewRI.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.DataGridViewRI.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewRI.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
-        Me.DataGridViewRI.ColumnHeadersHeight = 30
-        Me.DataGridViewRI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridViewRI.EnableHeadersVisualStyles = False
-        Me.DataGridViewRI.Location = New System.Drawing.Point(21, 241)
-        Me.DataGridViewRI.Name = "DataGridViewRI"
-        Me.DataGridViewRI.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Red
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewRI.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridViewRI.RowHeadersVisible = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewRI.RowsDefaultCellStyle = DataGridViewCellStyle16
-        Me.DataGridViewRI.Size = New System.Drawing.Size(952, 150)
-        Me.DataGridViewRI.TabIndex = 87
+        Me.DataGridViewVP.AllowUserToAddRows = False
+        Me.DataGridViewVP.AllowUserToDeleteRows = False
+        Me.DataGridViewVP.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewVP.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridViewVP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridViewVP.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DataGridViewVP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewVP.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewVP.ColumnHeadersHeight = 30
+        Me.DataGridViewVP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridViewVP.EnableHeadersVisualStyles = False
+        Me.DataGridViewVP.Location = New System.Drawing.Point(21, 241)
+        Me.DataGridViewVP.Name = "DataGridViewVP"
+        Me.DataGridViewVP.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewVP.RowHeadersDefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridViewVP.RowHeadersVisible = False
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewVP.RowsDefaultCellStyle = DataGridViewCellStyle4
+        Me.DataGridViewVP.Size = New System.Drawing.Size(952, 195)
+        Me.DataGridViewVP.TabIndex = 87
         '
         'Label7
         '
@@ -264,7 +264,7 @@ Partial Class PurchasePayment
         'Cancel
         '
         Me.Cancel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.Cancel.Location = New System.Drawing.Point(900, 414)
+        Me.Cancel.Location = New System.Drawing.Point(900, 459)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(75, 31)
         Me.Cancel.TabIndex = 94
@@ -274,7 +274,7 @@ Partial Class PurchasePayment
         'ButtonSaveClose
         '
         Me.ButtonSaveClose.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
-        Me.ButtonSaveClose.Location = New System.Drawing.Point(804, 414)
+        Me.ButtonSaveClose.Location = New System.Drawing.Point(804, 459)
         Me.ButtonSaveClose.Name = "ButtonSaveClose"
         Me.ButtonSaveClose.Size = New System.Drawing.Size(93, 31)
         Me.ButtonSaveClose.TabIndex = 92
@@ -284,7 +284,7 @@ Partial Class PurchasePayment
         'ButtonSaveNew
         '
         Me.ButtonSaveNew.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ButtonSaveNew.Location = New System.Drawing.Point(697, 414)
+        Me.ButtonSaveNew.Location = New System.Drawing.Point(697, 459)
         Me.ButtonSaveNew.Name = "ButtonSaveNew"
         Me.ButtonSaveNew.Size = New System.Drawing.Size(101, 31)
         Me.ButtonSaveNew.TabIndex = 91
@@ -295,13 +295,13 @@ Partial Class PurchasePayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(996, 493)
+        Me.ClientSize = New System.Drawing.Size(996, 529)
         Me.Controls.Add(Me.Cancel)
         Me.Controls.Add(Me.ButtonSaveClose)
         Me.Controls.Add(Me.ButtonSaveNew)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TextBoxNotes)
-        Me.Controls.Add(Me.DataGridViewRI)
+        Me.Controls.Add(Me.DataGridViewVP)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.NextPo)
         Me.Controls.Add(Me.PrevPO)
@@ -319,7 +319,7 @@ Partial Class PurchasePayment
         Me.Controls.Add(Me.Label1)
         Me.Name = "PurchasePayment"
         Me.Text = "Purchase Payment"
-        CType(Me.DataGridViewRI, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewVP, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -340,7 +340,7 @@ Partial Class PurchasePayment
     Friend WithEvents PrevPO As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents TextBoxNotes As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridViewRI As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewVP As System.Windows.Forms.DataGridView
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents Cancel As System.Windows.Forms.Button
     Friend WithEvents ButtonSaveClose As System.Windows.Forms.Button

@@ -62,13 +62,13 @@ Public Class PurchasePayment
         TextBoxFormNo.Text = formNoSystem
 
 
-        Me.DataGridViewRI.ColumnCount = 6
-        Me.DataGridViewRI.Columns(0).Name = "Invoice No"
-        Me.DataGridViewRI.Columns(1).Name = "Form Invoice No"
-        Me.DataGridViewRI.Columns(2).Name = "Invoice Date"
-        Me.DataGridViewRI.Columns(3).Name = "Total Order"
-        Me.DataGridViewRI.Columns(4).Name = "Owing"
-        Me.DataGridViewRI.Columns(5).Name = "Payment Amount"
+        Me.DataGridViewVP.ColumnCount = 6
+        Me.DataGridViewVP.Columns(0).Name = "Invoice No"
+        Me.DataGridViewVP.Columns(1).Name = "Form Invoice No"
+        Me.DataGridViewVP.Columns(2).Name = "Invoice Date"
+        Me.DataGridViewVP.Columns(3).Name = "Total Order"
+        Me.DataGridViewVP.Columns(4).Name = "Owing"
+        Me.DataGridViewVP.Columns(5).Name = "Payment Amount"
     End Sub
     Private Sub PurchasePayment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inisialisasi()
@@ -107,7 +107,41 @@ Public Class PurchasePayment
         Return db
     End Function
 
+    Private Function findInvoiceBySupplierKode(kode As String) As Integer
+
+        Dim db As Integer
+        Dim sql As String
+        Dim cmd As New MySqlCommand
+        Dim publictable As New DataTable
+        Try
+            con = jokenconn()
+            sql = "select invoice_no, invoice_date , total_order, total_order as owing, '0' as payment_amount from purchase_invoice_header where kode_supplier = '" & kode & "' and status_invoice = 1"
+            With cmd
+                .Connection = con
+                .CommandText = sql
+            End With
+            da.SelectCommand = cmd
+            da.Fill(publictable)
+            If publictable.Rows.Count > 0 Then
+                Dim row As String()
+                DataGridViewVP.Rows.Clear()
+                DataGridViewVP.Refresh()
+                For Each oRecord As Object In publictable.Rows
+                    row = New String() {oRecord("invoice_no").ToString(), oRecord("invoice_date").ToString(), oRecord("total_order").ToString(), oRecord("total_order").ToString(), oRecord("payment_amount").ToString()}
+                    DataGridViewVP.Rows.Add(row)
+                Next
+                DataGridViewVP.Refresh()
+            End If
+        Catch ex As MySqlException
+            MessageBox.Show("error : " + ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        Return db
+    End Function
+
     Private Sub CmbVendor_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbVendor.SelectionChangeCommitted
         findSupplierByKode(CmbVendor.SelectedValue)
+        findInvoiceBySupplierKode(CmbVendor.SelectedValue)
     End Sub
 End Class
