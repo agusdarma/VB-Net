@@ -115,7 +115,7 @@ Public Class PurchasePayment
         Dim publictable As New DataTable
         Try
             con = jokenconn()
-            sql = "select invoice_no, invoice_date , total_order, total_order as owing, '0' as payment_amount from purchase_invoice_header where kode_supplier = '" & kode & "' and status_invoice = 1"
+            sql = "select invoice_no,form_no, invoice_date , total_order, total_order as owing, '0' as payment_amount from purchase_invoice_header where kode_supplier = '" & kode & "' and status_invoice = 1"
             With cmd
                 .Connection = con
                 .CommandText = sql
@@ -127,9 +127,13 @@ Public Class PurchasePayment
                 DataGridViewVP.Rows.Clear()
                 DataGridViewVP.Refresh()
                 For Each oRecord As Object In publictable.Rows
-                    row = New String() {oRecord("invoice_no").ToString(), oRecord("invoice_date").ToString(), oRecord("total_order").ToString(), oRecord("total_order").ToString(), oRecord("payment_amount").ToString()}
+                    row = New String() {oRecord("invoice_no").ToString(), oRecord("form_no").ToString(), oRecord("invoice_date").ToString(), oRecord("total_order").ToString(), oRecord("owing").ToString(), oRecord("payment_amount").ToString()}
                     DataGridViewVP.Rows.Add(row)
                 Next
+                Dim chk As New DataGridViewCheckBoxColumn()
+                DataGridViewVP.Columns.Add(chk)
+                chk.HeaderText = "Pay"
+                chk.Name = "chk"
                 DataGridViewVP.Refresh()
             End If
         Catch ex As MySqlException
