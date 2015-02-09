@@ -630,7 +630,7 @@ Public Class PurchaseOrder
         Else
             MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         End If
-        
+
     End Sub
     Private Function countPOByPONo(noPO As String) As Integer
         Dim nonqueryCommand As MySqlCommand

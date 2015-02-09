@@ -70,7 +70,7 @@ Partial Class SalesOrderFrm
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.CheckInclusiveTax = New System.Windows.Forms.CheckBox()
-        Me.CheckVendorTaxable = New System.Windows.Forms.CheckBox()
+        Me.CheckCustTaxable = New System.Windows.Forms.CheckBox()
         Me.CmbCust = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -543,16 +543,16 @@ Partial Class SalesOrderFrm
         Me.CheckInclusiveTax.Text = "Inclusive Tax"
         Me.CheckInclusiveTax.UseVisualStyleBackColor = True
         '
-        'CheckVendorTaxable
+        'CheckCustTaxable
         '
-        Me.CheckVendorTaxable.AutoSize = True
-        Me.CheckVendorTaxable.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckVendorTaxable.Location = New System.Drawing.Point(484, 58)
-        Me.CheckVendorTaxable.Name = "CheckVendorTaxable"
-        Me.CheckVendorTaxable.Size = New System.Drawing.Size(145, 21)
-        Me.CheckVendorTaxable.TabIndex = 52
-        Me.CheckVendorTaxable.Text = "Customer is Taxable"
-        Me.CheckVendorTaxable.UseVisualStyleBackColor = True
+        Me.CheckCustTaxable.AutoSize = True
+        Me.CheckCustTaxable.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CheckCustTaxable.Location = New System.Drawing.Point(484, 58)
+        Me.CheckCustTaxable.Name = "CheckCustTaxable"
+        Me.CheckCustTaxable.Size = New System.Drawing.Size(145, 21)
+        Me.CheckCustTaxable.TabIndex = 52
+        Me.CheckCustTaxable.Text = "Customer is Taxable"
+        Me.CheckCustTaxable.UseVisualStyleBackColor = True
         '
         'CmbCust
         '
@@ -672,7 +672,7 @@ Partial Class SalesOrderFrm
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.CheckInclusiveTax)
-        Me.Controls.Add(Me.CheckVendorTaxable)
+        Me.Controls.Add(Me.CheckCustTaxable)
         Me.Controls.Add(Me.CmbCust)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -727,7 +727,7 @@ Partial Class SalesOrderFrm
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents CheckInclusiveTax As System.Windows.Forms.CheckBox
-    Friend WithEvents CheckVendorTaxable As System.Windows.Forms.CheckBox
+    Friend WithEvents CheckCustTaxable As System.Windows.Forms.CheckBox
     Friend WithEvents CmbCust As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label

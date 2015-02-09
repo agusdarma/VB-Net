@@ -8,6 +8,7 @@ Public Class AdvancedSearchItems
     Dim rowStart As Integer
     Dim totalRow As Integer
     Dim currentPage As Integer
+    Public menuCalling As String
     Public kodeItem As String
     Public paramSearch As String
     Public sqlBase As String = "select kode_item,nama_item,item_type,satuan,default_price,default_diskon "
@@ -253,9 +254,17 @@ Public Class AdvancedSearchItems
     End Sub
 
     Private Sub GridItemSearch_CellDoubleClick(sender As Object, e As DataGridViewCellEventArgs) Handles GridItemSearch.CellDoubleClick
-        Dim rowIdx As Integer
-        rowIdx = e.RowIndex
-        PurchaseOrder.addItemToListPO(GridItemSearch.Rows(rowIdx).Cells(0).Value, GridItemSearch.Rows(rowIdx).Cells(1).Value, GridItemSearch.Rows(rowIdx).Cells(3).Value, GridItemSearch.Rows(rowIdx).Cells(4).Value, GridItemSearch.Rows(rowIdx).Cells(5).Value)
-        Me.Close()
+        
+        If menuCalling = "SalesOrderFrm" Then
+            Dim rowIdx As Integer
+            rowIdx = e.RowIndex
+            SalesOrderFrm.addItemToListSO(GridItemSearch.Rows(rowIdx).Cells(0).Value, GridItemSearch.Rows(rowIdx).Cells(1).Value, GridItemSearch.Rows(rowIdx).Cells(3).Value, GridItemSearch.Rows(rowIdx).Cells(4).Value, GridItemSearch.Rows(rowIdx).Cells(5).Value)
+            Me.Close()
+        Else
+            Dim rowIdx As Integer
+            rowIdx = e.RowIndex
+            PurchaseOrder.addItemToListPO(GridItemSearch.Rows(rowIdx).Cells(0).Value, GridItemSearch.Rows(rowIdx).Cells(1).Value, GridItemSearch.Rows(rowIdx).Cells(3).Value, GridItemSearch.Rows(rowIdx).Cells(4).Value, GridItemSearch.Rows(rowIdx).Cells(5).Value)
+            Me.Close()
+        End If
     End Sub
 End Class
