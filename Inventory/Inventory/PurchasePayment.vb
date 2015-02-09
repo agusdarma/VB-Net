@@ -70,11 +70,26 @@ Public Class PurchasePayment
         Me.DataGridViewVP.Columns(3).Name = "Total Order"
         Me.DataGridViewVP.Columns(4).Name = "Owing"
         Me.DataGridViewVP.Columns(5).Name = "Payment Amount"
+        DataGridViewVP.Columns(0).ReadOnly = True
+        DataGridViewVP.Columns(1).ReadOnly = True
+        DataGridViewVP.Columns(2).ReadOnly = True
+        DataGridViewVP.Columns(3).ReadOnly = True
+        DataGridViewVP.Columns(4).ReadOnly = True
+        formatKolomNumeric()
     End Sub
     Private Sub PurchasePayment_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inisialisasi()
         CmbVendor.Focus()
         idPrimary.Text = getPrimaryId().ToString
+        
+    End Sub
+    Private Sub formatKolomNumeric()
+        DataGridViewVP.Columns("Total Order").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewVP.Columns("Owing").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewVP.Columns("Payment Amount").DefaultCellStyle.Format = "N0" ' N(zero) for no digits to the right of 
+        DataGridViewVP.Columns("Total Order").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridViewVP.Columns("Owing").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
+        DataGridViewVP.Columns("Payment Amount").DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight
     End Sub
 
     Private Sub CmbVendor_Click(sender As Object, e As EventArgs) Handles CmbVendor.Click
@@ -116,7 +131,7 @@ Public Class PurchasePayment
         Dim publictable As New DataTable
         Try
             con = jokenconn()
-            sql = "select invoice_no,form_no, invoice_date , total_order, total_order as owing, '0' as payment_amount from purchase_invoice_header where kode_supplier = '" & kode & "' and status_invoice = 1"
+            sql = "select pih.invoice_no,pih.form_no, pih.invoice_date , pih.total_order,IFNULL(pp.owing,pih.total_order)as owing, '0' as payment_amount from purchase_invoice_header pih left join purchase_payment pp on pih.form_no = pp.form_no_invoice and pp.is_history = 1 where pih.kode_supplier = '" & kode & "' and pih.status_invoice = 1"
             With cmd
                 .Connection = con
                 .CommandText = sql
@@ -151,6 +166,11 @@ Public Class PurchasePayment
     Private Sub CmbVendor_SelectionChangeCommitted(sender As Object, e As EventArgs) Handles CmbVendor.SelectionChangeCommitted
         findSupplierByKode(CmbVendor.SelectedValue)
         findInvoiceBySupplierKode(CmbVendor.SelectedValue)
+        For Each oItem As DataGridViewRow In DataGridViewVP.Rows
+            oItem.Cells(3).Value = CLng(oItem.Cells(3).Value)
+            oItem.Cells(4).Value = CLng(oItem.Cells(4).Value)
+            oItem.Cells(5).Value = CLng(oItem.Cells(5).Value)
+        Next
     End Sub
 
     Private Sub DataGridViewVP_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewVP.CellContentClick
@@ -158,7 +178,7 @@ Public Class PurchasePayment
             If e.RowIndex >= 0 Then
                 TextBoxNotes.Focus()
                 If DataGridViewVP.Rows(e.RowIndex).Cells(6).Value = True Then
-                    DataGridViewVP.Rows(e.RowIndex).Cells(5).Value = DataGridViewVP.Rows(e.RowIndex).Cells(3).Value
+                    DataGridViewVP.Rows(e.RowIndex).Cells(5).Value = DataGridViewVP.Rows(e.RowIndex).Cells(4).Value
                     'MessageBox.Show("Checked", "Status", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 Else
                     DataGridViewVP.Rows(e.RowIndex).Cells(5).Value = "0"
@@ -173,26 +193,33 @@ Public Class PurchasePayment
             Dim iColumn As Integer = DataGridViewVP.CurrentCell.ColumnIndex
             Dim iRows As Integer = DataGridViewVP.CurrentCell.RowIndex
             DataGridViewVP.Rows(iRows).Cells(6).Value = True
+            Dim payment As Long
+            payment = DataGridViewVP.Rows(iRows).Cells(iColumn).Value
+            Dim owing As Long
+            owing = DataGridViewVP.Rows(iRows).Cells(4).Value
+            If payment > owing Then
+                MessageBox.Show("Pembayaran lebih besar dari pada owing", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                DataGridViewVP.Rows(iRows).Cells(iColumn).Value = owing
+            End If
+            DataGridViewVP.Rows(iRows).Cells(iColumn).Value = CLng(DataGridViewVP.Rows(iRows).Cells(iColumn).Value)
+
         End If
     End Sub
 
     Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
         insertVP()
-        'listSelectVP = New List(Of PoVO)
-        'For Each oItem As DataGridViewRow In DataGridViewVP.Rows
-        '    If oItem.Cells(6).Value = True Then
-        '        listSelectVP.Add(New PoVO(oItem.Cells(1).Value))
-        '    End If
-        'Next
-        'DataGridViewVP.Rows.Clear()
-        'If DataGridViewVP.Columns.Count = 7 Then
-        '    DataGridViewVP.Columns.RemoveAt(DataGridViewVP.Columns.Count - 1)
-        'End If
-
-        'DataGridViewVP.Refresh()
-        'For Each item As PoVO In listSelectVP
-        '    findInvoiceByInvoiceNo(item.NOPO)
-        'Next
+        clearAllFIeld()
+        inisialisasi()
+        Me.idPrimary.Text = getPrimaryId().ToString
+    End Sub
+    Private Sub clearAllFIeld()
+        TextBoxKodeSupplier.Text = ""
+        TextBoxNamaSupplier.Text = ""
+        alamatVendor.Text = ""
+        TextBoxVpNo.Text = ""
+        DataGridViewVP.Rows.Clear()
+        TextBoxNotes.Text = ""
+        CmbVendor.SelectedIndex = -1
     End Sub
     Private Function insertVP() As Integer
         Dim rowEffected As Integer = 0
@@ -242,9 +269,18 @@ Public Class PurchasePayment
             sqlCommand.Parameters.Add("@owing", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@payment_amount", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@notes", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@is_history", MySqlDbType.Int16)
             For Each oItem As DataGridViewRow In DataGridViewVP.Rows
                 If oItem.Cells(6).Value = True Then
-                    sql = "INSERT INTO purchase_payment(kode_supplier,nama_supplier,alamat_supplier,invoice_no,form_no_invoice,invoice_date,payment_date,form_no,total_order,owing,payment_amount,notes) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@invoice_no,@form_no_invoice,@invoice_date,@payment_date,@form_no,@total_order,@owing,@payment_amount,@notes)"
+
+                    ' update purchase payment ubah is history menjadi 0 karena trx ini hanya sebagai history saja
+                    sql = "UPDATE purchase_payment SET is_history = 0 WHERE form_no_invoice = @form_no_invoice"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@form_no_invoice").Value = oItem.Cells(1).Value
+                    sqlCommand.ExecuteNonQuery()
+
+                    ' insert dengan is history menjadi 1
+                    sql = "INSERT INTO purchase_payment(kode_supplier,nama_supplier,alamat_supplier,invoice_no,form_no_invoice,invoice_date,payment_date,form_no,total_order,owing,payment_amount,notes,is_history) VALUES (@kode_supplier,@nama_supplier,@alamat_supplier,@invoice_no,@form_no_invoice,@invoice_date,@payment_date,@form_no,@total_order,@owing,@payment_amount,@notes,@is_history)"
                     sqlCommand.CommandText = sql
                     'Dim PoNumber As String
                     'Dim RINumber As String
@@ -262,18 +298,22 @@ Public Class PurchasePayment
                     Dim owing As Long = oItem.Cells(4).Value
                     Dim totalOrder As Long = oItem.Cells(3).Value
                     Dim payment As Long = oItem.Cells(5).Value
-                    owing = totalOrder - payment
+                    owing = owing - payment
                     sqlCommand.Parameters("@total_order").Value = oItem.Cells(3).Value
                     sqlCommand.Parameters("@owing").Value = owing
                     sqlCommand.Parameters("@payment_amount").Value = oItem.Cells(5).Value
                     sqlCommand.Parameters("@notes").Value = TextBoxNotes.Text
+                    sqlCommand.Parameters("@is_history").Value = 1
                     sqlCommand.ExecuteNonQuery()
 
-                    ' update purchase order header ubah status menjadi 2 karena sudah di received barang nya
-                    sql = "UPDATE purchase_invoice_header SET status_invoice = 2 WHERE form_no = @form_no_invoice"
-                    sqlCommand.CommandText = sql
-                    sqlCommand.Parameters("@form_no_invoice").Value = oItem.Cells(1).Value
-                    sqlCommand.ExecuteNonQuery()
+                    If owing = 0 Then
+                        ' update purchase order header ubah status menjadi 2 karena sudah di received barang nya
+                        sql = "UPDATE purchase_invoice_header SET status_invoice = 2 WHERE form_no = @form_no_invoice"
+                        sqlCommand.CommandText = sql
+                        sqlCommand.Parameters("@form_no_invoice").Value = oItem.Cells(1).Value
+                        sqlCommand.ExecuteNonQuery()
+                    End If
+                    
                 End If
             Next
 
@@ -300,4 +340,13 @@ Public Class PurchasePayment
         End Try
         Return rowEffected
     End Function
+
+    Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
+        insertVP()
+        Me.Close()
+    End Sub
+
+    Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
+        Me.Close()
+    End Sub
 End Class

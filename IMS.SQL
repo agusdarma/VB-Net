@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 06-Feb-15
+Modified: 09-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -383,6 +383,7 @@ CREATE TABLE purchase_payment
   owing Bigint,
   payment_amount Bigint,
   notes Varchar(256),
+  is_history Int,
  PRIMARY KEY (id)
 )
 ;
