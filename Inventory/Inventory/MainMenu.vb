@@ -60,4 +60,8 @@ Public Class MainMenu
     Private Sub PurchasePaymentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasePaymentToolStripMenuItem.Click
         PurchasePayment.Show()
     End Sub
+
+    Private Sub SalesOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesOrderToolStripMenuItem.Click
+        SalesOrderFrm.Show()
+    End Sub
 End Class

@@ -53,6 +53,11 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.SalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.DeliveryOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalesInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SalesReceiptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -185,7 +190,7 @@ Partial Class MainMenu
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem, Me.SalesToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -250,6 +255,37 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
+        'SalesToolStripMenuItem
+        '
+        Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
+        Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesToolStripMenuItem.Text = "Sales"
+        '
+        'SalesOrderToolStripMenuItem
+        '
+        Me.SalesOrderToolStripMenuItem.Name = "SalesOrderToolStripMenuItem"
+        Me.SalesOrderToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesOrderToolStripMenuItem.Text = "Sales Order"
+        '
+        'DeliveryOrderToolStripMenuItem
+        '
+        Me.DeliveryOrderToolStripMenuItem.Name = "DeliveryOrderToolStripMenuItem"
+        Me.DeliveryOrderToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.DeliveryOrderToolStripMenuItem.Text = "Delivery Order"
+        '
+        'SalesInvoiceToolStripMenuItem
+        '
+        Me.SalesInvoiceToolStripMenuItem.Name = "SalesInvoiceToolStripMenuItem"
+        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesInvoiceToolStripMenuItem.Text = "Sales Invoice"
+        '
+        'SalesReceiptToolStripMenuItem
+        '
+        Me.SalesReceiptToolStripMenuItem.Name = "SalesReceiptToolStripMenuItem"
+        Me.SalesReceiptToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesReceiptToolStripMenuItem.Text = "Sales Receipt"
+        '
         'MainMenu
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -298,5 +334,10 @@ Partial Class MainMenu
     Friend WithEvents GenerateReportToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ReceiveItemsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PurchasePaymentToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalesOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents DeliveryOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalesInvoiceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents SalesReceiptToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
