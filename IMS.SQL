@@ -238,6 +238,40 @@ ALTER TABLE purchase_order_header ADD UNIQUE po_no (po_no)
 CREATE INDEX po_header_idx ON purchase_order_header (kode_supplier,nama_supplier,po_no,po_date)
 ;
 
+-- Table sales_order_header
+
+CREATE TABLE sales_order_header
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_customer Varchar(32) NOT NULL,
+  nama_customer Varchar(64) NOT NULL,
+  bill_to Varchar(256),
+  ship_to Varchar(256),
+  cust_taxable Int,
+  inclusive_tax Int,
+  po_no Varchar(64),
+  so_no Varchar(64),
+  so_date Datetime,
+  ship_date Datetime,
+  notes Varchar(256),
+  sub_total Bigint,
+  diskon Bigint,
+  diskon_pct Int,
+  tax_value Bigint,
+  cost_ship Bigint,
+  total_order Bigint,
+  status_po Int,
+  created_by Varchar(32),
+ PRIMARY KEY (id)
+)
+;
+
+ALTER TABLE sales_order_header ADD UNIQUE po_no (so_no)
+;
+
+CREATE INDEX so_header_idx ON sales_order_header (kode_customer,nama_customer,so_no,so_date)
+;
+
 -- Table purchase_order_detail
 
 CREATE TABLE purchase_order_detail
@@ -256,6 +290,26 @@ CREATE TABLE purchase_order_detail
 ;
 
 CREATE INDEX po_detail_idx ON purchase_order_detail (po_header_id,kode_item,nama_item)
+;
+
+-- Table sales_order_detail
+
+CREATE TABLE sales_order_detail
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  so_header_id Bigint,
+  kode_item Varchar(32),
+  nama_item Varchar(32),
+  qty Bigint,
+  satuan Varchar(32),
+  price_per_unit Bigint,
+  diskon Bigint,
+  price_total Bigint,
+ PRIMARY KEY (id)
+)
+;
+
+CREATE INDEX so_detail_idx ON sales_order_detail (so_header_id,kode_item,nama_item)
 ;
 
 -- Table receive_item_header

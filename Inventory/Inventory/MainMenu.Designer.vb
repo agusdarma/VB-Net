@@ -48,11 +48,11 @@ Partial Class MainMenu
         Me.PurchaseOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ReceiveItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PurchasePaymentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.PurchasePaymentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -202,7 +202,7 @@ Partial Class MainMenu
         Me.PurchaseOrderToolStripMenuItem.Image = CType(resources.GetObject("PurchaseOrderToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PurchaseOrderToolStripMenuItem.Name = "PurchaseOrderToolStripMenuItem"
         Me.PurchaseOrderToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
-        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.PurchaseOrderToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PurchaseOrderToolStripMenuItem.Text = "Purchase Order"
         '
         'ReceiveItemsToolStripMenuItem
@@ -210,7 +210,7 @@ Partial Class MainMenu
         Me.ReceiveItemsToolStripMenuItem.Image = CType(resources.GetObject("ReceiveItemsToolStripMenuItem.Image"), System.Drawing.Image)
         Me.ReceiveItemsToolStripMenuItem.Name = "ReceiveItemsToolStripMenuItem"
         Me.ReceiveItemsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.ReceiveItemsToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.ReceiveItemsToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.ReceiveItemsToolStripMenuItem.Text = "Receive Items"
         '
         'PurchaseInvoiceToolStripMenuItem
@@ -218,8 +218,16 @@ Partial Class MainMenu
         Me.PurchaseInvoiceToolStripMenuItem.Image = CType(resources.GetObject("PurchaseInvoiceToolStripMenuItem.Image"), System.Drawing.Image)
         Me.PurchaseInvoiceToolStripMenuItem.Name = "PurchaseInvoiceToolStripMenuItem"
         Me.PurchaseInvoiceToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
+        Me.PurchaseInvoiceToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PurchaseInvoiceToolStripMenuItem.Text = "Purchase Invoice"
+        '
+        'PurchasePaymentToolStripMenuItem
+        '
+        Me.PurchasePaymentToolStripMenuItem.Image = CType(resources.GetObject("PurchasePaymentToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.PurchasePaymentToolStripMenuItem.Name = "PurchasePaymentToolStripMenuItem"
+        Me.PurchasePaymentToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
+        Me.PurchasePaymentToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
+        Me.PurchasePaymentToolStripMenuItem.Text = "Purchase Payment"
         '
         'AboutToolStripMenuItem
         '
@@ -241,12 +249,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'PurchasePaymentToolStripMenuItem
-        '
-        Me.PurchasePaymentToolStripMenuItem.Name = "PurchasePaymentToolStripMenuItem"
-        Me.PurchasePaymentToolStripMenuItem.Size = New System.Drawing.Size(208, 22)
-        Me.PurchasePaymentToolStripMenuItem.Text = "Purchase Payment"
         '
         'MainMenu
         '
