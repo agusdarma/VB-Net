@@ -7,7 +7,6 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MultiColumnComboBox
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MySql.Data.Entity.EF5.dll
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MySql.Data.Entity.EF6.dll
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MySql.Fabric.Plugin.dll
-D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.vbprojResolveAssemblyReference.cache
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.AdvancedSearchItems.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.Barang.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.BarangAdd.resources
@@ -39,3 +38,5 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.xml
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.pdb
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.PurchasePayment.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SalesOrderFrm.resources
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.DeliveryOrderFrm.resources
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SearchSOForm.resources

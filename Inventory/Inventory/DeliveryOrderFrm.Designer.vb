@@ -22,19 +22,19 @@ Partial Class DeliveryOrderFrm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.idPrimary = New System.Windows.Forms.TextBox()
-        Me.TextBoxNamaSupplier = New System.Windows.Forms.TextBox()
-        Me.TextBoxKodeSupplier = New System.Windows.Forms.TextBox()
-        Me.BtnSelectPo = New System.Windows.Forms.Button()
-        Me.DateTimePickerShipDate = New System.Windows.Forms.DateTimePicker()
+        Me.TextBoxNamaCust = New System.Windows.Forms.TextBox()
+        Me.TextBoxKodeCust = New System.Windows.Forms.TextBox()
+        Me.BtnSelectSO = New System.Windows.Forms.Button()
+        Me.DateTimePickerDeliveryDate = New System.Windows.Forms.DateTimePicker()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.TextBoxReceiptNo = New System.Windows.Forms.TextBox()
+        Me.TextBoxDeliveryNo = New System.Windows.Forms.TextBox()
         Me.Label4 = New System.Windows.Forms.Label()
-        Me.TextBoxFormNo = New System.Windows.Forms.TextBox()
+        Me.TextBoxPONo = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.SavePrint = New System.Windows.Forms.Button()
         Me.Cancel = New System.Windows.Forms.Button()
@@ -42,18 +42,18 @@ Partial Class DeliveryOrderFrm
         Me.ButtonSaveNew = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBoxNotes = New System.Windows.Forms.TextBox()
-        Me.DataGridViewRI = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewDO = New System.Windows.Forms.DataGridView()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.NextPo = New System.Windows.Forms.Button()
         Me.PrevPO = New System.Windows.Forms.Button()
-        Me.alamatVendor = New System.Windows.Forms.TextBox()
+        Me.textBoxBillTo = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
-        Me.CmbVendor = New System.Windows.Forms.ComboBox()
+        Me.CmbCust = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBoxShipTo = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
-        CType(Me.DataGridViewRI, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridViewDO, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'idPrimary
@@ -64,40 +64,40 @@ Partial Class DeliveryOrderFrm
         Me.idPrimary.TabIndex = 99
         Me.idPrimary.Visible = False
         '
-        'TextBoxNamaSupplier
+        'TextBoxNamaCust
         '
-        Me.TextBoxNamaSupplier.Location = New System.Drawing.Point(224, 18)
-        Me.TextBoxNamaSupplier.Name = "TextBoxNamaSupplier"
-        Me.TextBoxNamaSupplier.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxNamaSupplier.TabIndex = 98
-        Me.TextBoxNamaSupplier.Visible = False
+        Me.TextBoxNamaCust.Location = New System.Drawing.Point(224, 18)
+        Me.TextBoxNamaCust.Name = "TextBoxNamaCust"
+        Me.TextBoxNamaCust.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxNamaCust.TabIndex = 98
+        Me.TextBoxNamaCust.Visible = False
         '
-        'TextBoxKodeSupplier
+        'TextBoxKodeCust
         '
-        Me.TextBoxKodeSupplier.Location = New System.Drawing.Point(343, 19)
-        Me.TextBoxKodeSupplier.Name = "TextBoxKodeSupplier"
-        Me.TextBoxKodeSupplier.Size = New System.Drawing.Size(100, 20)
-        Me.TextBoxKodeSupplier.TabIndex = 97
-        Me.TextBoxKodeSupplier.Visible = False
+        Me.TextBoxKodeCust.Location = New System.Drawing.Point(343, 19)
+        Me.TextBoxKodeCust.Name = "TextBoxKodeCust"
+        Me.TextBoxKodeCust.Size = New System.Drawing.Size(100, 20)
+        Me.TextBoxKodeCust.TabIndex = 97
+        Me.TextBoxKodeCust.Visible = False
         '
-        'BtnSelectPo
+        'BtnSelectSO
         '
-        Me.BtnSelectPo.BackColor = System.Drawing.Color.Blue
-        Me.BtnSelectPo.ForeColor = System.Drawing.Color.White
-        Me.BtnSelectPo.Location = New System.Drawing.Point(410, 60)
-        Me.BtnSelectPo.Name = "BtnSelectPo"
-        Me.BtnSelectPo.Size = New System.Drawing.Size(101, 31)
-        Me.BtnSelectPo.TabIndex = 75
-        Me.BtnSelectPo.Text = "Select SO"
-        Me.BtnSelectPo.UseVisualStyleBackColor = False
+        Me.BtnSelectSO.BackColor = System.Drawing.Color.Blue
+        Me.BtnSelectSO.ForeColor = System.Drawing.Color.White
+        Me.BtnSelectSO.Location = New System.Drawing.Point(410, 60)
+        Me.BtnSelectSO.Name = "BtnSelectSO"
+        Me.BtnSelectSO.Size = New System.Drawing.Size(101, 31)
+        Me.BtnSelectSO.TabIndex = 75
+        Me.BtnSelectSO.Text = "Select SO"
+        Me.BtnSelectSO.UseVisualStyleBackColor = False
         '
-        'DateTimePickerShipDate
+        'DateTimePickerDeliveryDate
         '
-        Me.DateTimePickerShipDate.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateTimePickerShipDate.Location = New System.Drawing.Point(1030, 134)
-        Me.DateTimePickerShipDate.Name = "DateTimePickerShipDate"
-        Me.DateTimePickerShipDate.Size = New System.Drawing.Size(200, 25)
-        Me.DateTimePickerShipDate.TabIndex = 80
+        Me.DateTimePickerDeliveryDate.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateTimePickerDeliveryDate.Location = New System.Drawing.Point(1030, 134)
+        Me.DateTimePickerDeliveryDate.Name = "DateTimePickerDeliveryDate"
+        Me.DateTimePickerDeliveryDate.Size = New System.Drawing.Size(200, 25)
+        Me.DateTimePickerDeliveryDate.TabIndex = 80
         '
         'Label9
         '
@@ -109,14 +109,15 @@ Partial Class DeliveryOrderFrm
         Me.Label9.TabIndex = 96
         Me.Label9.Text = "Delivery Date"
         '
-        'TextBoxReceiptNo
+        'TextBoxDeliveryNo
         '
-        Me.TextBoxReceiptNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBoxReceiptNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxReceiptNo.Location = New System.Drawing.Point(1077, 83)
-        Me.TextBoxReceiptNo.Name = "TextBoxReceiptNo"
-        Me.TextBoxReceiptNo.Size = New System.Drawing.Size(100, 25)
-        Me.TextBoxReceiptNo.TabIndex = 73
+        Me.TextBoxDeliveryNo.BackColor = System.Drawing.Color.LightGray
+        Me.TextBoxDeliveryNo.Enabled = False
+        Me.TextBoxDeliveryNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxDeliveryNo.Location = New System.Drawing.Point(1077, 83)
+        Me.TextBoxDeliveryNo.Name = "TextBoxDeliveryNo"
+        Me.TextBoxDeliveryNo.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxDeliveryNo.TabIndex = 73
         '
         'Label4
         '
@@ -128,15 +129,14 @@ Partial Class DeliveryOrderFrm
         Me.Label4.TabIndex = 94
         Me.Label4.Text = "Delivery No"
         '
-        'TextBoxFormNo
+        'TextBoxPONo
         '
-        Me.TextBoxFormNo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.TextBoxFormNo.Enabled = False
-        Me.TextBoxFormNo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBoxFormNo.Location = New System.Drawing.Point(871, 83)
-        Me.TextBoxFormNo.Name = "TextBoxFormNo"
-        Me.TextBoxFormNo.Size = New System.Drawing.Size(100, 25)
-        Me.TextBoxFormNo.TabIndex = 76
+        Me.TextBoxPONo.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.TextBoxPONo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TextBoxPONo.Location = New System.Drawing.Point(871, 83)
+        Me.TextBoxPONo.Name = "TextBoxPONo"
+        Me.TextBoxPONo.Size = New System.Drawing.Size(100, 25)
+        Me.TextBoxPONo.TabIndex = 76
         '
         'Label3
         '
@@ -207,51 +207,51 @@ Partial Class DeliveryOrderFrm
         Me.TextBoxNotes.Size = New System.Drawing.Size(375, 60)
         Me.TextBoxNotes.TabIndex = 78
         '
-        'DataGridViewRI
+        'DataGridViewDO
         '
-        Me.DataGridViewRI.AllowUserToAddRows = False
-        Me.DataGridViewRI.AllowUserToDeleteRows = False
-        Me.DataGridViewRI.AllowUserToResizeRows = False
-        DataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle13.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewRI.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle13
-        Me.DataGridViewRI.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        Me.DataGridViewRI.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.DataGridViewRI.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle14.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle14.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewRI.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle14
-        Me.DataGridViewRI.ColumnHeadersHeight = 30
-        Me.DataGridViewRI.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.DataGridViewRI.EnableHeadersVisualStyles = False
-        Me.DataGridViewRI.Location = New System.Drawing.Point(17, 247)
-        Me.DataGridViewRI.Name = "DataGridViewRI"
-        Me.DataGridViewRI.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle15.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle15.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle15.ForeColor = System.Drawing.Color.Red
-        DataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewRI.RowHeadersDefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridViewRI.RowHeadersVisible = False
-        DataGridViewCellStyle16.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewRI.RowsDefaultCellStyle = DataGridViewCellStyle16
-        Me.DataGridViewRI.Size = New System.Drawing.Size(1212, 150)
-        Me.DataGridViewRI.TabIndex = 77
+        Me.DataGridViewDO.AllowUserToAddRows = False
+        Me.DataGridViewDO.AllowUserToDeleteRows = False
+        Me.DataGridViewDO.AllowUserToResizeRows = False
+        DataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewDO.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle17
+        Me.DataGridViewDO.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        Me.DataGridViewDO.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.DataGridViewDO.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle18.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewDO.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle18
+        Me.DataGridViewDO.ColumnHeadersHeight = 30
+        Me.DataGridViewDO.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
+        Me.DataGridViewDO.EnableHeadersVisualStyles = False
+        Me.DataGridViewDO.Location = New System.Drawing.Point(17, 247)
+        Me.DataGridViewDO.Name = "DataGridViewDO"
+        Me.DataGridViewDO.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle19.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle19.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle19.ForeColor = System.Drawing.Color.Red
+        DataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewDO.RowHeadersDefaultCellStyle = DataGridViewCellStyle19
+        Me.DataGridViewDO.RowHeadersVisible = False
+        DataGridViewCellStyle20.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle20.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewDO.RowsDefaultCellStyle = DataGridViewCellStyle20
+        Me.DataGridViewDO.Size = New System.Drawing.Size(1212, 150)
+        Me.DataGridViewDO.TabIndex = 77
         '
         'Label7
         '
@@ -283,17 +283,17 @@ Partial Class DeliveryOrderFrm
         Me.PrevPO.Text = "Prev"
         Me.PrevPO.UseVisualStyleBackColor = False
         '
-        'alamatVendor
+        'textBoxBillTo
         '
-        Me.alamatVendor.BackColor = System.Drawing.Color.LightGray
-        Me.alamatVendor.Enabled = False
-        Me.alamatVendor.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.alamatVendor.Location = New System.Drawing.Point(19, 111)
-        Me.alamatVendor.Multiline = True
-        Me.alamatVendor.Name = "alamatVendor"
-        Me.alamatVendor.Size = New System.Drawing.Size(183, 111)
-        Me.alamatVendor.TabIndex = 88
-        Me.alamatVendor.TabStop = False
+        Me.textBoxBillTo.BackColor = System.Drawing.Color.LightGray
+        Me.textBoxBillTo.Enabled = False
+        Me.textBoxBillTo.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.textBoxBillTo.Location = New System.Drawing.Point(19, 111)
+        Me.textBoxBillTo.Multiline = True
+        Me.textBoxBillTo.Name = "textBoxBillTo"
+        Me.textBoxBillTo.Size = New System.Drawing.Size(183, 111)
+        Me.textBoxBillTo.TabIndex = 88
+        Me.textBoxBillTo.TabStop = False
         '
         'Label5
         '
@@ -305,17 +305,17 @@ Partial Class DeliveryOrderFrm
         Me.Label5.TabIndex = 87
         Me.Label5.Text = "Bill To"
         '
-        'CmbVendor
+        'CmbCust
         '
-        Me.CmbVendor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList
-        Me.CmbVendor.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.CmbVendor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbVendor.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmbVendor.FormattingEnabled = True
-        Me.CmbVendor.Location = New System.Drawing.Point(16, 63)
-        Me.CmbVendor.Name = "CmbVendor"
-        Me.CmbVendor.Size = New System.Drawing.Size(378, 25)
-        Me.CmbVendor.TabIndex = 74
+        Me.CmbCust.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.RecentlyUsedList
+        Me.CmbCust.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.CmbCust.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.CmbCust.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmbCust.FormattingEnabled = True
+        Me.CmbCust.Location = New System.Drawing.Point(16, 63)
+        Me.CmbCust.Name = "CmbCust"
+        Me.CmbCust.Size = New System.Drawing.Size(378, 25)
+        Me.CmbCust.TabIndex = 74
         '
         'Label2
         '
@@ -365,14 +365,14 @@ Partial Class DeliveryOrderFrm
         Me.Controls.Add(Me.TextBoxShipTo)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.idPrimary)
-        Me.Controls.Add(Me.TextBoxNamaSupplier)
-        Me.Controls.Add(Me.TextBoxKodeSupplier)
-        Me.Controls.Add(Me.BtnSelectPo)
-        Me.Controls.Add(Me.DateTimePickerShipDate)
+        Me.Controls.Add(Me.TextBoxNamaCust)
+        Me.Controls.Add(Me.TextBoxKodeCust)
+        Me.Controls.Add(Me.BtnSelectSO)
+        Me.Controls.Add(Me.DateTimePickerDeliveryDate)
         Me.Controls.Add(Me.Label9)
-        Me.Controls.Add(Me.TextBoxReceiptNo)
+        Me.Controls.Add(Me.TextBoxDeliveryNo)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBoxFormNo)
+        Me.Controls.Add(Me.TextBoxPONo)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.SavePrint)
         Me.Controls.Add(Me.Cancel)
@@ -380,31 +380,31 @@ Partial Class DeliveryOrderFrm
         Me.Controls.Add(Me.ButtonSaveNew)
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.TextBoxNotes)
-        Me.Controls.Add(Me.DataGridViewRI)
+        Me.Controls.Add(Me.DataGridViewDO)
         Me.Controls.Add(Me.Label7)
         Me.Controls.Add(Me.NextPo)
         Me.Controls.Add(Me.PrevPO)
-        Me.Controls.Add(Me.alamatVendor)
+        Me.Controls.Add(Me.textBoxBillTo)
         Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.CmbVendor)
+        Me.Controls.Add(Me.CmbCust)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Name = "DeliveryOrderFrm"
         Me.Text = "Delivery Order"
-        CType(Me.DataGridViewRI, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridViewDO, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
     Friend WithEvents idPrimary As System.Windows.Forms.TextBox
-    Friend WithEvents TextBoxNamaSupplier As System.Windows.Forms.TextBox
-    Friend WithEvents TextBoxKodeSupplier As System.Windows.Forms.TextBox
-    Friend WithEvents BtnSelectPo As System.Windows.Forms.Button
-    Friend WithEvents DateTimePickerShipDate As System.Windows.Forms.DateTimePicker
+    Friend WithEvents TextBoxNamaCust As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxKodeCust As System.Windows.Forms.TextBox
+    Friend WithEvents BtnSelectSO As System.Windows.Forms.Button
+    Friend WithEvents DateTimePickerDeliveryDate As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents TextBoxReceiptNo As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxDeliveryNo As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBoxFormNo As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxPONo As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents SavePrint As System.Windows.Forms.Button
     Friend WithEvents Cancel As System.Windows.Forms.Button
@@ -412,13 +412,13 @@ Partial Class DeliveryOrderFrm
     Friend WithEvents ButtonSaveNew As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents TextBoxNotes As System.Windows.Forms.TextBox
-    Friend WithEvents DataGridViewRI As System.Windows.Forms.DataGridView
+    Friend WithEvents DataGridViewDO As System.Windows.Forms.DataGridView
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents NextPo As System.Windows.Forms.Button
     Friend WithEvents PrevPO As System.Windows.Forms.Button
-    Friend WithEvents alamatVendor As System.Windows.Forms.TextBox
+    Friend WithEvents textBoxBillTo As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents CmbVendor As System.Windows.Forms.ComboBox
+    Friend WithEvents CmbCust As System.Windows.Forms.ComboBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBoxShipTo As System.Windows.Forms.TextBox

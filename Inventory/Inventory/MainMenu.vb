@@ -64,4 +64,8 @@ Public Class MainMenu
     Private Sub SalesOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesOrderToolStripMenuItem.Click
         SalesOrderFrm.Show()
     End Sub
+
+    Private Sub DeliveryOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeliveryOrderToolStripMenuItem.Click
+        DeliveryOrderFrm.Show()
+    End Sub
 End Class

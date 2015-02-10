@@ -49,15 +49,15 @@ Partial Class MainMenu
         Me.ReceiveItemsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchaseInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PurchasePaymentToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
-        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.SalesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.DeliveryOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesReceiptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.StatusStrip = New System.Windows.Forms.StatusStrip()
+        Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
+        Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -234,6 +234,39 @@ Partial Class MainMenu
         Me.PurchasePaymentToolStripMenuItem.Size = New System.Drawing.Size(212, 22)
         Me.PurchasePaymentToolStripMenuItem.Text = "Purchase Payment"
         '
+        'SalesToolStripMenuItem
+        '
+        Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
+        Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesToolStripMenuItem.Text = "Sales"
+        '
+        'SalesOrderToolStripMenuItem
+        '
+        Me.SalesOrderToolStripMenuItem.Image = CType(resources.GetObject("SalesOrderToolStripMenuItem.Image"), System.Drawing.Image)
+        Me.SalesOrderToolStripMenuItem.Name = "SalesOrderToolStripMenuItem"
+        Me.SalesOrderToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
+        Me.SalesOrderToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesOrderToolStripMenuItem.Text = "Sales Order"
+        '
+        'DeliveryOrderToolStripMenuItem
+        '
+        Me.DeliveryOrderToolStripMenuItem.Name = "DeliveryOrderToolStripMenuItem"
+        Me.DeliveryOrderToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.DeliveryOrderToolStripMenuItem.Text = "Delivery Order"
+        '
+        'SalesInvoiceToolStripMenuItem
+        '
+        Me.SalesInvoiceToolStripMenuItem.Name = "SalesInvoiceToolStripMenuItem"
+        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesInvoiceToolStripMenuItem.Text = "Sales Invoice"
+        '
+        'SalesReceiptToolStripMenuItem
+        '
+        Me.SalesReceiptToolStripMenuItem.Name = "SalesReceiptToolStripMenuItem"
+        Me.SalesReceiptToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesReceiptToolStripMenuItem.Text = "Sales Receipt"
+        '
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
@@ -254,37 +287,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'SalesToolStripMenuItem
-        '
-        Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
-        Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SalesToolStripMenuItem.Text = "Sales"
-        '
-        'SalesOrderToolStripMenuItem
-        '
-        Me.SalesOrderToolStripMenuItem.Name = "SalesOrderToolStripMenuItem"
-        Me.SalesOrderToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SalesOrderToolStripMenuItem.Text = "Sales Order"
-        '
-        'DeliveryOrderToolStripMenuItem
-        '
-        Me.DeliveryOrderToolStripMenuItem.Name = "DeliveryOrderToolStripMenuItem"
-        Me.DeliveryOrderToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.DeliveryOrderToolStripMenuItem.Text = "Delivery Order"
-        '
-        'SalesInvoiceToolStripMenuItem
-        '
-        Me.SalesInvoiceToolStripMenuItem.Name = "SalesInvoiceToolStripMenuItem"
-        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SalesInvoiceToolStripMenuItem.Text = "Sales Invoice"
-        '
-        'SalesReceiptToolStripMenuItem
-        '
-        Me.SalesReceiptToolStripMenuItem.Name = "SalesReceiptToolStripMenuItem"
-        Me.SalesReceiptToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SalesReceiptToolStripMenuItem.Text = "Sales Receipt"
         '
         'MainMenu
         '
