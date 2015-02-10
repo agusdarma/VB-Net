@@ -677,4 +677,250 @@ Public Class SalesOrderFrm
             con.Close()
         End Try
     End Sub
+
+    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
+        findSOBySeqPrev(idPrimary.Text)
+    End Sub
+
+    Private Sub NextPo_Click(sender As Object, e As EventArgs) Handles NextPo.Click
+        findSOBySeqNext(idPrimary.Text)
+    End Sub
+
+    Private Sub findSOBySeqPrev(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from sales_order_header ph inner join sales_order_detail pd on ph.id = pd.so_header_id where ph.id < '" & idPrimary & "' order by ph.id desc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateCust()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbCust.SelectedIndex = CmbCust.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    textBoxBillTo.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxShipTo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    Dim taxable As Integer
+                    taxable = publictable.Rows(0).Item(5)
+                    If taxable = 1 Then
+                        CheckCustTaxable.Checked = True
+                    Else
+                        CheckCustTaxable.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    Dim inclusiveTax As Integer
+                    inclusiveTax = publictable.Rows(0).Item(6)
+                    If inclusiveTax = 1 Then
+                        CheckInclusiveTax.Checked = True
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    TextBoxPoNo.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    TextBoxSoNo.Text = publictable.Rows(0).Item(8)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(9)) Then
+                    DateTimePickerSoDate.Text = publictable.Rows(0).Item(9)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(10)) Then
+                    DateTimePickerShipDate.Text = publictable.Rows(0).Item(10)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(11)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(11)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(12)) Then
+                    TextBoxSubTotal.Text = publictable.Rows(0).Item(12)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    TextBoxValueDiskon.Text = publictable.Rows(0).Item(13)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(14)) Then
+                    TextBoxPctDiskon.Text = publictable.Rows(0).Item(14)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(15)) Then
+                    TextBoxPPn.Text = publictable.Rows(0).Item(15)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(16)) Then
+                    TextBoxFreight.Text = publictable.Rows(0).Item(16)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(17)) Then
+                    TextBoxTotalOrder.Text = publictable.Rows(0).Item(17)
+                End If
+                'Detail
+                sql = "select * from sales_order_detail pd where pd.so_header_id = '" & publictable.Rows(0).Item(0) & "' order by pd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewSO.Rows.Clear()
+                DataGridViewSO.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("price_total").ToString()}
+                    DataGridViewSO.Rows.Add(row)
+                Next
+                DataGridViewSO.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is first data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub findSOBySeqNext(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from sales_order_header ph inner join sales_order_detail pd on ph.id = pd.so_header_id where ph.id > '" & idPrimary & "' order by ph.id asc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateCust()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbCust.SelectedIndex = CmbCust.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    textBoxBillTo.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxShipTo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    Dim taxable As Integer
+                    taxable = publictable.Rows(0).Item(5)
+                    If taxable = 1 Then
+                        CheckCustTaxable.Checked = True
+                    Else
+                        CheckCustTaxable.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    Dim inclusiveTax As Integer
+                    inclusiveTax = publictable.Rows(0).Item(6)
+                    If inclusiveTax = 1 Then
+                        CheckInclusiveTax.Checked = True
+                    Else
+                        CheckInclusiveTax.Checked = False
+                    End If
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    TextBoxPoNo.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    TextBoxSoNo.Text = publictable.Rows(0).Item(8)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(9)) Then
+                    DateTimePickerSoDate.Text = publictable.Rows(0).Item(9)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(10)) Then
+                    DateTimePickerShipDate.Text = publictable.Rows(0).Item(10)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(11)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(11)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(12)) Then
+                    TextBoxSubTotal.Text = publictable.Rows(0).Item(12)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(13)) Then
+                    TextBoxValueDiskon.Text = publictable.Rows(0).Item(13)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(14)) Then
+                    TextBoxPctDiskon.Text = publictable.Rows(0).Item(14)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(15)) Then
+                    TextBoxPPn.Text = publictable.Rows(0).Item(15)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(16)) Then
+                    TextBoxFreight.Text = publictable.Rows(0).Item(16)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(17)) Then
+                    TextBoxTotalOrder.Text = publictable.Rows(0).Item(17)
+                End If
+                'Detail
+                sql = "select * from sales_order_detail pd where pd.so_header_id = '" & publictable.Rows(0).Item(0) & "' order by pd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewSO.Rows.Clear()
+                DataGridViewSO.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("price_per_unit").ToString(), oRecord("diskon").ToString(), oRecord("price_total").ToString()}
+                    DataGridViewSO.Rows.Add(row)
+                Next
+                DataGridViewSO.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is first data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                clearAllFIeld()
+                inisialisasi()
+                Me.idPrimary.Text = getPrimaryId().ToString
+                enableButton()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+    Private Sub disableButton()
+        ButtonSaveClose.Enabled = False
+        ButtonSaveNew.Enabled = False
+        SavePrint.Enabled = False
+        Cancel.Enabled = False
+        CheckCustTaxable.Enabled = False
+        CheckInclusiveTax.Enabled = False
+    End Sub
+    Private Sub enableButton()
+        ButtonSaveClose.Enabled = True
+        ButtonSaveNew.Enabled = True
+        SavePrint.Enabled = True
+        Cancel.Enabled = True
+        CheckCustTaxable.Enabled = True
+        CheckInclusiveTax.Enabled = True
+    End Sub
 End Class
