@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 09-Feb-15
+Modified: 10-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -260,7 +260,7 @@ CREATE TABLE sales_order_header
   tax_value Bigint,
   cost_ship Bigint,
   total_order Bigint,
-  status_po Int,
+  status_so Int,
   created_by Varchar(32),
  PRIMARY KEY (id)
 )
@@ -335,6 +335,32 @@ CREATE TABLE receive_item_header
 ALTER TABLE receive_item_header ADD UNIQUE form_no (form_no)
 ;
 
+-- Table delivery_order_header
+
+CREATE TABLE delivery_order_header
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_customer Varchar(32) NOT NULL,
+  nama_customer Varchar(32) NOT NULL,
+  bill_to Varchar(256),
+  ship_to Varchar(256),
+  po_no Varchar(32),
+  do_no Varchar(32),
+  delivery_date Datetime,
+  notes Varchar(256),
+  status_delivery_order Int,
+  created_by Varchar(32),
+ PRIMARY KEY (id),
+ UNIQUE id (id)
+)
+;
+
+ALTER TABLE delivery_order_header ADD UNIQUE do_no (do_no)
+;
+
+CREATE INDEX IndexDeliveryHeader ON delivery_order_header (kode_customer,nama_customer,status_delivery_order,created_by)
+;
+
 -- Table receive_item_detail
 
 CREATE TABLE receive_item_detail
@@ -350,6 +376,25 @@ CREATE TABLE receive_item_detail
  PRIMARY KEY (id),
  UNIQUE id (id)
 )
+;
+
+-- Table delivery_order_detail
+
+CREATE TABLE delivery_order_detail
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  delivery_header_id Bigint,
+  kode_item Varchar(32),
+  nama_item Varchar(64),
+  qty Bigint,
+  satuan Varchar(5),
+  so_no Varchar(64),
+ PRIMARY KEY (id),
+ UNIQUE id (id)
+)
+;
+
+CREATE INDEX IndexDelivery_detail ON delivery_order_detail (delivery_header_id,so_no)
 ;
 
 -- Table items_gudang
