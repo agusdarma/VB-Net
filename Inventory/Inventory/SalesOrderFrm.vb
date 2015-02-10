@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class SalesOrderFrm
     Dim da As New MySqlDataAdapter
@@ -284,7 +285,7 @@ Public Class SalesOrderFrm
         End If
     End Sub
 
-    Private Sub DataGridViewSO_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewSO.CellMouseUp        
+    Private Sub DataGridViewSO_CellMouseUp(sender As Object, e As DataGridViewCellMouseEventArgs) Handles DataGridViewSO.CellMouseUp
         If e.Button = MouseButtons.Right Then
             Me.rowIndex = e.RowIndex
             Me.ContextMenuStrip1.Show(Me.DataGridViewSO, e.Location)
@@ -443,7 +444,7 @@ Public Class SalesOrderFrm
             inisialisasi()
             Me.idPrimary.Text = getPrimaryId().ToString
         End If
-        
+
         'Else
         'MessageBox.Show("No PO duplikat, ganti dengan No PO yang lain", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         'End If
@@ -631,5 +632,49 @@ Public Class SalesOrderFrm
         TextBoxFreight.Text = FormatNumber(TextBoxFreight.Text.ToString, 0, TriState.True)
         ButtonSaveNew.Focus()
         calculateTotalOrder()
+    End Sub
+
+    Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
+        Me.Close()
+    End Sub
+
+    Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
+        Dim temp As Integer = insertSO()
+        If temp <> 0 Then
+            printSoByNoSO(TextBoxSoNo.Text)
+            clearAllFIeld()
+            inisialisasi()
+            Me.idPrimary.Text = getPrimaryId().ToString
+        End If
+        
+    End Sub
+    Private Sub printSoByNoSO(noSO As String)
+        Dim myData As New DataSet
+        Dim conn As New MySqlConnection
+        Dim sqlCommand As New MySqlCommand
+        Dim myAdapter As New MySqlDataAdapter
+        Dim sql As String
+        Dim sqlSelectGeneral As String = "select ph.po_no,ph.so_no ,ph.so_date,ph.ship_date, ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit"
+        Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
+        Dim sqlSelectPnn As String
+        Try
+            sql = sqlSelectGeneral + sqlSelectCompanyName + sqlSelectPnn + " from  sales_order_header ph inner join sales_order_detail pd on ph.id = pd.so_header_id where ph.so_no = @soNo"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@soNo", noSO)
+            myAdapter.SelectCommand = sqlCommand
+            myAdapter.Fill(myData)
+            Dim myReport As New ReportDocument
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSO.rpt")
+            myReport.SetDataSource(myData)
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class

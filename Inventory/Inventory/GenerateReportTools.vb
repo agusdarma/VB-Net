@@ -16,9 +16,9 @@ Public Class GenerateReportTools
             & "database=ims"
         Dim sql As String
         Try
-            Dim sqlSelectGeneral As String = "select ph.nama_supplier,CONCAT_WS(' ',s.address1,s.address2) as alamat_supplier,ph.form_no,ph.invoice_no,ph.invoice_date,ph.ship_date,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order,pd.kode_item,pd.nama_item,pd.qty,pd.price_per_unit,pd.diskon,pd.price_total"
+            Dim sqlSelectGeneral As String = "select ph.po_no,ph.so_no ,ph.so_date,ph.ship_date, ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit"
             Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
-            sql = sqlSelectGeneral + sqlSelectCompanyName + " from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier"
+            sql = sqlSelectGeneral + sqlSelectCompanyName + " from  sales_order_header ph inner join sales_order_detail pd on ph.id = pd.so_header_id"
             conn.Open()
             'Dim sql As String = "select ph.po_no,ph.po_date,ph.nama_supplier,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,'PT Emobile Indonesia' as companyName,'Include PPN' as ppn from  purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id"
             cmd.CommandText = sql
@@ -29,7 +29,7 @@ Public Class GenerateReportTools
             Dim myReport As New ReportDocument
             'myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPO.rpt")
             'myReport.SetDataSource(myData)
-            myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\PI_REPORT.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
+            myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\SO_REPORT.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
             'PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
             'PreviewPrintPO.ShowDialog()
         Catch ex As Exception
