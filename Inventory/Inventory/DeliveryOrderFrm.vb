@@ -185,68 +185,41 @@ Public Class DeliveryOrderFrm
                 sqlCommand.Parameters("@so_no").Value = SoNumber
                 sqlCommand.ExecuteNonQuery()
 
-
-                ' cari dan update stok yg ada di gudang default dahulu, di cek dari item tsb default gudang nya dimana, jika stok di gudang default abis maka cek stok di gudang yang lain. 
-                sql = "select ig.* from items_gudang ig inner join items i on ig.kode_item = i.kode_item  where ig.kode_item = @kode_item and ig.gudang_id = i.gudang_id "
+                'cari gudang id dari kode gudang yang dipilih
+                sql = "select id from gudang where kode_gudang = @kode_gudang"
+                Dim idGudang As Long
                 sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
+                idGudang = sqlCommand.ExecuteScalar()
+
+                sql = "select qty from items_gudang where gudang_id = @gudang_id and kode_item = @kode_item"
+                Dim stockAvailable As Long
+                sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@gudang_id").Value = idGudang
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
-                da.SelectCommand = sqlCommand
-                da.Fill(publictable)
-                Dim stockAvailable As Long = 0
-                If publictable.Rows.Count > 0 Then
-                    For Each oRecord As Object In publictable.Rows
-                        'row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
-                        stockAvailable = oRecord("qty")
-                        If (stockAvailable - CLng(oItem.Cells(2).Value)) > 0 Then
-                            Dim gudangId As Integer
-                            gudangId = oRecord("gudang_id")
-                            sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
-                            sqlCommand.CommandText = sql
-                            sqlCommand.Parameters("@gudang_id").Value = gudangId
-                            sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
-                            sqlCommand.Parameters("@stockAvailable").Value = stockAvailable
-                            sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
-                            sqlCommand.ExecuteNonQuery()
-                        Else
-                            sql = "select * from items_gudang where kode_item = @kode_item and qty > 0 limit 0,1 "
-                            sqlCommand.CommandText = sql
-                            sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
-                            da.SelectCommand = sqlCommand
-                            Dim publictable2 As New DataTable
-                            da.Fill(publictable2)
-                            If publictable2.Rows.Count > 0 Then
-                                For Each oRecord2 As Object In publictable2.Rows
-                                    stockAvailable = oRecord2("qty")
-                                    If (stockAvailable - CLng(oItem.Cells(2).Value)) > 0 Then
-                                        Dim gudangId As Integer
-                                        gudangId = oRecord("gudang_id")
-                                        sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
-                                        sqlCommand.CommandText = sql
-                                        sqlCommand.Parameters("@gudang_id").Value = gudangId
-                                        sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
-                                        sqlCommand.Parameters("@stockAvailable").Value = stockAvailable
-                                        sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
-                                        sqlCommand.ExecuteNonQuery()
-                                    Else
-                                        MessageBox.Show("Stok Kosong untuk Item ini!", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                        Return rowEffected = 0
-                                    End If
-                                Next
-                            Else
-                                MessageBox.Show("Stok Kosong untuk Item ini!", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
-                                Return rowEffected = 0
-                            End If
-                        End If
-                    Next
+                stockAvailable = sqlCommand.ExecuteScalar()
+
+                If (stockAvailable - CLng(oItem.Cells(2).Value)) > 0 Then
+                    sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@gudang_id").Value = idGudang
+                    sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                    sqlCommand.Parameters("@stockAvailable").Value = stockAvailable
+                    sqlCommand.Parameters("@qty").Value = oItem.Cells(2).Value
+                    sqlCommand.ExecuteNonQuery()
+
+                    ' update stok items, di sum dari semua gudang
+                    sql = "UPDATE items SET quantity = (select sum(qty) as jumlahTotItem from items_gudang where kode_item = @kode_item) ,updated_on = @updated_on ,updated_by = @updated_by WHERE kode_item = @kode_item"
+                    sqlCommand.CommandText = sql
+                    sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
+                    sqlCommand.Parameters("@updated_on").Value = now
+                    sqlCommand.Parameters("@updated_by").Value = session.Code
+                    sqlCommand.ExecuteNonQuery()
+                Else
+                    MessageBox.Show("Stok Kosong untuk Item ini!" & vbNewLine & " Kode Item : " + oItem.Cells(0).Value & vbNewLine & " Sisa Stok di gudang : " + CStr(stockAvailable), "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return rowEffected = 0
                 End If
-
-                ' update stok items, di sum dari semua gudang
-                sql = "UPDATE items SET quantity = (select sum(qty) as jumlahTotItem from items_gudang where kode_item = @kode_item) ,updated_on = @updated_on ,updated_by = @updated_by WHERE kode_item = @kode_item"
-                sqlCommand.CommandText = sql
-                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
-                sqlCommand.Parameters("@updated_on").Value = now
-                sqlCommand.Parameters("@updated_by").Value = session.Code
-                sqlCommand.ExecuteNonQuery()
+                
             Next
 
             transaction.Commit()
