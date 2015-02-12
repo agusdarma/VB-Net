@@ -40,4 +40,3 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SalesOrderFrm.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.DeliveryOrderFrm.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SearchSOForm.resources
-D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.vbprojResolveAssemblyReference.cache
