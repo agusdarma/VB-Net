@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StrukDO.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StrukDO.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="DeliveryOrderFrm.Designer.vb">
       <DependentUpon>DeliveryOrderFrm.vb</DependentUpon>
     </Compile>
@@ -330,6 +336,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StrukDO.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StrukDO.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="DeliveryOrderFrm.resx">
       <DependentUpon>DeliveryOrderFrm.vb</DependentUpon>

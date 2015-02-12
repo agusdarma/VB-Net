@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class DeliveryOrderFrm
     Dim da As New MySqlDataAdapter
@@ -23,7 +24,7 @@ Public Class DeliveryOrderFrm
             da.Fill(ds, "customer")
             con.Close()
             CmbCust.DataSource = ds.Tables(0)
-            CmbCust.ValueMember = "kode_customer"
+            CmbCust.ValueMember = "id"
             CmbCust.DisplayMember = "name_customer"
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
@@ -62,12 +63,13 @@ Public Class DeliveryOrderFrm
         TextBoxDeliveryNo.Text = formNoSystem
 
 
-        Me.DataGridViewDO.ColumnCount = 5
+        Me.DataGridViewDO.ColumnCount = 6
         Me.DataGridViewDO.Columns(0).Name = "Kode Item"
         Me.DataGridViewDO.Columns(1).Name = "Nama Item"
         Me.DataGridViewDO.Columns(2).Name = "Qty"
         Me.DataGridViewDO.Columns(3).Name = "Satuan"
         Me.DataGridViewDO.Columns(4).Name = "SO Ref"
+        Me.DataGridViewDO.Columns(5).Name = "Gudang"
     End Sub
     Private Sub DeliveryOrderFrm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         inisialisasi()
@@ -90,7 +92,7 @@ Public Class DeliveryOrderFrm
             TextBoxPONo.Focus()
             Return
         End If
-        kodeCustomer = CmbCust.SelectedValue
+        kodeCustomer = TextBoxKodeCust.Text
         SearchSOForm.ShowDialog()
     End Sub
 
@@ -157,8 +159,11 @@ Public Class DeliveryOrderFrm
             sqlCommand.Parameters.Add("@gudang_id", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@satuan", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@so_no", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@kode_gudang", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@updated_on", MySqlDbType.DateTime)
+            sqlCommand.Parameters.Add("@updated_by", MySqlDbType.VarChar)
             For Each oItem As DataGridViewRow In DataGridViewDO.Rows
-                sql = "INSERT INTO delivery_order_detail(delivery_header_id,kode_item,nama_item,qty,satuan,so_no) VALUES (@delivery_header_id,@kode_item,@nama_item,@qty,@satuan,@so_no)"
+                sql = "INSERT INTO delivery_order_detail(delivery_header_id,kode_item,nama_item,qty,satuan,so_no,kode_gudang) VALUES (@delivery_header_id,@kode_item,@nama_item,@qty,@satuan,@so_no,@kode_gudang)"
                 sqlCommand.CommandText = sql
                 Dim SoNumber As String
                 If oItem.Cells(0).Value = "" Then
@@ -171,6 +176,7 @@ Public Class DeliveryOrderFrm
                 sqlCommand.Parameters("@satuan").Value = oItem.Cells(3).Value
                 sqlCommand.Parameters("@so_no").Value = oItem.Cells(4).Value
                 SoNumber = oItem.Cells(4).Value
+                sqlCommand.Parameters("@kode_gudang").Value = oItem.Cells(6).Value
                 sqlCommand.ExecuteNonQuery()
 
                 ' update sales order header ubah status menjadi 2 karena sudah di delivery barang nya
@@ -191,7 +197,7 @@ Public Class DeliveryOrderFrm
                     For Each oRecord As Object In publictable.Rows
                         'row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
                         stockAvailable = oRecord("qty")
-                        If stockAvailable > 0 Then
+                        If (stockAvailable - CLng(oItem.Cells(2).Value)) > 0 Then
                             Dim gudangId As Integer
                             gudangId = oRecord("gudang_id")
                             sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
@@ -206,11 +212,12 @@ Public Class DeliveryOrderFrm
                             sqlCommand.CommandText = sql
                             sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
                             da.SelectCommand = sqlCommand
-                            da.Fill(publictable)
-                            If publictable.Rows.Count > 0 Then
-                                For Each oRecord2 As Object In publictable.Rows
+                            Dim publictable2 As New DataTable
+                            da.Fill(publictable2)
+                            If publictable2.Rows.Count > 0 Then
+                                For Each oRecord2 As Object In publictable2.Rows
                                     stockAvailable = oRecord2("qty")
-                                    If stockAvailable > 0 Then
+                                    If (stockAvailable - CLng(oItem.Cells(2).Value)) > 0 Then
                                         Dim gudangId As Integer
                                         gudangId = oRecord("gudang_id")
                                         sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
@@ -225,6 +232,9 @@ Public Class DeliveryOrderFrm
                                         Return rowEffected = 0
                                     End If
                                 Next
+                            Else
+                                MessageBox.Show("Stok Kosong untuk Item ini!", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                                Return rowEffected = 0
                             End If
                         End If
                     Next
@@ -258,11 +268,31 @@ Public Class DeliveryOrderFrm
         End Try
         Return rowEffected
     End Function
+    Private Function getListGudang() As DataTable
+        Dim sql As String
+        Dim sqlCommand As New MySqlCommand
+        Dim publictable As New DataTable
+        Try
+            con = jokenconn()
+            con.Open()
+            sql = "select kode_gudang,nama_gudang from gudang order by nama_gudang asc"
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+        Catch ex As MySqlException
+            MessageBox.Show("error : " + ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        Return publictable
+    End Function
     Public Sub addSelectSOToList()
         Dim listPO = New List(Of PoVO)
         listPO = SearchSOForm.listSelectPo
         DataGridViewDO.Rows.Clear()
-        If DataGridViewDO.Columns.Count = 6 Then
+        If DataGridViewDO.Columns.Count = 7 Then
             DataGridViewDO.Columns.RemoveAt(DataGridViewDO.Columns.Count - 1)
         End If
 
@@ -276,6 +306,27 @@ Public Class DeliveryOrderFrm
             oItem.Cells(3).ReadOnly = True
             oItem.Cells(4).ReadOnly = True
         Next
+        Dim cmb As New DataGridViewComboBoxColumn()
+        cmb.HeaderText = "Nama Gudang"
+        cmb.Name = "CmbGudang"
+        Dim dt As DataTable = New DataTable()
+        dt = getListGudang()
+        If dt.Rows.Count > 0 Then
+            cmb.ValueMember = "kode_gudang"
+            cmb.DisplayMember = "nama_gudang"
+            cmb.DataSource = dt
+            cmb.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells
+            DataGridViewDO.Columns.Add(cmb)
+            DataGridViewDO.Columns(5).Visible = False
+            DataGridViewDO.Columns(2).DefaultCellStyle.BackColor = Color.Aquamarine
+            For Each oItem As DataGridViewRow In DataGridViewDO.Rows
+                oItem.Cells("CmbGudang").Value = oItem.Cells(5).Value
+                oItem.Cells(0).ReadOnly = True
+                oItem.Cells(1).ReadOnly = True
+                oItem.Cells(3).ReadOnly = True
+                oItem.Cells(4).ReadOnly = True
+            Next
+        End If
         DataGridViewDO.Refresh()
     End Sub
     Private Sub findItemsBySONo(soNo As String)
@@ -286,7 +337,7 @@ Public Class DeliveryOrderFrm
         Try
             con = jokenconn()
             con.Open()
-            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,ph.so_no from sales_order_header ph left join sales_order_detail pd on ph.id = pd.so_header_id left join items i on i.kode_item = pd.kode_item where ph.so_no ='" & soNo & "'"
+            sql = "select pd.kode_item,pd.nama_item,pd.qty,pd.satuan,ph.so_no,g.kode_gudang from sales_order_header ph left join sales_order_detail pd on ph.id = pd.so_header_id left join items i on i.kode_item = pd.kode_item left join gudang g on g.id = i.gudang_id where ph.so_no ='" & soNo & "'"
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             da.SelectCommand = sqlCommand
@@ -295,7 +346,7 @@ Public Class DeliveryOrderFrm
             If publictable.Rows.Count > 0 Then
                 Dim row As String()
                 For Each oRecord As Object In publictable.Rows
-                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString(), oRecord("kode_gudang").ToString()}
                     DataGridViewDO.Rows.Add(row)
                 Next
             End If
@@ -375,12 +426,40 @@ Public Class DeliveryOrderFrm
     Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
         Dim temp As Integer = insertDO()
         If temp <> 0 Then
-            'printRIByFormNo(TextBoxFormNo.Text)
+            printDOByDONo(TextBoxDeliveryNo.Text)
             clearAllFIeld()
             inisialisasi()
             Me.idPrimary.Text = getPrimaryId().ToString
         End If
-        
+
+    End Sub
+    Private Sub printDOByDONo(DONo As String)
+        Dim myData As New DataSet
+        Dim conn As New MySqlConnection
+        Dim sqlCommand As New MySqlCommand
+        Dim myAdapter As New MySqlDataAdapter
+        Dim sql As String
+        Dim sqlSelectGeneral As String = "select ph.po_no,ph.do_no,ph.delivery_date,ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan, ph.notes"
+        Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
+        Try
+            sql = sqlSelectGeneral + sqlSelectCompanyName + " from  delivery_order_header ph inner join delivery_order_detail pd on ph.id = pd.delivery_header_id where ph.do_no = @dono"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.AddWithValue("@dono", DONo)
+            myAdapter.SelectCommand = sqlCommand
+            myAdapter.Fill(myData)
+            Dim myReport As New ReportDocument
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukDO.rpt")
+            myReport.SetDataSource(myData)
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
 
     Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
@@ -406,5 +485,155 @@ Public Class DeliveryOrderFrm
             inisialisasi()
             Me.idPrimary.Text = getPrimaryId().ToString
         End If
+    End Sub
+
+    Private Sub PrevPO_Click(sender As Object, e As EventArgs) Handles PrevPO.Click
+        findDOBySeqPrev(idPrimary.Text)
+    End Sub
+    Private Sub findDOBySeqPrev(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from delivery_order_header rh inner join delivery_order_detail rd on rh.id = rd.delivery_header_id where rh.id < '" & idPrimary & "' order by rh.id desc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateCust()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbCust.SelectedIndex = CmbCust.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    textBoxBillTo.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxShipTo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    TextBoxPONo.Text = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    TextBoxDeliveryNo.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    DateTimePickerDeliveryDate.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(8)
+                End If
+                'Detail
+                sql = "select * from delivery_order_detail rd where rd.delivery_header_id = '" & publictable.Rows(0).Item(0) & "' order by rd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewDO.Rows.Clear()
+                DataGridViewDO.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
+                    DataGridViewDO.Rows.Add(row)
+                Next
+                DataGridViewDO.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is first data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub NextPo_Click(sender As Object, e As EventArgs) Handles NextPo.Click
+        findDOBySeqNext(idPrimary.Text)
+    End Sub
+    Private Sub findDOBySeqNext(idPrimary As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            Dim detail As New DataTable
+            sql = "select * from delivery_order_header rh inner join delivery_order_detail rd on rh.id = rd.delivery_header_id where rh.id > '" & idPrimary & "' order by rh.id asc limit 0,1"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            populateCust()
+            If publictable.Rows.Count > 0 Then
+                ' Header
+                If Not IsDBNull(publictable.Rows(0).Item(0)) Then
+                    Me.idPrimary.Text = publictable.Rows(0).Item(0)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(2)) Then
+                    CmbCust.SelectedIndex = CmbCust.FindStringExact(publictable.Rows(0).Item(2))
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    textBoxBillTo.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    TextBoxShipTo.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
+                    TextBoxPONo.Text = publictable.Rows(0).Item(5)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(6)) Then
+                    TextBoxDeliveryNo.Text = publictable.Rows(0).Item(6)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(7)) Then
+                    DateTimePickerDeliveryDate.Text = publictable.Rows(0).Item(7)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(8)) Then
+                    TextBoxNotes.Text = publictable.Rows(0).Item(8)
+                End If
+                'Detail
+                sql = "select * from delivery_order_detail rd where rd.delivery_header_id = '" & publictable.Rows(0).Item(0) & "' order by rd.id asc"
+                con = jokenconn()
+                con.Open()
+                sqlCommand.Connection = con
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(detail)
+                con.Close()
+                'Reading DataTable Rows Column Value using Column Index Number
+                Dim row As String()
+                DataGridViewDO.Rows.Clear()
+                DataGridViewDO.Refresh()
+                For Each oRecord As Object In detail.Rows
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
+                    DataGridViewDO.Rows.Add(row)
+                Next
+                DataGridViewDO.Refresh()
+                disableButton()
+            Else
+                MessageBox.Show("This is last data", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                clearAllFIeld()
+                inisialisasi()
+                Me.idPrimary.Text = getPrimaryId().ToString
+                enableButton()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class
