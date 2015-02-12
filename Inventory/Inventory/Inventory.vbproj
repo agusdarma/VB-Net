@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="SalesInvoice.Designer.vb">
+      <DependentUpon>SalesInvoice.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SalesInvoice.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StrukDO.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -336,6 +342,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalesInvoice.resx">
+      <DependentUpon>SalesInvoice.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StrukDO.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
