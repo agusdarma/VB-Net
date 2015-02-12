@@ -11,6 +11,72 @@ Public Class SearchInvoiceForm
         urlDb = mySqlDb.getUrlDatabase()
         Return New MySqlConnection(urlDb)
     End Function
+
+    Private Sub findDOKodeCustomer(kodeCustomer As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            sql = "select do_no, delivery_date, nama_customer from delivery_order_header where kode_customer = '" & kodeCustomer & "' and (status_delivery_order = 1) order by delivery_date asc"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            If publictable.Rows.Count > 0 Then
+                Dim row As String()
+                DataGridViewListPO.Rows.Clear()
+                DataGridViewListPO.Refresh()
+                For Each oRecord As Object In publictable.Rows
+                    row = New String() {oRecord("do_no").ToString(), oRecord("delivery_date").ToString(), oRecord("nama_customer").ToString()}
+                    DataGridViewListPO.Rows.Add(row)
+                Next
+                DataGridViewListPO.Refresh()
+            Else
+                MessageBox.Show("List DO Not Found", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Me.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub findSOKodeCustomer(kodeCustomer As String)
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim publictable As New DataTable
+            sql = "select so_no, so_date, nama_customer from sales_order_header where kode_customer = '" & kodeCustomer & "' and (status_so = 1) order by so_date asc"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            If publictable.Rows.Count > 0 Then
+                Dim row As String()
+                DataGridViewListPO.Rows.Clear()
+                DataGridViewListPO.Refresh()
+                For Each oRecord As Object In publictable.Rows
+                    row = New String() {oRecord("so_no").ToString(), oRecord("so_date").ToString(), oRecord("nama_customer").ToString()}
+                    DataGridViewListPO.Rows.Add(row)
+                Next
+                DataGridViewListPO.Refresh()
+            Else
+                MessageBox.Show("List SO Not Found", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Me.Close()
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
     Private Sub findPOKodeSupplier(kodeSupplier As String)
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
@@ -77,6 +143,9 @@ Public Class SearchInvoiceForm
     End Sub
     Private Sub SearchInvoiceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim type As String = PurchaseInvoice.type
+        If type = Nothing Then
+            type = SalesInvoice.type
+        End If
         If type = "Select PO" Then
             DataGridViewListPO.ColumnCount = 3
             DataGridViewListPO.Columns(0).Name = "PO No"
@@ -107,7 +176,35 @@ Public Class SearchInvoiceForm
             DataGridViewListPO.Columns.Add(chk)
             chk.HeaderText = "Check Data"
             chk.Name = "chk"
-        End If        
+        ElseIf type = "Select SO" Then
+            DataGridViewListPO.ColumnCount = 3
+            DataGridViewListPO.Columns(0).Name = "SO No"
+            DataGridViewListPO.Columns(1).Name = "SO Date"
+            DataGridViewListPO.Columns(2).Name = "Nama Customer"
+            Me.Text = "Select Sales Order"
+
+            DataGridViewListPO.Rows.Clear()
+            findSOKodeCustomer(SalesInvoice.kodeCustomer)
+
+            Dim chk As New DataGridViewCheckBoxColumn()
+            DataGridViewListPO.Columns.Add(chk)
+            chk.HeaderText = "Check Data"
+            chk.Name = "chk"
+        ElseIf type = "Select DO" Then
+            DataGridViewListPO.ColumnCount = 3
+            DataGridViewListPO.Columns(0).Name = "DO No"
+            DataGridViewListPO.Columns(1).Name = "DO Date"
+            DataGridViewListPO.Columns(2).Name = "Nama Customer"
+            Me.Text = "Select Delivery Order"
+
+            DataGridViewListPO.Rows.Clear()
+            findDOKodeCustomer(SalesInvoice.kodeCustomer)
+
+            Dim chk As New DataGridViewCheckBoxColumn()
+            DataGridViewListPO.Columns.Add(chk)
+            chk.HeaderText = "Check Data"
+            chk.Name = "chk"
+        End If
     End Sub
 
     Private Sub ButtonCancel_Click(sender As Object, e As EventArgs) Handles ButtonCancel.Click
@@ -121,7 +218,20 @@ Public Class SearchInvoiceForm
                 listSelectPo.Add(New PoVO(oItem.Cells(0).Value))
             End If
         Next
-        PurchaseInvoice.addSelectToList()
+        Dim type As String = PurchaseInvoice.type
+        If type = Nothing Then
+            type = SalesInvoice.type
+        End If
+        If type = "Select PO" Then
+            PurchaseInvoice.addSelectToList()
+        ElseIf type = "Select RI" Then
+            PurchaseInvoice.addSelectToList()
+        ElseIf type = "Select SO" Then
+            SalesInvoice.addSelectToList()
+        ElseIf type = "Select DO" Then
+            SalesInvoice.addSelectToList()
+        End If
+
         Me.Close()
     End Sub
 
