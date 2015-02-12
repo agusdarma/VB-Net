@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 10-Feb-15
+Modified: 12-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -389,6 +389,7 @@ CREATE TABLE delivery_order_detail
   qty Bigint,
   satuan Varchar(5),
   so_no Varchar(64),
+  kode_gudang Varchar(64),
  PRIMARY KEY (id),
  UNIQUE id (id)
 )
@@ -442,6 +443,40 @@ ALTER TABLE purchase_invoice_header ADD UNIQUE form_no (form_no)
 CREATE INDEX PurchaseInvoiceIdx ON purchase_invoice_header (kode_supplier,form_no,invoice_no)
 ;
 
+-- Table sales_invoice_header
+
+CREATE TABLE sales_invoice_header
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_customer Varchar(32),
+  nama_customer Varchar(32),
+  bill_to Varchar(256),
+  ship_to Varchar(256),
+  form_no Varchar(32),
+  sales_invoice_no Varchar(32),
+  sales_invoice_date Datetime,
+  ship_date Datetime,
+  notes Varchar(256),
+  customer_taxable Int,
+  inclusive_tax Int,
+  sub_total Bigint,
+  diskon_pct Int,
+  diskon Bigint,
+  tax_value Bigint,
+  total_order Bigint,
+  status_sales_invoice Int
+  COMMENT '1= baru dibuat invoice',
+  created_by Varchar(32),
+ PRIMARY KEY (id)
+)
+;
+
+ALTER TABLE sales_invoice_header ADD UNIQUE form_no (form_no)
+;
+
+CREATE INDEX SalesInvoiceIdx ON sales_invoice_header (kode_customer,form_no,sales_invoice_no)
+;
+
 -- Table purchase_invoice_detail
 
 CREATE TABLE purchase_invoice_detail
@@ -463,6 +498,29 @@ CREATE TABLE purchase_invoice_detail
 ;
 
 CREATE INDEX purchase_inv_detail ON purchase_invoice_detail (purchase_header_id,po_no,receive_no)
+;
+
+-- Table sales_invoice_detail
+
+CREATE TABLE sales_invoice_detail
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  sales_invoice_header_id Bigint,
+  kode_item Varchar(32),
+  nama_item Varchar(64),
+  qty Bigint,
+  satuan Varchar(5),
+  price_per_unit Bigint,
+  diskon Bigint,
+  price_total Bigint,
+  kode_gudang Varchar(32),
+  so_no Varchar(32),
+  do_no Varchar(32),
+ PRIMARY KEY (id)
+)
+;
+
+CREATE INDEX sales_inv_detail ON sales_invoice_detail (sales_invoice_header_id,so_no,do_no)
 ;
 
 -- Table purchase_payment
