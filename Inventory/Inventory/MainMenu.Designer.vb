@@ -246,25 +246,27 @@ Partial Class MainMenu
         Me.SalesOrderToolStripMenuItem.Image = CType(resources.GetObject("SalesOrderToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SalesOrderToolStripMenuItem.Name = "SalesOrderToolStripMenuItem"
         Me.SalesOrderToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
-        Me.SalesOrderToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesOrderToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SalesOrderToolStripMenuItem.Text = "Sales Order"
         '
         'DeliveryOrderToolStripMenuItem
         '
+        Me.DeliveryOrderToolStripMenuItem.Image = CType(resources.GetObject("DeliveryOrderToolStripMenuItem.Image"), System.Drawing.Image)
         Me.DeliveryOrderToolStripMenuItem.Name = "DeliveryOrderToolStripMenuItem"
-        Me.DeliveryOrderToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.DeliveryOrderToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Y), System.Windows.Forms.Keys)
+        Me.DeliveryOrderToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.DeliveryOrderToolStripMenuItem.Text = "Delivery Order"
         '
         'SalesInvoiceToolStripMenuItem
         '
         Me.SalesInvoiceToolStripMenuItem.Name = "SalesInvoiceToolStripMenuItem"
-        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SalesInvoiceToolStripMenuItem.Text = "Sales Invoice"
         '
         'SalesReceiptToolStripMenuItem
         '
         Me.SalesReceiptToolStripMenuItem.Name = "SalesReceiptToolStripMenuItem"
-        Me.SalesReceiptToolStripMenuItem.Size = New System.Drawing.Size(176, 22)
+        Me.SalesReceiptToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SalesReceiptToolStripMenuItem.Text = "Sales Receipt"
         '
         'AboutToolStripMenuItem

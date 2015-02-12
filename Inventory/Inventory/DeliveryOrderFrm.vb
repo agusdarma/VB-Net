@@ -199,7 +199,7 @@ Public Class DeliveryOrderFrm
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(0).Value
                 stockAvailable = sqlCommand.ExecuteScalar()
 
-                If (stockAvailable - CLng(oItem.Cells(2).Value)) > 0 Then
+                If (stockAvailable - CLng(oItem.Cells(2).Value)) >= 0 Then
                     sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
                     sqlCommand.CommandText = sql
                     sqlCommand.Parameters("@gudang_id").Value = idGudang
