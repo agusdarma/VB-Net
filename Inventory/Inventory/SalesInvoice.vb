@@ -677,7 +677,7 @@ Public Class SalesInvoice
         Me.idPrimary.Text = getPrimaryId().ToString
     End Sub
 
-    Private Sub printPIByNoInvoice(invoiceNo As String)
+    Private Sub printSIByNoInvoice(invoiceNo As String)
         Dim myData As New DataSet
         Dim conn As New MySqlConnection
         Dim sqlCommand As New MySqlCommand
