@@ -17,6 +17,8 @@
                 <xs:element name="nama_item" type="xs:string" minOccurs="0" />
                 <xs:element name="qty" type="xs:long" minOccurs="0" />
                 <xs:element name="satuan" type="xs:string" minOccurs="0" />
+                <xs:element name="price_per_unit" type="xs:long" minOccurs="0" />
+                <xs:element name="price_total" type="xs:long" minOccurs="0" />
                 <xs:element name="notes" type="xs:string" minOccurs="0" />
                 <xs:element name="sub_total" type="xs:long" minOccurs="0" />
                 <xs:element name="diskon" type="xs:long" minOccurs="0" />
@@ -40,6 +42,8 @@
     <nama_item>Game pes 2015</nama_item>
     <qty>1</qty>
     <satuan>pcs</satuan>
+    <price_per_unit>600000</price_per_unit>
+    <price_total>600000</price_total>
     <notes />
     <sub_total>600000</sub_total>
     <diskon>12000</diskon>
@@ -57,6 +61,8 @@
     <nama_item>Game Fifa 2015</nama_item>
     <qty>2</qty>
     <satuan>pcs</satuan>
+    <price_per_unit>550000</price_per_unit>
+    <price_total>1100000</price_total>
     <notes>agus darma kusuma</notes>
     <sub_total>1100000</sub_total>
     <diskon>33000</diskon>
@@ -74,6 +80,8 @@
     <nama_item>Game Fifa 2015</nama_item>
     <qty>3</qty>
     <satuan>pcs</satuan>
+    <price_per_unit>550000</price_per_unit>
+    <price_total>1650000</price_total>
     <notes />
     <sub_total>2850000</sub_total>
     <diskon>114000</diskon>
@@ -91,6 +99,8 @@
     <nama_item>Game pes 2015</nama_item>
     <qty>2</qty>
     <satuan>pcs</satuan>
+    <price_per_unit>600000</price_per_unit>
+    <price_total>1200000</price_total>
     <notes />
     <sub_total>2850000</sub_total>
     <diskon>114000</diskon>
@@ -108,6 +118,8 @@
     <nama_item>Game Fifa 2015</nama_item>
     <qty>39</qty>
     <satuan>pcs</satuan>
+    <price_per_unit>550000</price_per_unit>
+    <price_total>21450000</price_total>
     <notes />
     <sub_total>22000000</sub_total>
     <diskon>0</diskon>
@@ -125,6 +137,8 @@
     <nama_item>Game Fifa 2015</nama_item>
     <qty>1</qty>
     <satuan>pcs</satuan>
+    <price_per_unit>550000</price_per_unit>
+    <price_total>550000</price_total>
     <notes />
     <sub_total>22000000</sub_total>
     <diskon>0</diskon>

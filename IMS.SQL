@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 12-Feb-15
+Modified: 13-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -469,9 +469,6 @@ CREATE TABLE sales_invoice_header
   created_by Varchar(32),
  PRIMARY KEY (id)
 )
-;
-
-ALTER TABLE sales_invoice_header ADD UNIQUE form_no (form_no)
 ;
 
 CREATE INDEX SalesInvoiceIdx ON sales_invoice_header (kode_customer,form_no,sales_invoice_no)

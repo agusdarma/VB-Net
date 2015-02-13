@@ -108,6 +108,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="StrukSI.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StrukSI.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="SalesInvoice.Designer.vb">
       <DependentUpon>SalesInvoice.vb</DependentUpon>
     </Compile>
@@ -342,6 +348,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StrukSI.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>StrukSI.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesInvoice.resx">
       <DependentUpon>SalesInvoice.vb</DependentUpon>

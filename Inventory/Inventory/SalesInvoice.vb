@@ -671,7 +671,7 @@ Public Class SalesInvoice
 
     Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
         insertSI()
-        'printPIByNoInvoice(TextBoxSalesInvoiceNo.Text)
+        printSIByNoInvoice(TextBoxSalesInvoiceNo.Text)
         clearAllFIeld()
         inisialisasi()
         Me.idPrimary.Text = getPrimaryId().ToString
@@ -683,19 +683,19 @@ Public Class SalesInvoice
         Dim sqlCommand As New MySqlCommand
         Dim myAdapter As New MySqlDataAdapter
         Dim sql As String
-        Dim sqlSelectGeneral As String = "select ph.nama_supplier,CONCAT_WS(' ',s.address1,s.address2) as alamat_supplier,ph.form_no,ph.invoice_no,ph.invoice_date,ph.ship_date,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order,pd.kode_item,pd.nama_item,pd.qty,pd.price_per_unit,pd.diskon,pd.price_total"
+        Dim sqlSelectGeneral As String = "select ph.form_no ,ph.sales_invoice_no ,ph.sales_invoice_date ,ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,pd.price_total, ph.notes,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order"
         Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
         Try
-            sql = sqlSelectGeneral + sqlSelectCompanyName + " from purchase_invoice_header ph inner join purchase_invoice_detail pd on ph.id = pd.purchase_header_id inner join supplier s on s.kode_supplier = ph.kode_supplier where ph.form_no = @form_no"
+            sql = sqlSelectGeneral + sqlSelectCompanyName + " from sales_invoice_header ph inner join sales_invoice_detail pd on ph.id = pd.sales_invoice_header_id where ph.sales_invoice_no = @invoiceNo"
             con = jokenconn()
             con.Open()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
-            sqlCommand.Parameters.AddWithValue("@form_no", invoiceNo)
+            sqlCommand.Parameters.AddWithValue("@invoiceNo", invoiceNo)
             myAdapter.SelectCommand = sqlCommand
             myAdapter.Fill(myData)
             Dim myReport As New ReportDocument
-            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPI.rpt")
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSI.rpt")
             myReport.SetDataSource(myData)
             PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
             PreviewPrintPO.ShowDialog()

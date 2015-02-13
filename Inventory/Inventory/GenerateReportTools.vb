@@ -16,7 +16,7 @@ Public Class GenerateReportTools
             & "database=ims"
         Dim sql As String
         Try
-            Dim sqlSelectGeneral As String = "select ph.form_no ,ph.sales_invoice_no ,ph.sales_invoice_date ,ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan, ph.notes,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order"
+            Dim sqlSelectGeneral As String = "select ph.form_no ,ph.sales_invoice_no ,ph.sales_invoice_date ,ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,pd.price_total, ph.notes,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order"
             Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
             sql = sqlSelectGeneral + sqlSelectCompanyName + " from sales_invoice_header ph inner join sales_invoice_detail pd on ph.id = pd.sales_invoice_header_id"
             conn.Open()
