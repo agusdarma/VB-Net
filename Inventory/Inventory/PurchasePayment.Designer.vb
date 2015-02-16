@@ -22,10 +22,10 @@ Partial Class PurchasePayment
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.idPrimary = New System.Windows.Forms.TextBox()
         Me.TextBoxNamaSupplier = New System.Windows.Forms.TextBox()
         Me.TextBoxKodeSupplier = New System.Windows.Forms.TextBox()
@@ -38,8 +38,6 @@ Partial Class PurchasePayment
         Me.Label6 = New System.Windows.Forms.Label()
         Me.TextBoxVpNo = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.NextPo = New System.Windows.Forms.Button()
-        Me.PrevPO = New System.Windows.Forms.Button()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.TextBoxNotes = New System.Windows.Forms.TextBox()
         Me.DataGridViewVP = New System.Windows.Forms.DataGridView()
@@ -166,26 +164,6 @@ Partial Class PurchasePayment
         Me.Label3.TabIndex = 83
         Me.Label3.Text = "Form No"
         '
-        'NextPo
-        '
-        Me.NextPo.BackColor = System.Drawing.Color.Lime
-        Me.NextPo.Location = New System.Drawing.Point(909, 16)
-        Me.NextPo.Name = "NextPo"
-        Me.NextPo.Size = New System.Drawing.Size(75, 23)
-        Me.NextPo.TabIndex = 86
-        Me.NextPo.Text = "Next"
-        Me.NextPo.UseVisualStyleBackColor = False
-        '
-        'PrevPO
-        '
-        Me.PrevPO.BackColor = System.Drawing.Color.Lime
-        Me.PrevPO.Location = New System.Drawing.Point(828, 16)
-        Me.PrevPO.Name = "PrevPO"
-        Me.PrevPO.Size = New System.Drawing.Size(75, 23)
-        Me.PrevPO.TabIndex = 85
-        Me.PrevPO.Text = "Prev"
-        Me.PrevPO.UseVisualStyleBackColor = False
-        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -210,44 +188,44 @@ Partial Class PurchasePayment
         Me.DataGridViewVP.AllowUserToAddRows = False
         Me.DataGridViewVP.AllowUserToDeleteRows = False
         Me.DataGridViewVP.AllowUserToResizeRows = False
-        DataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewVP.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle5
+        DataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewVP.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle9
         Me.DataGridViewVP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.DataGridViewVP.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.DataGridViewVP.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle6.BackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle6.ForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue
-        DataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White
-        DataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewVP.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle6
+        DataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle10.BackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle10.ForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.CornflowerBlue
+        DataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.White
+        DataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewVP.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle10
         Me.DataGridViewVP.ColumnHeadersHeight = 30
         Me.DataGridViewVP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
         Me.DataGridViewVP.EnableHeadersVisualStyles = False
         Me.DataGridViewVP.Location = New System.Drawing.Point(21, 241)
         Me.DataGridViewVP.Name = "DataGridViewVP"
         Me.DataGridViewVP.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
-        DataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridViewVP.RowHeadersDefaultCellStyle = DataGridViewCellStyle7
+        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle11.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle11.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle11.ForeColor = System.Drawing.Color.Red
+        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridViewVP.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridViewVP.RowHeadersVisible = False
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black
-        Me.DataGridViewVP.RowsDefaultCellStyle = DataGridViewCellStyle8
+        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black
+        Me.DataGridViewVP.RowsDefaultCellStyle = DataGridViewCellStyle12
         Me.DataGridViewVP.Size = New System.Drawing.Size(952, 195)
         Me.DataGridViewVP.TabIndex = 87
         '
@@ -303,8 +281,6 @@ Partial Class PurchasePayment
         Me.Controls.Add(Me.TextBoxNotes)
         Me.Controls.Add(Me.DataGridViewVP)
         Me.Controls.Add(Me.Label7)
-        Me.Controls.Add(Me.NextPo)
-        Me.Controls.Add(Me.PrevPO)
         Me.Controls.Add(Me.DateTimePickerPaymentDate)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.TextBoxVpNo)
@@ -336,8 +312,6 @@ Partial Class PurchasePayment
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents TextBoxVpNo As System.Windows.Forms.TextBox
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents NextPo As System.Windows.Forms.Button
-    Friend WithEvents PrevPO As System.Windows.Forms.Button
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents TextBoxNotes As System.Windows.Forms.TextBox
     Friend WithEvents DataGridViewVP As System.Windows.Forms.DataGridView

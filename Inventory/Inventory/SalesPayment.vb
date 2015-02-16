@@ -302,7 +302,9 @@ Public Class SalesPayment
                         sqlCommand.Parameters("@invoice_no").Value = oItem.Cells(0).Value
                         sqlCommand.ExecuteNonQuery()
                     End If
-
+                Else
+                    MessageBox.Show("Pilih salah satu invoice!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return 0
                 End If
             Next
 
@@ -327,8 +329,12 @@ Public Class SalesPayment
     End Function
 
     Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
-        insertSP()
-        Me.Close()
+
+        Dim temp As Integer = insertSP()
+        If temp <> 0 Then
+            Me.Close()
+        End If
+
     End Sub
 
     Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click
@@ -336,9 +342,13 @@ Public Class SalesPayment
     End Sub
 
     Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
-        insertSP()
-        clearAllFIeld()
-        inisialisasi()
-        Me.idPrimary.Text = getPrimaryId().ToString
+
+        Dim temp As Integer = insertSP()
+        If temp <> 0 Then
+            clearAllFIeld()
+            inisialisasi()
+            Me.idPrimary.Text = getPrimaryId().ToString
+        End If
+        
     End Sub
 End Class

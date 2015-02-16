@@ -207,10 +207,14 @@ Public Class PurchasePayment
     End Sub
 
     Private Sub ButtonSaveNew_Click(sender As Object, e As EventArgs) Handles ButtonSaveNew.Click
-        insertVP()
-        clearAllFIeld()
-        inisialisasi()
-        Me.idPrimary.Text = getPrimaryId().ToString
+
+        Dim temp As Integer = insertVP()
+        If temp <> 0 Then
+            clearAllFIeld()
+            inisialisasi()
+            Me.idPrimary.Text = getPrimaryId().ToString
+        End If
+        
     End Sub
     Private Sub clearAllFIeld()
         TextBoxKodeSupplier.Text = ""
@@ -313,7 +317,9 @@ Public Class PurchasePayment
                         sqlCommand.Parameters("@form_no_invoice").Value = oItem.Cells(1).Value
                         sqlCommand.ExecuteNonQuery()
                     End If
-                    
+                Else
+                    MessageBox.Show("Pilih salah satu invoice!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    Return 0
                 End If
             Next
 
@@ -342,8 +348,12 @@ Public Class PurchasePayment
     End Function
 
     Private Sub ButtonSaveClose_Click(sender As Object, e As EventArgs) Handles ButtonSaveClose.Click
-        insertVP()
-        Me.Close()
+
+        Dim temp As Integer = insertVP()
+        If temp <> 0 Then
+            Me.Close()
+        End If
+
     End Sub
 
     Private Sub Cancel_Click(sender As Object, e As EventArgs) Handles Cancel.Click

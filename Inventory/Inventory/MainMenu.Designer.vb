@@ -259,13 +259,17 @@ Partial Class MainMenu
         '
         'SalesInvoiceToolStripMenuItem
         '
+        Me.SalesInvoiceToolStripMenuItem.Image = CType(resources.GetObject("SalesInvoiceToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SalesInvoiceToolStripMenuItem.Name = "SalesInvoiceToolStripMenuItem"
+        Me.SalesInvoiceToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
         Me.SalesInvoiceToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SalesInvoiceToolStripMenuItem.Text = "Sales Invoice"
         '
         'SalesReceiptToolStripMenuItem
         '
+        Me.SalesReceiptToolStripMenuItem.Image = CType(resources.GetObject("SalesReceiptToolStripMenuItem.Image"), System.Drawing.Image)
         Me.SalesReceiptToolStripMenuItem.Name = "SalesReceiptToolStripMenuItem"
+        Me.SalesReceiptToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
         Me.SalesReceiptToolStripMenuItem.Size = New System.Drawing.Size(190, 22)
         Me.SalesReceiptToolStripMenuItem.Text = "Sales Receipt"
         '
