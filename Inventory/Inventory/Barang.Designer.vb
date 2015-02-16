@@ -45,7 +45,7 @@ Partial Class Barang
         '
         'Filter
         '
-        Me.Filter.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Filter.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Filter.Location = New System.Drawing.Point(370, 402)
         Me.Filter.Name = "Filter"
         Me.Filter.Size = New System.Drawing.Size(113, 30)
@@ -56,7 +56,7 @@ Partial Class Barang
         '
         'Button_delete
         '
-        Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_delete.Location = New System.Drawing.Point(251, 402)
         Me.Button_delete.Name = "Button_delete"
         Me.Button_delete.Size = New System.Drawing.Size(113, 30)
@@ -67,7 +67,7 @@ Partial Class Barang
         '
         'Button_Edit
         '
-        Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Edit.Location = New System.Drawing.Point(132, 402)
         Me.Button_Edit.Name = "Button_Edit"
         Me.Button_Edit.Size = New System.Drawing.Size(113, 30)
@@ -78,7 +78,7 @@ Partial Class Barang
         '
         'Button_Add
         '
-        Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Add.Location = New System.Drawing.Point(15, 402)
         Me.Button_Add.Name = "Button_Add"
         Me.Button_Add.Size = New System.Drawing.Size(113, 30)
@@ -90,22 +90,22 @@ Partial Class Barang
         'Label_Showing_Pages
         '
         Me.Label_Showing_Pages.AutoSize = True
-        Me.Label_Showing_Pages.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Showing_Pages.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Showing_Pages.ForeColor = System.Drawing.Color.SlateBlue
         Me.Label_Showing_Pages.Location = New System.Drawing.Point(567, 69)
         Me.Label_Showing_Pages.Name = "Label_Showing_Pages"
-        Me.Label_Showing_Pages.Size = New System.Drawing.Size(127, 21)
+        Me.Label_Showing_Pages.Size = New System.Drawing.Size(103, 17)
         Me.Label_Showing_Pages.TabIndex = 34
         Me.Label_Showing_Pages.Text = "Showing page :"
         '
         'Label_TotalRecord
         '
         Me.Label_TotalRecord.AutoSize = True
-        Me.Label_TotalRecord.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_TotalRecord.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_TotalRecord.ForeColor = System.Drawing.Color.SlateBlue
         Me.Label_TotalRecord.Location = New System.Drawing.Point(755, 69)
         Me.Label_TotalRecord.Name = "Label_TotalRecord"
-        Me.Label_TotalRecord.Size = New System.Drawing.Size(121, 21)
+        Me.Label_TotalRecord.Size = New System.Drawing.Size(100, 17)
         Me.Label_TotalRecord.TabIndex = 33
         Me.Label_TotalRecord.Text = "Total Records :"
         '
@@ -138,7 +138,7 @@ Partial Class Barang
         Me.GridBarang.Cursor = System.Windows.Forms.Cursors.Default
         DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
         DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
         DataGridViewCellStyle3.NullValue = "Empty"
         DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
@@ -153,7 +153,7 @@ Partial Class Barang
         Me.GridBarang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red
         DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
         DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
@@ -172,21 +172,21 @@ Partial Class Barang
         'labelCurrentPage
         '
         Me.labelCurrentPage.AutoSize = True
-        Me.labelCurrentPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelCurrentPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelCurrentPage.Location = New System.Drawing.Point(99, 60)
         Me.labelCurrentPage.Name = "labelCurrentPage"
-        Me.labelCurrentPage.Size = New System.Drawing.Size(33, 37)
+        Me.labelCurrentPage.Size = New System.Drawing.Size(25, 30)
         Me.labelCurrentPage.TabIndex = 31
         Me.labelCurrentPage.Text = "1"
         '
         'LinkLabel_FirstPage
         '
         Me.LinkLabel_FirstPage.AutoSize = True
-        Me.LinkLabel_FirstPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_FirstPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_FirstPage.ForeColor = System.Drawing.Color.Blue
         Me.LinkLabel_FirstPage.Location = New System.Drawing.Point(9, 56)
         Me.LinkLabel_FirstPage.Name = "LinkLabel_FirstPage"
-        Me.LinkLabel_FirstPage.Size = New System.Drawing.Size(55, 37)
+        Me.LinkLabel_FirstPage.Size = New System.Drawing.Size(43, 30)
         Me.LinkLabel_FirstPage.TabIndex = 30
         Me.LinkLabel_FirstPage.TabStop = True
         Me.LinkLabel_FirstPage.Text = "<<"
@@ -194,11 +194,11 @@ Partial Class Barang
         'LinkLabel_Previous
         '
         Me.LinkLabel_Previous.AutoSize = True
-        Me.LinkLabel_Previous.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_Previous.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_Previous.ForeColor = System.Drawing.Color.Blue
         Me.LinkLabel_Previous.Location = New System.Drawing.Point(64, 56)
         Me.LinkLabel_Previous.Name = "LinkLabel_Previous"
-        Me.LinkLabel_Previous.Size = New System.Drawing.Size(36, 37)
+        Me.LinkLabel_Previous.Size = New System.Drawing.Size(28, 30)
         Me.LinkLabel_Previous.TabIndex = 29
         Me.LinkLabel_Previous.TabStop = True
         Me.LinkLabel_Previous.Text = "<"
@@ -206,10 +206,10 @@ Partial Class Barang
         'LinkLabel_LastPage
         '
         Me.LinkLabel_LastPage.AutoSize = True
-        Me.LinkLabel_LastPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_LastPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_LastPage.Location = New System.Drawing.Point(161, 58)
         Me.LinkLabel_LastPage.Name = "LinkLabel_LastPage"
-        Me.LinkLabel_LastPage.Size = New System.Drawing.Size(55, 37)
+        Me.LinkLabel_LastPage.Size = New System.Drawing.Size(43, 30)
         Me.LinkLabel_LastPage.TabIndex = 28
         Me.LinkLabel_LastPage.TabStop = True
         Me.LinkLabel_LastPage.Text = ">>"
@@ -217,11 +217,11 @@ Partial Class Barang
         'LinkLabel_NextPage
         '
         Me.LinkLabel_NextPage.AutoSize = True
-        Me.LinkLabel_NextPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_NextPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_NextPage.ForeColor = System.Drawing.Color.Blue
         Me.LinkLabel_NextPage.Location = New System.Drawing.Point(129, 57)
         Me.LinkLabel_NextPage.Name = "LinkLabel_NextPage"
-        Me.LinkLabel_NextPage.Size = New System.Drawing.Size(36, 37)
+        Me.LinkLabel_NextPage.Size = New System.Drawing.Size(28, 30)
         Me.LinkLabel_NextPage.TabIndex = 27
         Me.LinkLabel_NextPage.TabStop = True
         Me.LinkLabel_NextPage.Text = ">"
@@ -229,10 +229,10 @@ Partial Class Barang
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(296, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(238, 28)
+        Me.Label1.Size = New System.Drawing.Size(222, 25)
         Me.Label1.TabIndex = 26
         Me.Label1.Text = "Master Barang dan Jasa"
         '

@@ -37,7 +37,7 @@ Partial Class WarehouseAdd
         '
         'Button_Cancel
         '
-        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Cancel.Location = New System.Drawing.Point(204, 224)
         Me.Button_Cancel.Name = "Button_Cancel"
         Me.Button_Cancel.Size = New System.Drawing.Size(75, 31)
@@ -48,7 +48,7 @@ Partial Class WarehouseAdd
         '
         'Button_Save
         '
-        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Save.Location = New System.Drawing.Point(49, 224)
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.Size = New System.Drawing.Size(75, 31)
@@ -59,25 +59,27 @@ Partial Class WarehouseAdd
         '
         'NamaGudang
         '
+        Me.NamaGudang.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NamaGudang.Location = New System.Drawing.Point(145, 77)
         Me.NamaGudang.Name = "NamaGudang"
-        Me.NamaGudang.Size = New System.Drawing.Size(205, 20)
+        Me.NamaGudang.Size = New System.Drawing.Size(205, 25)
         Me.NamaGudang.TabIndex = 2
         '
         'KodeGudang
         '
+        Me.KodeGudang.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KodeGudang.Location = New System.Drawing.Point(145, 45)
         Me.KodeGudang.Name = "KodeGudang"
-        Me.KodeGudang.Size = New System.Drawing.Size(205, 20)
+        Me.KodeGudang.Size = New System.Drawing.Size(205, 25)
         Me.KodeGudang.TabIndex = 1
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(3, 74)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(129, 21)
+        Me.Label3.Size = New System.Drawing.Size(109, 17)
         Me.Label3.TabIndex = 105
         Me.Label3.Text = "Nama Gudang * :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -85,10 +87,10 @@ Partial Class WarehouseAdd
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(9, 44)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(122, 21)
+        Me.Label2.Size = New System.Drawing.Size(105, 17)
         Me.Label2.TabIndex = 104
         Me.Label2.Text = "Kode Gudang * :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -106,6 +108,7 @@ Partial Class WarehouseAdd
         '
         'address
         '
+        Me.address.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.address.Location = New System.Drawing.Point(145, 108)
         Me.address.Multiline = True
         Me.address.Name = "address"
@@ -115,10 +118,10 @@ Partial Class WarehouseAdd
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(59, 107)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(73, 21)
+        Me.Label4.Size = New System.Drawing.Size(63, 17)
         Me.Label4.TabIndex = 107
         Me.Label4.Text = "Address :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -126,19 +129,20 @@ Partial Class WarehouseAdd
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(91, 190)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(40, 21)
+        Me.Label5.Size = New System.Drawing.Size(33, 17)
         Me.Label5.TabIndex = 108
         Me.Label5.Text = "PIC :"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'pic
         '
+        Me.pic.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.pic.Location = New System.Drawing.Point(145, 193)
         Me.pic.Name = "pic"
-        Me.pic.Size = New System.Drawing.Size(205, 20)
+        Me.pic.Size = New System.Drawing.Size(205, 25)
         Me.pic.TabIndex = 4
         '
         'WarehouseAdd

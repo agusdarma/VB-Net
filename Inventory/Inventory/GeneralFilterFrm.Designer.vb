@@ -39,65 +39,65 @@ Partial Class GeneralFilterFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(5, 19)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(95, 21)
+        Me.Label1.Size = New System.Drawing.Size(80, 17)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "Select Field :"
         '
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(4, 52)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(130, 21)
+        Me.Label2.Size = New System.Drawing.Size(109, 17)
         Me.Label2.TabIndex = 1
         Me.Label2.Text = "Select Condition :"
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(9, 87)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(96, 21)
+        Me.Label3.Size = New System.Drawing.Size(80, 17)
         Me.Label3.TabIndex = 2
         Me.Label3.Text = "Input Value :"
         '
         'CmbField
         '
         Me.CmbField.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbField.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.CmbField.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbField.FormattingEnabled = True
         Me.CmbField.Location = New System.Drawing.Point(137, 18)
         Me.CmbField.Name = "CmbField"
-        Me.CmbField.Size = New System.Drawing.Size(278, 29)
+        Me.CmbField.Size = New System.Drawing.Size(278, 25)
         Me.CmbField.TabIndex = 3
         '
         'CmbCondition
         '
         Me.CmbCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.CmbCondition.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.CmbCondition.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmbCondition.FormattingEnabled = True
         Me.CmbCondition.Location = New System.Drawing.Point(137, 52)
         Me.CmbCondition.Name = "CmbCondition"
-        Me.CmbCondition.Size = New System.Drawing.Size(278, 29)
+        Me.CmbCondition.Size = New System.Drawing.Size(278, 25)
         Me.CmbCondition.TabIndex = 4
         '
         'InputValue
         '
-        Me.InputValue.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.InputValue.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.InputValue.Location = New System.Drawing.Point(137, 85)
         Me.InputValue.Name = "InputValue"
-        Me.InputValue.Size = New System.Drawing.Size(278, 29)
+        Me.InputValue.Size = New System.Drawing.Size(278, 25)
         Me.InputValue.TabIndex = 5
         '
         'Search
         '
-        Me.Search.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Search.Location = New System.Drawing.Point(61, 265)
+        Me.Search.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Search.Location = New System.Drawing.Point(160, 261)
         Me.Search.Name = "Search"
         Me.Search.Size = New System.Drawing.Size(75, 34)
         Me.Search.TabIndex = 7
@@ -106,19 +106,18 @@ Partial Class GeneralFilterFrm
         '
         'ClearFIlter
         '
-        Me.ClearFIlter.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.ClearFIlter.Location = New System.Drawing.Point(164, 265)
+        Me.ClearFIlter.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ClearFIlter.Location = New System.Drawing.Point(244, 261)
         Me.ClearFIlter.Name = "ClearFIlter"
-        Me.ClearFIlter.Size = New System.Drawing.Size(75, 34)
+        Me.ClearFIlter.Size = New System.Drawing.Size(90, 34)
         Me.ClearFIlter.TabIndex = 8
         Me.ClearFIlter.Text = "Clear FIlter"
-        Me.ClearFIlter.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.ClearFIlter.UseVisualStyleBackColor = True
         '
         'Cancel
         '
-        Me.Cancel.Font = New System.Drawing.Font("Segoe UI", 10.0!)
-        Me.Cancel.Location = New System.Drawing.Point(285, 265)
+        Me.Cancel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Cancel.Location = New System.Drawing.Point(340, 261)
         Me.Cancel.Name = "Cancel"
         Me.Cancel.Size = New System.Drawing.Size(75, 34)
         Me.Cancel.TabIndex = 9
@@ -128,16 +127,16 @@ Partial Class GeneralFilterFrm
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(6, 182)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(73, 21)
+        Me.Label4.Size = New System.Drawing.Size(60, 17)
         Me.Label4.TabIndex = 10
         Me.Label4.Text = "Filter By :"
         '
         'AddFIlter
         '
-        Me.AddFIlter.Font = New System.Drawing.Font("Segoe UI", 10.0!)
+        Me.AddFIlter.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AddFIlter.Location = New System.Drawing.Point(160, 120)
         Me.AddFIlter.Name = "AddFIlter"
         Me.AddFIlter.Size = New System.Drawing.Size(101, 34)
@@ -147,13 +146,13 @@ Partial Class GeneralFilterFrm
         '
         'ListBox1
         '
-        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 12.0!)
+        Me.ListBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ListBox1.FormattingEnabled = True
         Me.ListBox1.HorizontalScrollbar = True
-        Me.ListBox1.ItemHeight = 21
+        Me.ListBox1.ItemHeight = 17
         Me.ListBox1.Location = New System.Drawing.Point(85, 161)
         Me.ListBox1.Name = "ListBox1"
-        Me.ListBox1.Size = New System.Drawing.Size(330, 88)
+        Me.ListBox1.Size = New System.Drawing.Size(330, 89)
         Me.ListBox1.TabIndex = 12
         '
         'GeneralFilterFrm

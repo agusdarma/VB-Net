@@ -46,6 +46,12 @@ Public Class WarehouseAdd
                 If Not IsDBNull(publictable.Rows(0).Item(2)) Then
                     Me.NamaGudang.Text = publictable.Rows(0).Item(2)
                 End If
+                If Not IsDBNull(publictable.Rows(0).Item(3)) Then
+                    Me.address.Text = publictable.Rows(0).Item(3)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    Me.pic.Text = publictable.Rows(0).Item(4)
+                End If
             Else
                 MessageBox.Show("Data Gudang Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End If

@@ -10,6 +10,7 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\bin\Debug\MySql.Fabric.Plugin
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.AdvancedSearchItems.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.Barang.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.BarangAdd.resources
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SalesPayment.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SalesInvoice.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.DeliveryOrderFrm.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SearchSOForm.resources
@@ -41,4 +42,3 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.vbproj.Ge
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.exe
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.xml
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\Inventory.pdb
-D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\Debug\WindowsApplication2.SalesPayment.resources

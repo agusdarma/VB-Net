@@ -75,7 +75,7 @@ Partial Class BarangAdd
         '
         'Button_Cancel
         '
-        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Cancel.Location = New System.Drawing.Point(420, 434)
         Me.Button_Cancel.Name = "Button_Cancel"
         Me.Button_Cancel.Size = New System.Drawing.Size(75, 31)
@@ -86,7 +86,7 @@ Partial Class BarangAdd
         '
         'Button_Save
         '
-        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Save.Location = New System.Drawing.Point(265, 434)
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.Size = New System.Drawing.Size(75, 31)

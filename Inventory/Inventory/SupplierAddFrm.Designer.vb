@@ -57,8 +57,8 @@ Partial Class SupplierAddFrm
         '
         'Button_Cancel
         '
-        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Cancel.Location = New System.Drawing.Point(420, 397)
+        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Cancel.Location = New System.Drawing.Point(418, 372)
         Me.Button_Cancel.Name = "Button_Cancel"
         Me.Button_Cancel.Size = New System.Drawing.Size(75, 31)
         Me.Button_Cancel.TabIndex = 16
@@ -68,8 +68,8 @@ Partial Class SupplierAddFrm
         '
         'Button_Save
         '
-        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Save.Location = New System.Drawing.Point(265, 397)
+        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Save.Location = New System.Drawing.Point(263, 372)
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.Size = New System.Drawing.Size(75, 31)
         Me.Button_Save.TabIndex = 15
@@ -79,32 +79,35 @@ Partial Class SupplierAddFrm
         '
         'cp
         '
+        Me.cp.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cp.Location = New System.Drawing.Point(139, 267)
         Me.cp.Name = "cp"
-        Me.cp.Size = New System.Drawing.Size(567, 20)
+        Me.cp.Size = New System.Drawing.Size(567, 25)
         Me.cp.TabIndex = 12
         '
         'SupplierName
         '
+        Me.SupplierName.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SupplierName.Location = New System.Drawing.Point(136, 95)
         Me.SupplierName.Name = "SupplierName"
-        Me.SupplierName.Size = New System.Drawing.Size(570, 20)
+        Me.SupplierName.Size = New System.Drawing.Size(570, 25)
         Me.SupplierName.TabIndex = 3
         '
         'SupplierCode
         '
+        Me.SupplierCode.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SupplierCode.Location = New System.Drawing.Point(136, 63)
         Me.SupplierCode.Name = "SupplierCode"
-        Me.SupplierCode.Size = New System.Drawing.Size(205, 20)
+        Me.SupplierCode.Size = New System.Drawing.Size(205, 25)
         Me.SupplierCode.TabIndex = 1
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.Location = New System.Drawing.Point(0, 265)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(133, 21)
+        Me.Label4.Size = New System.Drawing.Size(112, 17)
         Me.Label4.TabIndex = 13
         Me.Label4.Text = "Contact Person * :"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -112,10 +115,10 @@ Partial Class SupplierAddFrm
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(4, 92)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(132, 21)
+        Me.Label3.Size = New System.Drawing.Size(111, 17)
         Me.Label3.TabIndex = 11
         Me.Label3.Text = "Supplier Name * :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -123,10 +126,10 @@ Partial Class SupplierAddFrm
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(9, 62)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(126, 21)
+        Me.Label2.Size = New System.Drawing.Size(107, 17)
         Me.Label2.TabIndex = 9
         Me.Label2.Text = "Supplier Code * :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -144,198 +147,209 @@ Partial Class SupplierAddFrm
         '
         'address1
         '
+        Me.address1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.address1.Location = New System.Drawing.Point(136, 121)
         Me.address1.Name = "address1"
-        Me.address1.Size = New System.Drawing.Size(570, 20)
+        Me.address1.Size = New System.Drawing.Size(570, 25)
         Me.address1.TabIndex = 4
         '
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.Location = New System.Drawing.Point(49, 118)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(86, 21)
+        Me.Label5.Size = New System.Drawing.Size(74, 17)
         Me.Label5.TabIndex = 19
         Me.Label5.Text = "Address 1 :"
         Me.Label5.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'address2
         '
+        Me.address2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.address2.Location = New System.Drawing.Point(137, 149)
         Me.address2.Name = "address2"
-        Me.address2.Size = New System.Drawing.Size(570, 20)
+        Me.address2.Size = New System.Drawing.Size(570, 25)
         Me.address2.TabIndex = 5
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label6.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.Location = New System.Drawing.Point(48, 146)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(86, 21)
+        Me.Label6.Size = New System.Drawing.Size(74, 17)
         Me.Label6.TabIndex = 21
         Me.Label6.Text = "Address 2 :"
         Me.Label6.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'city
         '
+        Me.city.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.city.Location = New System.Drawing.Point(136, 182)
         Me.city.Name = "city"
-        Me.city.Size = New System.Drawing.Size(205, 20)
+        Me.city.Size = New System.Drawing.Size(205, 25)
         Me.city.TabIndex = 6
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label7.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label7.Location = New System.Drawing.Point(89, 179)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(44, 21)
+        Me.Label7.Size = New System.Drawing.Size(36, 17)
         Me.Label7.TabIndex = 23
         Me.Label7.Text = "City :"
         Me.Label7.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'phone
         '
+        Me.phone.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.phone.Location = New System.Drawing.Point(429, 182)
         Me.phone.Name = "phone"
-        Me.phone.Size = New System.Drawing.Size(277, 20)
+        Me.phone.Size = New System.Drawing.Size(277, 25)
         Me.phone.TabIndex = 7
         '
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label8.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label8.Location = New System.Drawing.Point(362, 179)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(61, 21)
+        Me.Label8.Size = New System.Drawing.Size(51, 17)
         Me.Label8.TabIndex = 25
         Me.Label8.Text = "Phone :"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'hp
         '
+        Me.hp.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.hp.Location = New System.Drawing.Point(429, 210)
         Me.hp.Name = "hp"
-        Me.hp.Size = New System.Drawing.Size(277, 20)
+        Me.hp.Size = New System.Drawing.Size(277, 25)
         Me.hp.TabIndex = 9
         '
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label9.Location = New System.Drawing.Point(386, 209)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(37, 21)
+        Me.Label9.Size = New System.Drawing.Size(31, 17)
         Me.Label9.TabIndex = 27
         Me.Label9.Text = "HP :"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'fax
         '
+        Me.fax.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.fax.Location = New System.Drawing.Point(429, 236)
         Me.fax.Name = "fax"
-        Me.fax.Size = New System.Drawing.Size(277, 20)
+        Me.fax.Size = New System.Drawing.Size(277, 25)
         Me.fax.TabIndex = 11
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.Location = New System.Drawing.Point(384, 235)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(40, 21)
+        Me.Label10.Size = New System.Drawing.Size(34, 17)
         Me.Label10.TabIndex = 29
         Me.Label10.Text = "Fax :"
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'email
         '
+        Me.email.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.email.Location = New System.Drawing.Point(138, 211)
         Me.email.Name = "email"
-        Me.email.Size = New System.Drawing.Size(202, 20)
+        Me.email.Size = New System.Drawing.Size(202, 25)
         Me.email.TabIndex = 8
         '
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label11.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.Location = New System.Drawing.Point(78, 210)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(55, 21)
+        Me.Label11.Size = New System.Drawing.Size(46, 17)
         Me.Label11.TabIndex = 31
         Me.Label11.Text = "Email :"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'website
         '
+        Me.website.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.website.Location = New System.Drawing.Point(138, 239)
         Me.website.Name = "website"
-        Me.website.Size = New System.Drawing.Size(202, 20)
+        Me.website.Size = New System.Drawing.Size(202, 25)
         Me.website.TabIndex = 10
         '
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label12.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.Location = New System.Drawing.Point(61, 238)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(73, 21)
+        Me.Label12.Size = New System.Drawing.Size(62, 17)
         Me.Label12.TabIndex = 33
         Me.Label12.Text = "Website :"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'disc
         '
+        Me.disc.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.disc.Location = New System.Drawing.Point(139, 295)
         Me.disc.Name = "disc"
-        Me.disc.Size = New System.Drawing.Size(567, 20)
+        Me.disc.Size = New System.Drawing.Size(567, 25)
         Me.disc.TabIndex = 13
         '
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label13.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label13.Location = New System.Drawing.Point(68, 292)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(65, 21)
+        Me.Label13.Size = New System.Drawing.Size(54, 17)
         Me.Label13.TabIndex = 35
         Me.Label13.Text = "Diskon :"
         Me.Label13.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'credit
         '
+        Me.credit.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.credit.Location = New System.Drawing.Point(140, 324)
         Me.credit.Name = "credit"
-        Me.credit.Size = New System.Drawing.Size(566, 20)
+        Me.credit.Size = New System.Drawing.Size(566, 25)
         Me.credit.TabIndex = 14
         '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label14.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label14.Location = New System.Drawing.Point(34, 323)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(99, 21)
+        Me.Label14.Size = New System.Drawing.Size(84, 17)
         Me.Label14.TabIndex = 37
         Me.Label14.Text = "Credit Term :"
         Me.Label14.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'npwp
         '
+        Me.npwp.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.npwp.Location = New System.Drawing.Point(428, 61)
         Me.npwp.Name = "npwp"
-        Me.npwp.Size = New System.Drawing.Size(279, 20)
+        Me.npwp.Size = New System.Drawing.Size(279, 25)
         Me.npwp.TabIndex = 2
         '
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label15.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.Location = New System.Drawing.Point(362, 60)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(62, 21)
+        Me.Label15.Size = New System.Drawing.Size(51, 17)
         Me.Label15.TabIndex = 39
         Me.Label15.Text = "NPWP :"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -344,7 +358,7 @@ Partial Class SupplierAddFrm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(807, 473)
+        Me.ClientSize = New System.Drawing.Size(756, 437)
         Me.Controls.Add(Me.npwp)
         Me.Controls.Add(Me.Label15)
         Me.Controls.Add(Me.credit)

@@ -48,10 +48,10 @@ Partial Class UserFrm
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(273, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(185, 28)
+        Me.Label1.Size = New System.Drawing.Size(175, 25)
         Me.Label1.TabIndex = 0
         Me.Label1.Text = "User Management"
         '
@@ -186,7 +186,7 @@ Partial Class UserFrm
         '
         'Button_Add
         '
-        Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Add.Location = New System.Drawing.Point(12, 448)
         Me.Button_Add.Name = "Button_Add"
         Me.Button_Add.Size = New System.Drawing.Size(75, 30)
@@ -207,7 +207,7 @@ Partial Class UserFrm
         '
         'Button_Edit
         '
-        Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Edit.Location = New System.Drawing.Point(93, 448)
         Me.Button_Edit.Name = "Button_Edit"
         Me.Button_Edit.Size = New System.Drawing.Size(75, 30)
@@ -218,7 +218,7 @@ Partial Class UserFrm
         '
         'Button_delete
         '
-        Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_delete.Location = New System.Drawing.Point(174, 448)
         Me.Button_delete.Name = "Button_delete"
         Me.Button_delete.Size = New System.Drawing.Size(75, 30)
@@ -230,25 +230,25 @@ Partial Class UserFrm
         'Label_SearchBy
         '
         Me.Label_SearchBy.AutoSize = True
-        Me.Label_SearchBy.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_SearchBy.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_SearchBy.Location = New System.Drawing.Point(17, 66)
         Me.Label_SearchBy.Name = "Label_SearchBy"
-        Me.Label_SearchBy.Size = New System.Drawing.Size(161, 21)
+        Me.Label_SearchBy.Size = New System.Drawing.Size(137, 17)
         Me.Label_SearchBy.TabIndex = 16
         Me.Label_SearchBy.Text = "Search By User Code :"
         '
         'TextBox_SearchBy
         '
         Me.TextBox_SearchBy.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox_SearchBy.Location = New System.Drawing.Point(181, 68)
+        Me.TextBox_SearchBy.Location = New System.Drawing.Point(159, 65)
         Me.TextBox_SearchBy.Name = "TextBox_SearchBy"
-        Me.TextBox_SearchBy.Size = New System.Drawing.Size(140, 25)
+        Me.TextBox_SearchBy.Size = New System.Drawing.Size(165, 25)
         Me.TextBox_SearchBy.TabIndex = 17
         '
         'Button_Search
         '
-        Me.Button_Search.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button_Search.Location = New System.Drawing.Point(330, 66)
+        Me.Button_Search.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Search.Location = New System.Drawing.Point(330, 62)
         Me.Button_Search.Name = "Button_Search"
         Me.Button_Search.Size = New System.Drawing.Size(75, 30)
         Me.Button_Search.TabIndex = 18

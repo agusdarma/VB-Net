@@ -22,9 +22,11 @@ Partial Class Warehouse
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Filter = New System.Windows.Forms.Button()
         Me.Button_delete = New System.Windows.Forms.Button()
         Me.Button_Edit = New System.Windows.Forms.Button()
@@ -43,7 +45,7 @@ Partial Class Warehouse
         '
         'Filter
         '
-        Me.Filter.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Filter.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Filter.Location = New System.Drawing.Point(436, 408)
         Me.Filter.Name = "Filter"
         Me.Filter.Size = New System.Drawing.Size(113, 30)
@@ -54,7 +56,7 @@ Partial Class Warehouse
         '
         'Button_delete
         '
-        Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_delete.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_delete.Location = New System.Drawing.Point(303, 408)
         Me.Button_delete.Name = "Button_delete"
         Me.Button_delete.Size = New System.Drawing.Size(113, 30)
@@ -65,7 +67,7 @@ Partial Class Warehouse
         '
         'Button_Edit
         '
-        Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Edit.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Edit.Location = New System.Drawing.Point(160, 408)
         Me.Button_Edit.Name = "Button_Edit"
         Me.Button_Edit.Size = New System.Drawing.Size(113, 30)
@@ -76,7 +78,7 @@ Partial Class Warehouse
         '
         'Button_Add
         '
-        Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Add.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Add.Location = New System.Drawing.Point(19, 408)
         Me.Button_Add.Name = "Button_Add"
         Me.Button_Add.Size = New System.Drawing.Size(113, 30)
@@ -88,22 +90,22 @@ Partial Class Warehouse
         'Label_Showing_Pages
         '
         Me.Label_Showing_Pages.AutoSize = True
-        Me.Label_Showing_Pages.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_Showing_Pages.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_Showing_Pages.ForeColor = System.Drawing.Color.SlateBlue
-        Me.Label_Showing_Pages.Location = New System.Drawing.Point(220, 75)
+        Me.Label_Showing_Pages.Location = New System.Drawing.Point(534, 73)
         Me.Label_Showing_Pages.Name = "Label_Showing_Pages"
-        Me.Label_Showing_Pages.Size = New System.Drawing.Size(127, 21)
+        Me.Label_Showing_Pages.Size = New System.Drawing.Size(103, 17)
         Me.Label_Showing_Pages.TabIndex = 60
         Me.Label_Showing_Pages.Text = "Showing page :"
         '
         'Label_TotalRecord
         '
         Me.Label_TotalRecord.AutoSize = True
-        Me.Label_TotalRecord.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label_TotalRecord.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label_TotalRecord.ForeColor = System.Drawing.Color.SlateBlue
-        Me.Label_TotalRecord.Location = New System.Drawing.Point(408, 75)
+        Me.Label_TotalRecord.Location = New System.Drawing.Point(722, 73)
         Me.Label_TotalRecord.Name = "Label_TotalRecord"
-        Me.Label_TotalRecord.Size = New System.Drawing.Size(121, 21)
+        Me.Label_TotalRecord.Size = New System.Drawing.Size(100, 17)
         Me.Label_TotalRecord.TabIndex = 59
         Me.Label_TotalRecord.Text = "Total Records :"
         '
@@ -111,65 +113,80 @@ Partial Class Warehouse
         '
         Me.GridGudang.AllowUserToAddRows = False
         Me.GridGudang.AllowUserToDeleteRows = False
-        DataGridViewCellStyle7.BackColor = System.Drawing.Color.LightGray
-        DataGridViewCellStyle7.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ActiveCaptionText
-        DataGridViewCellStyle7.NullValue = "Empty"
-        DataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        DataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Cornsilk
-        Me.GridGudang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle7
+        Me.GridGudang.AllowUserToResizeRows = False
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle1.NullValue = "Empty"
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Cornsilk
+        Me.GridGudang.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.GridGudang.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
         Me.GridGudang.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        Me.GridGudang.BackgroundColor = System.Drawing.Color.White
-        Me.GridGudang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
-        Me.GridGudang.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.Raised
-        DataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
-        DataGridViewCellStyle8.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Info
-        DataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.GridGudang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle8
-        Me.GridGudang.ColumnHeadersHeight = 40
+        Me.GridGudang.BackgroundColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.GridGudang.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(128, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(255, Byte), Integer))
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Info
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GridGudang.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
+        Me.GridGudang.ColumnHeadersHeight = 30
         Me.GridGudang.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing
-        Me.GridGudang.Cursor = System.Windows.Forms.Cursors.Hand
-        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
-        DataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window
-        DataGridViewCellStyle9.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText
-        DataGridViewCellStyle9.NullValue = "Empty"
-        DataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
-        DataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.GridGudang.DefaultCellStyle = DataGridViewCellStyle9
-        Me.GridGudang.GridColor = System.Drawing.Color.DarkOrange
+        Me.GridGudang.Cursor = System.Windows.Forms.Cursors.Default
+        DataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopLeft
+        DataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText
+        DataGridViewCellStyle3.NullValue = "Empty"
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.ControlDarkDark
+        DataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.GridGudang.DefaultCellStyle = DataGridViewCellStyle3
+        Me.GridGudang.EnableHeadersVisualStyles = False
         Me.GridGudang.Location = New System.Drawing.Point(19, 102)
         Me.GridGudang.MultiSelect = False
         Me.GridGudang.Name = "GridGudang"
         Me.GridGudang.ReadOnly = True
+        Me.GridGudang.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
+        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle4.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red
+        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.GridGudang.RowHeadersDefaultCellStyle = DataGridViewCellStyle4
+        Me.GridGudang.RowHeadersVisible = False
+        DataGridViewCellStyle5.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black
+        DataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        DataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black
+        Me.GridGudang.RowsDefaultCellStyle = DataGridViewCellStyle5
         Me.GridGudang.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridGudang.Size = New System.Drawing.Size(532, 300)
+        Me.GridGudang.Size = New System.Drawing.Size(832, 300)
         Me.GridGudang.TabIndex = 58
         '
         'labelCurrentPage
         '
         Me.labelCurrentPage.AutoSize = True
-        Me.labelCurrentPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.labelCurrentPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelCurrentPage.Location = New System.Drawing.Point(103, 66)
         Me.labelCurrentPage.Name = "labelCurrentPage"
-        Me.labelCurrentPage.Size = New System.Drawing.Size(33, 37)
+        Me.labelCurrentPage.Size = New System.Drawing.Size(25, 30)
         Me.labelCurrentPage.TabIndex = 57
         Me.labelCurrentPage.Text = "1"
         '
         'LinkLabel_FirstPage
         '
         Me.LinkLabel_FirstPage.AutoSize = True
-        Me.LinkLabel_FirstPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_FirstPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_FirstPage.ForeColor = System.Drawing.Color.Blue
         Me.LinkLabel_FirstPage.Location = New System.Drawing.Point(13, 62)
         Me.LinkLabel_FirstPage.Name = "LinkLabel_FirstPage"
-        Me.LinkLabel_FirstPage.Size = New System.Drawing.Size(55, 37)
+        Me.LinkLabel_FirstPage.Size = New System.Drawing.Size(43, 30)
         Me.LinkLabel_FirstPage.TabIndex = 56
         Me.LinkLabel_FirstPage.TabStop = True
         Me.LinkLabel_FirstPage.Text = "<<"
@@ -177,11 +194,11 @@ Partial Class Warehouse
         'LinkLabel_Previous
         '
         Me.LinkLabel_Previous.AutoSize = True
-        Me.LinkLabel_Previous.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_Previous.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_Previous.ForeColor = System.Drawing.Color.Blue
         Me.LinkLabel_Previous.Location = New System.Drawing.Point(68, 62)
         Me.LinkLabel_Previous.Name = "LinkLabel_Previous"
-        Me.LinkLabel_Previous.Size = New System.Drawing.Size(36, 37)
+        Me.LinkLabel_Previous.Size = New System.Drawing.Size(28, 30)
         Me.LinkLabel_Previous.TabIndex = 55
         Me.LinkLabel_Previous.TabStop = True
         Me.LinkLabel_Previous.Text = "<"
@@ -189,10 +206,10 @@ Partial Class Warehouse
         'LinkLabel_LastPage
         '
         Me.LinkLabel_LastPage.AutoSize = True
-        Me.LinkLabel_LastPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_LastPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_LastPage.Location = New System.Drawing.Point(165, 64)
         Me.LinkLabel_LastPage.Name = "LinkLabel_LastPage"
-        Me.LinkLabel_LastPage.Size = New System.Drawing.Size(55, 37)
+        Me.LinkLabel_LastPage.Size = New System.Drawing.Size(43, 30)
         Me.LinkLabel_LastPage.TabIndex = 54
         Me.LinkLabel_LastPage.TabStop = True
         Me.LinkLabel_LastPage.Text = ">>"
@@ -200,11 +217,11 @@ Partial Class Warehouse
         'LinkLabel_NextPage
         '
         Me.LinkLabel_NextPage.AutoSize = True
-        Me.LinkLabel_NextPage.Font = New System.Drawing.Font("Segoe UI", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LinkLabel_NextPage.Font = New System.Drawing.Font("Segoe UI", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LinkLabel_NextPage.ForeColor = System.Drawing.Color.Blue
         Me.LinkLabel_NextPage.Location = New System.Drawing.Point(133, 63)
         Me.LinkLabel_NextPage.Name = "LinkLabel_NextPage"
-        Me.LinkLabel_NextPage.Size = New System.Drawing.Size(36, 37)
+        Me.LinkLabel_NextPage.Size = New System.Drawing.Size(28, 30)
         Me.LinkLabel_NextPage.TabIndex = 53
         Me.LinkLabel_NextPage.TabStop = True
         Me.LinkLabel_NextPage.Text = ">"
@@ -212,10 +229,10 @@ Partial Class Warehouse
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 15.0!, System.Drawing.FontStyle.Bold)
-        Me.Label1.Location = New System.Drawing.Point(196, 22)
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(312, 21)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(157, 28)
+        Me.Label1.Size = New System.Drawing.Size(150, 25)
         Me.Label1.TabIndex = 52
         Me.Label1.Text = "Master Gudang"
         '
@@ -223,7 +240,7 @@ Partial Class Warehouse
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(565, 460)
+        Me.ClientSize = New System.Drawing.Size(874, 460)
         Me.Controls.Add(Me.Filter)
         Me.Controls.Add(Me.Button_delete)
         Me.Controls.Add(Me.Button_Edit)

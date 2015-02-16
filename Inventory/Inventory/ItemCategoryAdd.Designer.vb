@@ -33,7 +33,7 @@ Partial Class ItemCategoryAdd
         '
         'Button_Cancel
         '
-        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Cancel.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Cancel.Location = New System.Drawing.Point(207, 116)
         Me.Button_Cancel.Name = "Button_Cancel"
         Me.Button_Cancel.Size = New System.Drawing.Size(75, 31)
@@ -44,7 +44,7 @@ Partial Class ItemCategoryAdd
         '
         'Button_Save
         '
-        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button_Save.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button_Save.Location = New System.Drawing.Point(52, 116)
         Me.Button_Save.Name = "Button_Save"
         Me.Button_Save.Size = New System.Drawing.Size(75, 31)
@@ -55,25 +55,27 @@ Partial Class ItemCategoryAdd
         '
         'NamaKategori
         '
+        Me.NamaKategori.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.NamaKategori.Location = New System.Drawing.Point(148, 77)
         Me.NamaKategori.Name = "NamaKategori"
-        Me.NamaKategori.Size = New System.Drawing.Size(205, 20)
+        Me.NamaKategori.Size = New System.Drawing.Size(205, 25)
         Me.NamaKategori.TabIndex = 79
         '
         'KodeKategori
         '
+        Me.KodeKategori.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.KodeKategori.Location = New System.Drawing.Point(148, 45)
         Me.KodeKategori.Name = "KodeKategori"
-        Me.KodeKategori.Size = New System.Drawing.Size(205, 20)
+        Me.KodeKategori.Size = New System.Drawing.Size(205, 25)
         Me.KodeKategori.TabIndex = 77
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label3.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(6, 74)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(132, 21)
+        Me.Label3.Size = New System.Drawing.Size(113, 17)
         Me.Label3.TabIndex = 98
         Me.Label3.Text = "Nama Kategori * :"
         Me.Label3.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -81,10 +83,10 @@ Partial Class ItemCategoryAdd
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.Location = New System.Drawing.Point(12, 44)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(125, 21)
+        Me.Label2.Size = New System.Drawing.Size(109, 17)
         Me.Label2.TabIndex = 97
         Me.Label2.Text = "Kode Kategori * :"
         Me.Label2.TextAlign = System.Drawing.ContentAlignment.TopCenter
@@ -92,10 +94,10 @@ Partial Class ItemCategoryAdd
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Font = New System.Drawing.Font("Segoe UI", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(84, 9)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(198, 21)
+        Me.Label1.Size = New System.Drawing.Size(184, 20)
         Me.Label1.TabIndex = 96
         Me.Label1.Text = "Add / Edit Item Category"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.TopCenter
