@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 13-Feb-15
+Modified: 16-Feb-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -540,6 +540,30 @@ CREATE TABLE purchase_payment
   is_history Int,
  PRIMARY KEY (id)
 )
+;
+
+-- Table sales_payment
+
+CREATE TABLE sales_payment
+(
+  id Bigint NOT NULL AUTO_INCREMENT,
+  kode_customer Varchar(32),
+  nama_customer Varchar(256),
+  alamat_customer Varchar(256),
+  sales_payment_no Varchar(32),
+  payment_date Datetime,
+  invoice_no Varchar(32),
+  invoice_date Datetime,
+  total_order Bigint,
+  owing Bigint,
+  payment_amount Bigint,
+  notes Varchar(256),
+  is_history Int,
+ PRIMARY KEY (id)
+)
+;
+
+ALTER TABLE sales_payment ADD UNIQUE sales_payment_no (sales_payment_no)
 ;
 
 
