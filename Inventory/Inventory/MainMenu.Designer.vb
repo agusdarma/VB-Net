@@ -98,18 +98,21 @@ Partial Class MainMenu
         Me.GroupManagementToolStripMenuItem.Name = "GroupManagementToolStripMenuItem"
         Me.GroupManagementToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.GroupManagementToolStripMenuItem.Text = "Group Management"
+        Me.GroupManagementToolStripMenuItem.Visible = False
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
         Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
+        Me.ChangePasswordToolStripMenuItem.Visible = False
         '
         'ResetPasswordToolStripMenuItem
         '
         Me.ResetPasswordToolStripMenuItem.Name = "ResetPasswordToolStripMenuItem"
         Me.ResetPasswordToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
         Me.ResetPasswordToolStripMenuItem.Text = "Reset Password"
+        Me.ResetPasswordToolStripMenuItem.Visible = False
         '
         'ManageMasterToolStripMenuItem
         '
@@ -155,24 +158,28 @@ Partial Class MainMenu
         Me.MasterBankToolStripMenuItem.Name = "MasterBankToolStripMenuItem"
         Me.MasterBankToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterBankToolStripMenuItem.Text = "Master Bank"
+        Me.MasterBankToolStripMenuItem.Visible = False
         '
         'MasterGLInterfaceAccountToolStripMenuItem
         '
         Me.MasterGLInterfaceAccountToolStripMenuItem.Name = "MasterGLInterfaceAccountToolStripMenuItem"
         Me.MasterGLInterfaceAccountToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterGLInterfaceAccountToolStripMenuItem.Text = "Master GL Interface Account"
+        Me.MasterGLInterfaceAccountToolStripMenuItem.Visible = False
         '
         'MasterSatuanToolStripMenuItem
         '
         Me.MasterSatuanToolStripMenuItem.Name = "MasterSatuanToolStripMenuItem"
         Me.MasterSatuanToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterSatuanToolStripMenuItem.Text = "Master Satuan"
+        Me.MasterSatuanToolStripMenuItem.Visible = False
         '
         'MasterShippingViaToolStripMenuItem
         '
         Me.MasterShippingViaToolStripMenuItem.Name = "MasterShippingViaToolStripMenuItem"
         Me.MasterShippingViaToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.MasterShippingViaToolStripMenuItem.Text = "Master Shipping Via"
+        Me.MasterShippingViaToolStripMenuItem.Visible = False
         '
         'MasterGudangToolStripMenuItem
         '
@@ -187,6 +194,7 @@ Partial Class MainMenu
         Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
         Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
+        Me.GenerateReportToolsToolStripMenuItem.Visible = False
         '
         'TransactionToolStripMenuItem
         '
@@ -199,7 +207,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -238,7 +246,7 @@ Partial Class MainMenu
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'SalesOrderToolStripMenuItem

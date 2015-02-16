@@ -203,10 +203,10 @@ Public Class UserFrm
 
     End Sub
     Private Sub DataGridView1_CellMouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellMouseEventArgs) Handles GridUser.CellMouseDoubleClick
-        If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
-            Dim selectedRow = GridUser.Rows(e.RowIndex)
-            MessageBox.Show("tess")
-        End If
+        'If e.RowIndex >= 0 AndAlso e.ColumnIndex >= 0 Then
+        '    Dim selectedRow = GridUser.Rows(e.RowIndex)
+        '    MessageBox.Show("tess")
+        'End If
     End Sub
 
     
