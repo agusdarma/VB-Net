@@ -72,4 +72,8 @@ Public Class MainMenu
     Private Sub SalesInvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesInvoiceToolStripMenuItem.Click
         SalesInvoice.Show()
     End Sub
+
+    Private Sub SalesReceiptToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesReceiptToolStripMenuItem.Click
+        SalesPayment.Show()
+    End Sub
 End Class
