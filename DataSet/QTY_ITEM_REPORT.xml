@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="nama_item" type="xs:string" minOccurs="0" />
+                <xs:element name="nama_gudang" type="xs:string" minOccurs="0" />
+                <xs:element name="qty" type="xs:long" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Table>
+    <nama_item>Buku Tulis Kecil</nama_item>
+    <nama_gudang>Depan</nama_gudang>
+    <qty>0</qty>
+  </Table>
+  <Table>
+    <nama_item>Game Fifa 2015</nama_item>
+    <nama_gudang>Depan</nama_gudang>
+    <qty>0</qty>
+  </Table>
+  <Table>
+    <nama_item>Game Fifa 2015</nama_item>
+    <nama_gudang>Electronic</nama_gudang>
+    <qty>49</qty>
+  </Table>
+  <Table>
+    <nama_item>Game pes 2015</nama_item>
+    <nama_gudang>Depan</nama_gudang>
+    <qty>1002</qty>
+  </Table>
+  <Table>
+    <nama_item>Game pes 2015</nama_item>
+    <nama_gudang>Electronic</nama_gudang>
+    <qty>964</qty>
+  </Table>
+</NewDataSet>

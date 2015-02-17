@@ -76,4 +76,8 @@ Public Class MainMenu
     Private Sub SalesReceiptToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesReceiptToolStripMenuItem.Click
         SalesPayment.Show()
     End Sub
+
+    Private Sub LaporanItemPerGudangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanItemPerGudangToolStripMenuItem.Click
+        ReportItemsGudang.Show()
+    End Sub
 End Class
