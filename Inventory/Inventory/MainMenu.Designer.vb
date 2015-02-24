@@ -55,11 +55,11 @@ Partial Class MainMenu
         Me.SalesInvoiceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SalesReceiptToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanItemPerGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.LaporanItemPerGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -196,6 +196,7 @@ Partial Class MainMenu
         Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
         Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
+        Me.GenerateReportToolsToolStripMenuItem.Visible = False
         '
         'TransactionToolStripMenuItem
         '
@@ -208,7 +209,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -247,7 +248,7 @@ Partial Class MainMenu
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'SalesOrderToolStripMenuItem
@@ -289,6 +290,19 @@ Partial Class MainMenu
         Me.AboutToolStripMenuItem.Text = "About"
         Me.AboutToolStripMenuItem.Visible = False
         '
+        'LaporanToolStripMenuItem
+        '
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaporanItemPerGudangToolStripMenuItem})
+        Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
+        Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
+        Me.LaporanToolStripMenuItem.Text = "Laporan"
+        '
+        'LaporanItemPerGudangToolStripMenuItem
+        '
+        Me.LaporanItemPerGudangToolStripMenuItem.Name = "LaporanItemPerGudangToolStripMenuItem"
+        Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
+        Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Item Per Gudang"
+        '
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
@@ -303,19 +317,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'LaporanToolStripMenuItem
-        '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaporanItemPerGudangToolStripMenuItem})
-        Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
-        Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
-        Me.LaporanToolStripMenuItem.Text = "Laporan"
-        '
-        'LaporanItemPerGudangToolStripMenuItem
-        '
-        Me.LaporanItemPerGudangToolStripMenuItem.Name = "LaporanItemPerGudangToolStripMenuItem"
-        Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
-        Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Item Per Gudang"
         '
         'MainMenu
         '
