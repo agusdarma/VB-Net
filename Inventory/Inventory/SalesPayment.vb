@@ -216,6 +216,7 @@ Public Class SalesPayment
         Dim rowEffected As Integer = 0
         Dim sqlCommand As New MySqlCommand
         Dim sql As String
+        Dim pilih As Integer
         Dim now As DateTime = DateTime.Now
         Dim transaction As MySqlTransaction
         Dim queryGetIdentity As String = "Select @@Identity"
@@ -262,7 +263,7 @@ Public Class SalesPayment
             sqlCommand.Parameters.Add("@is_history", MySqlDbType.Int16)
             For Each oItem As DataGridViewRow In DataGridViewSP.Rows
                 If oItem.Cells(5).Value = True Then
-
+                    pilih = 1
                     ' update sales payment ubah is history menjadi 0 karena trx ini hanya sebagai history saja
                     sql = "UPDATE sales_payment SET is_history = 0 WHERE invoice_no = @invoice_no"
                     sqlCommand.CommandText = sql
@@ -303,10 +304,15 @@ Public Class SalesPayment
                         sqlCommand.ExecuteNonQuery()
                     End If
                 Else
-                    MessageBox.Show("Pilih salah satu invoice!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Return 0
+                    'MessageBox.Show("Pilih salah satu invoice!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                    'Return 0
                 End If
             Next
+
+            If pilih <> 1 Then
+                MessageBox.Show("Pilih salah satu invoice!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return 0
+            End If
 
             transaction.Commit()
             con.Close()
