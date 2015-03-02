@@ -38,6 +38,14 @@ Public Class BarangAdd
             MessageBox.Show("Please fill nama item", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf qty.Text.Length = 0 Then
             MessageBox.Show("Please fill qty", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ElseIf Cost.Text.Length = 0 Then
+            MessageBox.Show("Please fill cost", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ElseIf TotalCost.Text.Length = 0 Then
+            MessageBox.Show("Please fill total cost", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ElseIf salesPrice.Text.Length = 0 Then
+            MessageBox.Show("Please fill sales price", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+        ElseIf diskon.Text.Length = 0 Then
+            MessageBox.Show("Please fill diskon", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf itemType.Length = 0 Then
             MessageBox.Show("Please fill item type", "Warning Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
         ElseIf Me.ComboBoxGudang.Items.Count = 0 Then
@@ -441,11 +449,16 @@ Public Class BarangAdd
         Dim totalCost As Long
         Dim qty As Long
         Dim cost As Long
-        qty = Convert.ToDecimal(Me.qty.Text)
-        cost = Convert.ToDecimal(Me.Cost.Text)
+        If Me.qty.Text.Length > 0 Then
+            qty = Convert.ToDecimal(Me.qty.Text)
+        End If
+        If Me.Cost.Text.Length > 0 Then
+            cost = Convert.ToDecimal(Me.Cost.Text)
+            Me.Cost.Text = FormatNumber(Me.Cost.Text, 0, TriState.True)
+        End If
         totalCost = qty * cost
         Me.TotalCost.Text = FormatNumber(totalCost.ToString, 0, TriState.True)
-        Me.Cost.Text = FormatNumber(Me.Cost.Text, 0, TriState.True)
+
     End Sub
 
     Private Sub qty_KeyPress(sender As Object, e As KeyPressEventArgs) Handles qty.KeyPress
@@ -476,18 +489,28 @@ Public Class BarangAdd
         Dim totalCost As Long
         Dim qty As Long
         Dim cost As Long
-        qty = Convert.ToDecimal(Me.qty.Text)
-        cost = Convert.ToDecimal(Me.Cost.Text)
+        If Me.qty.Text.Length > 0 Then
+            qty = Convert.ToDecimal(Me.qty.Text)
+        End If
+        If Me.Cost.Text.Length > 0 Then
+            cost = Convert.ToDecimal(Me.Cost.Text)
+            Me.Cost.Text = FormatNumber(Me.Cost.Text, 0, TriState.True)
+        End If
         totalCost = qty * cost
         Me.TotalCost.Text = FormatNumber(totalCost.ToString, 0, TriState.True)
-        Me.Cost.Text = FormatNumber(Me.Cost.Text, 0, TriState.True)
+
     End Sub
 
     Private Sub salesPrice_Leave(sender As Object, e As EventArgs) Handles salesPrice.Leave
-        salesPrice.Text = FormatNumber(salesPrice.Text, 0, TriState.True)
+        If Me.salesPrice.Text.Length > 0 Then
+            salesPrice.Text = FormatNumber(salesPrice.Text, 0, TriState.True)
+        End If
+
     End Sub
 
     Private Sub diskon_Leave(sender As Object, e As EventArgs) Handles diskon.Leave
-        diskon.Text = FormatNumber(diskon.Text, 0, TriState.True)
+        If Me.diskon.Text.Length > 0 Then
+            diskon.Text = FormatNumber(diskon.Text, 0, TriState.True)
+        End If
     End Sub
 End Class
