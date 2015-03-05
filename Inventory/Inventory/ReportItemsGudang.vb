@@ -41,7 +41,7 @@ Public Class ReportItemsGudang
             PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
             PreviewPrintPO.ShowDialog()
         Catch ex As Exception
-            MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(ex.ToString, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
             con.Close()
         End Try

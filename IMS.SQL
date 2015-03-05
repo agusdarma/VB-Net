@@ -567,6 +567,7 @@ ALTER TABLE sales_payment ADD UNIQUE sales_payment_no (sales_payment_no)
 ;
 
 
+alter table sales_payment drop index sales_payment_no;
 
 INSERT INTO user
 (user_code,user_name,password,group_id,last_login_on,created_by,created_on,updated_by,updated_on)
