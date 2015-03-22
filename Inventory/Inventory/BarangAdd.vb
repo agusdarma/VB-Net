@@ -15,10 +15,10 @@ Public Class BarangAdd
         NamaItem.Text = ""
         qty.Text = "0"
         satuan.Text = ""
-        Cost.Text = ""
-        TotalCost.Text = ""
-        salesPrice.Text = ""
-        diskon.Text = ""
+        Cost.Text = "0"
+        TotalCost.Text = "0"
+        salesPrice.Text = "0"
+        diskon.Text = "0"
     End Sub
 
     Private Sub Button_Save_Click(sender As Object, e As EventArgs) Handles Button_Save.Click
@@ -126,9 +126,12 @@ Public Class BarangAdd
             rowEffected = sqlCommand.ExecuteNonQuery()
 
             ' update Items - Gudang
-            sql = "INSERT INTO items_gudang(gudang_id,item_id,qty) VALUES (@warehouse_id,@item_id,@qty)"
+            'sql = "INSERT INTO items_gudang(gudang_id,item_id,qty) VALUES (@warehouse_id,@item_id,@qty)"
+            sql = "UPDATE items_gudang SET qty = @qty WHERE gudang_id = @warehouse_id AND kode_item = @item_id"
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@qty", qty.Text)
+            sqlCommand.Parameters.AddWithValue("@warehouse_id", ComboBoxGudang.SelectedValue)
+            sqlCommand.Parameters.AddWithValue("@item_id", KodeItem.Text)
             sqlCommand.ExecuteNonQuery()
             transaction.Commit()
 

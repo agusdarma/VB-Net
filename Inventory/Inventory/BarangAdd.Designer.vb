@@ -202,6 +202,7 @@ Partial Class BarangAdd
         '
         Me.satuan.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.satuan.Location = New System.Drawing.Point(90, 246)
+        Me.satuan.MaxLength = 5
         Me.satuan.Name = "satuan"
         Me.satuan.Size = New System.Drawing.Size(64, 25)
         Me.satuan.TabIndex = 7

@@ -4,13 +4,15 @@ Public Class Barang
     Dim da As New MySqlDataAdapter
     Dim con As MySqlConnection
     Dim ds As DataSet
-    Dim rowPage As Integer = 10
+    Dim rowPage As Integer = 50
     Dim rowStart As Integer
     Dim totalRow As Integer
     Dim currentPage As Integer
     Public kodeItem As String
     Public paramSearch As String
-    Public sqlBase As String = "SELECT id as ID, kode_item as KodeItem, nama_item as NamaItem,quantity as Quantity, default_price as SellingPrice, item_type as Type "
+    'Public sqlBase As String = "SELECT id as ID, kode_item as KodeItem, nama_item as NamaItem,quantity as Quantity, default_price as SellingPrice, item_type as Type "
+    Public sqlBase As String = "SELECT i.id AS ID, i.kode_item     AS KodeItem, i.nama_item AS NamaItem,i.quantity AS Quantity,i.default_price AS SellingPrice,i.item_type AS Type,g.nama_gudang AS NamaGudang "
+
     Public Function jokenconn() As MySqlConnection
         Dim urlDb As String
         Dim mySqlDb As New mySqlDB
@@ -25,9 +27,9 @@ Public Class Barang
             con = jokenconn()
             con.Open()
             If paramSearch = "" Then
-                sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id order by i.id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from items where 1 = 1  " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1  " + paramSearch + " order by i.id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "items")
@@ -52,9 +54,9 @@ Public Class Barang
             con.Open()
             Dim Sql As String
             If paramSearch = "" Then
-                Sql = "SELECT COUNT(*) FROM items"
+                Sql = "SELECT COUNT(*) FROM items i inner join gudang g on i.gudang_id = g.id"
             Else
-                Sql = "SELECT COUNT(*) from items where 1 = 1 " + paramSearch
+                Sql = "SELECT COUNT(*) FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1 " + paramSearch
             End If
             Dim scalarCommand As New MySqlCommand(Sql, con)
             totalRow = scalarCommand.ExecuteScalar()
@@ -121,9 +123,9 @@ Public Class Barang
                 con.Open()
 
                 If paramSearch = "" Then
-                    sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id order by i.id asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from items where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1 " + paramSearch + " order by i.id asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "items")
@@ -153,9 +155,9 @@ Public Class Barang
             con.Open()
 
             If paramSearch = "" Then
-                sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id order by i.id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from items where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1 " + paramSearch + " order by i.id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "items")
@@ -177,9 +179,9 @@ Public Class Barang
             con = jokenconn()
             con.Open()
             If paramSearch = "" Then
-                sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id order by i.id asc limit " & rowStart & "," & rowPage & ""
             Else
-                sql = sqlBase & " from items where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1 " + paramSearch + " order by i.id asc limit " & rowStart & "," & rowPage & ""
             End If
             da = New MySqlDataAdapter(sql, con)
             da.Fill(ds, "items")
@@ -205,9 +207,9 @@ Public Class Barang
                 con.Open()
 
                 If paramSearch = "" Then
-                    sql = sqlBase & " from items order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id order by i.id asc limit " & rowStart & "," & rowPage & ""
                 Else
-                    sql = sqlBase & " from items where 1 = 1 " + paramSearch + " order by id asc limit " & rowStart & "," & rowPage & ""
+                    sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1 " + paramSearch + " order by i.id asc limit " & rowStart & "," & rowPage & ""
                 End If
                 da = New MySqlDataAdapter(sql, con)
                 da.Fill(ds, "items")
