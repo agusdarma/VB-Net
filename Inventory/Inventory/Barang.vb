@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports System.Text
 
 Public Class Barang
     Dim da As New MySqlDataAdapter
@@ -42,6 +43,7 @@ Public Class Barang
             If Len(temp) > 0 Then
                 Filter.Text = "Filter On"
             End If
+            AddTooltips()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -325,28 +327,66 @@ Public Class Barang
         End Try
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs)
         'onAutoComplete()
     End Sub
 
     Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
-        
+
         If e.KeyCode = Keys.Enter Then
             e.SuppressKeyPress = True
-           If TextBox1.Text.Length > 0 Then
+            If TextBox1.Text.Length > 0 Then
                 paramSearch = " and i.nama_item like '" + TextBox1.Text.ToString + "%'"
                 refreshGrid()
             End If
         End If
     End Sub
+    Private Sub AddTooltips()
+        For Each drow As DataGridViewRow In GridBarang.Rows
+            Dim dgvCell As DataGridViewCell
+            dgvCell = drow.Cells(1)
+            Dim sql As String
+            Try
+                ds = New DataSet()
+                con = jokenconn()
+                con.Open()
+                sql = "select g.nama_gudang,ig.qty from items_gudang ig inner join gudang g on ig.gudang_id = g.id where kode_item = '" + dgvCell.Value + "'"
+                da = New MySqlDataAdapter(sql, con)
+                da.Fill(ds, "list")
+                Dim i As Integer
+                Dim builder As New StringBuilder
+                builder.Append("List Gudang").AppendLine()
+                For i = 0 To ds.Tables(0).Rows.Count - 1                  
+                    builder.Append("Nama Gudang : ")
+                    builder.Append(" ")
+                    builder.Append(ds.Tables(0).Rows(i)("nama_gudang").ToString())
+                    builder.Append(" ")
+                    builder.Append("Qty : ")
+                    builder.Append(" ")
+                    builder.Append(ds.Tables(0).Rows(i)("qty").ToString())
+                    builder.AppendLine()
+                    Dim s As String = builder.ToString
+                    dgvCell.ToolTipText = s
+                Next
+                con.Close()
+            Catch ex As Exception
+                MessageBox.Show(ex.ToString)
+            Finally
+                con.Close()
+            End Try
+        Next
+    End Sub
 
-    
 
-    
+
 
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         If TextBox1.Text.Length > 2 Then
             onAutoComplete(TextBox1.Text.ToString)
+        ElseIf TextBox1.Text.Length < 3 Then
+            paramSearch = ""
+            refreshGrid()
         End If
     End Sub
+
 End Class
