@@ -50,6 +50,31 @@ Public Class Barang
             con.Close()
         End Try
     End Sub
+    Public Sub refreshGridQuickSearch()
+        Dim sql As String
+        Try
+            ds = New DataSet()
+            con = jokenconn()
+            con.Open()
+            sql = sqlBase & " FROM items i inner join gudang g on i.gudang_id = g.id where 1 = 1  " + paramSearch + " order by i.id asc"
+            da = New MySqlDataAdapter(sql, con)
+            da.Fill(ds, "items")
+            GridBarang.DataSource = ds.Tables(0)
+            con.Close()
+            calculateTotalAllRow()
+            'resetCurrentPage()
+            Dim temp As String = paramSearch
+            Filter.Text = "Filter Off"
+            If Len(temp) > 0 Then
+                Filter.Text = "Filter On"
+            End If
+            AddTooltips()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
     Private Sub calculateTotalAllRow()
         Dim nonqueryCommand As MySqlCommand = con.CreateCommand()
         Try
@@ -134,6 +159,7 @@ Public Class Barang
                 GridBarang.DataSource = ds.Tables(0)
                 con.Close()
                 updateNextCurrentPage()
+                AddTooltips()
             Else
                 MessageBox.Show("This is last data", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 rowStart = rowStart - rowPage
@@ -166,6 +192,7 @@ Public Class Barang
             GridBarang.DataSource = ds.Tables(0)
             con.Close()
             resetCurrentPageForLast()
+            AddTooltips()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -190,7 +217,7 @@ Public Class Barang
             GridBarang.DataSource = ds.Tables(0)
             con.Close()
             resetCurrentPage()
-
+            AddTooltips()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally
@@ -218,7 +245,7 @@ Public Class Barang
                 GridBarang.DataSource = ds.Tables(0)
                 con.Close()
                 updatePrevCurrentPage()
-
+                AddTooltips()
             Else
                 MessageBox.Show("This is last data.", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
                 rowStart = 0
@@ -337,7 +364,12 @@ Public Class Barang
             e.SuppressKeyPress = True
             If TextBox1.Text.Length > 0 Then
                 paramSearch = " and i.nama_item like '" + TextBox1.Text.ToString + "%'"
+                refreshGridQuickSearch()
+            Else
+                rowStart = 0
+                paramSearch = ""
                 refreshGrid()
+                resetCurrentPage()
             End If
         End If
     End Sub
@@ -383,9 +415,9 @@ Public Class Barang
     Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
         If TextBox1.Text.Length > 2 Then
             onAutoComplete(TextBox1.Text.ToString)
-        ElseIf TextBox1.Text.Length < 3 Then
-            paramSearch = ""
-            refreshGrid()
+            'ElseIf TextBox1.Text.Length < 3 Then
+            'paramSearch = ""
+            'refreshGridQuickSearch()
         End If
     End Sub
 
