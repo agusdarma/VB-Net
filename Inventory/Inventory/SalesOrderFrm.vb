@@ -155,6 +155,10 @@ Public Class SalesOrderFrm
     Public Sub addItemToListSO(kodeItem As String, namaItem As String, satuan As String, price As String, diskon As String)
         Dim idx As Integer = DataGridViewSO.RowCount
         idx = idx - 1
+        If idx < 0 Then
+            MessageBox.Show("Please add row first before add items.")
+            Return
+        End If
         DataGridViewSO.Rows(idx).Cells(2).Selected = True
         DataGridViewSO.CurrentCell = Me.DataGridViewSO(2, idx)
         DataGridViewSO.BeginEdit(True)

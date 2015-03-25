@@ -74,6 +74,10 @@ Public Class PurchaseOrder
     Public Sub addItemToListPO(kodeItem As String, namaItem As String, satuan As String, price As String, diskon As String)
         Dim idx As Integer = DataGridViewPO.RowCount
         idx = idx - 1
+        If idx < 0 Then
+            MessageBox.Show("Please add row first before add items.")
+            Return
+        End If
         DataGridViewPO.Rows(idx).Cells(2).Selected = True
         DataGridViewPO.CurrentCell = Me.DataGridViewPO(2, idx)
         DataGridViewPO.BeginEdit(True)
