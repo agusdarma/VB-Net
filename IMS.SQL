@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 16-Feb-15
+Modified: 25-Mar-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -127,6 +127,27 @@ ALTER TABLE Customer ADD UNIQUE kode_supplier (kode_customer)
 CREATE INDEX idxCustomer ON Customer (name_customer,kode_customer)
 ;
 
+-- Table user_modules
+
+CREATE TABLE user_modules
+(
+  id Int NOT NULL,
+  module_parent_id Int,
+  module_root_id Int,
+  module_level Int,
+  module_name Varchar(256),
+  module_path Varchar(64),
+  module_desc Varchar(255),
+  module_group Varchar(100),
+  show_order Int,
+  module_leaf Int,
+  always_included Int
+)
+;
+
+ALTER TABLE user_modules ADD PRIMARY KEY (id)
+;
+
 -- Table Items
 
 CREATE TABLE Items
@@ -157,6 +178,20 @@ ALTER TABLE Items ADD UNIQUE kode_item (kode_item)
 ;
 
 CREATE INDEX idx_items ON Items (kode_item,nama_item,gudang_id,category_id,supplier_id)
+;
+
+-- Table group_module
+
+CREATE TABLE group_module
+(
+  group_id Int NOT NULL,
+  module_id Int NOT NULL,
+  access_level Int NOT NULL DEFAULT 0
+  COMMENT '1 : Full Access (insert,update,delete) ; 0 : View Only'
+)
+;
+
+ALTER TABLE group_module ADD PRIMARY KEY (group_id,module_id)
 ;
 
 -- Table Gudang
@@ -279,7 +314,7 @@ CREATE TABLE purchase_order_detail
   id Bigint NOT NULL AUTO_INCREMENT,
   po_header_id Bigint,
   kode_item Varchar(32),
-  nama_item Varchar(32),
+  nama_item Varchar(128),
   qty Bigint,
   satuan Varchar(32),
   price_per_unit Bigint,
@@ -299,7 +334,7 @@ CREATE TABLE sales_order_detail
   id Bigint NOT NULL AUTO_INCREMENT,
   so_header_id Bigint,
   kode_item Varchar(32),
-  nama_item Varchar(32),
+  nama_item Varchar(128),
   qty Bigint,
   satuan Varchar(32),
   price_per_unit Bigint,
@@ -368,7 +403,7 @@ CREATE TABLE receive_item_detail
   id Bigint NOT NULL AUTO_INCREMENT,
   receive_header_id Bigint,
   kode_item Varchar(32),
-  nama_item Varchar(64),
+  nama_item Varchar(128),
   qty Bigint,
   satuan Varchar(5),
   kode_gudang Varchar(64),
@@ -385,7 +420,7 @@ CREATE TABLE delivery_order_detail
   id Bigint NOT NULL AUTO_INCREMENT,
   delivery_header_id Bigint,
   kode_item Varchar(32),
-  nama_item Varchar(64),
+  nama_item Varchar(128),
   qty Bigint,
   satuan Varchar(5),
   so_no Varchar(64),
@@ -481,7 +516,7 @@ CREATE TABLE purchase_invoice_detail
   id Bigint NOT NULL AUTO_INCREMENT,
   purchase_header_id Bigint,
   kode_item Varchar(32),
-  nama_item Varchar(64),
+  nama_item Varchar(128),
   qty Bigint,
   satuan Varchar(5),
   price_per_unit Bigint,
@@ -504,7 +539,7 @@ CREATE TABLE sales_invoice_detail
   id Bigint NOT NULL AUTO_INCREMENT,
   sales_invoice_header_id Bigint,
   kode_item Varchar(32),
-  nama_item Varchar(64),
+  nama_item Varchar(128),
   qty Bigint,
   satuan Varchar(5),
   price_per_unit Bigint,
@@ -567,7 +602,6 @@ ALTER TABLE sales_payment ADD UNIQUE sales_payment_no (sales_payment_no)
 ;
 
 
-alter table sales_payment drop index sales_payment_no;
 
 INSERT INTO user
 (user_code,user_name,password,group_id,last_login_on,created_by,created_on,updated_by,updated_on)
