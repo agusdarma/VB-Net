@@ -164,6 +164,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="GroupAccessAdd.Designer.vb">
+      <DependentUpon>GroupAccessAdd.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GroupAccessAdd.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GroupAccess.Designer.vb">
+      <DependentUpon>GroupAccess.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GroupAccess.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ReportItemsGudang.Designer.vb">
       <DependentUpon>ReportItemsGudang.vb</DependentUpon>
     </Compile>
@@ -422,6 +434,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupAccess.resx">
+      <DependentUpon>GroupAccess.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GroupAccessAdd.resx">
+      <DependentUpon>GroupAccessAdd.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ReportItemsGudang.resx">
       <DependentUpon>ReportItemsGudang.vb</DependentUpon>

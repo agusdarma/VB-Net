@@ -80,4 +80,8 @@ Public Class MainMenu
     Private Sub LaporanItemPerGudangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanItemPerGudangToolStripMenuItem.Click
         ReportItemsGudang.Show()
     End Sub
+
+    Private Sub GroupManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GroupManagementToolStripMenuItem.Click
+        GroupAccess.Show()
+    End Sub
 End Class
