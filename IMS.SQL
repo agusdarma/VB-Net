@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 25-Mar-15
+Modified: 01-Apr-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -639,3 +639,99 @@ INSERT INTO groups(
   ,null
   ,null
 )
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(100, 0, 0, 1, 'User Management', 'User Management', 'User Management Module',
+'User Management Module', 1, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(101, 0, 0, 1, 'Group Management', 'Group Management', 'Group Management Module',
+'Group Management Module', 2, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(200, 0, 0, 1, 'Master Item', 'Master Item', 'Master Item Module',
+'Master Item Module', 1, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(201, 0, 0, 1, 'Master Vendor/Supplier', 'Master Vendor/Supplier', 'Master Vendor/Supplier Module',
+'Master Vendor/Supplier Module', 2, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(202, 0, 0, 1, 'Master Customer', 'Master Customer', 'Master Customer Module',
+'Master Customer Module', 3, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(203, 0, 0, 1, 'Master Item Class', 'Master Item Class', 'Master Item Class Module',
+'Master Item Class Module', 4, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(204, 0, 0, 1, 'Master Gudang', 'Master Gudang', 'Master Gudang Module',
+'Master Gudang Module', 5, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(300, 0, 0, 1, 'Purchase Order', 'Purchase Order', 'Purchase Order Module',
+'Purchase Order Module', 1, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(301, 0, 0, 1, 'Receive Items', 'Receive Items', 'Receive Items Module',
+'Receive Items Module', 2, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(302, 0, 0, 1, 'Purchase Invoice', 'Purchase Invoice', 'Purchase Invoice Module',
+'Purchase Invoice Module', 3, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(303, 0, 0, 1, 'Purchase Payment', 'Purchase Payment', 'Purchase Payment Module',
+'Purchase Payment Module', 4, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(304, 0, 0, 1, 'Sales Order', 'Sales Order', 'Sales Order Module',
+'Sales Order Module', 5, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(305, 0, 0, 1, 'Delivery Order', 'Delivery Order', 'Delivery Order Module',
+'Delivery Order Module', 6, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(306, 0, 0, 1, 'Sales Invoice', 'Sales Invoice', 'Sales Invoice Module',
+'Sales Invoice Module', 7, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(307, 0, 0, 1, 'Sales Receipt', 'Sales Receipt', 'Sales Receipt Module',
+'Sales Receipt Module', 8, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(400, 0, 0, 1, 'Laporan Item Per Gudang', 'Laporan Item Per Gudang', 'Laporan Item Per Gudang Module',
+'Laporan Item Per Gudang Module', 1, 0, 0);
