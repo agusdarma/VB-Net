@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="UserMenuVO.vb" />
     <Compile Include="GroupAccessAdd.Designer.vb">
       <DependentUpon>GroupAccessAdd.vb</DependentUpon>
     </Compile>
