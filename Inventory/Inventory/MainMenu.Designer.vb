@@ -92,26 +92,27 @@ Partial Class MainMenu
         Me.UserManagementToolStripMenuItem.Image = CType(resources.GetObject("UserManagementToolStripMenuItem.Image"), System.Drawing.Image)
         Me.UserManagementToolStripMenuItem.Name = "UserManagementToolStripMenuItem"
         Me.UserManagementToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
-        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.UserManagementToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.UserManagementToolStripMenuItem.Text = "User Management"
         '
         'GroupManagementToolStripMenuItem
         '
         Me.GroupManagementToolStripMenuItem.Name = "GroupManagementToolStripMenuItem"
-        Me.GroupManagementToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.GroupManagementToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
+        Me.GroupManagementToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.GroupManagementToolStripMenuItem.Text = "Group Management"
         '
         'ChangePasswordToolStripMenuItem
         '
         Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
-        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
         Me.ChangePasswordToolStripMenuItem.Visible = False
         '
         'ResetPasswordToolStripMenuItem
         '
         Me.ResetPasswordToolStripMenuItem.Name = "ResetPasswordToolStripMenuItem"
-        Me.ResetPasswordToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ResetPasswordToolStripMenuItem.Size = New System.Drawing.Size(223, 22)
         Me.ResetPasswordToolStripMenuItem.Text = "Reset Password"
         Me.ResetPasswordToolStripMenuItem.Visible = False
         '
@@ -208,7 +209,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -247,7 +248,7 @@ Partial Class MainMenu
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'SalesOrderToolStripMenuItem

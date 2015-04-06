@@ -1,7 +1,17 @@
 ﻿Imports System.Windows.Forms
+Imports MySql.Data.MySqlClient
 
 Public Class MainMenu
-
+    Dim da As New MySqlDataAdapter
+    Dim con As MySqlConnection
+    Dim publictable As New DataTable
+    Dim ds As DataSet
+    Public Function jokenconn() As MySqlConnection
+        Dim urlDb As String
+        Dim mySqlDb As New mySqlDB
+        urlDb = mySqlDb.getUrlDatabase()
+        Return New MySqlConnection(urlDb)
+    End Function
     Private Sub LogoutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LogoutToolStripMenuItem.Click
         Me.Close()
         closeAllForms()
@@ -15,34 +25,100 @@ Public Class MainMenu
         SupplierAddFrm.Close()
         GeneralFilterFrm.Close()
     End Sub
+    Private Function canAccessMenu(menuName As String) As Boolean
+        Dim canAccess As Boolean = False
+        Dim session As Session = Login.getSession()
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            sql = "select * from user where user_code ='" & session.Code & "'"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            If publictable.Rows.Count > 0 Then
+                Dim groupId As Integer
+                groupId = publictable.Rows(0).Item(4)
+                sql = "select module_name as moduleName from group_module gm inner join user_modules um on gm.module_id = um.id where gm.group_id ='" & groupId & "' and gm.access_level = 1"
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(publictable)
+                If publictable.Rows.Count > 0 Then
+                    For Each row As DataRow In publictable.Rows
+                        If menuName.Equals(row("moduleName")) Then
+                            canAccess = True
+                            Return canAccess
+                        Else
+                            canAccess = False
+                        End If
+                    Next
+                Else
+                    'MessageBox.Show("User Cannot Access This Menu.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    canAccess = False
+                End If
+            Else
+                'MessageBox.Show("User Cannot Access This Menu.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                canAccess = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        If canAccess = False Then
+            MessageBox.Show("User Cannot Access This Menu.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+        Return canAccess
+    End Function
 
     Private Sub UserManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserManagementToolStripMenuItem.Click
-        UserFrm.Show()
-
+        If canAccessMenu("User Management") Then
+            UserFrm.Show()
+        End If
     End Sub
 
     Private Sub MasterVendorToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterVendorToolStripMenuItem.Click
-        SupplierFrm.Show()
+
+        If canAccessMenu("Master Vendor/Supplier") Then
+            SupplierFrm.Show()
+        End If
     End Sub
 
     Private Sub MasterCustomerToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterCustomerToolStripMenuItem.Click
-        CustomerFrm.Show()
+
+        If canAccessMenu("Master Customer") Then
+            CustomerFrm.Show()
+        End If
     End Sub
 
     Private Sub MasterItemClassToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterItemClassToolStripMenuItem.Click
-        ItemsCategory.Show()
+
+        If canAccessMenu("Master Item Class") Then
+            ItemsCategory.Show()
+        End If
     End Sub
 
     Private Sub MasterGudangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterGudangToolStripMenuItem.Click
-        Warehouse.Show()
+
+        If canAccessMenu("Master Gudang") Then
+            Warehouse.Show()
+        End If
     End Sub
 
     Private Sub MasterItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterItemToolStripMenuItem.Click
-        Barang.Show()
+
+        If canAccessMenu("Master Item") Then
+            Barang.Show()
+        End If
     End Sub
 
     Private Sub PurchaseOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchaseOrderToolStripMenuItem.Click
-        PurchaseOrder.Show()
+
+        If canAccessMenu("Purchase Order") Then
+            PurchaseOrder.Show()
+        End If
     End Sub
 
     Private Sub GenerateReportToolsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GenerateReportToolsToolStripMenuItem.Click
@@ -50,38 +126,64 @@ Public Class MainMenu
     End Sub
 
     Private Sub ReceiveItemsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReceiveItemsToolStripMenuItem.Click
-        ReceiveItems.Show()
+
+        If canAccessMenu("Receive Items") Then
+            ReceiveItems.Show()
+        End If
     End Sub
 
     Private Sub PurchaseInvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchaseInvoiceToolStripMenuItem.Click
-        PurchaseInvoice.Show()
+
+        If canAccessMenu("Purchase Invoice") Then
+            PurchaseInvoice.Show()
+        End If
     End Sub
 
     Private Sub PurchasePaymentToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PurchasePaymentToolStripMenuItem.Click
-        PurchasePayment.Show()
+
+        If canAccessMenu("Purchase Payment") Then
+            PurchasePayment.Show()
+        End If
     End Sub
 
     Private Sub SalesOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesOrderToolStripMenuItem.Click
-        SalesOrderFrm.Show()
+
+        If canAccessMenu("Sales Order") Then
+            SalesOrderFrm.Show()
+        End If
     End Sub
 
     Private Sub DeliveryOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles DeliveryOrderToolStripMenuItem.Click
-        DeliveryOrderFrm.Show()
+
+        If canAccessMenu("Delivery Order") Then
+            DeliveryOrderFrm.Show()
+        End If
     End Sub
 
     Private Sub SalesInvoiceToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesInvoiceToolStripMenuItem.Click
-        SalesInvoice.Show()
+
+        If canAccessMenu("Sales Invoice") Then
+            SalesInvoice.Show()
+        End If
     End Sub
 
     Private Sub SalesReceiptToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SalesReceiptToolStripMenuItem.Click
-        SalesPayment.Show()
+
+        If canAccessMenu("Sales Receipt") Then
+            SalesPayment.Show()
+        End If
     End Sub
 
     Private Sub LaporanItemPerGudangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanItemPerGudangToolStripMenuItem.Click
-        ReportItemsGudang.Show()
+
+        If canAccessMenu("Laporan Item Per Gudang") Then
+            ReportItemsGudang.Show()
+        End If
     End Sub
 
-    Private Sub GroupManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GroupManagementToolStripMenuItem.Click
-        GroupAccess.Show()
+    Private Sub GroupManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GroupManagementToolStripMenuItem.Click        
+        If canAccessMenu("Group Management") Then
+            GroupAccess.Show()
+        End If
     End Sub
 End Class
