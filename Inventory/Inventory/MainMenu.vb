@@ -1,5 +1,6 @@
 ﻿Imports System.Windows.Forms
 Imports MySql.Data.MySqlClient
+Imports System.Text
 
 Public Class MainMenu
     Dim da As New MySqlDataAdapter
@@ -69,6 +70,86 @@ Public Class MainMenu
         End Try
         If canAccess = False Then
             MessageBox.Show("User Cannot Access This Menu.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+        Return canAccess
+    End Function
+
+    Private Function canEnabledMenu(menuName As String) As Boolean
+        Dim canAccess As Boolean = False
+        Dim session As Session = Login.getSession()
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            sql = "select * from user where user_code ='" & session.Code & "'"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            If publictable.Rows.Count > 0 Then
+                Dim groupId As Integer
+                groupId = publictable.Rows(0).Item(4)
+                sql = "select module_name as moduleName from group_module gm inner join user_modules um on gm.module_id = um.id where gm.group_id ='" & groupId & "' and gm.access_level = 1"
+                sqlCommand.CommandText = sql
+                da.SelectCommand = sqlCommand
+                da.Fill(publictable)
+                If publictable.Rows.Count > 0 Then
+                    For Each row As DataRow In publictable.Rows
+                        If menuName.Equals(row("moduleName")) Then
+                            canAccess = True
+                            Return canAccess
+                        Else
+                            canAccess = False
+                        End If
+                    Next
+                Else
+                    'MessageBox.Show("User Cannot Access This Menu.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                    canAccess = False
+                End If
+            Else
+                'MessageBox.Show("User Cannot Access This Menu.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                canAccess = False
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+        If canAccess = False Then
+            If menuName.Equals("User Management") Then
+                UserManagementToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Master Vendor/Supplier") Then
+                MasterVendorToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Master Customer") Then
+                MasterCustomerToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Master Item Class") Then
+                MasterItemClassToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Master Gudang") Then
+                MasterGudangToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Master Item") Then
+                MasterItemToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Purchase Order") Then
+                PurchaseOrderToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Receive Items") Then
+                ReceiveItemsToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Purchase Invoice") Then
+                PurchaseInvoiceToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Purchase Payment") Then
+                PurchasePaymentToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Sales Order") Then
+                SalesOrderToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Delivery Order") Then
+                DeliveryOrderToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Sales Invoice") Then
+                SalesInvoiceToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Sales Receipt") Then
+                SalesReceiptToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Laporan Item Per Gudang") Then
+                LaporanItemPerGudangToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Group Management") Then
+                GroupManagementToolStripMenuItem.Enabled = False
+            End If
         End If
         Return canAccess
     End Function
@@ -181,9 +262,44 @@ Public Class MainMenu
         End If
     End Sub
 
-    Private Sub GroupManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GroupManagementToolStripMenuItem.Click        
+    Private Sub GroupManagementToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles GroupManagementToolStripMenuItem.Click
         If canAccessMenu("Group Management") Then
             GroupAccess.Show()
         End If
+    End Sub
+
+    Private Sub MainMenu_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        loadAllMenu()
+    End Sub
+    Private Sub loadAllMenu()
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Try
+            Dim listMenu As New List(Of UserMenuVO)
+            Dim publictable As New DataTable
+            sql = "select id as id, module_name as menu from user_modules"
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sqlCommand.CommandText = sql
+            da.SelectCommand = sqlCommand
+            da.Fill(publictable)
+            con.Close()
+            For Each row As DataRow In publictable.Rows
+                Dim tempMenu As UserMenuVO = New UserMenuVO()
+                tempMenu.getIDMenu = row.Item("id")
+                tempMenu.getNamaMenu = row.Item("menu")
+                listMenu.Add(tempMenu)
+            Next row
+            For Each cur In listMenu
+                Dim temp As String
+                temp = cur.getNamaMenu()
+                canEnabledMenu(temp)
+            Next
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
     End Sub
 End Class
