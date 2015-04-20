@@ -97,6 +97,7 @@ Partial Class MainMenu
         '
         'GroupManagementToolStripMenuItem
         '
+        Me.GroupManagementToolStripMenuItem.Image = CType(resources.GetObject("GroupManagementToolStripMenuItem.Image"), System.Drawing.Image)
         Me.GroupManagementToolStripMenuItem.Name = "GroupManagementToolStripMenuItem"
         Me.GroupManagementToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
         Me.GroupManagementToolStripMenuItem.Size = New System.Drawing.Size(223, 22)

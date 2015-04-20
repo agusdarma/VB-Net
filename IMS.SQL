@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 01-Apr-15
+Modified: 20-Apr-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -733,5 +733,11 @@ values(307, 0, 0, 1, 'Sales Receipt', 'Sales Receipt', 'Sales Receipt Module',
 insert into user_modules 
 (id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
 module_group, show_order, module_leaf, always_included)
-values(400, 0, 0, 1, 'Laporan Item Per Gudang', 'Laporan Item Per Gudang', 'Laporan Item Per Gudang Module',
-'Laporan Item Per Gudang Module', 1, 0, 0);
+values(400, 0, 0, 1, 'Laporan Stok Item', 'Laporan Stok Item', 'Laporan Stok Item Module',
+'Laporan Stok Item Module', 1, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(900, 0, 0, 1, 'Editable Price', 'Editable Price', 'Editable Price Module',
+'Editable Price Module', 1, 0, 0);
