@@ -69,6 +69,7 @@ Public Class Barang
                 Filter.Text = "Filter On"
             End If
             AddTooltips()
+            resetCurrentPageForLast()
         Catch ex As Exception
             MessageBox.Show(ex.ToString)
         Finally

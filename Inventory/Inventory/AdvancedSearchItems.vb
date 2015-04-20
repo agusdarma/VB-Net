@@ -56,6 +56,32 @@ Public Class AdvancedSearchItems
         End Try
     End Sub
 
+    Public Sub refreshGridQuickSearch()
+        Dim sql As String
+        Try
+            ds = New DataSet()
+            con = jokenconn()
+            con.Open()
+            sql = sqlBase & " from items where 1 = 1  " + paramSearch + " order by nama_item asc limit " & rowStart & "," & rowPage & ""
+            da = New MySqlDataAdapter(sql, con)
+            da.Fill(ds, "items")
+            GridItemSearch.DataSource = ds.Tables(0)
+            con.Close()
+            calculateTotalAllRow()
+            'resetCurrentPage()
+            Dim temp As String = paramSearch
+            Filter.Text = "Filter Off"
+            If Len(temp) > 0 Then
+                Filter.Text = "Filter On"
+            End If
+            resetCurrentPageForLast()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
     Private Sub calculateTotalAllRow()
         Dim nonqueryCommand As MySqlCommand = con.CreateCommand()
         Try
@@ -267,4 +293,55 @@ Public Class AdvancedSearchItems
             Me.Close()
         End If
     End Sub
+
+    Private Sub onAutoComplete(namaItem As String)
+        Dim sql As String
+        Try
+            ds = New DataSet()
+            con = jokenconn()
+            con.Open()
+            sql = "select nama_item from items where nama_item like '" + namaItem + "%' "
+            da = New MySqlDataAdapter(sql, con)
+            da.Fill(ds, "list")
+            Dim col As New AutoCompleteStringCollection
+            Dim i As Integer
+            For i = 0 To ds.Tables(0).Rows.Count - 1
+                col.Add(ds.Tables(0).Rows(i)("nama_item").ToString())
+            Next
+            TextBox1.AutoCompleteSource = AutoCompleteSource.CustomSource
+            TextBox1.AutoCompleteCustomSource = col
+            TextBox1.AutoCompleteMode = AutoCompleteMode.Suggest
+            con.Close()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+        Finally
+            con.Close()
+        End Try
+    End Sub
+
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+        If TextBox1.Text.Length > 2 Then
+            onAutoComplete(TextBox1.Text.ToString)
+            'ElseIf TextBox1.Text.Length < 3 Then
+            'paramSearch = ""
+            'refreshGridQuickSearch()
+        End If
+    End Sub
+
+    Private Sub TextBox1_KeyDown(sender As Object, e As KeyEventArgs) Handles TextBox1.KeyDown
+
+        If e.KeyCode = Keys.Enter Then
+            e.SuppressKeyPress = True
+            If TextBox1.Text.Length > 0 Then
+                paramSearch = " and nama_item like '" + TextBox1.Text.ToString + "%'"
+                refreshGridQuickSearch()
+            Else
+                rowStart = 0
+                paramSearch = ""
+                refreshGrid()
+                resetCurrentPage()
+            End If
+        End If
+    End Sub
+
 End Class

@@ -35,6 +35,8 @@ Partial Class AdvancedSearchItems
         Me.GridItemSearch = New System.Windows.Forms.DataGridView()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Filter = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         CType(Me.GridItemSearch, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -154,12 +156,12 @@ Partial Class AdvancedSearchItems
         DataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.GridItemSearch.DefaultCellStyle = DataGridViewCellStyle3
         Me.GridItemSearch.GridColor = System.Drawing.Color.DarkOrange
-        Me.GridItemSearch.Location = New System.Drawing.Point(1, 140)
+        Me.GridItemSearch.Location = New System.Drawing.Point(1, 161)
         Me.GridItemSearch.MultiSelect = False
         Me.GridItemSearch.Name = "GridItemSearch"
         Me.GridItemSearch.ReadOnly = True
         Me.GridItemSearch.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.GridItemSearch.Size = New System.Drawing.Size(776, 314)
+        Me.GridItemSearch.Size = New System.Drawing.Size(776, 323)
         Me.GridItemSearch.TabIndex = 20
         '
         'Label1
@@ -183,11 +185,32 @@ Partial Class AdvancedSearchItems
         Me.Filter.TextAlign = System.Drawing.ContentAlignment.TopCenter
         Me.Filter.UseVisualStyleBackColor = True
         '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.ForeColor = System.Drawing.Color.SlateBlue
+        Me.Label2.Location = New System.Drawing.Point(9, 135)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(95, 17)
+        Me.Label2.TabIndex = 42
+        Me.Label2.Text = "Quick Search :"
+        '
+        'TextBox1
+        '
+        Me.TextBox1.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Bold)
+        Me.TextBox1.Location = New System.Drawing.Point(109, 130)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(177, 25)
+        Me.TextBox1.TabIndex = 41
+        '
         'AdvancedSearchItems
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(777, 453)
+        Me.ClientSize = New System.Drawing.Size(777, 489)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Filter)
         Me.Controls.Add(Me.labelCurrentPage)
         Me.Controls.Add(Me.Label_Showing_Pages)
@@ -215,4 +238,6 @@ Partial Class AdvancedSearchItems
     Friend WithEvents GridItemSearch As System.Windows.Forms.DataGridView
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Filter As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
 End Class

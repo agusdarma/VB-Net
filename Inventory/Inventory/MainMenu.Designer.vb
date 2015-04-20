@@ -209,7 +209,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -248,7 +248,7 @@ Partial Class MainMenu
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'SalesOrderToolStripMenuItem
@@ -300,8 +300,8 @@ Partial Class MainMenu
         'LaporanItemPerGudangToolStripMenuItem
         '
         Me.LaporanItemPerGudangToolStripMenuItem.Name = "LaporanItemPerGudangToolStripMenuItem"
-        Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(209, 22)
-        Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Item Per Gudang"
+        Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Stok Item"
         '
         'StatusStrip
         '
