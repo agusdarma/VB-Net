@@ -257,7 +257,7 @@ Public Class MainMenu
 
     Private Sub LaporanItemPerGudangToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanItemPerGudangToolStripMenuItem.Click
 
-        If canAccessMenu("Laporan Item Per Gudang") Then
+        If canAccessMenu("Laporan Stok Item") Then
             ReportItemsGudang.Show()
         End If
     End Sub
