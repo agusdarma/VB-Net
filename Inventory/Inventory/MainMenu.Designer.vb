@@ -197,7 +197,6 @@ Partial Class MainMenu
         Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
         Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
-        Me.GenerateReportToolsToolStripMenuItem.Visible = False
         '
         'TransactionToolStripMenuItem
         '

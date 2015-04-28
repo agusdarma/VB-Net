@@ -19,7 +19,10 @@ Public Class GenerateReportTools
             'Dim sqlSelectGeneral As String = "select ph.form_no ,ph.sales_invoice_no ,ph.sales_invoice_date ,ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,pd.price_total, ph.notes,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order"
             'Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
             'sql = sqlSelectGeneral + sqlSelectCompanyName + " from sales_invoice_header ph inner join sales_invoice_detail pd on ph.id = pd.sales_invoice_header_id"
-            sql = "select i.nama_item,g.nama_gudang,ig.qty from items_gudang ig inner join items i on ig.kode_item = i.kode_item inner join gudang g on g.id = ig.gudang_id group by i.nama_item,g.nama_gudang"
+            sql = "select distinct h.id,h.nama_customer,h.so_date,d.nama_item,d.so_header_id,h.total_order from sales_order_header h inner join sales_order_detail d on h.id = d.so_header_id order by h.so_date asc"
+            'sql = "select distinct h.id,h.nama_customer,h.so_date, h.total_order from sales_order_header h order by h.so_date asc"
+            'sql = "select * from sales_order_detail"
+
             conn.Open()
             'Dim sql As String = "select ph.po_no,ph.po_date,ph.nama_supplier,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,'PT Emobile Indonesia' as companyName,'Include PPN' as ppn from  purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id"
             cmd.CommandText = sql
@@ -28,11 +31,11 @@ Public Class GenerateReportTools
             myAdapter.SelectCommand = cmd
             myAdapter.Fill(myData)
             Dim myReport As New ReportDocument
-            'myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukPO.rpt")
-            'myReport.SetDataSource(myData)
-            myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\QTY_ITEM_REPORT.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
-            'PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
-            'PreviewPrintPO.ShowDialog()
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\ReportSalesOrder.rpt")
+            myReport.SetDataSource(myData)
+            'myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\SALES_ORDER_DETAIL.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally

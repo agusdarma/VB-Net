@@ -163,6 +163,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="imsDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>imsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ReportSalesOrder.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReportSalesOrder.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UserMenuVO.vb" />
     <Compile Include="GroupAccessAdd.Designer.vb">
       <DependentUpon>GroupAccessAdd.vb</DependentUpon>
@@ -448,6 +459,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportItemsPerGudang.vb</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="ReportSalesOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSalesOrder.vb</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="SalesPayment.resx">
       <DependentUpon>SalesPayment.vb</DependentUpon>
     </EmbeddedResource>
@@ -561,6 +576,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="imsDataSet.xsc">
+      <DependentUpon>imsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="imsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>imsDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="imsDataSet.xss">
+      <DependentUpon>imsDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Inventory_TemporaryKey.pfx" />
     <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
