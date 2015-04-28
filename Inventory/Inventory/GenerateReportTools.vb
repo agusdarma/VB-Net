@@ -6,6 +6,7 @@ Public Class GenerateReportTools
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim myData As New DataSet
+        Dim myDataDetail As New DataSet
         Dim conn As New MySqlConnection
         Dim cmd As New MySqlCommand
         Dim myAdapter As New MySqlDataAdapter
@@ -19,8 +20,8 @@ Public Class GenerateReportTools
             'Dim sqlSelectGeneral As String = "select ph.form_no ,ph.sales_invoice_no ,ph.sales_invoice_date ,ph.bill_to,ph.ship_to, ph.nama_customer ,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,pd.price_total, ph.notes,ph.sub_total,ph.diskon,ph.tax_value,ph.total_order"
             'Dim sqlSelectCompanyName As String = ",'PT Emobile Indonesia' as companyName"
             'sql = sqlSelectGeneral + sqlSelectCompanyName + " from sales_invoice_header ph inner join sales_invoice_detail pd on ph.id = pd.sales_invoice_header_id"
-            sql = "select distinct h.id,h.nama_customer,h.so_date,d.nama_item,d.so_header_id,h.total_order from sales_order_header h inner join sales_order_detail d on h.id = d.so_header_id order by h.so_date asc"
-            'sql = "select distinct h.id,h.nama_customer,h.so_date, h.total_order from sales_order_header h order by h.so_date asc"
+            'sql = "select distinct h.id,h.nama_customer,h.so_date,d.nama_item,d.so_header_id,h.total_order from sales_order_header h inner join sales_order_detail d on h.id = d.so_header_id order by h.so_date asc"
+            sql = "select distinct h.id,h.nama_customer,h.so_date, h.total_order from sales_order_header h order by h.so_date asc"
             'sql = "select * from sales_order_detail"
 
             conn.Open()
@@ -32,7 +33,17 @@ Public Class GenerateReportTools
             myAdapter.Fill(myData)
             Dim myReport As New ReportDocument
             myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\ReportSalesOrder.rpt")
-            myReport.SetDataSource(myData)
+            myReport.SetDataSource(myData.Tables(0))
+            'myReport.Subreports.Item("subreport1").SetDataSource(myData)
+            sql = "select * from sales_order_detail"
+            cmd.CommandText = sql
+            cmd.Connection = conn
+            myAdapter.SelectCommand = cmd
+            myAdapter.Fill(myDataDetail)
+            myReport.Subreports(0).SetDataSource(myDataDetail.Tables(0))
+            'myReport.Subreports.Item("subreport1").SetDataSource(myDataDetail)
+            'myReport.Subreports("ReportSalesOrder.rpt").SetDataSource(myDataDetail)
+
             'myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\SALES_ORDER_DETAIL.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
             PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
             PreviewPrintPO.ShowDialog()

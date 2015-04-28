@@ -162,6 +162,11 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="agusDataSet.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>agusDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="imsDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -576,6 +581,17 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="agusDataSet.xsc">
+      <DependentUpon>agusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="agusDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>agusDataSet.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="agusDataSet.xss">
+      <DependentUpon>agusDataSet.xsd</DependentUpon>
+    </None>
     <None Include="imsDataSet.xsc">
       <DependentUpon>imsDataSet.xsd</DependentUpon>
     </None>
