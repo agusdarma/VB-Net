@@ -302,4 +302,10 @@ Public Class MainMenu
             con.Close()
         End Try
     End Sub
+
+    Private Sub LaporanSalesOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanSalesOrderToolStripMenuItem.Click
+        If canAccessMenu("Laporan Sales Order") Then
+
+        End If
+    End Sub
 End Class

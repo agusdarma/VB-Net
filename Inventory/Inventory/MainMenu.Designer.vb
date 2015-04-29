@@ -60,6 +60,7 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.LaporanSalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -292,7 +293,7 @@ Partial Class MainMenu
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaporanItemPerGudangToolStripMenuItem})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaporanItemPerGudangToolStripMenuItem, Me.LaporanSalesOrderToolStripMenuItem})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -300,7 +301,7 @@ Partial Class MainMenu
         'LaporanItemPerGudangToolStripMenuItem
         '
         Me.LaporanItemPerGudangToolStripMenuItem.Name = "LaporanItemPerGudangToolStripMenuItem"
-        Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(170, 22)
+        Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Stok Item"
         '
         'StatusStrip
@@ -317,6 +318,12 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
+        '
+        'LaporanSalesOrderToolStripMenuItem
+        '
+        Me.LaporanSalesOrderToolStripMenuItem.Name = "LaporanSalesOrderToolStripMenuItem"
+        Me.LaporanSalesOrderToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.LaporanSalesOrderToolStripMenuItem.Text = "Laporan Sales Order"
         '
         'MainMenu
         '
@@ -373,5 +380,6 @@ Partial Class MainMenu
     Friend WithEvents SalesReceiptToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanItemPerGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LaporanSalesOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
