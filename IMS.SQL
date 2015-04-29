@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 20-Apr-15
+Modified: 29-Apr-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -735,6 +735,12 @@ insert into user_modules
 module_group, show_order, module_leaf, always_included)
 values(400, 0, 0, 1, 'Laporan Stok Item', 'Laporan Stok Item', 'Laporan Stok Item Module',
 'Laporan Stok Item Module', 1, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(401, 0, 0, 1, 'Laporan Sales Order', 'Laporan Sales Order', 'Laporan Sales Order Module',
+'Laporan Sales Order Module', 2, 0, 0);
 
 insert into user_modules 
 (id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
