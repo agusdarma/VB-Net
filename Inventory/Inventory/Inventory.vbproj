@@ -168,6 +168,12 @@
       <DependentUpon>agusDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="RptSalesOrder.Designer.vb">
+      <DependentUpon>RptSalesOrder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RptSalesOrder.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="imsDataSet.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -450,6 +456,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptSalesOrder.resx">
+      <DependentUpon>RptSalesOrder.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GroupAccess.resx">
       <DependentUpon>GroupAccess.vb</DependentUpon>

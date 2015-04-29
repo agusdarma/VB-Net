@@ -305,7 +305,7 @@ Public Class MainMenu
 
     Private Sub LaporanSalesOrderToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanSalesOrderToolStripMenuItem.Click
         If canAccessMenu("Laporan Sales Order") Then
-
+            RptSalesOrder.Show()
         End If
     End Sub
 End Class
