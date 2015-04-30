@@ -518,7 +518,7 @@ Public Class DeliveryOrderFrm
                 DataGridViewDO.Rows.Clear()
                 DataGridViewDO.Refresh()
                 For Each oRecord As Object In detail.Rows
-                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString(), oRecord("kode_gudang").ToString()}
                     DataGridViewDO.Rows.Add(row)
                 Next
                 DataGridViewDO.Refresh()
@@ -591,7 +591,7 @@ Public Class DeliveryOrderFrm
                 DataGridViewDO.Rows.Clear()
                 DataGridViewDO.Refresh()
                 For Each oRecord As Object In detail.Rows
-                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString()}
+                    row = New String() {oRecord("kode_item").ToString(), oRecord("nama_item").ToString(), oRecord("qty").ToString(), oRecord("satuan").ToString(), oRecord("so_no").ToString(), oRecord("kode_gudang").ToString()}
                     DataGridViewDO.Rows.Add(row)
                 Next
                 DataGridViewDO.Refresh()
