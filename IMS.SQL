@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 29-Apr-15
+Modified: 04-May-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -599,6 +599,40 @@ CREATE TABLE sales_payment
 ;
 
 ALTER TABLE sales_payment ADD UNIQUE sales_payment_no (sales_payment_no)
+;
+
+-- Table sales_retail_header
+
+CREATE TABLE sales_retail_header
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  trx_date Datetime,
+  total_trx Bigint,
+  total_qty Bigint,
+  created_on Datetime,
+  created_by Varchar(32),
+  updated_on Datetime,
+  updated_by Varchar(32),
+ PRIMARY KEY (id)
+)
+;
+
+-- Table sales_retail_detail
+
+CREATE TABLE sales_retail_detail
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  nama_item Varchar(128),
+  qty Bigint,
+  harga_satuan Bigint,
+  harga_total Bigint,
+  header_id Int,
+  created_on Datetime,
+  created_by Varchar(32),
+  updated_on Datetime,
+  updated_by Varchar(32),
+ PRIMARY KEY (id)
+)
 ;
 
 
