@@ -308,4 +308,10 @@ Public Class MainMenu
             RptSalesOrder.Show()
         End If
     End Sub
+
+    Private Sub RetailToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RetailToolStripMenuItem.Click
+        If canAccessMenu("Sales Retail") Then
+            SalesRetail.Show()
+        End If
+    End Sub
 End Class

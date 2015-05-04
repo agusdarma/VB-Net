@@ -57,10 +57,11 @@ Partial Class MainMenu
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanItemPerGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanSalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LaporanSalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.RetailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -201,7 +202,7 @@ Partial Class MainMenu
         '
         'TransactionToolStripMenuItem
         '
-        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem, Me.SalesToolStripMenuItem})
+        Me.TransactionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseToolStripMenuItem, Me.SalesToolStripMenuItem, Me.RetailToolStripMenuItem})
         Me.TransactionToolStripMenuItem.Name = "TransactionToolStripMenuItem"
         Me.TransactionToolStripMenuItem.Size = New System.Drawing.Size(81, 20)
         Me.TransactionToolStripMenuItem.Text = "Transaction"
@@ -210,7 +211,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -249,7 +250,7 @@ Partial Class MainMenu
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(122, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'SalesOrderToolStripMenuItem
@@ -304,6 +305,12 @@ Partial Class MainMenu
         Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Stok Item"
         '
+        'LaporanSalesOrderToolStripMenuItem
+        '
+        Me.LaporanSalesOrderToolStripMenuItem.Name = "LaporanSalesOrderToolStripMenuItem"
+        Me.LaporanSalesOrderToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.LaporanSalesOrderToolStripMenuItem.Text = "Laporan Sales Order"
+        '
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
@@ -319,11 +326,11 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
         '
-        'LaporanSalesOrderToolStripMenuItem
+        'RetailToolStripMenuItem
         '
-        Me.LaporanSalesOrderToolStripMenuItem.Name = "LaporanSalesOrderToolStripMenuItem"
-        Me.LaporanSalesOrderToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.LaporanSalesOrderToolStripMenuItem.Text = "Laporan Sales Order"
+        Me.RetailToolStripMenuItem.Name = "RetailToolStripMenuItem"
+        Me.RetailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.RetailToolStripMenuItem.Text = "Sales Retail"
         '
         'MainMenu
         '
@@ -381,5 +388,6 @@ Partial Class MainMenu
     Friend WithEvents LaporanToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanItemPerGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanSalesOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents RetailToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
