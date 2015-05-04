@@ -12,7 +12,7 @@ Public Class Barang
     Public kodeItem As String
     Public paramSearch As String
     'Public sqlBase As String = "SELECT id as ID, kode_item as KodeItem, nama_item as NamaItem,quantity as Quantity, default_price as SellingPrice, item_type as Type "
-    Public sqlBase As String = "SELECT i.id AS ID, i.kode_item     AS KodeItem, i.nama_item AS NamaItem,i.quantity AS Quantity,i.default_price AS SellingPrice,i.item_type AS Type,g.nama_gudang AS NamaGudang "
+    Public sqlBase As String = "SELECT i.id AS ID, i.kode_item     AS KodeItem, i.nama_item AS NamaItem,i.barcode AS Barcode,i.quantity AS Quantity,i.default_price AS SellingPrice,i.item_type AS Type,g.nama_gudang AS NamaGudang "
 
     Public Function jokenconn() As MySqlConnection
         Dim urlDb As String

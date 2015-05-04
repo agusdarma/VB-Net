@@ -57,6 +57,8 @@ Partial Class BarangAdd
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
+        Me.Barcode = New System.Windows.Forms.TextBox()
+        Me.Label16 = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.GeneralPage.SuspendLayout()
         Me.Sales_PurchaseTab.SuspendLayout()
@@ -108,6 +110,8 @@ Partial Class BarangAdd
         '
         'GeneralPage
         '
+        Me.GeneralPage.Controls.Add(Me.Barcode)
+        Me.GeneralPage.Controls.Add(Me.Label16)
         Me.GeneralPage.Controls.Add(Me.ComboBoxSupplier)
         Me.GeneralPage.Controls.Add(Me.Label15)
         Me.GeneralPage.Controls.Add(Me.TotalCost)
@@ -147,7 +151,7 @@ Partial Class BarangAdd
         Me.ComboBoxSupplier.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
         Me.ComboBoxSupplier.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxSupplier.FormattingEnabled = True
-        Me.ComboBoxSupplier.Location = New System.Drawing.Point(90, 207)
+        Me.ComboBoxSupplier.Location = New System.Drawing.Point(90, 238)
         Me.ComboBoxSupplier.Name = "ComboBoxSupplier"
         Me.ComboBoxSupplier.Size = New System.Drawing.Size(262, 25)
         Me.ComboBoxSupplier.TabIndex = 6
@@ -155,7 +159,7 @@ Partial Class BarangAdd
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(23, 210)
+        Me.Label15.Location = New System.Drawing.Point(23, 241)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(63, 17)
         Me.Label15.TabIndex = 22
@@ -165,7 +169,7 @@ Partial Class BarangAdd
         '
         Me.TotalCost.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
         Me.TotalCost.Enabled = False
-        Me.TotalCost.Location = New System.Drawing.Point(523, 174)
+        Me.TotalCost.Location = New System.Drawing.Point(523, 205)
         Me.TotalCost.Name = "TotalCost"
         Me.TotalCost.Size = New System.Drawing.Size(148, 25)
         Me.TotalCost.TabIndex = 99
@@ -174,7 +178,7 @@ Partial Class BarangAdd
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(443, 177)
+        Me.Label11.Location = New System.Drawing.Point(443, 208)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(74, 17)
         Me.Label11.TabIndex = 20
@@ -183,7 +187,7 @@ Partial Class BarangAdd
         'Cost
         '
         Me.Cost.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.Cost.Location = New System.Drawing.Point(523, 136)
+        Me.Cost.Location = New System.Drawing.Point(523, 167)
         Me.Cost.Name = "Cost"
         Me.Cost.Size = New System.Drawing.Size(148, 25)
         Me.Cost.TabIndex = 9
@@ -192,7 +196,7 @@ Partial Class BarangAdd
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(476, 138)
+        Me.Label10.Location = New System.Drawing.Point(476, 169)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(41, 17)
         Me.Label10.TabIndex = 18
@@ -201,7 +205,7 @@ Partial Class BarangAdd
         'satuan
         '
         Me.satuan.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.satuan.Location = New System.Drawing.Point(90, 246)
+        Me.satuan.Location = New System.Drawing.Point(90, 277)
         Me.satuan.MaxLength = 5
         Me.satuan.Name = "satuan"
         Me.satuan.Size = New System.Drawing.Size(64, 25)
@@ -210,7 +214,7 @@ Partial Class BarangAdd
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(32, 246)
+        Me.Label9.Location = New System.Drawing.Point(32, 277)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(54, 17)
         Me.Label9.TabIndex = 16
@@ -219,7 +223,7 @@ Partial Class BarangAdd
         'qty
         '
         Me.qty.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.qty.Location = New System.Drawing.Point(523, 102)
+        Me.qty.Location = New System.Drawing.Point(523, 133)
         Me.qty.Name = "qty"
         Me.qty.Size = New System.Drawing.Size(64, 25)
         Me.qty.TabIndex = 8
@@ -228,7 +232,7 @@ Partial Class BarangAdd
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(454, 105)
+        Me.Label8.Location = New System.Drawing.Point(454, 136)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(63, 17)
         Me.Label8.TabIndex = 14
@@ -238,7 +242,7 @@ Partial Class BarangAdd
         '
         Me.ComboBoxGudang.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxGudang.FormattingEnabled = True
-        Me.ComboBoxGudang.Location = New System.Drawing.Point(90, 172)
+        Me.ComboBoxGudang.Location = New System.Drawing.Point(90, 203)
         Me.ComboBoxGudang.Name = "ComboBoxGudang"
         Me.ComboBoxGudang.Size = New System.Drawing.Size(262, 25)
         Me.ComboBoxGudang.TabIndex = 5
@@ -246,7 +250,7 @@ Partial Class BarangAdd
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(23, 175)
+        Me.Label7.Location = New System.Drawing.Point(23, 206)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(61, 17)
         Me.Label7.TabIndex = 12
@@ -256,7 +260,7 @@ Partial Class BarangAdd
         '
         Me.ComboBoxKategori.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxKategori.FormattingEnabled = True
-        Me.ComboBoxKategori.Location = New System.Drawing.Point(92, 137)
+        Me.ComboBoxKategori.Location = New System.Drawing.Point(90, 168)
         Me.ComboBoxKategori.Name = "ComboBoxKategori"
         Me.ComboBoxKategori.Size = New System.Drawing.Size(262, 25)
         Me.ComboBoxKategori.TabIndex = 4
@@ -264,7 +268,7 @@ Partial Class BarangAdd
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(19, 140)
+        Me.Label6.Location = New System.Drawing.Point(19, 171)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(65, 17)
         Me.Label6.TabIndex = 10
@@ -274,7 +278,7 @@ Partial Class BarangAdd
         '
         Me.ComboBoxStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.ComboBoxStatus.FormattingEnabled = True
-        Me.ComboBoxStatus.Location = New System.Drawing.Point(92, 102)
+        Me.ComboBoxStatus.Location = New System.Drawing.Point(90, 133)
         Me.ComboBoxStatus.Name = "ComboBoxStatus"
         Me.ComboBoxStatus.Size = New System.Drawing.Size(144, 25)
         Me.ComboBoxStatus.TabIndex = 3
@@ -331,7 +335,7 @@ Partial Class BarangAdd
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(35, 104)
+        Me.Label5.Location = New System.Drawing.Point(35, 135)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(50, 17)
         Me.Label5.TabIndex = 3
@@ -425,6 +429,23 @@ Partial Class BarangAdd
         Me.Label12.TabIndex = 0
         Me.Label12.Text = "Sales Information"
         '
+        'Barcode
+        '
+        Me.Barcode.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Barcode.Location = New System.Drawing.Point(89, 101)
+        Me.Barcode.Name = "Barcode"
+        Me.Barcode.Size = New System.Drawing.Size(265, 25)
+        Me.Barcode.TabIndex = 100
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(21, 103)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(63, 17)
+        Me.Label16.TabIndex = 101
+        Me.Label16.Text = "Barcode :"
+        '
         'BarangAdd
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -480,4 +501,6 @@ Partial Class BarangAdd
     Friend WithEvents salesPrice As System.Windows.Forms.TextBox
     Friend WithEvents ComboBoxSupplier As System.Windows.Forms.ComboBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
+    Friend WithEvents Barcode As System.Windows.Forms.TextBox
+    Friend WithEvents Label16 As System.Windows.Forms.Label
 End Class

@@ -101,13 +101,14 @@ Public Class BarangAdd
         ' Start a local transaction
         transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
         Try
-            sql = "UPDATE items SET nama_item = @nama_item,quantity = @quantity,item_type = @item_type,item_status = @item_status,satuan = @satuan,gudang_id = @gudang_id,category_id = @category_id,supplier_id = @supplier_id,default_price = @default_price,default_diskon = @default_diskon,total_cost = @total_cost,cost = @cost ,updated_by = @updated_by ,updated_on = @updated_on WHERE kode_item = @kode_item"
+            sql = "UPDATE items SET nama_item = @nama_item,barcode = @barcode,quantity = @quantity,item_type = @item_type,item_status = @item_status,satuan = @satuan,gudang_id = @gudang_id,category_id = @category_id,supplier_id = @supplier_id,default_price = @default_price,default_diskon = @default_diskon,total_cost = @total_cost,cost = @cost ,updated_by = @updated_by ,updated_on = @updated_on WHERE kode_item = @kode_item"
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.AddWithValue("@kode_item", KodeItem.Text)
             sqlCommand.Parameters.AddWithValue("@nama_item", NamaItem.Text)
+            sqlCommand.Parameters.AddWithValue("@barcode", Barcode.Text)
             sqlCommand.Parameters.AddWithValue("@quantity", qty.Text)
             sqlCommand.Parameters.AddWithValue("@item_type", itemType)
             sqlCommand.Parameters.AddWithValue("@item_status", ComboBoxStatus.SelectedValue)
@@ -162,7 +163,7 @@ Public Class BarangAdd
         ' Start a local transaction
         transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
         Try
-            sql = "INSERT INTO items (kode_item,nama_item,quantity,item_type,item_status,satuan,gudang_id,category_id,supplier_id,default_price,default_diskon,total_cost,cost,created_by,created_on,updated_on,updated_by)VALUES (@kode_item,@nama_item,@quantity,@item_type,@item_status,@satuan,@gudang_id,@category_id,@supplier_id,@default_price,@default_diskon,@total_cost,@cost,@created_by,@created_on,@updated_on,@updated_by)"
+            sql = "INSERT INTO items (kode_item,nama_item,barcode,quantity,item_type,item_status,satuan,gudang_id,category_id,supplier_id,default_price,default_diskon,total_cost,cost,created_by,created_on,updated_on,updated_by)VALUES (@kode_item,@nama_item,@barcode,@quantity,@item_type,@item_status,@satuan,@gudang_id,@category_id,@supplier_id,@default_price,@default_diskon,@total_cost,@cost,@created_by,@created_on,@updated_on,@updated_by)"
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
@@ -170,6 +171,7 @@ Public Class BarangAdd
             sqlCommand.Transaction = transaction
             sqlCommand.Parameters.AddWithValue("@kode_item", KodeItem.Text)
             sqlCommand.Parameters.AddWithValue("@nama_item", NamaItem.Text)
+            sqlCommand.Parameters.AddWithValue("@barcode", Barcode.Text)
             sqlCommand.Parameters.AddWithValue("@quantity", qty.Text)
             sqlCommand.Parameters.AddWithValue("@item_type", itemType)
             sqlCommand.Parameters.AddWithValue("@item_status", ComboBoxStatus.SelectedValue)
@@ -251,11 +253,14 @@ Public Class BarangAdd
                     Me.NamaItem.Text = publictable.Rows(0).Item(2)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(3)) Then
-                    Me.qty.Text = publictable.Rows(0).Item(3)
+                    Me.Barcode.Text = publictable.Rows(0).Item(3)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(4)) Then
+                    Me.qty.Text = publictable.Rows(0).Item(4)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
                     Dim itemType As String
-                    itemType = publictable.Rows(0).Item(4)
+                    itemType = publictable.Rows(0).Item(5)
                     If (itemType = "Inventory Part") Then
                         RadioButtonInventory.Checked = True
                     ElseIf (itemType = "Non Inventory Part") Then
@@ -264,32 +269,32 @@ Public Class BarangAdd
                         RadioButtonService.Checked = True
                     End If
                 End If
-                If Not IsDBNull(publictable.Rows(0).Item(5)) Then
-                    ComboBoxStatus.SelectedValue = publictable.Rows(0).Item(5)
-                End If
                 If Not IsDBNull(publictable.Rows(0).Item(6)) Then
-                    Me.satuan.Text = publictable.Rows(0).Item(6)
+                    ComboBoxStatus.SelectedValue = publictable.Rows(0).Item(6)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(7)) Then
-                    ComboBoxGudang.SelectedValue = publictable.Rows(0).Item(7)
+                    Me.satuan.Text = publictable.Rows(0).Item(7)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(8)) Then
-                    ComboBoxKategori.SelectedValue = publictable.Rows(0).Item(8)
+                    ComboBoxGudang.SelectedValue = publictable.Rows(0).Item(8)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(9)) Then
-                    ComboBoxSupplier.SelectedValue = publictable.Rows(0).Item(9)
+                    ComboBoxKategori.SelectedValue = publictable.Rows(0).Item(9)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(10)) Then
-                    Me.salesPrice.Text = FormatNumber(publictable.Rows(0).Item(10), 0, TriState.True)
+                    ComboBoxSupplier.SelectedValue = publictable.Rows(0).Item(10)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(11)) Then
-                    Me.diskon.Text = FormatNumber(publictable.Rows(0).Item(11), 0, TriState.True)
+                    Me.salesPrice.Text = FormatNumber(publictable.Rows(0).Item(11), 0, TriState.True)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(12)) Then
-                    Me.TotalCost.Text = FormatNumber(publictable.Rows(0).Item(12), 0, TriState.True)
+                    Me.diskon.Text = FormatNumber(publictable.Rows(0).Item(12), 0, TriState.True)
                 End If
                 If Not IsDBNull(publictable.Rows(0).Item(13)) Then
-                    Me.Cost.Text = FormatNumber(publictable.Rows(0).Item(13), 0, TriState.True)
+                    Me.TotalCost.Text = FormatNumber(publictable.Rows(0).Item(13), 0, TriState.True)
+                End If
+                If Not IsDBNull(publictable.Rows(0).Item(14)) Then
+                    Me.Cost.Text = FormatNumber(publictable.Rows(0).Item(14), 0, TriState.True)
                 End If
             Else
                 MessageBox.Show("Data Item Not Found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
