@@ -237,4 +237,15 @@ Public Class SalesRetail
     Private Sub DataGridViewRetail_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles DataGridViewRetail.EditingControlShowing
         e.CellStyle.BackColor = Color.Aquamarine
     End Sub
+
+    Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
+        clearAllFIeld()
+    End Sub
+    Private Sub clearAllFIeld()
+        txtTotal.Text = "0"
+        txtBarcode.Text = ""
+        txtKembalian.Text = "0"
+        txtPembayaran.Text = "0"
+        DataGridViewRetail.Rows.Clear()
+    End Sub
 End Class
