@@ -145,6 +145,15 @@ Public Class SalesRetail
         txtBarcode.SelectAll()
         Return result
     End Function
+    Private Function getTotalQty() As Integer
+        Dim qty As Long
+        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
+            Dim qtyTemp As Long
+            qtyTemp = CLng(oItem.Cells(3).Value)
+            qty = qty + qtyTemp
+        Next
+        Return qty
+    End Function
     Private Sub hitungSubTotalHarga()
         Dim totalharga As Long = 0
         Dim str As String = ""
@@ -239,6 +248,7 @@ Public Class SalesRetail
     End Sub
 
     Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
+        insert()
         clearAllFIeld()
     End Sub
     Private Sub clearAllFIeld()
@@ -248,4 +258,99 @@ Public Class SalesRetail
         txtPembayaran.Text = "0"
         DataGridViewRetail.Rows.Clear()
     End Sub
+    Private Sub removeSeparator(txtBox As TextBox)
+        Dim temp As String
+        temp = txtBox.Text
+        temp = temp.Replace(",", "")
+        txtBox.Text = temp
+    End Sub
+    Private Sub removeSeparatorBeforeInsert()
+        removeSeparator(txtTotal)
+    End Sub
+
+    Private Function insert() As Integer
+        Dim rowEffected As Integer = 0
+        Dim sqlCommand As New MySqlCommand
+        Dim sql As String
+        Dim now As DateTime = DateTime.Now
+        Dim transaction As MySqlTransaction
+        Dim queryGetIdentity As String = "Select @@Identity"
+        con = jokenconn()
+        con.Open()
+        ' Start a local transaction
+        transaction = con.BeginTransaction(IsolationLevel.ReadCommitted)
+        Try
+
+            'validasi
+            If DataGridViewRetail.Rows.Count = 0 Then
+                MessageBox.Show("Items harus diisi!.", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                Return 0
+            End If
+
+            ' Insert Sales Retail Header
+            sql = "INSERT INTO sales_retail_header(trx_date ,total_trx ,total_qty ,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@total_trx,@total_qty,@created_on,@created_by,@updated_on,@updated_by)"
+            Dim session As Session = Login.getSession()
+            removeSeparatorBeforeInsert()
+            sqlCommand.Connection = con
+            sqlCommand.Transaction = transaction
+            sqlCommand.CommandText = sql
+            Dim trxDate As DateTime
+            trxDate = DateTime.Today
+            Dim qty As Long
+            qty = getTotalQty()
+            sqlCommand.Parameters.AddWithValue("@trx_date", trxDate)
+            sqlCommand.Parameters.AddWithValue("@total_trx", txtTotal.Text)
+            sqlCommand.Parameters.AddWithValue("@total_qty", qty)
+            sqlCommand.Parameters.AddWithValue("@created_on", trxDate)
+            sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
+            sqlCommand.Parameters.AddWithValue("@updated_on", trxDate)
+            sqlCommand.Parameters.AddWithValue("@updated_by", session.Code)
+            rowEffected = sqlCommand.ExecuteNonQuery()
+            sqlCommand.CommandText = queryGetIdentity
+            Dim ID As Long
+            ID = sqlCommand.ExecuteScalar()
+
+            ' Insert Sales Retail Detail
+            sql = "INSERT INTO sales_retail_detail(nama_item,qty,harga_satuan,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@nama_item,@qty,@harga_satuan,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
+            sqlCommand.CommandText = sql
+            sqlCommand.Parameters.Add("@header_id", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
+            sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@harga_satuan", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@harga_total", MySqlDbType.Int64)
+            For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
+                'If oItem.Cells(0).Value = "" Then
+                'Continue For
+                'End If
+                sqlCommand.Parameters("@header_id").Value = ID
+                sqlCommand.Parameters("@nama_item").Value = oItem.Cells(2).Value
+                sqlCommand.Parameters("@qty").Value = oItem.Cells(3).Value
+                sqlCommand.Parameters("@harga_satuan").Value = oItem.Cells(5).Value
+                sqlCommand.Parameters("@harga_total").Value = oItem.Cells(7).Value
+
+                sqlCommand.Parameters("@created_on").Value = trxDate
+                sqlCommand.Parameters("@created_by").Value = session.Code
+                sqlCommand.Parameters("@updated_on").Value = trxDate
+                sqlCommand.Parameters("@updated_by").Value = session.Code
+                sqlCommand.ExecuteNonQuery()
+            Next
+            transaction.Commit()
+            con.Close()
+            MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString)
+            Try
+                transaction.Rollback()
+            Catch ex2 As Exception
+                ' This catch block will handle any errors that may have occurred 
+                ' on the server that would cause the rollback to fail, such as 
+                ' a closed connection.
+                Console.WriteLine("Rollback Exception Type: {0}", ex2.GetType())
+                Console.WriteLine("  Message: {0}", ex2.Message)
+            End Try
+        Finally
+            con.Close()
+        End Try
+        Return rowEffected
+    End Function
 End Class
