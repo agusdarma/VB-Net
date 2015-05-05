@@ -231,9 +231,9 @@ Public Class SalesRetail
 
         If Char.IsControl(e.KeyChar) Then
             If e.KeyChar.Equals(Chr(Keys.Return)) Then
-                hitungKembalian()
                 Me.SelectNextControl(tb, True, True, False, True)
                 e.Handled = True
+                hitungKembalian()
             End If
         End If        
     End Sub
