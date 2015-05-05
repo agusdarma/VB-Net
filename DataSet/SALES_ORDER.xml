@@ -1,0 +1,255 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="xs:long" minOccurs="0" />
+                <xs:element name="nama_customer" type="xs:string" minOccurs="0" />
+                <xs:element name="so_date" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="total_order" type="xs:long" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Table>
+    <id>17</id>
+    <nama_customer>PT Customer AGUS</nama_customer>
+    <so_date>2015-03-02T12:16:47+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>1</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-19T20:16:24+07:00</so_date>
+    <total_order>200000</total_order>
+  </Table>
+  <Table>
+    <id>3</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-19T20:16:24+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>5</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-24T12:07:27+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>6</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-24T12:07:27+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>7</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-24T17:12:32+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>8</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-25T11:02:04+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>9</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-26T11:47:02+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>12</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-27T10:56:59+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>11</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-27T12:23:04+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>10</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-27T12:23:04+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>14</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-30T12:09:01+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>13</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-30T12:09:01+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>15</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-03-31T11:49:45+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>16</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-01T11:55:13+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>18</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-03T12:12:38+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>19</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-06T12:14:23+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>20</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-07T11:20:43+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>21</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-08T13:47:18+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>22</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-09T14:12:22+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>23</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-09T14:53:43+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>24</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-10T12:50:33+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>25</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-10T15:28:00+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>26</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-10T15:28:00+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>27</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-11T10:48:17+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>28</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-13T12:06:31+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>30</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-14T17:11:51+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>31</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-14T17:11:51+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>32</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-15T10:11:10+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>33</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-15T17:33:05+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>34</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-16T11:07:18+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>36</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-16T18:07:49+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>37</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-18T11:35:04+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>38</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-18T17:03:08+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>39</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-20T12:33:20+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>40</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-20T17:43:45+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>41</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-20T18:03:47+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>42</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-21T16:53:47+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+  <Table>
+    <id>43</id>
+    <nama_customer>PT Customer</nama_customer>
+    <so_date>2015-04-21T17:24:12+07:00</so_date>
+    <total_order>0</total_order>
+  </Table>
+</NewDataSet>
