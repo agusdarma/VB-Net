@@ -65,59 +65,86 @@ Public Class SalesRetail
         End If
     End Sub
     Public Sub addItemToList(barcode As String, kodeItem As String, namaItem As String, qty As String, satuan As String, price As String, diskon As String)
-        Dim idx As Integer = DataGridViewRetail.RowCount
-        Dim idx2 As Integer = DataGridViewRetail.RowCount
-        idx = idx - 1
-        If idx < 0 Then
-            DataGridViewRetail.Rows.Add()
-            DataGridViewRetail.NotifyCurrentCellDirty(True)
-            DataGridViewRetail.Rows(0).Cells(0).Value = barcode
-            DataGridViewRetail.Rows(0).Cells(1).Value = kodeItem
-            DataGridViewRetail.Rows(0).Cells(2).Value = namaItem
-            DataGridViewRetail.Rows(0).Cells(3).Value = CLng(1)
-            DataGridViewRetail.Rows(0).Cells(4).Value = satuan
-            DataGridViewRetail.Rows(0).Cells(5).Value = CLng(price)
-            DataGridViewRetail.Rows(0).Cells(6).Value = CLng(diskon)
+        If checkItemAlreadyExist(barcode) = 0 Then
+            Dim idx As Integer = DataGridViewRetail.RowCount
+            Dim idx2 As Integer = DataGridViewRetail.RowCount
+            idx = idx - 1
+            If idx < 0 Then
+                DataGridViewRetail.Rows.Add()
+                DataGridViewRetail.NotifyCurrentCellDirty(True)
+                DataGridViewRetail.Rows(0).Cells(0).Value = barcode
+                DataGridViewRetail.Rows(0).Cells(1).Value = kodeItem
+                DataGridViewRetail.Rows(0).Cells(2).Value = namaItem
+                DataGridViewRetail.Rows(0).Cells(3).Value = CLng(1)
+                DataGridViewRetail.Rows(0).Cells(4).Value = satuan
+                DataGridViewRetail.Rows(0).Cells(5).Value = CLng(price)
+                DataGridViewRetail.Rows(0).Cells(6).Value = CLng(diskon)
 
-            DataGridViewRetail.Rows(0).Cells(0).ReadOnly = True
-            DataGridViewRetail.Rows(0).Cells(1).ReadOnly = True
-            DataGridViewRetail.Rows(0).Cells(2).ReadOnly = True
-            DataGridViewRetail.Rows(0).Cells(4).ReadOnly = True
-            DataGridViewRetail.Rows(idx2).Cells(7).ReadOnly = True            
-            hitungTotalHarga(0)
-            hitungSubTotalHarga()
-            formatKolomNumeric()
-            txtBarcode.Focus()
-            txtBarcode.SelectAll()
-        Else
-            DataGridViewRetail.Rows.Add()
-            DataGridViewRetail.Rows(idx2).Cells(0).Selected = True
-            DataGridViewRetail.CurrentCell = Me.DataGridViewRetail(0, idx2)
-            DataGridViewRetail.NotifyCurrentCellDirty(True)
-            DataGridViewRetail.Rows(idx2).Cells(0).Value = barcode
-            DataGridViewRetail.Rows(idx2).Cells(1).Value = kodeItem
-            DataGridViewRetail.Rows(idx2).Cells(2).Value = namaItem
-            DataGridViewRetail.Rows(idx2).Cells(3).Value = CLng(1)
-            DataGridViewRetail.Rows(idx2).Cells(4).Value = satuan
-            DataGridViewRetail.Rows(idx2).Cells(5).Value = CLng(price)
-            DataGridViewRetail.Rows(idx2).Cells(6).Value = CLng(diskon)
+                DataGridViewRetail.Rows(0).Cells(0).ReadOnly = True
+                DataGridViewRetail.Rows(0).Cells(1).ReadOnly = True
+                DataGridViewRetail.Rows(0).Cells(2).ReadOnly = True
+                DataGridViewRetail.Rows(0).Cells(4).ReadOnly = True
+                DataGridViewRetail.Rows(idx2).Cells(7).ReadOnly = True
+                hitungTotalHarga(0)
+                hitungSubTotalHarga()
+                formatKolomNumeric()
+                txtBarcode.Focus()
+                txtBarcode.SelectAll()
+            Else
+                DataGridViewRetail.Rows.Add()
+                DataGridViewRetail.Rows(idx2).Cells(0).Selected = True
+                DataGridViewRetail.CurrentCell = Me.DataGridViewRetail(0, idx2)
+                DataGridViewRetail.NotifyCurrentCellDirty(True)
+                DataGridViewRetail.Rows(idx2).Cells(0).Value = barcode
+                DataGridViewRetail.Rows(idx2).Cells(1).Value = kodeItem
+                DataGridViewRetail.Rows(idx2).Cells(2).Value = namaItem
+                DataGridViewRetail.Rows(idx2).Cells(3).Value = CLng(1)
+                DataGridViewRetail.Rows(idx2).Cells(4).Value = satuan
+                DataGridViewRetail.Rows(idx2).Cells(5).Value = CLng(price)
+                DataGridViewRetail.Rows(idx2).Cells(6).Value = CLng(diskon)
 
-            DataGridViewRetail.Rows(idx2).Cells(0).ReadOnly = True
-            DataGridViewRetail.Rows(idx2).Cells(1).ReadOnly = True
-            DataGridViewRetail.Rows(idx2).Cells(2).ReadOnly = True
-            DataGridViewRetail.Rows(idx2).Cells(4).ReadOnly = True
-            DataGridViewRetail.Rows(idx2).Cells(7).ReadOnly = True
-            DataGridViewRetail.Rows(idx2).Cells(3).Selected = True
-            DataGridViewRetail.CurrentCell = Me.DataGridViewRetail(3, idx2)
-            DataGridViewRetail.BeginEdit(True)
-            hitungTotalHarga(idx2)
-            hitungSubTotalHarga()
-            formatKolomNumeric()
-            txtBarcode.Focus()
-            txtBarcode.SelectAll()
+                DataGridViewRetail.Rows(idx2).Cells(0).ReadOnly = True
+                DataGridViewRetail.Rows(idx2).Cells(1).ReadOnly = True
+                DataGridViewRetail.Rows(idx2).Cells(2).ReadOnly = True
+                DataGridViewRetail.Rows(idx2).Cells(4).ReadOnly = True
+                DataGridViewRetail.Rows(idx2).Cells(7).ReadOnly = True
+                DataGridViewRetail.Rows(idx2).Cells(3).Selected = True
+                DataGridViewRetail.CurrentCell = Me.DataGridViewRetail(3, idx2)
+                DataGridViewRetail.BeginEdit(True)
+                hitungTotalHarga(idx2)
+                hitungSubTotalHarga()
+                formatKolomNumeric()
+                txtBarcode.Focus()
+                txtBarcode.SelectAll()
+            End If
         End If
-
     End Sub
+    Private Function checkItemAlreadyExist(barcode As String) As Integer
+        Dim result As Integer
+        result = 0
+        Dim idx As Integer
+        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
+            idx = DataGridViewRetail.CurrentCell.RowIndex
+            Dim br As String
+            Dim qty As Long
+            br = oItem.Cells(0).Value
+            If barcode.ToUpper = br.ToUpper Then
+                qty = CLng(oItem.Cells(3).Value)
+                qty = qty + 1
+                oItem.Cells(3).Value = qty
+                result = 1
+                Exit For
+            End If
+        Next
+        If idx > 0 Then
+            hitungTotalHarga(idx)
+        End If
+        hitungSubTotalHarga()
+        formatKolomNumeric()
+        txtBarcode.Focus()
+        txtBarcode.SelectAll()
+        Return result
+    End Function
     Private Sub hitungSubTotalHarga()
         Dim totalharga As Long = 0
         Dim str As String = ""
