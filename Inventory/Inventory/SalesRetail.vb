@@ -156,6 +156,16 @@ Public Class SalesRetail
         'calculatePctDiskon()
         'calculateTotalOrder()
     End Sub
+    Private Sub hitungKembalian()
+        Dim totalharga As Long = 0
+        Dim pembayaran As Long = 0
+        Dim kembalian As Long = 0
+        totalharga = CLng(txtTotal.Text)
+        pembayaran = CLng(txtPembayaran.Text)
+        kembalian = pembayaran - totalharga
+        txtKembalian.Text = FormatNumber(kembalian.ToString, 0, TriState.True)
+        txtPembayaran.Text = FormatNumber(txtPembayaran.Text, 0, TriState.True)
+    End Sub
     Private Sub DataGridViewRetail_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewRetail.CellEndEdit
         If e.ColumnIndex = 3 Then
             hitungTotalHarga(e.RowIndex)
@@ -170,6 +180,8 @@ Public Class SalesRetail
             formatKolomNumeric()
             hitungSubTotalHarga()
         End If
+        txtBarcode.Focus()
+        txtBarcode.SelectAll()
     End Sub
     Private Sub hitungTotalHarga(rowIdx As Integer)
         Dim qty As Long
@@ -203,10 +215,11 @@ Public Class SalesRetail
 
         If Char.IsControl(e.KeyChar) Then
             If e.KeyChar.Equals(Chr(Keys.Return)) Then
+                hitungKembalian()
                 Me.SelectNextControl(tb, True, True, False, True)
                 e.Handled = True
             End If
-        End If
+        End If        
     End Sub
 
     Private Sub txtPembayaran_MouseDown(sender As Object, e As MouseEventArgs) Handles txtPembayaran.MouseDown
