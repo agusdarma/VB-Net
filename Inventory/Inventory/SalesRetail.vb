@@ -172,8 +172,15 @@ Public Class SalesRetail
         totalharga = CLng(txtTotal.Text)
         pembayaran = CLng(txtPembayaran.Text)
         kembalian = pembayaran - totalharga
-        txtKembalian.Text = FormatNumber(kembalian.ToString, 0, TriState.True)
-        txtPembayaran.Text = FormatNumber(txtPembayaran.Text, 0, TriState.True)
+        If kembalian < 0 Then
+            MessageBox.Show("Pembayaran Kurang Silahkan Coba Kembali", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            txtPembayaran.Focus()
+            txtPembayaran.SelectAll()
+        Else
+            txtKembalian.Text = FormatNumber(kembalian.ToString, 0, TriState.True)
+            txtPembayaran.Text = FormatNumber(txtPembayaran.Text, 0, TriState.True)
+        End If
+        
     End Sub
     Private Sub DataGridViewRetail_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewRetail.CellEndEdit
         If e.ColumnIndex = 3 Then
@@ -266,6 +273,8 @@ Public Class SalesRetail
     End Sub
     Private Sub removeSeparatorBeforeInsert()
         removeSeparator(txtTotal)
+        removeSeparator(txtPembayaran)
+        removeSeparator(txtKembalian)
     End Sub
 
     Private Function insert() As Integer
@@ -288,19 +297,21 @@ Public Class SalesRetail
             End If
 
             ' Insert Sales Retail Header
-            sql = "INSERT INTO sales_retail_header(trx_date ,total_trx ,total_qty ,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@total_trx,@total_qty,@created_on,@created_by,@updated_on,@updated_by)"
+            sql = "INSERT INTO sales_retail_header(trx_date ,total_trx ,total_qty ,total_pembayaran,total_kembalian,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@total_trx,@total_qty,@total_pembayaran,@total_kembalian,@created_on,@created_by,@updated_on,@updated_by)"
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
             sqlCommand.Transaction = transaction
             sqlCommand.CommandText = sql
             Dim trxDate As DateTime
-            trxDate = DateTime.Today
+            trxDate = DateTime.Now
             Dim qty As Long
             qty = getTotalQty()
             sqlCommand.Parameters.AddWithValue("@trx_date", trxDate)
             sqlCommand.Parameters.AddWithValue("@total_trx", txtTotal.Text)
             sqlCommand.Parameters.AddWithValue("@total_qty", qty)
+            sqlCommand.Parameters.AddWithValue("@total_pembayaran", txtPembayaran.Text)
+            sqlCommand.Parameters.AddWithValue("@total_kembalian", txtKembalian.Text)
             sqlCommand.Parameters.AddWithValue("@created_on", trxDate)
             sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
             sqlCommand.Parameters.AddWithValue("@updated_on", trxDate)
@@ -311,9 +322,10 @@ Public Class SalesRetail
             ID = sqlCommand.ExecuteScalar()
 
             ' Insert Sales Retail Detail
-            sql = "INSERT INTO sales_retail_detail(nama_item,qty,harga_satuan,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@nama_item,@qty,@harga_satuan,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
+            sql = "INSERT INTO sales_retail_detail(kode_item,nama_item,qty,harga_satuan,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@kode_item,@nama_item,@qty,@harga_satuan,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.Add("@header_id", MySqlDbType.Int32)
+            sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@harga_satuan", MySqlDbType.Int64)
@@ -323,6 +335,7 @@ Public Class SalesRetail
                 'Continue For
                 'End If
                 sqlCommand.Parameters("@header_id").Value = ID
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
                 sqlCommand.Parameters("@nama_item").Value = oItem.Cells(2).Value
                 sqlCommand.Parameters("@qty").Value = oItem.Cells(3).Value
                 sqlCommand.Parameters("@harga_satuan").Value = oItem.Cells(5).Value
