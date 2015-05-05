@@ -123,8 +123,7 @@ Public Class SalesRetail
         Dim result As Integer
         result = 0
         Dim idx As Integer
-        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
-            idx = DataGridViewRetail.CurrentCell.RowIndex
+        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows          
             Dim br As String
             Dim qty As Long
             br = oItem.Cells(0).Value
@@ -133,10 +132,11 @@ Public Class SalesRetail
                 qty = qty + 1
                 oItem.Cells(3).Value = qty
                 result = 1
+                idx = oItem.Index
                 Exit For
             End If
         Next
-        If idx > 0 Then
+        If DataGridViewRetail.RowCount > 0 Then
             hitungTotalHarga(idx)
         End If
         hitungSubTotalHarga()
