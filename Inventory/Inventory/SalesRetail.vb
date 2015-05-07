@@ -255,8 +255,9 @@ Public Class SalesRetail
     End Sub
 
     Private Sub SavePrint_Click(sender As Object, e As EventArgs) Handles SavePrint.Click
-        insert()
-        clearAllFIeld()
+        If insert() > 0 Then
+            clearAllFIeld()
+        End If
     End Sub
     Private Sub clearAllFIeld()
         txtTotal.Text = "0"
@@ -316,42 +317,68 @@ Public Class SalesRetail
             sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
             sqlCommand.Parameters.AddWithValue("@updated_on", trxDate)
             sqlCommand.Parameters.AddWithValue("@updated_by", session.Code)
-            rowEffected = sqlCommand.ExecuteNonQuery()
+            sqlCommand.ExecuteNonQuery()
             sqlCommand.CommandText = queryGetIdentity
             Dim ID As Long
             ID = sqlCommand.ExecuteScalar()
 
             ' Insert Sales Retail Detail
-            sql = "INSERT INTO sales_retail_detail(kode_item,nama_item,qty,harga_satuan,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@kode_item,@nama_item,@qty,@harga_satuan,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
+            sql = "INSERT INTO sales_retail_detail(kode_item,nama_item,qty,harga_satuan,harga_modal,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@kode_item,@nama_item,@qty,@harga_satuan,@harga_modal,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
             sqlCommand.CommandText = sql
             sqlCommand.Parameters.Add("@header_id", MySqlDbType.Int32)
             sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@qty", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@harga_satuan", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@harga_modal", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@harga_total", MySqlDbType.Int64)
+            
             For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
                 'If oItem.Cells(0).Value = "" Then
                 'Continue For
                 'End If
+                Dim cmd As New MySqlCommand
+                Dim publictable As New DataTable
+                Dim cost As Long
+                Try
+                    con = jokenconn()
+                    sql = "select cost from items where kode_item ='" & oItem.Cells(1).Value & "'"
+                    With cmd
+                        .Connection = con
+                        .CommandText = sql
+                    End With
+                    da.SelectCommand = cmd
+                    da.Fill(publictable)
+                    If publictable.Rows.Count > 0 Then
+                        cost = CLng(publictable.Rows(0).Item(0))
+                    Else
+                        Throw New System.Exception("Item " + oItem.Cells(1).Value + " tidak ditemukan, transaksi gagal.")
+                    End If
+                Catch ex As MySqlException
+                    MessageBox.Show("error : " + ex.ToString)
+                Finally
+                    con.Close()
+                End Try
+
                 sqlCommand.Parameters("@header_id").Value = ID
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
                 sqlCommand.Parameters("@nama_item").Value = oItem.Cells(2).Value
                 sqlCommand.Parameters("@qty").Value = oItem.Cells(3).Value
                 sqlCommand.Parameters("@harga_satuan").Value = oItem.Cells(5).Value
+                sqlCommand.Parameters("@harga_modal").Value = cost
                 sqlCommand.Parameters("@harga_total").Value = oItem.Cells(7).Value
 
                 sqlCommand.Parameters("@created_on").Value = trxDate
                 sqlCommand.Parameters("@created_by").Value = session.Code
                 sqlCommand.Parameters("@updated_on").Value = trxDate
                 sqlCommand.Parameters("@updated_by").Value = session.Code
-                sqlCommand.ExecuteNonQuery()
+                rowEffected = sqlCommand.ExecuteNonQuery()
             Next
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
-            MessageBox.Show(ex.ToString)
+            MessageBox.Show(ex.Message)
             Try
                 transaction.Rollback()
             Catch ex2 As Exception

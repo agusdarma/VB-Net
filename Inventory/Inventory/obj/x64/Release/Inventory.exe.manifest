@@ -258,14 +258,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory.exe" size="1436672">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Inventory.exe" size="1437184">
       <assemblyIdentity name="Inventory" version="1.0.0.0" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>G3HdlCLGLn4wL/ijpSN95spQteozASHiMMv/66Er/2I=</dsig:DigestValue>
+        <dsig:DigestValue>SDTQ2PmgRVtHE2r76Pyhx0TlS5ArQ3Y2IEmsTYoIVJg=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
