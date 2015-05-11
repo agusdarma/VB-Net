@@ -62,6 +62,7 @@ Partial Class MainMenu
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
+        Me.LaporanSalesRetailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -301,7 +302,7 @@ Partial Class MainMenu
         '
         'LaporanToolStripMenuItem
         '
-        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaporanItemPerGudangToolStripMenuItem, Me.LaporanSalesOrderToolStripMenuItem})
+        Me.LaporanToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LaporanItemPerGudangToolStripMenuItem, Me.LaporanSalesOrderToolStripMenuItem, Me.LaporanSalesRetailToolStripMenuItem})
         Me.LaporanToolStripMenuItem.Name = "LaporanToolStripMenuItem"
         Me.LaporanToolStripMenuItem.Size = New System.Drawing.Size(62, 20)
         Me.LaporanToolStripMenuItem.Text = "Laporan"
@@ -332,6 +333,12 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
+        '
+        'LaporanSalesRetailToolStripMenuItem
+        '
+        Me.LaporanSalesRetailToolStripMenuItem.Name = "LaporanSalesRetailToolStripMenuItem"
+        Me.LaporanSalesRetailToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.LaporanSalesRetailToolStripMenuItem.Text = "Laporan Sales Retail"
         '
         'MainMenu
         '
@@ -390,5 +397,6 @@ Partial Class MainMenu
     Friend WithEvents LaporanItemPerGudangToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LaporanSalesOrderToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RetailToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents LaporanSalesRetailToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class
