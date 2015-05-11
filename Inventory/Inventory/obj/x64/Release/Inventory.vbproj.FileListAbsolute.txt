@@ -50,3 +50,4 @@ D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\x64\Release\WindowsApplic
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\x64\Release\WindowsApplication2.GroupAccessAdd.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\x64\Release\WindowsApplication2.RptSalesOrder.resources
 D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\x64\Release\WindowsApplication2.SalesRetail.resources
+D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\obj\x64\Release\WindowsApplication2.RptSalesRetail.resources

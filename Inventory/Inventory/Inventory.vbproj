@@ -185,6 +185,12 @@
       <DependentUpon>ReportSalesOrder.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="RptSalesRetail.Designer.vb">
+      <DependentUpon>RptSalesRetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RptSalesRetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SalesRetail.Designer.vb">
       <DependentUpon>SalesRetail.vb</DependentUpon>
     </Compile>
@@ -482,6 +488,9 @@
     <EmbeddedResource Include="ReportSalesOrder.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportSalesOrder.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptSalesRetail.resx">
+      <DependentUpon>RptSalesRetail.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SalesPayment.resx">
       <DependentUpon>SalesPayment.vb</DependentUpon>
