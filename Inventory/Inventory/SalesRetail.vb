@@ -322,9 +322,7 @@ Public Class SalesRetail
             Dim ID As Long
             ID = sqlCommand.ExecuteScalar()
 
-            ' Insert Sales Retail Detail
-            sql = "INSERT INTO sales_retail_detail(kode_item,nama_item,qty,harga_satuan,harga_modal,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@kode_item,@nama_item,@qty,@harga_satuan,@harga_modal,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
-            sqlCommand.CommandText = sql
+            ' Insert Sales Retail Detail            
             sqlCommand.Parameters.Add("@header_id", MySqlDbType.Int32)
             sqlCommand.Parameters.Add("@kode_item", MySqlDbType.VarChar)
             sqlCommand.Parameters.Add("@nama_item", MySqlDbType.VarChar)
@@ -362,6 +360,8 @@ Public Class SalesRetail
                     con.Close()
                 End Try
 
+                sql = "INSERT INTO sales_retail_detail(kode_item,nama_item,qty,harga_satuan,harga_modal,harga_total,header_id,created_on,created_by,updated_on,updated_by)VALUES (@kode_item,@nama_item,@qty,@harga_satuan,@harga_modal,@harga_total,@header_id,@created_on,@created_by,@updated_on,@updated_by)"
+                sqlCommand.CommandText = sql
                 sqlCommand.Parameters("@header_id").Value = ID
                 sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
                 sqlCommand.Parameters("@nama_item").Value = oItem.Cells(2).Value
