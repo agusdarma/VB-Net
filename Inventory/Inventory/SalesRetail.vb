@@ -332,6 +332,8 @@ Public Class SalesRetail
             sqlCommand.Parameters.Add("@harga_satuan", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@harga_modal", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@harga_total", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@gudang_id", MySqlDbType.Int64)
+            sqlCommand.Parameters.Add("@stockAvailable", MySqlDbType.Int64)
             
             For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
                 'If oItem.Cells(0).Value = "" Then
@@ -373,11 +375,50 @@ Public Class SalesRetail
                 sqlCommand.Parameters("@updated_on").Value = trxDate
                 sqlCommand.Parameters("@updated_by").Value = session.Code
                 rowEffected = sqlCommand.ExecuteNonQuery()
+
+
+                sql = "select qty, gudang_id from items_gudang where kode_item = @kode_item"
+                Dim stockAvailable As Long
+                stockAvailable = 0
+                Dim idGudang As Long
+                publictable.Clear()
+                sqlCommand.CommandText = sql
+                sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
+                da.SelectCommand = sqlCommand
+                da.Fill(publictable)
+                If publictable.Rows.Count > 0 Then
+                    stockAvailable = publictable.Rows(0).Item(1)
+                    idGudang = publictable.Rows(0).Item(2)
+                    If (stockAvailable - CLng(oItem.Cells(3).Value)) >= 0 Then
+                        sql = "UPDATE items_gudang SET qty = @stockAvailable - @qty WHERE gudang_id = @gudang_id AND kode_item = @kode_item"
+                        sqlCommand.CommandText = sql
+                        sqlCommand.Parameters("@gudang_id").Value = idGudang
+                        sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
+                        sqlCommand.Parameters("@stockAvailable").Value = stockAvailable
+                        sqlCommand.Parameters("@qty").Value = oItem.Cells(3).Value
+                        sqlCommand.ExecuteNonQuery()
+
+                        ' update stok items, di sum dari semua gudang
+                        sql = "UPDATE items SET quantity = (select sum(qty) as jumlahTotItem from items_gudang where kode_item = @kode_item) ,updated_on = @updated_on ,updated_by = @updated_by WHERE kode_item = @kode_item"
+                        sqlCommand.CommandText = sql
+                        sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
+                        sqlCommand.Parameters("@updated_on").Value = now
+                        sqlCommand.Parameters("@updated_by").Value = session.Code
+                        sqlCommand.ExecuteNonQuery()
+                    Else
+                        MessageBox.Show("Stok Kosong untuk Item ini!" & vbNewLine & " Kode Item : " + oItem.Cells(1).Value & vbNewLine & " Sisa Stok di gudang : " + CStr(stockAvailable), "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                        Return rowEffected = 0
+                    End If
+                Else
+                    MessageBox.Show("Stok Kosong untuk Item ini!" & vbNewLine & " Kode Item : " + oItem.Cells(1).Value & vbNewLine & " Sisa Stok di gudang : " + CStr(stockAvailable), "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+                    Return rowEffected = 0
+                End If
             Next
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
         Catch ex As Exception
+            rowEffected = 0
             MessageBox.Show(ex.Message)
             Try
                 transaction.Rollback()
