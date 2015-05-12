@@ -154,6 +154,39 @@ Public Class SalesRetail
         Next
         Return qty
     End Function
+
+    Private Function getTotalLabaRugi() As Long
+        Dim totalLabaRugi As Long
+        totalLabaRugi = 0
+        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
+            Dim cmd As New MySqlCommand
+            Dim publictable As New DataTable
+            Dim cost As Long
+            Dim sql As String
+            Try
+                con = jokenconn()
+                sql = "select cost from items where kode_item ='" & oItem.Cells(1).Value & "'"
+                With cmd
+                    .Connection = con
+                    .CommandText = Sql
+                End With
+                da.SelectCommand = cmd
+                da.Fill(publictable)
+                If publictable.Rows.Count > 0 Then
+                    cost = CLng(publictable.Rows(0).Item(0))
+                Else
+                    Throw New System.Exception("Item " + oItem.Cells(1).Value + " tidak ditemukan, transaksi gagal.")
+                End If
+            Catch ex As MySqlException
+                MessageBox.Show("error : " + ex.ToString)
+            Finally
+                con.Close()
+            End Try
+            ' kalkulasi harga total laba dan rugi
+            totalLabaRugi = totalLabaRugi + ((CLng(oItem.Cells(5).Value) - cost) * CLng(oItem.Cells(3).Value))
+        Next
+        Return totalLabaRugi
+    End Function
     Private Sub hitungSubTotalHarga()
         Dim totalharga As Long = 0
         Dim str As String = ""
@@ -298,7 +331,7 @@ Public Class SalesRetail
             End If
 
             ' Insert Sales Retail Header
-            sql = "INSERT INTO sales_retail_header(trx_date ,total_trx ,total_qty ,total_pembayaran,total_kembalian,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@total_trx,@total_qty,@total_pembayaran,@total_kembalian,@created_on,@created_by,@updated_on,@updated_by)"
+            sql = "INSERT INTO sales_retail_header(trx_date ,total_trx ,total_qty ,total_pembayaran,total_kembalian,total_laba_rugi,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@total_trx,@total_qty,@total_pembayaran,@total_kembalian,@total_laba_rugi,@created_on,@created_by,@updated_on,@updated_by)"
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
@@ -313,6 +346,7 @@ Public Class SalesRetail
             sqlCommand.Parameters.AddWithValue("@total_qty", qty)
             sqlCommand.Parameters.AddWithValue("@total_pembayaran", txtPembayaran.Text)
             sqlCommand.Parameters.AddWithValue("@total_kembalian", txtKembalian.Text)
+            sqlCommand.Parameters.AddWithValue("@total_laba_rugi", getTotalLabaRugi())
             sqlCommand.Parameters.AddWithValue("@created_on", trxDate)
             sqlCommand.Parameters.AddWithValue("@created_by", session.Code)
             sqlCommand.Parameters.AddWithValue("@updated_on", trxDate)
@@ -332,7 +366,7 @@ Public Class SalesRetail
             sqlCommand.Parameters.Add("@harga_total", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@gudang_id", MySqlDbType.Int64)
             sqlCommand.Parameters.Add("@stockAvailable", MySqlDbType.Int64)
-            
+
             For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
                 'If oItem.Cells(0).Value = "" Then
                 'Continue For
@@ -376,7 +410,6 @@ Public Class SalesRetail
                 sqlCommand.Parameters("@updated_by").Value = session.Code
                 rowEffected = sqlCommand.ExecuteNonQuery()
 
-
                 sql = "select qty, gudang_id from items_gudang where kode_item = @kode_item"
                 Dim stockAvailable As Long
                 stockAvailable = 0
@@ -396,7 +429,7 @@ Public Class SalesRetail
                         sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
                         sqlCommand.Parameters("@stockAvailable").Value = stockAvailable
                         sqlCommand.Parameters("@qty").Value = oItem.Cells(3).Value
-                        sqlCommand.ExecuteNonQuery()
+                        rowEffected = sqlCommand.ExecuteNonQuery()
 
                         ' update stok items, di sum dari semua gudang
                         sql = "UPDATE items SET quantity = (select sum(qty) as jumlahTotItem from items_gudang where kode_item = @kode_item) ,updated_on = @updated_on ,updated_by = @updated_by WHERE kode_item = @kode_item"
@@ -404,7 +437,7 @@ Public Class SalesRetail
                         sqlCommand.Parameters("@kode_item").Value = oItem.Cells(1).Value
                         sqlCommand.Parameters("@updated_on").Value = now
                         sqlCommand.Parameters("@updated_by").Value = session.Code
-                        sqlCommand.ExecuteNonQuery()
+                        rowEffected = sqlCommand.ExecuteNonQuery()
                     Else
                         MessageBox.Show("Stok Kosong untuk Item ini!" & vbNewLine & " Kode Item : " + oItem.Cells(1).Value & vbNewLine & " Sisa Stok di gudang : " + CStr(stockAvailable), "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
                         Return rowEffected = 0
@@ -414,6 +447,7 @@ Public Class SalesRetail
                     Return rowEffected = 0
                 End If
             Next
+
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
