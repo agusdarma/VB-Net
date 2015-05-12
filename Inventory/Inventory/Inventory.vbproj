@@ -168,6 +168,12 @@
       <DependentUpon>agusDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="ReportSalesRetail.vb">
+      <DependentUpon>ReportSalesRetail.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="RptSalesOrder.Designer.vb">
       <DependentUpon>RptSalesOrder.vb</DependentUpon>
     </Compile>
@@ -468,6 +474,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BarangAdd.resx">
       <DependentUpon>BarangAdd.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportSalesRetail.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReportSalesRetail.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="RptSalesOrder.resx">
       <DependentUpon>RptSalesOrder.vb</DependentUpon>

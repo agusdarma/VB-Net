@@ -59,10 +59,10 @@ Partial Class MainMenu
         Me.LaporanToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanItemPerGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanSalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanSalesRetailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LaporanSalesRetailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -319,6 +319,12 @@ Partial Class MainMenu
         Me.LaporanSalesOrderToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
         Me.LaporanSalesOrderToolStripMenuItem.Text = "Laporan Sales Order"
         '
+        'LaporanSalesRetailToolStripMenuItem
+        '
+        Me.LaporanSalesRetailToolStripMenuItem.Name = "LaporanSalesRetailToolStripMenuItem"
+        Me.LaporanSalesRetailToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
+        Me.LaporanSalesRetailToolStripMenuItem.Text = "Laporan Sales Retail"
+        '
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
@@ -333,12 +339,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'LaporanSalesRetailToolStripMenuItem
-        '
-        Me.LaporanSalesRetailToolStripMenuItem.Name = "LaporanSalesRetailToolStripMenuItem"
-        Me.LaporanSalesRetailToolStripMenuItem.Size = New System.Drawing.Size(179, 22)
-        Me.LaporanSalesRetailToolStripMenuItem.Text = "Laporan Sales Retail"
         '
         'MainMenu
         '

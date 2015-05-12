@@ -44,7 +44,7 @@ Public Class SalesRetail
                 barcode = txtBarcode.Text
                 Try
                     con = jokenconn()
-                    sql = "select i.kode_item,i.nama_item,i.quantity, i.satuan,i.default_price,i.default_diskon from items i where i.barcode ='" & barcode & "'"
+                    sql = "select i.kode_item,i.nama_item,i.quantity, i.satuan,i.default_price,i.default_diskon from items i inner join items_gudang ig on ig.kode_item = i.kode_item and ig.qty > 0 where i.barcode ='" & barcode & "'"
                     With cmd
                         .Connection = con
                         .CommandText = sql
@@ -54,7 +54,7 @@ Public Class SalesRetail
                     If publictable.Rows.Count > 0 Then
                         addItemToList(barcode, publictable.Rows(0).Item(0), publictable.Rows(0).Item(1), publictable.Rows(0).Item(2), publictable.Rows(0).Item(3), publictable.Rows(0).Item(4), publictable.Rows(0).Item(5))
                     Else
-                        MessageBox.Show("Items not found", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                        MessageBox.Show("Items not found / Stok Item Tersebut Kosong", "Error Message", MessageBoxButtons.OK, MessageBoxIcon.Error)
                     End If
                 Catch ex As MySqlException
                     MessageBox.Show("error : " + ex.ToString)
