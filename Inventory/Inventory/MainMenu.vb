@@ -320,4 +320,10 @@ Public Class MainMenu
             RptSalesRetail.Show()
         End If
     End Sub
+
+    Private Sub LaporanHistorySalesByItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanHistorySalesByItemToolStripMenuItem.Click
+        If canAccessMenu("Laporan History Sales By Item") Then
+            RptHistorySalesByItem.Show()
+        End If
+    End Sub
 End Class

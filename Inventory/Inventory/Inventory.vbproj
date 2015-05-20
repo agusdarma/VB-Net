@@ -174,6 +174,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="RptHistorySalesByItem.Designer.vb">
+      <DependentUpon>RptHistorySalesByItem.vb</DependentUpon>
+    </Compile>
+    <Compile Include="RptHistorySalesByItem.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="RptSalesOrder.Designer.vb">
       <DependentUpon>RptSalesOrder.vb</DependentUpon>
     </Compile>
@@ -478,6 +484,9 @@
     <EmbeddedResource Include="ReportSalesRetail.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReportSalesRetail.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RptHistorySalesByItem.resx">
+      <DependentUpon>RptHistorySalesByItem.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RptSalesOrder.resx">
       <DependentUpon>RptSalesOrder.vb</DependentUpon>

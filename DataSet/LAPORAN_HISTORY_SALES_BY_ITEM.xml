@@ -1,0 +1,4250 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="nama_customer" type="xs:string" minOccurs="0" />
+                <xs:element name="delivery_date" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="nama_item" type="xs:string" minOccurs="0" />
+                <xs:element name="qty" type="xs:long" minOccurs="0" />
+                <xs:element name="nama_gudang" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-19T20:16:54+07:00</delivery_date>
+    <nama_item>Test Item</nama_item>
+    <qty>15</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>OSRAM PAR38 80W 12D</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>NITTO ISOLASI NO 201 HITAM </nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>HANNOCHS GREEN 4U 45W COOLDAYLIGHT</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x10 @100M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>PHILIPS ESS 13804 DL 4" WHITE WITH COVER</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>PM TF-4</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO BRWPS1PCCV2</nama_item>
+    <qty>17</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO CAT5E/ACTRJSMENSU</nama_item>
+    <qty>17</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31/1</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-24T12:10:03+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-25T17:34:41+07:00</delivery_date>
+    <nama_item>EXTRANA NFA2X-T3X 70+50</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-25T17:34:41+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-25T17:34:41+07:00</delivery_date>
+    <nama_item>PANASONIC F-EY 1511</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-25T17:34:41+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-25T17:34:41+07:00</delivery_date>
+    <nama_item>PM TF-4</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-25T17:34:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E25N</nama_item>
+    <qty>15</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x1.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x6 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>PANASONIC WEJP1131-7</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>150</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>PM TF-2</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC EP13</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3426/16S SSGS</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E84426/16S SZ</nama_item>
+    <qty>18</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E8432/1 SZ</nama_item>
+    <qty>24</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031H1 EBGS</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER ULTI U204SPM/2/B00</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-26T11:26:43+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>FATRO SA-427 FITTING WD E27</nama_item>
+    <qty>144</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>HIMAWARI BALL ICE 60W PUTIH</nama_item>
+    <qty>60</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>OSRAM T5 BATTEN PLUS 28W W/O LAMP</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>OSRAM T5 BATTEN PLUS 28W W/O LAMP</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25TGU</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PANASONIC F-EQ 405</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PHILIPS TL5 ESS VIEW 14W/840</nama_item>
+    <qty>48</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>150</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>18</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E33/1/2AR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E34/1/2AR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31TV75</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC EP13</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32V400F</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM H</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:12:33+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM H</nama_item>
+    <qty>15</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:24:53+07:00</delivery_date>
+    <nama_item>EXTRANA NFA2X T 3x70+50</nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:24:53+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x16 POTONGAN</nama_item>
+    <qty>280</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-27T12:24:53+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x25 @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 BIRU @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>35</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>NEROLIGHT LED 6" RECESSED DOWNLIGHT 16W SDL</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>PHILIPS QVF 135</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>PM TF-1</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>PM TF-1</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>29</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31/1</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32/1/2AR</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E33/1/2AR</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>TM BOX MCB 3P</nama_item>
+    <qty>15</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x1.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x1.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x0.75 @50M</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>PM TF-4</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>TM PIPA 20MM PUTIH</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-28T11:18:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x0.75 @50M</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x4 @50M </nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x2.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>PHILIPS BTA 36W 220V</nama_item>
+    <qty>160</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>PHILIPS BTA 18W 220V</nama_item>
+    <qty>32</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>TM OB-TALL</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>TOKI 500W</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-03-31T12:01:35+07:00</delivery_date>
+    <nama_item>VATO FITTING MP500+KERANGKA</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>CLIPSAL PIPA 20MM PUTIH</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 BIRU @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x1.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>NEROLIGHT LED 4" RECESSED DOWNLIGHT 9W BWW</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PANASONIC WEJP1131-7</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PANASONIC FV-30RUN</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25RUN</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72411</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/830</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>PHILIPS QVF 135</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3426/16S SSGS</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031H1 EWWW</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031TV GS</nama_item>
+    <qty>7</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3032V1 EBGS</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3033V1 EBGS</nama_item>
+    <qty>9</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>SLAST SR140</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>TM TKI 2x36</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-01T12:25:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x2.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>FANTAS BR155/12W 6400K</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>HANNOCHS GREEN 4U 45W COOLDAYLIGHT</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>HANNOCHS GREEN 4U 45W COOLDAYLIGHT</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>400</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>60</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72411</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72412</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72425</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72310</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 52602</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E33/1/2AR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E33/1/2AR</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E34/1/2AR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>SURYA SRE L2208RC</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>TM ELBOW 20MM P</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-02T12:51:36+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72452</nama_item>
+    <qty>14</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>350</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>80</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32/1/2AR</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E34/1/2AR</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31TV75</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC ET01/4</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-03T12:34:50+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 BIRU @100M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 HITAM @100M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x2.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>FANTAS BR155/12W-G 6400K</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>150</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72430</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72452</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-06T12:36:55+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>CLIPSAL PIPA 20MM PUTIH</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>CLIPSAL PIPA 20MM PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W PUTIH</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>150</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>800</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72412</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72412</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>PM TF-1</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E35/1/2AR</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>TM KAP WATERPROOF 136 IP65</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-07T11:49:28+07:00</delivery_date>
+    <nama_item>TM SOK PIPA 20MM P</nama_item>
+    <qty>300</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x1.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x1.5 BIRU @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x6 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 8W PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W PUTIH</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>NEROLIGHT LED 5" RECESSED DOWNLIGHT 12W SCW</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC WEJP1131-7</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5531</nama_item>
+    <qty>500</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72312</nama_item>
+    <qty>43</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72390</nama_item>
+    <qty>13</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>PM TF-1</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32/1/2AR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER KAVACHA E223R</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3426/16S SSWW</nama_item>
+    <qty>60</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031H1 EWWW</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3033H1 EWWW</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER ULTI U204SPM/2/B00</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031RJ EWWW</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER ULTI UC24SW/P/XPW</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32V500</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>SURYA SRE L2208RC</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-08T14:37:43+07:00</delivery_date>
+    <nama_item>TRAYTEK TRAY COVER 5CM </nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x2.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 2x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>FATRO SA-427 FITTING WD E27</nama_item>
+    <qty>288</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72312</nama_item>
+    <qty>63</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 58W/54-765</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>80</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E84426/16S SZ</nama_item>
+    <qty>24</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB32/1</nama_item>
+    <qty>16</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB32</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB426/16S</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>TM SOK PIPA 20MM P</nama_item>
+    <qty>1000</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:49:44+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:55:48+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x1.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:55:48+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x2.5 @50M</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-09T14:55:48+07:00</delivery_date>
+    <nama_item>EXTRANA NFA2X 4x25 @1000M</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>CITYSON T5 35W PUTIH</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x6 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x2.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72433</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>PHILIPS TCW060 136</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>142</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO E2031L1/2A</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>TM ELBOW 20MM P</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T14:05:54+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T15:33:52+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>60</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T15:33:52+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72412</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-10T15:43:09+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 28W KUNING</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W KUNING</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 SAYAP 28W PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>KDK 15EGKA</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031H2 EBGS</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-11T10:57:55+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x2.5 HITAM @100M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x2.5 MERAH @100M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 8W PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>OSRAM PAR38 80W 30D</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>PHILIPS EBC EP 136</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>PM TF-4</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-13T12:52:00+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM HITAM</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x2.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x6 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ78029W</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72312</nama_item>
+    <qty>37</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>PHILIPS SIMBAT 1x36</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E84426/16S SZ</nama_item>
+    <qty>18</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E8432/1 SZ</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E8431RJS4 SZ</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E8433/1 SZ</nama_item>
+    <qty>14</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E8431/1 SZ</nama_item>
+    <qty>16</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>TM OB-TALL</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-14T12:14:58+07:00</delivery_date>
+    <nama_item>TM BOX MCB 3P</nama_item>
+    <qty>45</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>EXTRANA NYA 1x1.5 MERAH @100M</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>NITTO ISOLASI NO 201 HITAM </nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>500</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC WEJP1131-7</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5531</nama_item>
+    <qty>1000</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC FV-20TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC F-EQ 405</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72430</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72311</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72305</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72306</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>18</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM HITAM</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-14T17:44:51+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x1.5 MERAH @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T10:12:17+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72312</nama_item>
+    <qty>18</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>CLIPSAL PIPA 20MM PUTIH</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x1.5 @50M</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x2.5 @50M</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 4x6 @100m</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>79</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72430</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72312</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/865</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>PM TF-3</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31TV75</nama_item>
+    <qty>590</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC ET01/4</nama_item>
+    <qty>80</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC ET01/4</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC EP13</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO BRWPS1PCCV2</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO BRWPS1PCCV2</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO CAT5E/ACTRJSMENSU</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO CAT5E/ACTRJSMENSU</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E84426/16S WE</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER COSMO BRWPS1PCCV2+RJ6/8</nama_item>
+    <qty>560</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>SCHNEIDER ZENCELO E8431/2 WE</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-15T17:59:40+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM HITAM</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-16T11:08:19+07:00</delivery_date>
+    <nama_item>MSA SA 400 KAP HPIT 400W</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang Elok</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>EWIG TIES 2.5x100MM P</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>FANTAS BR180/24W-G 6400K</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>HANNOCHS GREEN 4U 45W COOLDAYLIGHT</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72305</nama_item>
+    <qty>9</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72306</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72311</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72311</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 250 L200TS</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>PM TF-1</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31/1</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E34/1/2AR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31/1</nama_item>
+    <qty>27</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB32/1</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB426/16S</nama_item>
+    <qty>283</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer />
+    <delivery_date>2015-04-17T17:54:07+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>CLIPSAL PIPA 20MM PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>400</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC WKJ1131</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ78029W</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ78019W</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25RUN</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25RUN</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72413</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72425</nama_item>
+    <qty>7</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72230</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 54704</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72443</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31/1</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32/1/2AR</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E82426/16S LS</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3033H1 EBGS</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31/1</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31/1</nama_item>
+    <qty>300</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB426/16S</nama_item>
+    <qty>300</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB33/1</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB33/1</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SCHNEDIER VIVACE KB31</nama_item>
+    <qty>120</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SUNFREE KABEL TRANSPARANT 2x30 @40M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>SUNFREE KABEL TRANSPARANT 2x80 @40M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-05-18T11:23:53+07:00</delivery_date>
+    <nama_item>TM PIPA 20MM PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-18T11:36:12+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB15N</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 14W PUTIH</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 14W KUNING</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>OSRAM T5 BATTEN PLUS 28W W/O LAMP</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>OSRAM T5 BATTEN PLUS 28W/830</nama_item>
+    <qty>26</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25TGU</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>PANASONIC FV-25RUN</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72413</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>SUNFREE KABEL TRANSPARANT 2x30 @40M</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>SUNFREE KABEL TRANSPARANT 2x50 @40M</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>SUNFREE KABEL TRANSPARANT 2x80 @40M</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>TM OB-SHORT</nama_item>
+    <qty>105</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T12:16:11+07:00</delivery_date>
+    <nama_item>TM PIPA 20MM PUTIH</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>68</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T17:53:27+07:00</delivery_date>
+    <nama_item>TM BOX MCB 1P</nama_item>
+    <qty>96</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-20T18:04:11+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72491</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 4x4 @50M </nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>NITTO ISOLASI NO 201 HITAM </nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>PM TF-2</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>PM TF-3</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>TM BOX MCB 1P</nama_item>
+    <qty>48</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>TOKI 500W</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>VATO FITTING MP500+KERANGKA</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-21T17:18:08+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72310</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>PM TF-2</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM H</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:47:06+07:00</delivery_date>
+    <nama_item>TM KAP WD E40 HIJAU</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-22T17:49:16+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB426/16S</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYAF 1x1.5 HITAM @100M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>PANASONIC WEJP11312-7</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72411</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72311</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>PHILIPS ESS 66663 DL 3.5" WHITE WITHOUT COVER </nama_item>
+    <qty>7</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>90</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31TS</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>SUNFREE KABEL TRANSPARANT 2x50 @40M</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>TM DL 5" K3 SILVER</nama_item>
+    <qty>31</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-23T18:29:52+07:00</delivery_date>
+    <nama_item>TM DL 4" K3 PUTIH</nama_item>
+    <qty>26</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72412</nama_item>
+    <qty>17</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72412</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>PM TF-3</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB413S </nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T08:57:11+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM HITAM</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-25T10:30:20+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72440</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 28W PUTIH</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM HITAM</nama_item>
+    <qty>160</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM HITAM</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>500</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>300</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72306</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 54705</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PHILIPS BTA 36W 220V</nama_item>
+    <qty>64</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PHILIPS EBC EP 136</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 250 L200TS</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM HITAM</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM DL 4" K3 SILVER</nama_item>
+    <qty>16</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-27T10:44:46+07:00</delivery_date>
+    <nama_item>TM DL 4" K3 PUTIH</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>EXTRANA NYYHY 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 35W KUNING</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72310</nama_item>
+    <qty>16</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72330</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>PHILIPS BTA 36W 220V</nama_item>
+    <qty>96</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031H1 EWWW</nama_item>
+    <qty>14</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031RJ EWWW</nama_item>
+    <qty>23</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031RJ5E WW</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3031TV WW</nama_item>
+    <qty>9</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3032H1 EWWW</nama_item>
+    <qty>35</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3033H1 EWWW</nama_item>
+    <qty>7</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER NEO E3426/16S SSWW</nama_item>
+    <qty>107</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E8231L1F LS</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E8231L2F LS</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E8232L1F LS</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E8232L2F LS</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E8233L1F LS</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E8233L2F LS</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>SCHNEIDER PIENO E82426/16S LS</nama_item>
+    <qty>45</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>TM DL 4" K3 PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>TM KAP WD E27 HIJAU</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-28T09:01:21+07:00</delivery_date>
+    <nama_item>TM KAP WD E27 HIJAU</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>35</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x1.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 2x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x2.5 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYM 3x4 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>EXTRANA NYY 3x6 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HATTASU T5 21W PUTIH</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HAGER VF104TVA</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 8W KUNING</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 8W PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 14W PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W KUNING</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 21W PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 14W KUNING</nama_item>
+    <qty>0</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>44</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>300</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>NITTO ISOLASI NO 201 HITAM </nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PANASONIC WEJ5911</nama_item>
+    <qty>1000</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PANASONIC WEJP1131-7</nama_item>
+    <qty>200</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72410</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PANASONIC NLP 72433</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 36W/54-765</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PHILIPS BTA 36W 220V</nama_item>
+    <qty>64</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PHILIPS BHLE 400 L200TS</nama_item>
+    <qty>6</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PHILIPS EBC EP 136</nama_item>
+    <qty>100</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PHILIPS TLD 18W/54-765</nama_item>
+    <qty>25</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>PM TF-1</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E426/16S</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31/1</nama_item>
+    <qty>30</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E32/1/2AR</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E31/2/3A</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E33/1/2AR</nama_item>
+    <qty>20</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC E15NR</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31/1</nama_item>
+    <qty>8</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB33/1</nama_item>
+    <qty>7</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>SURYA SRE L2208RC</nama_item>
+    <qty>40</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>5</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>3</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:17:28+07:00</delivery_date>
+    <nama_item>TM PIPA 20MM PUTIH</nama_item>
+    <qty>50</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-29T10:32:07+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>EXTRANA NYMHY 2x0.75 @50M</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 8W PUTIH</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 14W PUTIH</nama_item>
+    <qty>4</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>HIMAWARI T5 28W PUTIH</nama_item>
+    <qty>12</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>LEGRAND PIPA 20MM PUTIH</nama_item>
+    <qty>24</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>NITTO ISOLASI NO 201 HITAM </nama_item>
+    <qty>250</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>PHILIPS TCW060 136</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>PHILIPS SIMBAT 1x36</nama_item>
+    <qty>96</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER CLASSIC ET01/4</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>SCHNEIDER VIVACE KB31EKT-OS</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 20MM P</nama_item>
+    <qty>10</qty>
+    <nama_gudang>Gudang SB-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>TM FLEXIBEL PIPA 25MM P</nama_item>
+    <qty>2</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+  <Table>
+    <nama_customer>PT Customer</nama_customer>
+    <delivery_date>2015-04-30T09:37:41+07:00</delivery_date>
+    <nama_item>TM DL 5" K3 PUTIH</nama_item>
+    <qty>1</qty>
+    <nama_gudang>Gudang B18-LTC</nama_gudang>
+  </Table>
+</NewDataSet>
