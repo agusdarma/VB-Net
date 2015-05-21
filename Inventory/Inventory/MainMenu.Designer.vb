@@ -201,6 +201,7 @@ Partial Class MainMenu
         Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
         Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
+        Me.GenerateReportToolsToolStripMenuItem.Visible = False
         '
         'TransactionToolStripMenuItem
         '
@@ -290,8 +291,9 @@ Partial Class MainMenu
         'RetailToolStripMenuItem
         '
         Me.RetailToolStripMenuItem.Name = "RetailToolStripMenuItem"
-        Me.RetailToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.RetailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RetailToolStripMenuItem.Text = "Sales Retail"
+        Me.RetailToolStripMenuItem.Visible = False
         '
         'AboutToolStripMenuItem
         '
@@ -324,6 +326,7 @@ Partial Class MainMenu
         Me.LaporanSalesRetailToolStripMenuItem.Name = "LaporanSalesRetailToolStripMenuItem"
         Me.LaporanSalesRetailToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.LaporanSalesRetailToolStripMenuItem.Text = "Laporan Sales Retail"
+        Me.LaporanSalesRetailToolStripMenuItem.Visible = False
         '
         'StatusStrip
         '
