@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 04-May-15
+Modified: 27-May-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -155,6 +155,7 @@ CREATE TABLE Items
   id Int NOT NULL AUTO_INCREMENT,
   kode_item Varchar(32) NOT NULL,
   nama_item Varchar(128) NOT NULL,
+  barcode Varchar(128),
   quantity Int NOT NULL,
   item_type Varchar(32) NOT NULL,
   item_status Varchar(32) NOT NULL,
@@ -609,6 +610,9 @@ CREATE TABLE sales_retail_header
   trx_date Datetime,
   total_trx Bigint,
   total_qty Bigint,
+  total_pembayaran Bigint,
+  total_kembalian Bigint,
+  total_laba_rugi Bigint,
   created_on Datetime,
   created_by Varchar(32),
   updated_on Datetime,
@@ -622,15 +626,36 @@ CREATE TABLE sales_retail_header
 CREATE TABLE sales_retail_detail
 (
   id Int NOT NULL AUTO_INCREMENT,
+  kode_item Varchar(32),
   nama_item Varchar(128),
   qty Bigint,
   harga_satuan Bigint,
+  harga_modal Bigint,
   harga_total Bigint,
   header_id Int,
   created_on Datetime,
   created_by Varchar(32),
   updated_on Datetime,
   updated_by Varchar(32),
+ PRIMARY KEY (id)
+)
+;
+
+-- Table bank_book
+
+CREATE TABLE bank_book
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  trx_date Datetime,
+  cheque_no Varchar(32),
+  source_no Varchar(32),
+  description Varchar(256),
+  bank_name Varchar(64),
+  deposit Bigint,
+  withdrawal Bigint,
+  balance Bigint,
+  reconcile_date Datetime,
+  created_on Datetime,
  PRIMARY KEY (id)
 )
 ;
@@ -767,6 +792,12 @@ values(307, 0, 0, 1, 'Sales Receipt', 'Sales Receipt', 'Sales Receipt Module',
 insert into user_modules 
 (id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
 module_group, show_order, module_leaf, always_included)
+values(308, 0, 0, 1, 'Sales Retail', 'Sales Retail', 'Sales Retail Module',
+'Sales Retail Module', 9, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
 values(400, 0, 0, 1, 'Laporan Stok Item', 'Laporan Stok Item', 'Laporan Stok Item Module',
 'Laporan Stok Item Module', 1, 0, 0);
 
@@ -779,5 +810,24 @@ values(401, 0, 0, 1, 'Laporan Sales Order', 'Laporan Sales Order', 'Laporan Sale
 insert into user_modules 
 (id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
 module_group, show_order, module_leaf, always_included)
+values(402, 0, 0, 1, 'Laporan Sales Retail', 'Laporan Sales Retail', 'Laporan Sales Retail Module',
+'Laporan Sales Retail Module', 3, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
+values(403, 0, 0, 1, 'Laporan History Sales By Item', 'Laporan History Sales By Item', 'Laporan History Sales By Item Module',
+'Laporan History Sales By Item Module', 4, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
 values(900, 0, 0, 1, 'Editable Price', 'Editable Price', 'Editable Price Module',
 'Editable Price Module', 1, 0, 0);
+
+
+ALTER TABLE ims.items
+ ADD barcode VARCHAR(128) AFTER updated_by;
+ALTER TABLE ims.items
+ CHANGE barcode barcode VARCHAR(128) AFTER nama_item;
+
