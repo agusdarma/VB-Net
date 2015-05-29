@@ -23,7 +23,7 @@ Public Class GenerateReportTools
             'sql = "select distinct h.id,h.nama_customer,h.so_date,d.nama_item,d.so_header_id,h.total_order from sales_order_header h inner join sales_order_detail d on h.id = d.so_header_id order by h.so_date asc"
             'sql = "select distinct h.id,h.nama_customer,h.so_date, h.total_order from sales_order_header h order by h.so_date asc"
             'sql = "select srh.id, srh.trx_date,srh.total_trx,srh.total_qty,srh.total_pembayaran,srh.total_kembalian,srh.total_laba_rugi from sales_retail_header srh order by trx_date asc"
-            sql = "select h.nama_customer,h.delivery_date,d.nama_item,d.qty, g.nama_gudang from delivery_order_header h inner join delivery_order_detail d on h.id = d.delivery_header_id inner join gudang g on g.kode_gudang = d.kode_gudang"
+            sql = "select * from sales_retail_header sh inner join sales_retail_detail sd on sh.id = sd.header_id where sh.id = 8"
 
             conn.Open()
             'Dim sql As String = "select ph.po_no,ph.po_date,ph.nama_supplier,pd.kode_item,pd.nama_item,pd.qty,pd.satuan,pd.price_per_unit,'PT Emobile Indonesia' as companyName,'Include PPN' as ppn from  purchase_order_header ph inner join purchase_order_detail pd on ph.id = pd.po_header_id"
@@ -33,8 +33,11 @@ Public Class GenerateReportTools
             myAdapter.SelectCommand = cmd
             myAdapter.Fill(myData)
             Dim myReport As New ReportDocument
-            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\ReportHistorySalesByItem.rpt")
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSalesRetail.rpt")
             myReport.SetDataSource(myData.Tables(0))
+            myReport.SetParameterValue("companyName", "PT Agus Darma Kusumaffffffffffffffffffffffffffffffffff")
+            myReport.SetParameterValue("alamat", "ini alamatfffffffffffffffddddddddddddddddddddddddddddfffffffffffffffffffffdddddddddeeeeeeeeeeeeeeeeeeee")
+            myReport.SetParameterValue("trxDate", System.DateTime.Now)
             'myReport.Subreports.Item("subreport1").SetDataSource(myData)
             'sql = "select * from sales_order_detail"
             'cmd.CommandText = sql

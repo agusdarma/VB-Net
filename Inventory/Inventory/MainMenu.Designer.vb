@@ -60,10 +60,10 @@ Partial Class MainMenu
         Me.LaporanItemPerGudangToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanSalesOrderToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LaporanSalesRetailToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LaporanHistorySalesByItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.StatusStrip = New System.Windows.Forms.StatusStrip()
         Me.ToolStripStatusLabel = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LaporanHistorySalesByItemToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip.SuspendLayout()
         Me.StatusStrip.SuspendLayout()
         Me.SuspendLayout()
@@ -201,7 +201,6 @@ Partial Class MainMenu
         Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
         Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
-        Me.GenerateReportToolsToolStripMenuItem.Visible = False
         '
         'TransactionToolStripMenuItem
         '
@@ -214,7 +213,7 @@ Partial Class MainMenu
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
-        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
         '
         'PurchaseOrderToolStripMenuItem
@@ -253,7 +252,7 @@ Partial Class MainMenu
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
-        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
+        Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
         '
         'SalesOrderToolStripMenuItem
@@ -293,7 +292,6 @@ Partial Class MainMenu
         Me.RetailToolStripMenuItem.Name = "RetailToolStripMenuItem"
         Me.RetailToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.RetailToolStripMenuItem.Text = "Sales Retail"
-        Me.RetailToolStripMenuItem.Visible = False
         '
         'AboutToolStripMenuItem
         '
@@ -328,6 +326,12 @@ Partial Class MainMenu
         Me.LaporanSalesRetailToolStripMenuItem.Text = "Laporan Sales Retail"
         Me.LaporanSalesRetailToolStripMenuItem.Visible = False
         '
+        'LaporanHistorySalesByItemToolStripMenuItem
+        '
+        Me.LaporanHistorySalesByItemToolStripMenuItem.Name = "LaporanHistorySalesByItemToolStripMenuItem"
+        Me.LaporanHistorySalesByItemToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
+        Me.LaporanHistorySalesByItemToolStripMenuItem.Text = "Laporan History Sales By Item"
+        '
         'StatusStrip
         '
         Me.StatusStrip.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripStatusLabel})
@@ -342,12 +346,6 @@ Partial Class MainMenu
         Me.ToolStripStatusLabel.Name = "ToolStripStatusLabel"
         Me.ToolStripStatusLabel.Size = New System.Drawing.Size(39, 17)
         Me.ToolStripStatusLabel.Text = "Status"
-        '
-        'LaporanHistorySalesByItemToolStripMenuItem
-        '
-        Me.LaporanHistorySalesByItemToolStripMenuItem.Name = "LaporanHistorySalesByItemToolStripMenuItem"
-        Me.LaporanHistorySalesByItemToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
-        Me.LaporanHistorySalesByItemToolStripMenuItem.Text = "Laporan History Sales By Item"
         '
         'MainMenu
         '
