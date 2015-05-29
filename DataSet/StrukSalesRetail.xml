@@ -1,0 +1,190 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <xs:schema id="NewDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="NewDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Table">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="id" type="xs:int" minOccurs="0" />
+                <xs:element name="trx_date" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="total_trx" type="xs:long" minOccurs="0" />
+                <xs:element name="total_qty" type="xs:long" minOccurs="0" />
+                <xs:element name="total_pembayaran" type="xs:long" minOccurs="0" />
+                <xs:element name="total_kembalian" type="xs:long" minOccurs="0" />
+                <xs:element name="total_laba_rugi" type="xs:long" minOccurs="0" />
+                <xs:element name="created_on" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="created_by" type="xs:string" minOccurs="0" />
+                <xs:element name="updated_on" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="updated_by" type="xs:string" minOccurs="0" />
+                <xs:element name="id1" type="xs:int" minOccurs="0" />
+                <xs:element name="kode_item" type="xs:string" minOccurs="0" />
+                <xs:element name="nama_item" type="xs:string" minOccurs="0" />
+                <xs:element name="qty" type="xs:long" minOccurs="0" />
+                <xs:element name="harga_satuan" type="xs:long" minOccurs="0" />
+                <xs:element name="harga_modal" type="xs:long" minOccurs="0" />
+                <xs:element name="harga_total" type="xs:long" minOccurs="0" />
+                <xs:element name="header_id" type="xs:int" minOccurs="0" />
+                <xs:element name="created_on1" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="created_by1" type="xs:string" minOccurs="0" />
+                <xs:element name="updated_on1" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="updated_by1" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+    </xs:element>
+  </xs:schema>
+  <Table>
+    <id>1</id>
+    <trx_date>2015-05-12T11:27:42+07:00</trx_date>
+    <total_trx>456944</total_trx>
+    <total_qty>3</total_qty>
+    <total_pembayaran>500000</total_pembayaran>
+    <total_kembalian>43056</total_kembalian>
+    <total_laba_rugi>456942</total_laba_rugi>
+    <created_on>2015-05-12T11:27:42+07:00</created_on>
+    <created_by>admin</created_by>
+    <updated_on>2015-05-12T11:27:42+07:00</updated_on>
+    <updated_by>admin</updated_by>
+    <id1>1</id1>
+    <kode_item>HIM01-00002</kode_item>
+    <nama_item>HIMAWARI T5 8W KUNING</nama_item>
+    <qty>2</qty>
+    <harga_satuan>222222</harga_satuan>
+    <harga_modal>1</harga_modal>
+    <harga_total>444444</harga_total>
+    <header_id>1</header_id>
+    <created_on1>2015-05-12T11:27:42+07:00</created_on1>
+    <created_by1>admin</created_by1>
+    <updated_on1>2015-05-12T11:27:42+07:00</updated_on1>
+    <updated_by1>admin</updated_by1>
+  </Table>
+  <Table>
+    <id>1</id>
+    <trx_date>2015-05-12T11:27:42+07:00</trx_date>
+    <total_trx>456944</total_trx>
+    <total_qty>3</total_qty>
+    <total_pembayaran>500000</total_pembayaran>
+    <total_kembalian>43056</total_kembalian>
+    <total_laba_rugi>456942</total_laba_rugi>
+    <created_on>2015-05-12T11:27:42+07:00</created_on>
+    <created_by>admin</created_by>
+    <updated_on>2015-05-12T11:27:42+07:00</updated_on>
+    <updated_by>admin</updated_by>
+    <id1>2</id1>
+    <kode_item>MKW01-00004</kode_item>
+    <nama_item>MIKAWA DL 5" GOLD </nama_item>
+    <qty>1</qty>
+    <harga_satuan>12500</harga_satuan>
+    <harga_modal>0</harga_modal>
+    <harga_total>12500</harga_total>
+    <header_id>1</header_id>
+    <created_on1>2015-05-12T11:27:42+07:00</created_on1>
+    <created_by1>admin</created_by1>
+    <updated_on1>2015-05-12T11:27:42+07:00</updated_on1>
+    <updated_by1>admin</updated_by1>
+  </Table>
+  <Table>
+    <id>7</id>
+    <trx_date>2015-05-12T11:34:41+07:00</trx_date>
+    <total_trx>268722</total_trx>
+    <total_qty>3</total_qty>
+    <total_pembayaran>270000</total_pembayaran>
+    <total_kembalian>1278</total_kembalian>
+    <total_laba_rugi>268721</total_laba_rugi>
+    <created_on>2015-05-12T11:34:41+07:00</created_on>
+    <created_by>admin</created_by>
+    <updated_on>2015-05-12T11:34:41+07:00</updated_on>
+    <updated_by>admin</updated_by>
+    <id1>9</id1>
+    <kode_item>MKW01-00004</kode_item>
+    <nama_item>MIKAWA DL 5" GOLD </nama_item>
+    <qty>1</qty>
+    <harga_satuan>12500</harga_satuan>
+    <harga_modal>0</harga_modal>
+    <harga_total>12500</harga_total>
+    <header_id>7</header_id>
+    <created_on1>2015-05-12T11:34:41+07:00</created_on1>
+    <created_by1>admin</created_by1>
+    <updated_on1>2015-05-12T11:34:41+07:00</updated_on1>
+    <updated_by1>admin</updated_by1>
+  </Table>
+  <Table>
+    <id>7</id>
+    <trx_date>2015-05-12T11:34:41+07:00</trx_date>
+    <total_trx>268722</total_trx>
+    <total_qty>3</total_qty>
+    <total_pembayaran>270000</total_pembayaran>
+    <total_kembalian>1278</total_kembalian>
+    <total_laba_rugi>268721</total_laba_rugi>
+    <created_on>2015-05-12T11:34:41+07:00</created_on>
+    <created_by>admin</created_by>
+    <updated_on>2015-05-12T11:34:41+07:00</updated_on>
+    <updated_by>admin</updated_by>
+    <id1>10</id1>
+    <kode_item>HIM01-00002</kode_item>
+    <nama_item>HIMAWARI T5 8W KUNING</nama_item>
+    <qty>1</qty>
+    <harga_satuan>222222</harga_satuan>
+    <harga_modal>1</harga_modal>
+    <harga_total>222222</harga_total>
+    <header_id>7</header_id>
+    <created_on1>2015-05-12T11:34:41+07:00</created_on1>
+    <created_by1>admin</created_by1>
+    <updated_on1>2015-05-12T11:34:41+07:00</updated_on1>
+    <updated_by1>admin</updated_by1>
+  </Table>
+  <Table>
+    <id>7</id>
+    <trx_date>2015-05-12T11:34:41+07:00</trx_date>
+    <total_trx>268722</total_trx>
+    <total_qty>3</total_qty>
+    <total_pembayaran>270000</total_pembayaran>
+    <total_kembalian>1278</total_kembalian>
+    <total_laba_rugi>268721</total_laba_rugi>
+    <created_on>2015-05-12T11:34:41+07:00</created_on>
+    <created_by>admin</created_by>
+    <updated_on>2015-05-12T11:34:41+07:00</updated_on>
+    <updated_by>admin</updated_by>
+    <id1>11</id1>
+    <kode_item>898989</kode_item>
+    <nama_item>Tes3</nama_item>
+    <qty>1</qty>
+    <harga_satuan>34000</harga_satuan>
+    <harga_modal>0</harga_modal>
+    <harga_total>34000</harga_total>
+    <header_id>7</header_id>
+    <created_on1>2015-05-12T11:34:41+07:00</created_on1>
+    <created_by1>admin</created_by1>
+    <updated_on1>2015-05-12T11:34:41+07:00</updated_on1>
+    <updated_by1>admin</updated_by1>
+  </Table>
+  <Table>
+    <id>8</id>
+    <trx_date>2015-05-29T23:28:11+07:00</trx_date>
+    <total_trx>3999996</total_trx>
+    <total_qty>18</total_qty>
+    <total_pembayaran>4000000</total_pembayaran>
+    <total_kembalian>4</total_kembalian>
+    <total_laba_rugi>3999978</total_laba_rugi>
+    <created_on>2015-05-29T23:28:11+07:00</created_on>
+    <created_by>admin</created_by>
+    <updated_on>2015-05-29T23:28:11+07:00</updated_on>
+    <updated_by>admin</updated_by>
+    <id1>12</id1>
+    <kode_item>HIM01-00002</kode_item>
+    <nama_item>HIMAWARI T5 8W KUNING</nama_item>
+    <qty>18</qty>
+    <harga_satuan>222222</harga_satuan>
+    <harga_modal>1</harga_modal>
+    <harga_total>3999996</harga_total>
+    <header_id>8</header_id>
+    <created_on1>2015-05-29T23:28:11+07:00</created_on1>
+    <created_by1>admin</created_by1>
+    <updated_on1>2015-05-29T23:28:11+07:00</updated_on1>
+    <updated_by1>admin</updated_by1>
+  </Table>
+</NewDataSet>
