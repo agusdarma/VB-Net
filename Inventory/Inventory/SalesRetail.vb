@@ -1,4 +1,5 @@
 ﻿Imports MySql.Data.MySqlClient
+Imports CrystalDecisions.CrystalReports.Engine
 
 Public Class SalesRetail
     Dim da As New MySqlDataAdapter
@@ -123,7 +124,7 @@ Public Class SalesRetail
         Dim result As Integer
         result = 0
         Dim idx As Integer
-        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows          
+        For Each oItem As DataGridViewRow In DataGridViewRetail.Rows
             Dim br As String
             Dim qty As Long
             br = oItem.Cells(0).Value
@@ -168,7 +169,7 @@ Public Class SalesRetail
                 sql = "select cost from items where kode_item ='" & oItem.Cells(1).Value & "'"
                 With cmd
                     .Connection = con
-                    .CommandText = Sql
+                    .CommandText = sql
                 End With
                 da.SelectCommand = cmd
                 da.Fill(publictable)
@@ -213,7 +214,7 @@ Public Class SalesRetail
             txtKembalian.Text = FormatNumber(kembalian.ToString, 0, TriState.True)
             txtPembayaran.Text = FormatNumber(txtPembayaran.Text, 0, TriState.True)
         End If
-        
+
     End Sub
     Private Sub DataGridViewRetail_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridViewRetail.CellEndEdit
         If e.ColumnIndex = 3 Then
@@ -268,7 +269,7 @@ Public Class SalesRetail
                 e.Handled = True
                 hitungKembalian()
             End If
-        End If        
+        End If
     End Sub
 
     Private Sub txtPembayaran_MouseDown(sender As Object, e As MouseEventArgs) Handles txtPembayaran.MouseDown
@@ -291,6 +292,38 @@ Public Class SalesRetail
         If insert() > 0 Then
             clearAllFIeld()
         End If
+    End Sub
+    Private Sub print(ID As Long)
+        Dim myData As New DataSet
+        Dim conn As New MySqlConnection
+        Dim sqlCommand As New MySqlCommand
+        Dim myAdapter As New MySqlDataAdapter
+        Dim sql As String
+        Try
+            sql = "select * from sales_retail_header sh inner join sales_retail_detail sd on sh.id = sd.header_id where 1 = 1 "
+
+            con = jokenconn()
+            con.Open()
+            sqlCommand.Connection = con
+            sql = sql + " and sh.id = @ID"
+            sqlCommand.Parameters.AddWithValue("@ID", ID)
+            sqlCommand.CommandText = sql
+
+            myAdapter.SelectCommand = sqlCommand
+            myAdapter.Fill(myData)
+            Dim myReport As New ReportDocument
+            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSalesRetail.rpt")
+            myReport.SetDataSource(myData.Tables(0))
+            myReport.SetParameterValue("companyName", "PT ........")
+            myReport.SetParameterValue("alamat", ".....")
+            myReport.SetParameterValue("trxDate", System.DateTime.Now)
+            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            PreviewPrintPO.ShowDialog()
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Finally
+            con.Close()
+        End Try
     End Sub
     Private Sub clearAllFIeld()
         txtTotal.Text = "0"
@@ -451,6 +484,7 @@ Public Class SalesRetail
             transaction.Commit()
             con.Close()
             MessageBox.Show("Data has been saved", "Info Message", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            print(ID)
         Catch ex As Exception
             rowEffected = 0
             MessageBox.Show(ex.Message)
