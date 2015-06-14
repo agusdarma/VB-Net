@@ -201,6 +201,7 @@ Partial Class MainMenu
         Me.GenerateReportToolsToolStripMenuItem.Name = "GenerateReportToolsToolStripMenuItem"
         Me.GenerateReportToolsToolStripMenuItem.Size = New System.Drawing.Size(240, 22)
         Me.GenerateReportToolsToolStripMenuItem.Text = "Generate Report Tools"
+        Me.GenerateReportToolsToolStripMenuItem.Visible = False
         '
         'TransactionToolStripMenuItem
         '
@@ -212,6 +213,7 @@ Partial Class MainMenu
         'PurchaseToolStripMenuItem
         '
         Me.PurchaseToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PurchaseOrderToolStripMenuItem, Me.ReceiveItemsToolStripMenuItem, Me.PurchaseInvoiceToolStripMenuItem, Me.PurchasePaymentToolStripMenuItem})
+        Me.PurchaseToolStripMenuItem.Enabled = False
         Me.PurchaseToolStripMenuItem.Name = "PurchaseToolStripMenuItem"
         Me.PurchaseToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.PurchaseToolStripMenuItem.Text = "Purchase"
@@ -251,6 +253,7 @@ Partial Class MainMenu
         'SalesToolStripMenuItem
         '
         Me.SalesToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SalesOrderToolStripMenuItem, Me.DeliveryOrderToolStripMenuItem, Me.SalesInvoiceToolStripMenuItem, Me.SalesReceiptToolStripMenuItem})
+        Me.SalesToolStripMenuItem.Enabled = False
         Me.SalesToolStripMenuItem.Name = "SalesToolStripMenuItem"
         Me.SalesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SalesToolStripMenuItem.Text = "Sales"
@@ -309,12 +312,14 @@ Partial Class MainMenu
         '
         'LaporanItemPerGudangToolStripMenuItem
         '
+        Me.LaporanItemPerGudangToolStripMenuItem.Enabled = False
         Me.LaporanItemPerGudangToolStripMenuItem.Name = "LaporanItemPerGudangToolStripMenuItem"
         Me.LaporanItemPerGudangToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.LaporanItemPerGudangToolStripMenuItem.Text = "Laporan Stok Item"
         '
         'LaporanSalesOrderToolStripMenuItem
         '
+        Me.LaporanSalesOrderToolStripMenuItem.Enabled = False
         Me.LaporanSalesOrderToolStripMenuItem.Name = "LaporanSalesOrderToolStripMenuItem"
         Me.LaporanSalesOrderToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.LaporanSalesOrderToolStripMenuItem.Text = "Laporan Sales Order"
@@ -324,10 +329,10 @@ Partial Class MainMenu
         Me.LaporanSalesRetailToolStripMenuItem.Name = "LaporanSalesRetailToolStripMenuItem"
         Me.LaporanSalesRetailToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.LaporanSalesRetailToolStripMenuItem.Text = "Laporan Sales Retail"
-        Me.LaporanSalesRetailToolStripMenuItem.Visible = False
         '
         'LaporanHistorySalesByItemToolStripMenuItem
         '
+        Me.LaporanHistorySalesByItemToolStripMenuItem.Enabled = False
         Me.LaporanHistorySalesByItemToolStripMenuItem.Name = "LaporanHistorySalesByItemToolStripMenuItem"
         Me.LaporanHistorySalesByItemToolStripMenuItem.Size = New System.Drawing.Size(230, 22)
         Me.LaporanHistorySalesByItemToolStripMenuItem.Text = "Laporan History Sales By Item"

@@ -314,8 +314,8 @@ Public Class SalesRetail
             Dim myReport As New ReportDocument
             myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSalesRetail.rpt")
             myReport.SetDataSource(myData.Tables(0))
-            myReport.SetParameterValue("companyName", "PT ........")
-            myReport.SetParameterValue("alamat", ".....")
+            myReport.SetParameterValue("companyName", "Sumber Rejeki")
+            myReport.SetParameterValue("alamat", "Lindeteves Trade Center Lt GF2 C11 No 5 LTC (Glodok) 021 29576791")
             myReport.SetParameterValue("trxDate", System.DateTime.Now)
             PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
             PreviewPrintPO.ShowDialog()
