@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 27-May-15
+Modified: 06-Jun-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -655,6 +655,38 @@ CREATE TABLE bank_book
   withdrawal Bigint,
   balance Bigint,
   reconcile_date Datetime,
+  created_on Datetime,
+ PRIMARY KEY (id)
+)
+;
+
+-- Table other_deposit_header
+
+CREATE TABLE other_deposit_header
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  bank_name Varchar(64),
+  voucher_no Varchar(64),
+  trx_date Datetime,
+  memo Varchar(256),
+  amount Bigint,
+  created_on Datetime,
+ PRIMARY KEY (id)
+)
+;
+
+-- Table other_deposit_detail
+
+CREATE TABLE other_deposit_detail
+(
+  id Int NOT NULL AUTO_INCREMENT,
+  header_id Bigint,
+  account_no Varchar(64),
+  account_name Varchar(64),
+  amount Bigint,
+  memo Varchar(256),
+  department Varchar(64),
+  project Varchar(64),
   created_on Datetime,
  PRIMARY KEY (id)
 )
