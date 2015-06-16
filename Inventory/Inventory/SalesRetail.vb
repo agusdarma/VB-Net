@@ -26,6 +26,14 @@ Public Class SalesRetail
         Me.Show()
         txtBarcode.Focus()
         txtBarcode.SelectAll()
+        Dim now As DateTime = DateTime.Now
+        Dim day As String = now.Day
+        Dim month As String = now.Month
+        Dim year As String = now.Year
+        Dim seq As Integer
+        seq = getPrimaryId()
+        Dim formNoSystem As String = "SR/" + day + "/" + month + "/" + year + "/" + seq.ToString
+        noNota.Text = formNoSystem
     End Sub
 
     Private Sub txtBarcode_GotFocus(sender As Object, e As EventArgs) Handles txtBarcode.GotFocus
@@ -331,6 +339,14 @@ Public Class SalesRetail
         txtKembalian.Text = "0"
         txtPembayaran.Text = "0"
         DataGridViewRetail.Rows.Clear()
+        Dim now As DateTime = DateTime.Now
+        Dim day As String = now.Day
+        Dim month As String = now.Month
+        Dim year As String = now.Year
+        Dim seq As Integer
+        seq = getPrimaryId()
+        Dim formNoSystem As String = "SR/" + day + "/" + month + "/" + year + "/" + seq.ToString
+        noNota.Text = formNoSystem
     End Sub
     Private Sub removeSeparator(txtBox As TextBox)
         Dim temp As String
@@ -343,6 +359,26 @@ Public Class SalesRetail
         removeSeparator(txtPembayaran)
         removeSeparator(txtKembalian)
     End Sub
+    Private Function getPrimaryId() As Integer
+        Dim nonqueryCommand As MySqlCommand
+        Dim idPrimary As Integer
+        Try
+            con = jokenconn()
+            con.Open()
+            nonqueryCommand = con.CreateCommand()
+            Dim Sql As String
+            Sql = "select id from sales_retail_header order by id desc limit 0,1"
+            Dim scalarCommand As New MySqlCommand(Sql, con)
+            idPrimary = scalarCommand.ExecuteScalar()
+            idPrimary = idPrimary + 1
+            con.Close()
+        Catch ex As MySqlException
+            Console.WriteLine("Error: " & ex.ToString())
+        Finally
+            con.Close()
+        End Try
+        Return idPrimary
+    End Function
 
     Private Function insert() As Integer
         Dim rowEffected As Integer = 0
@@ -364,7 +400,7 @@ Public Class SalesRetail
             End If
 
             ' Insert Sales Retail Header
-            sql = "INSERT INTO sales_retail_header(trx_date ,total_trx ,total_qty ,total_pembayaran,total_kembalian,total_laba_rugi,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@total_trx,@total_qty,@total_pembayaran,@total_kembalian,@total_laba_rugi,@created_on,@created_by,@updated_on,@updated_by)"
+            sql = "INSERT INTO sales_retail_header(trx_date ,no_nota,total_trx ,total_qty ,total_pembayaran,total_kembalian,total_laba_rugi,created_on ,created_by ,updated_on ,updated_by) VALUES (@trx_date,@no_nota,@total_trx,@total_qty,@total_pembayaran,@total_kembalian,@total_laba_rugi,@created_on,@created_by,@updated_on,@updated_by)"
             Dim session As Session = Login.getSession()
             removeSeparatorBeforeInsert()
             sqlCommand.Connection = con
@@ -375,6 +411,7 @@ Public Class SalesRetail
             Dim qty As Long
             qty = getTotalQty()
             sqlCommand.Parameters.AddWithValue("@trx_date", trxDate)
+            sqlCommand.Parameters.AddWithValue("@no_nota", noNota.Text)
             sqlCommand.Parameters.AddWithValue("@total_trx", txtTotal.Text)
             sqlCommand.Parameters.AddWithValue("@total_qty", qty)
             sqlCommand.Parameters.AddWithValue("@total_pembayaran", txtPembayaran.Text)

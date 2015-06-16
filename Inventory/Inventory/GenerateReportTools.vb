@@ -32,12 +32,12 @@ Public Class GenerateReportTools
 
             myAdapter.SelectCommand = cmd
             myAdapter.Fill(myData)
-            Dim myReport As New ReportDocument
-            myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSalesRetail.rpt")
-            myReport.SetDataSource(myData.Tables(0))
-            myReport.SetParameterValue("companyName", "PT Agus Darma Kusumaffffffffffffffffffffffffffffffffff")
-            myReport.SetParameterValue("alamat", "ini alamatfffffffffffffffddddddddddddddddddddddddddddfffffffffffffffffffffdddddddddeeeeeeeeeeeeeeeeeeee")
-            myReport.SetParameterValue("trxDate", System.DateTime.Now)
+            'Dim myReport As New ReportDocument
+            'myReport.Load("D:\Personal\IT_Solution\VB-Net\Inventory\Inventory\StrukSalesRetail.rpt")
+            'myReport.SetDataSource(myData.Tables(0))
+            'myReport.SetParameterValue("companyName", "PT Agus Darma Kusumaffffffffffffffffffffffffffffffffff")
+            'myReport.SetParameterValue("alamat", "ini alamatfffffffffffffffddddddddddddddddddddddddddddfffffffffffffffffffffdddddddddeeeeeeeeeeeeeeeeeeee")
+            'myReport.SetParameterValue("trxDate", System.DateTime.Now)
             'myReport.Subreports.Item("subreport1").SetDataSource(myData)
             'sql = "select * from sales_order_detail"
             'cmd.CommandText = sql
@@ -48,9 +48,9 @@ Public Class GenerateReportTools
             'myReport.Subreports.Item("subreport1").SetDataSource(myDataDetail)
             'myReport.Subreports("ReportSalesOrder.rpt").SetDataSource(myDataDetail)
 
-            'myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\LAPORAN_HISTORY_SALES_BY_ITEM.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
-            PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
-            PreviewPrintPO.ShowDialog()
+            myData.WriteXml("D:\Personal\IT_Solution\VB-Net\DataSet\StrukSalesRetail.xml", XmlWriteMode.WriteSchema) 'use kalo mau buat data source
+            'PreviewPrintPO.CrystalReportViewer1.ReportSource = myReport
+            'PreviewPrintPO.ShowDialog()
         Catch ex As Exception
             MessageBox.Show(ex.Message, "Report could not be created", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
