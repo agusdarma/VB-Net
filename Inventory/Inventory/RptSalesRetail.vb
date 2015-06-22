@@ -26,7 +26,7 @@ Public Class RptSalesRetail
         Dim myAdapter As New MySqlDataAdapter
         Dim sql As String
         Try
-            sql = "select srh.id, srh.trx_date,srh.total_trx,srh.total_qty,srh.total_pembayaran,srh.total_kembalian,srh.total_laba_rugi from sales_retail_header srh where srh.trx_date BETWEEN @startDate AND @endDate order by srh.trx_date asc"
+            sql = "select srh.id, srh.trx_date,srh.total_trx,srh.total_qty,srh.total_pembayaran,srh.total_kembalian,srh.total_laba_rugi,srh.no_nota from sales_retail_header srh where srh.trx_date BETWEEN @startDate AND @endDate order by srh.trx_date asc"
 
             con = jokenconn()
             con.Open()

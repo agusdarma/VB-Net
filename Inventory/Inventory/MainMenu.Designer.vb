@@ -362,7 +362,7 @@ Partial Class MainMenu
         Me.IsMdiContainer = True
         Me.MainMenuStrip = Me.MenuStrip
         Me.Name = "MainMenu"
-        Me.Text = "Selamat Datang di Menu Utama"
+        Me.Text = "  "
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.MenuStrip.ResumeLayout(False)
         Me.MenuStrip.PerformLayout()
