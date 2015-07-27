@@ -168,6 +168,18 @@
       <DependentUpon>agusDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="ApplicationEvents.vb" />
+    <Compile Include="BarangAddStaff.Designer.vb">
+      <DependentUpon>BarangAddStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BarangAddStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BarangStaff.Designer.vb">
+      <DependentUpon>BarangStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BarangStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ReportHistorySalesByItem.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -486,6 +498,12 @@
   <ItemGroup>
     <EmbeddedResource Include="AdvancedSearchItems.resx">
       <DependentUpon>AdvancedSearchItems.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarangAddStaff.resx">
+      <DependentUpon>BarangAddStaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BarangStaff.resx">
+      <DependentUpon>BarangStaff.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Barang.resx">
       <DependentUpon>Barang.vb</DependentUpon>

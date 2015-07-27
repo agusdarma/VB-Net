@@ -149,6 +149,8 @@ Public Class MainMenu
                 LaporanItemPerGudangToolStripMenuItem.Enabled = False
             ElseIf menuName.Equals("Group Management") Then
                 GroupManagementToolStripMenuItem.Enabled = False
+            ElseIf menuName.Equals("Master Item Staff") Then
+                MasterItemStaffToolStripMenuItem.Enabled = False
             End If
         End If
         Return canAccess
@@ -324,6 +326,12 @@ Public Class MainMenu
     Private Sub LaporanHistorySalesByItemToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LaporanHistorySalesByItemToolStripMenuItem.Click
         If canAccessMenu("Laporan History Sales By Item") Then
             RptHistorySalesByItem.Show()
+        End If
+    End Sub
+
+    Private Sub MasterItemStaffToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MasterItemStaffToolStripMenuItem.Click
+        If canAccessMenu("Master Item Staff") Then
+            BarangStaff.Show()
         End If
     End Sub
 End Class
