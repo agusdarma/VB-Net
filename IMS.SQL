@@ -1,6 +1,6 @@
 ﻿/*
 Created: 21-Jan-15
-Modified: 06-Jun-15
+Modified: 27-Jul-15
 Model: IMS
 Database: MySQL 5.1
 */
@@ -608,6 +608,7 @@ CREATE TABLE sales_retail_header
 (
   id Int NOT NULL AUTO_INCREMENT,
   trx_date Datetime,
+  no_nota Varchar(64),
   total_trx Bigint,
   total_qty Bigint,
   total_pembayaran Bigint,
@@ -854,6 +855,12 @@ values(403, 0, 0, 1, 'Laporan History Sales By Item', 'Laporan History Sales By 
 insert into user_modules 
 (id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
 module_group, show_order, module_leaf, always_included)
+values(205, 0, 0, 1, 'Master Item Staff', 'Master Item Staff', 'Master Item Staff Module',
+'Master Item Staff Module', 6, 0, 0);
+
+insert into user_modules 
+(id, module_parent_id, module_root_id, module_level, module_name, module_path, module_desc, 
+module_group, show_order, module_leaf, always_included)
 values(900, 0, 0, 1, 'Editable Price', 'Editable Price', 'Editable Price Module',
 'Editable Price Module', 1, 0, 0);
 
@@ -862,4 +869,8 @@ ALTER TABLE ims.items
  ADD barcode VARCHAR(128) AFTER updated_by;
 ALTER TABLE ims.items
  CHANGE barcode barcode VARCHAR(128) AFTER nama_item;
+ 
+ ALTER TABLE ims.sales_retail_header
+ ADD no_nota VARCHAR(64) AFTER trx_date;
+
 
